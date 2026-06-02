@@ -274,10 +274,11 @@
     basic: "基本會員",
     advanced: "進階會員",
     admin: "管理員",
+    warehouse: "策略倉庫",
   };
 
   function normalizeStrategyGroups(groups) {
-    const output = { basic: [], advanced: [], admin: [] };
+    const output = { basic: [], advanced: [], admin: [], warehouse: [] };
     if (!groups || typeof groups !== "object") return output;
     Object.keys(output).forEach((tier) => {
       if (Array.isArray(groups[tier])) {
@@ -318,6 +319,7 @@
       data.dailyScreening.basicCount = groups.basic.length;
       data.dailyScreening.advancedCount = groups.advanced.length;
       data.dailyScreening.adminCount = groups.admin.length;
+      data.dailyScreening.warehouseCount = groups.warehouse.length;
     }
     return data;
   }
@@ -440,6 +442,18 @@
     const requestedKey = new URLSearchParams(window.location.search).get("strategy") || "volumeBreakout";
     const strategies = data.dailyScreening?.strategies || {};
     const strategy = strategies[requestedKey] || strategies.volumeBreakout || { count: 0, stocks: [], tags: [] };
+    if (strategy.tier === "warehouse") {
+      const main = $(".detail-layout");
+      if (main) {
+        main.innerHTML = `
+          <section class="locked-detail">
+            <h2>策略已收進倉庫</h2>
+            <p>此策略目前沒有對會員開放，請先回每日篩選選擇其他策略。</p>
+            <a href="../">返回每日篩選</a>
+          </section>`;
+      }
+      return;
+    }
     if (!hasTier(strategy.tier || "basic")) {
       const main = $(".detail-layout");
       if (main) {

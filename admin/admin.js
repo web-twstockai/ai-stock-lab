@@ -28,6 +28,7 @@
     basic: "基本會員可使用",
     advanced: "進階會員可使用",
     admin: "管理員可使用",
+    warehouse: "策略倉庫",
   };
 
   const updateItems = [
@@ -327,7 +328,7 @@
   }
 
   function normalizeStrategyGroups(groups, strategies = {}) {
-    const output = { basic: [], advanced: [], admin: [] };
+    const output = { basic: [], advanced: [], admin: [], warehouse: [] };
     const known = new Set(Object.keys(strategies || {}));
     const seen = new Set();
     Object.keys(output).forEach((tier) => {
@@ -707,8 +708,8 @@
       const counts = Object.fromEntries(Object.entries(groups).map(([tier, keys]) => [tier, keys.length]));
       const updatedAt = state.screeningStrategyConfig?.updatedAt ? ` · 更新 ${formatDate(state.screeningStrategyConfig.updatedAt)}` : "";
       status.textContent = writable
-        ? `可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin}${updatedAt}`
-        : `唯讀模式 · 啟動 Admin API 後可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin}`;
+        ? `可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin} / 倉庫 ${counts.warehouse}${updatedAt}`
+        : `唯讀模式 · 啟動 Admin API 後可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin} / 倉庫 ${counts.warehouse}`;
     }
 
     mount.innerHTML = Object.entries(groups).map(([tier, keys]) => `

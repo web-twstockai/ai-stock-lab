@@ -26,7 +26,7 @@ USERS_FILE = DATA_DIR / "admin-users.json"
 SCREENING_STRATEGIES_FILE = DATA_DIR / "daily-screening-strategies.json"
 SESSION_COOKIE = "aiStockLabAdminSession"
 SESSION_TTL_SECONDS = 8 * 60 * 60
-STRATEGY_TIERS = ("basic", "advanced", "admin")
+STRATEGY_TIERS = ("basic", "advanced", "admin", "warehouse")
 
 TASKS = {
     "daily-market": {

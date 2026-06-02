@@ -22,6 +22,7 @@ TIER_LABELS = {
     "basic": "基本會員",
     "advanced": "進階會員",
     "admin": "管理員",
+    "warehouse": "策略倉庫",
 }
 
 COMPANY_URLS = {
@@ -182,7 +183,7 @@ def load_screening_strategy_groups():
     if not isinstance(groups, dict):
         return {}
     normalized = {}
-    for tier in ("basic", "advanced", "admin"):
+    for tier in ("basic", "advanced", "admin", "warehouse"):
         values = groups.get(tier, [])
         if isinstance(values, list):
             normalized[tier] = [str(value) for value in values if value]
@@ -768,6 +769,7 @@ def build():
         tier: [definition["key"] for definition in strategy_definitions if definition["tier"] == tier]
         for tier in ("basic", "advanced", "admin")
     }
+    warehouse_strategies = [definition["key"] for definition in strategy_definitions if definition["tier"] == "warehouse"]
 
     stock_details = {}
     for symbol in ("1303", "2330", "2382", "2317", "2303"):
@@ -801,7 +803,9 @@ def build():
             "basicCount": len(strategy_groups["basic"]),
             "advancedCount": len(strategy_groups["advanced"]),
             "adminCount": len(strategy_groups["admin"]),
+            "warehouseCount": len(warehouse_strategies),
             "strategyGroups": strategy_groups,
+            "warehouseStrategies": warehouse_strategies,
             "strategies": strategies,
         },
         "stockDetails": stock_details,

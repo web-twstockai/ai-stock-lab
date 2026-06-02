@@ -1,7 +1,7 @@
 import { githubConfig, json, requireAdmin } from "./_shared.js";
 
 const STRATEGY_FILE_PATH = "data/daily-screening-strategies.json";
-const TIERS = ["basic", "advanced", "admin"];
+const TIERS = ["basic", "advanced", "admin", "warehouse"];
 const githubContentPath = () => STRATEGY_FILE_PATH.split("/").map(encodeURIComponent).join("/");
 
 function contentsToken(env) {
@@ -40,6 +40,7 @@ function defaultConfig() {
       basic: [],
       advanced: [],
       admin: [],
+      warehouse: [],
     },
   };
 }
