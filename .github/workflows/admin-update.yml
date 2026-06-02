@@ -2,6 +2,8 @@ name: Admin Data Update
 
 on:
   schedule:
+    # Check due macro events every 30 minutes.
+    - cron: "*/30 * * * *"
     # Asia/Taipei 18:30, Monday-Friday.
     - cron: "30 10 * * 1-5"
     # Asia/Taipei 22:40, Monday-Friday.
@@ -18,6 +20,7 @@ on:
           - intelligence
           - institutional
           - macro
+          - macro-due-check
           - short-margin
           - all
       operator:
@@ -63,6 +66,9 @@ jobs:
               "40 14 * * 1-5")
                 task="short-margin"
                 ;;
+              "*/30 * * * *")
+                task="macro-due-check"
+                ;;
               *)
                 echo "Unknown schedule: ${{ github.event.schedule }}" >&2
                 exit 2
@@ -96,6 +102,9 @@ jobs:
               ;;
             macro)
               python scripts/update_macro_robot.py
+              ;;
+            macro-due-check)
+              python scripts/macro_auto_updater.py --once --grace-seconds 120
               ;;
             short-margin)
               python scripts/update_short_margin_ratio.py
