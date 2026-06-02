@@ -2,8 +2,10 @@ name: Admin Data Update
 
 on:
   schedule:
-    # Check due macro events every 30 minutes.
-    - cron: "*/30 * * * *"
+    # Asia/Taipei 15:45, Monday-Friday. Watch Europe macro releases.
+    - cron: "45 7 * * 1-5"
+    # Asia/Taipei 20:25, Monday-Friday. Watch US macro releases.
+    - cron: "25 12 * * 1-5"
     # Asia/Taipei 18:30, Monday-Friday.
     - cron: "30 10 * * 1-5"
     # Asia/Taipei 22:40, Monday-Friday.
@@ -21,6 +23,8 @@ on:
           - institutional
           - macro
           - macro-due-check
+          - macro-watch-europe
+          - macro-watch-us
           - short-margin
           - all
       operator:
@@ -38,7 +42,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 360
 
     steps:
       - name: Check out repository
@@ -60,14 +64,17 @@ jobs:
           if [ "${{ github.event_name }}" = "schedule" ]; then
             operator="github-schedule"
             case "${{ github.event.schedule }}" in
+              "45 7 * * 1-5")
+                task="macro-watch-europe"
+                ;;
+              "25 12 * * 1-5")
+                task="macro-watch-us"
+                ;;
               "30 10 * * 1-5")
                 task="evening-batch"
                 ;;
               "40 14 * * 1-5")
                 task="short-margin"
-                ;;
-              "*/30 * * * *")
-                task="macro-due-check"
                 ;;
               *)
                 echo "Unknown schedule: ${{ github.event.schedule }}" >&2
@@ -105,6 +112,12 @@ jobs:
               ;;
             macro-due-check)
               python scripts/macro_auto_updater.py --once --grace-seconds 120
+              ;;
+            macro-watch-europe)
+              python scripts/macro_auto_updater.py --max-seconds 10800 --poll-seconds 60 --retry-seconds 180 --grace-seconds 10 --commit-after-update
+              ;;
+            macro-watch-us)
+              python scripts/macro_auto_updater.py --max-seconds 21000 --poll-seconds 60 --retry-seconds 180 --grace-seconds 10 --commit-after-update
               ;;
             short-margin)
               python scripts/update_short_margin_ratio.py

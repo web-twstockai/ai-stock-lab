@@ -8,6 +8,8 @@ export const TASKS = {
   institutional: "法人機器人",
   macro: "總經資料",
   "macro-due-check": "總經公布追蹤",
+  "macro-watch-europe": "總經即時追蹤：歐洲時段",
+  "macro-watch-us": "總經即時追蹤：美國時段",
   "short-margin": "融資融券比率",
 };
 
