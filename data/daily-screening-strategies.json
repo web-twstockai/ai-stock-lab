@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02T13:54:53.978Z",
+  "updatedAt": "2026-06-02T14:26:52.908Z",
   "strategyGroups": {
     "basic": [
       "strength",
@@ -8,7 +8,9 @@
       "trendBacktest",
       "sectorLeader",
       "bollingerRebound",
-      "rsiMacdConfirm"
+      "rsiMacdConfirm",
+      "riskControlList",
+      "lowVolStrength"
     ],
     "advanced": [
       "maClusterBreakout",
@@ -22,21 +24,18 @@
       "newHigh60",
       "breakoutRetest",
       "relativeStrengthLeader",
-      "moneyFlowLeader"
+      "moneyFlowLeader",
+      "aiScoreTop",
+      "lowRiskBreakout",
+      "highBaseConsolidation",
+      "liquidityBreakout"
     ],
     "admin": [
-      "lowRiskBreakout",
-      "aiScoreTop",
-      "liquidityBreakout",
-      "highBaseConsolidation",
       "attackKPlatform",
       "qualityBreakoutRetest",
       "tightHighBaseTurnUp",
       "firstPullbackAfterHigh"
     ],
-    "warehouse": [
-      "lowVolStrength",
-      "riskControlList"
-    ]
+    "warehouse": []
   }
 }
