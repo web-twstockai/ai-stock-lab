@@ -36,7 +36,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: admin-data-update
+  group: admin-data-update-${{ github.event.schedule || github.event.inputs.task || github.run_id }}
   cancel-in-progress: false
 
 jobs:
@@ -148,4 +148,5 @@ jobs:
             exit 0
           fi
           git commit -m "Update public data via task ${{ steps.task.outputs.task }}"
+          git pull --rebase origin main
           git push
