@@ -1,8 +1,37 @@
-import { githubConfig, githubFetch, json, requireAdmin } from "./_shared.js";
+import { githubConfig, json, requireAdmin } from "./_shared.js";
 
 const STRATEGY_FILE_PATH = "data/daily-screening-strategies.json";
 const TIERS = ["basic", "advanced", "admin"];
 const githubContentPath = () => STRATEGY_FILE_PATH.split("/").map(encodeURIComponent).join("/");
+
+function contentsToken(env) {
+  return env.GITHUB_CONTENTS_TOKEN || env.GITHUB_TOKEN || env.GITHUB_DISPATCH_TOKEN || "";
+}
+
+async function githubContentsFetch(env, path, options = {}) {
+  const token = contentsToken(env);
+  if (!token) {
+    throw new Error("Missing GITHUB_CONTENTS_TOKEN in Cloudflare Pages environment variables.");
+  }
+
+  return fetch(`https://api.github.com${path}`, {
+    ...options,
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+      "User-Agent": "ai-stock-lab-admin",
+      "X-GitHub-Api-Version": "2022-11-28",
+      ...(options.headers || {}),
+    },
+  });
+}
+
+function githubWriteErrorMessage(status, detail) {
+  if (status === 403) {
+    return `GitHub write failed: HTTP 403 - 請在 Cloudflare Pages 設定 GITHUB_CONTENTS_TOKEN，token 需要對 web-twstockai/ai-stock-lab 有 Contents: Read and write 權限。${detail ? ` (${detail})` : ""}`;
+  }
+  return `GitHub write failed: HTTP ${status}${detail ? ` - ${detail}` : ""}`;
+}
 
 function defaultConfig() {
   return {
@@ -47,7 +76,7 @@ function encodeBase64Utf8(value) {
 
 async function readConfig(env) {
   const config = githubConfig(env);
-  const response = await githubFetch(
+  const response = await githubContentsFetch(
     env,
     `/repos/${config.repo}/contents/${githubContentPath()}?ref=${encodeURIComponent(config.ref)}`,
     { method: "GET" }
@@ -122,7 +151,7 @@ export async function onRequestPost({ request, env }) {
     const { config, sha } = await readConfig(env);
     const nextConfig = moveStrategy(config, payload.strategyKey, payload.tier);
     const github = githubConfig(env);
-    const response = await githubFetch(
+    const response = await githubContentsFetch(
       env,
       `/repos/${github.repo}/contents/${githubContentPath()}`,
       {
@@ -139,7 +168,7 @@ export async function onRequestPost({ request, env }) {
 
     if (!response.ok) {
       const detail = await response.text();
-      throw new Error(`GitHub write failed: HTTP ${response.status}${detail ? ` - ${detail}` : ""}`);
+      throw new Error(githubWriteErrorMessage(response.status, detail));
     }
 
     return json({ ok: true, config: nextConfig });
