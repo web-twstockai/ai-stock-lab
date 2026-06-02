@@ -64,7 +64,20 @@ Because this is not a real user email, Supabase email confirmation should be dis
 
 ## Data Updates
 
-Codex automations can update the repo's public data files. Admin users can also trigger updates from the admin dashboard.
+GitHub Actions is the primary updater. Codex automations are paused and kept only as a backup.
+
+Scheduled GitHub Actions runs:
+
+```text
+Asia/Taipei Monday-Friday 18:30
+- daily-market history / candidates
+- institutional robot
+
+Asia/Taipei Monday-Friday 22:40
+- short margin ratio
+```
+
+Admin users can also trigger updates manually from the admin dashboard.
 
 The admin dashboard calls Cloudflare Pages Functions:
 

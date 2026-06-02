@@ -1,6 +1,11 @@
 name: Admin Data Update
 
 on:
+  schedule:
+    # Asia/Taipei 18:30, Monday-Friday.
+    - cron: "30 10 * * 1-5"
+    # Asia/Taipei 22:40, Monday-Friday.
+    - cron: "40 14 * * 1-5"
   workflow_dispatch:
     inputs:
       task:
@@ -9,6 +14,7 @@ on:
         type: choice
         options:
           - daily-market
+          - evening-batch
           - intelligence
           - institutional
           - macro
@@ -23,7 +29,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: admin-data-update-${{ inputs.task }}
+  group: admin-data-update
   cancel-in-progress: false
 
 jobs:
@@ -40,16 +46,47 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Resolve task
+        id: task
+        shell: bash
+        run: |
+          set -euo pipefail
+          task="${{ inputs.task }}"
+          operator="${{ inputs.operator }}"
+
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            operator="github-schedule"
+            case "${{ github.event.schedule }}" in
+              "30 10 * * 1-5")
+                task="evening-batch"
+                ;;
+              "40 14 * * 1-5")
+                task="short-margin"
+                ;;
+              *)
+                echo "Unknown schedule: ${{ github.event.schedule }}" >&2
+                exit 2
+                ;;
+            esac
+          fi
+
+          echo "task=$task" >> "$GITHUB_OUTPUT"
+          echo "operator=${operator:-admin}" >> "$GITHUB_OUTPUT"
+
       - name: Run selected update
         shell: bash
         run: |
           set -euo pipefail
-          echo "Triggered by: ${{ inputs.operator }}"
-          echo "Task: ${{ inputs.task }}"
+          echo "Triggered by: ${{ steps.task.outputs.operator }}"
+          echo "Task: ${{ steps.task.outputs.task }}"
 
-          case "${{ inputs.task }}" in
+          case "${{ steps.task.outputs.task }}" in
             daily-market)
               python scripts/update_daily_history.py --all --workers 12 --rebuild-site-data --update-candidates --quiet
+              ;;
+            evening-batch)
+              python scripts/update_daily_history.py --all --workers 12 --rebuild-site-data --update-candidates --quiet
+              python scripts/update_institutional_robot.py
               ;;
             intelligence)
               python scripts/update_intelligence.py --target all
@@ -69,7 +106,7 @@ jobs:
               python scripts/update_short_margin_ratio.py
               ;;
             *)
-              echo "Unknown task: ${{ inputs.task }}" >&2
+              echo "Unknown task: ${{ steps.task.outputs.task }}" >&2
               exit 2
               ;;
           esac
@@ -88,5 +125,5 @@ jobs:
             echo "No data changes to commit."
             exit 0
           fi
-          git commit -m "Update public data via admin task ${{ inputs.task }}"
+          git commit -m "Update public data via task ${{ steps.task.outputs.task }}"
           git push
