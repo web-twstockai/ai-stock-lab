@@ -44,6 +44,7 @@ DATA_FILES = [
     "company-insider-robot.js",
     "company-insider-robot.json",
     "company-meta.json",
+    "daily-screening-strategies.json",
     "institutional-robot.js",
     "institutional-robot.json",
     "intelligence-center.js",
