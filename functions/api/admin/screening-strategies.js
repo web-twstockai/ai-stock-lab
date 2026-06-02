@@ -125,6 +125,26 @@ function moveStrategy(config, strategyKey, targetTier) {
   };
 }
 
+function replaceStrategyGroups(config, nextGroups) {
+  const currentGroups = normalizeGroups(config.strategyGroups);
+  const known = new Set(Object.values(currentGroups).flat());
+  const groups = normalizeGroups(nextGroups);
+  const submitted = new Set(Object.values(groups).flat());
+
+  for (const key of submitted) {
+    if (!known.has(key)) throw new Error(`Unknown strategy key: ${key}`);
+  }
+  for (const key of known) {
+    if (!submitted.has(key)) throw new Error(`Missing strategy key: ${key}`);
+  }
+
+  return {
+    ...config,
+    updatedAt: new Date().toISOString(),
+    strategyGroups: groups,
+  };
+}
+
 export async function onRequestGet({ request, env }) {
   const admin = await requireAdmin(request, env);
   if (admin.error) return admin.error;
@@ -150,7 +170,9 @@ export async function onRequestPost({ request, env }) {
 
   try {
     const { config, sha } = await readConfig(env);
-    const nextConfig = moveStrategy(config, payload.strategyKey, payload.tier);
+    const nextConfig = payload.strategyGroups
+      ? replaceStrategyGroups(config, payload.strategyGroups)
+      : moveStrategy(config, payload.strategyKey, payload.tier);
     const github = githubConfig(env);
     const response = await githubContentsFetch(
       env,
@@ -159,7 +181,9 @@ export async function onRequestPost({ request, env }) {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: `Update screening strategy access for ${payload.strategyKey}`,
+          message: payload.strategyGroups
+            ? "Update screening strategy access"
+            : `Update screening strategy access for ${payload.strategyKey}`,
           content: encodeBase64Utf8(JSON.stringify(nextConfig, null, 2) + "\n"),
           sha,
           branch: github.ref,

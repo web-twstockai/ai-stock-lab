@@ -408,6 +408,22 @@ def move_screening_strategy(strategy_key, target_tier):
     return write_screening_strategy_config(payload)
 
 
+def replace_screening_strategy_groups(next_groups):
+    payload = read_screening_strategy_config()
+    current_groups = normalize_screening_strategy_groups(payload.get("strategyGroups"))
+    known = {item for values in current_groups.values() for item in values}
+    groups = normalize_screening_strategy_groups(next_groups)
+    submitted = {item for values in groups.values() for item in values}
+    unknown = sorted(submitted - known)
+    missing = sorted(known - submitted)
+    if unknown:
+        raise ValueError(f"Unknown strategy key: {', '.join(unknown)}")
+    if missing:
+        raise ValueError(f"Missing strategy key: {', '.join(missing)}")
+    payload["strategyGroups"] = groups
+    return write_screening_strategy_config(payload)
+
+
 def job_snapshot():
     with jobs_lock:
         return list(jobs.values())
@@ -734,7 +750,10 @@ class AdminRequestHandler(SimpleHTTPRequestHandler):
                 return
             try:
                 payload = self.read_json_body()
-                config = move_screening_strategy(payload.get("strategyKey"), payload.get("tier"))
+                if payload.get("strategyGroups") is not None:
+                    config = replace_screening_strategy_groups(payload.get("strategyGroups"))
+                else:
+                    config = move_screening_strategy(payload.get("strategyKey"), payload.get("tier"))
             except Exception as error:
                 append_audit(
                     "update-screening-strategy",
@@ -749,7 +768,11 @@ class AdminRequestHandler(SimpleHTTPRequestHandler):
                 "update-screening-strategy",
                 auth_user,
                 "success",
-                {"strategyKey": payload.get("strategyKey"), "tier": payload.get("tier")},
+                {
+                    "strategyKey": payload.get("strategyKey"),
+                    "tier": payload.get("tier"),
+                    "batch": payload.get("strategyGroups") is not None,
+                },
                 self,
             )
             self.send_json({"ok": True, "config": config})

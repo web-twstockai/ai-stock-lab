@@ -98,6 +98,8 @@
     screeningStrategies: null,
     screeningStrategyConfig: null,
     screeningStrategyWritable: false,
+    screeningStrategySavedGroups: null,
+    screeningStrategyDraftGroups: null,
     results: {},
     logs: { normal: { text: "" }, error: { text: "" } },
   };
@@ -351,6 +353,34 @@
     return output;
   }
 
+  function cloneStrategyGroups(groups) {
+    const normalized = normalizeStrategyGroups(groups, state.screeningStrategies || {});
+    return Object.fromEntries(Object.entries(normalized).map(([tier, keys]) => [tier, [...keys]]));
+  }
+
+  function strategyGroupsEqual(a, b) {
+    const left = cloneStrategyGroups(a);
+    const right = cloneStrategyGroups(b);
+    return Object.keys(left).every((tier) =>
+      left[tier].length === right[tier].length && left[tier].every((key, index) => key === right[tier][index])
+    );
+  }
+
+  function strategyTierFor(groups, strategyKey) {
+    const normalized = cloneStrategyGroups(groups);
+    return Object.keys(normalized).find((tier) => normalized[tier].includes(strategyKey)) || "basic";
+  }
+
+  function moveStrategyInGroups(groups, strategyKey, tier) {
+    const next = cloneStrategyGroups(groups);
+    Object.keys(next).forEach((groupTier) => {
+      next[groupTier] = next[groupTier].filter((key) => key !== strategyKey);
+    });
+    if (!next[tier]) next.basic.push(strategyKey);
+    else next[tier].push(strategyKey);
+    return next;
+  }
+
   function applyStrategyConfig(strategies, config) {
     const groups = normalizeStrategyGroups(config?.strategyGroups, strategies);
     Object.entries(groups).forEach(([tier, keys]) => {
@@ -405,6 +435,8 @@
 
     config.strategyGroups = applyStrategyConfig(state.screeningStrategies, config);
     state.screeningStrategyConfig = config;
+    state.screeningStrategySavedGroups = cloneStrategyGroups(config.strategyGroups);
+    state.screeningStrategyDraftGroups = cloneStrategyGroups(config.strategyGroups);
   }
 
   async function fetchText(path) {
@@ -701,16 +733,24 @@
     const mount = $("[data-screening-strategy-list]");
     if (!mount) return;
     const strategies = state.screeningStrategies || {};
-    const groups = normalizeStrategyGroups(state.screeningStrategyConfig?.strategyGroups, strategies);
+    const groups = cloneStrategyGroups(state.screeningStrategyDraftGroups || state.screeningStrategyConfig?.strategyGroups);
     const writable = state.screeningStrategyWritable;
+    const dirty = !strategyGroupsEqual(groups, state.screeningStrategySavedGroups || groups);
+    const dirtyCount = Object.values(strategies).filter((strategy) =>
+      strategy?.key && strategyTierFor(groups, strategy.key) !== strategyTierFor(state.screeningStrategySavedGroups, strategy.key)
+    ).length;
     const status = $("[data-screening-strategy-status]");
     if (status) {
       const counts = Object.fromEntries(Object.entries(groups).map(([tier, keys]) => [tier, keys.length]));
       const updatedAt = state.screeningStrategyConfig?.updatedAt ? ` · 更新 ${formatDate(state.screeningStrategyConfig.updatedAt)}` : "";
       status.textContent = writable
-        ? `可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin} / 倉庫 ${counts.warehouse}${updatedAt}`
+        ? `${dirty ? `待儲存 ${dirtyCount} 筆 · ` : ""}可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin} / 倉庫 ${counts.warehouse}${updatedAt}`
         : `唯讀模式 · 啟動 Admin API 後可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin} / 倉庫 ${counts.warehouse}`;
     }
+    const saveButton = $("[data-save-screening-strategies]");
+    const resetButton = $("[data-reset-screening-strategies]");
+    if (saveButton) saveButton.disabled = !writable || !dirty;
+    if (resetButton) resetButton.disabled = !dirty;
 
     mount.innerHTML = Object.entries(groups).map(([tier, keys]) => `
       <section class="strategy-admin-column ${tier}">
@@ -722,8 +762,9 @@
           ${keys.map((key) => {
             const strategy = strategies[key] || { key, label: key, tags: [] };
             const tags = (strategy.tags || []).slice(0, 3).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+            const isDirty = strategyTierFor(state.screeningStrategySavedGroups, key) !== tier;
             return `
-              <article class="strategy-admin-row">
+              <article class="strategy-admin-row${isDirty ? " is-dirty" : ""}">
                 <div>
                   <strong>${escapeHtml(strategy.label || key)}</strong>
                   <span>${escapeHtml(key)} · ${fmt(strategy.count)} 檔符合</span>
@@ -876,7 +917,7 @@
     }
   }
 
-  async function updateScreeningStrategyTier(strategyKey, tier) {
+  function stageScreeningStrategyTier(strategyKey, tier) {
     if (!state.screeningStrategyWritable) {
       showToast("目前是唯讀模式。請用 python scripts/admin_server.py --port 4177 啟動 Admin API 後再調整策略權限。");
       renderScreeningStrategies();
@@ -884,8 +925,27 @@
     }
     const strategies = state.screeningStrategies || {};
     const strategy = strategies[strategyKey];
-    const previousTier = strategy?.tier || "basic";
-    if (!strategy || previousTier === tier) return;
+    if (!strategy) return;
+    state.screeningStrategyDraftGroups = moveStrategyInGroups(
+      state.screeningStrategyDraftGroups || state.screeningStrategySavedGroups,
+      strategyKey,
+      tier
+    );
+    renderScreeningStrategies();
+    showToast(`已暫存「${strategy.label || strategyKey}」到${strategyTierLabels[tier]}，尚未上傳。`);
+  }
+
+  async function saveScreeningStrategyGroups() {
+    if (!state.screeningStrategyWritable) {
+      showToast("目前是唯讀模式，無法儲存策略配置。");
+      return;
+    }
+    const strategies = state.screeningStrategies || {};
+    const groups = cloneStrategyGroups(state.screeningStrategyDraftGroups);
+    if (strategyGroupsEqual(groups, state.screeningStrategySavedGroups)) {
+      showToast("目前沒有未儲存的策略調整。");
+      return;
+    }
 
     try {
       const response = await fetch(API_SCREENING_STRATEGIES_URL, {
@@ -894,19 +954,27 @@
           "Content-Type": "application/json",
           ...(await adminAuthHeaders()),
         },
-        body: JSON.stringify({ strategyKey, tier }),
+        body: JSON.stringify({ strategyGroups: groups }),
       });
       const payload = await readApiJson(response);
       if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
       state.screeningStrategyConfig = payload.config;
       state.screeningStrategyConfig.strategyGroups = applyStrategyConfig(strategies, payload.config);
+      state.screeningStrategySavedGroups = cloneStrategyGroups(state.screeningStrategyConfig.strategyGroups);
+      state.screeningStrategyDraftGroups = cloneStrategyGroups(state.screeningStrategyConfig.strategyGroups);
       renderScreeningStrategies();
-      showToast(`已將「${strategy.label || strategyKey}」移到${strategyTierLabels[tier]}。`);
+      showToast("策略配置已一次儲存並上傳。");
     } catch (error) {
-      if (strategy) strategy.tier = previousTier;
       renderScreeningStrategies();
-      showToast(`策略權限更新失敗：${error.message}`);
+      showToast(`策略配置儲存失敗：${error.message}`);
     }
+  }
+
+  function resetScreeningStrategyDraft() {
+    state.screeningStrategyDraftGroups = cloneStrategyGroups(state.screeningStrategySavedGroups);
+    applyStrategyConfig(state.screeningStrategies || {}, { strategyGroups: state.screeningStrategyDraftGroups });
+    renderScreeningStrategies();
+    showToast("已還原未儲存的策略調整。");
   }
 
   async function openLog(key = "macro") {
@@ -1052,6 +1120,16 @@
 
     if (event.target.closest("[data-api-logout]")) logoutApi();
 
+    if (event.target.closest("[data-save-screening-strategies]")) {
+      saveScreeningStrategyGroups();
+      return;
+    }
+
+    if (event.target.closest("[data-reset-screening-strategies]")) {
+      resetScreeningStrategyDraft();
+      return;
+    }
+
     if (event.target.closest("[data-close-modal]") || event.target.classList.contains("admin-modal")) {
       document.querySelector(".admin-modal")?.remove();
     }
@@ -1144,7 +1222,7 @@
   document.addEventListener("change", async (event) => {
     const strategySelect = event.target.closest("[data-strategy-tier]");
     if (strategySelect) {
-      updateScreeningStrategyTier(strategySelect.dataset.strategyTier, strategySelect.value);
+      stageScreeningStrategyTier(strategySelect.dataset.strategyTier, strategySelect.value);
       return;
     }
 

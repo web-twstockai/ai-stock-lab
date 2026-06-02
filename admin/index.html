@@ -110,9 +110,13 @@
         <div class="panel-heading">
           <div>
             <h2 id="screening-strategies-title">每日篩選策略權限</h2>
-            <p>調整每日篩選策略屬於基本、進階或管理員可使用，儲存後前台會依新權限分區顯示。</p>
+            <p>先調整策略位置，確認後再一次儲存上傳；放進倉庫的策略不會顯示在前台。</p>
           </div>
-          <span class="panel-meta" data-screening-strategy-status>等待資料載入</span>
+          <div class="panel-actions">
+            <span class="panel-meta" data-screening-strategy-status>等待資料載入</span>
+            <button class="ghost-button" type="button" data-reset-screening-strategies disabled>還原未儲存</button>
+            <button class="ghost-button primary-button" type="button" data-save-screening-strategies disabled>儲存策略配置</button>
+          </div>
         </div>
         <div class="strategy-admin-grid" data-screening-strategy-list></div>
       </section>
