@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02T13:53:41.891Z",
+  "updatedAt": "2026-06-02T13:53:44.705Z",
   "strategyGroups": {
     "basic": [
       "strength",
@@ -8,7 +8,8 @@
       "newHigh60",
       "rsiStrong",
       "trendBacktest",
-      "sectorLeader"
+      "sectorLeader",
+      "bollingerRebound"
     ],
     "advanced": [
       "maClusterBreakout",
@@ -16,7 +17,6 @@
       "wBottomRebound",
       "rsiMacdConfirm",
       "liquidityVolume",
-      "bollingerRebound",
       "macdTurnRed",
       "pullbackMa20",
       "volumeDryExpand"
