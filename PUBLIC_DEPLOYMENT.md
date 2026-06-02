@@ -64,7 +64,29 @@ Because this is not a real user email, Supabase email confirmation should be dis
 
 ## Data Updates
 
-Codex automations should update the repo's public data files. Cloudflare Pages then rebuilds the public package by running:
+Codex automations can update the repo's public data files. Admin users can also trigger updates from the admin dashboard.
+
+The admin dashboard calls Cloudflare Pages Functions:
+
+```text
+/api/admin/status
+/api/admin/run
+```
+
+These Functions verify the current Supabase user is `role = 'admin'`, then trigger GitHub Actions.
+
+Cloudflare Pages environment variables required for admin-triggered updates:
+
+```text
+GITHUB_DISPATCH_TOKEN=<GitHub token that can dispatch workflows>
+GITHUB_REPO=web-twstockai/ai-stock-lab
+GITHUB_WORKFLOW=admin-update.yml
+GITHUB_REF=main
+```
+
+Only `GITHUB_DISPATCH_TOKEN` is required if the defaults above are unchanged.
+
+GitHub Actions runs the selected Python update script, commits changed files under `data/`, and pushes back to `main`. Cloudflare Pages then rebuilds the public package by running:
 
 ```powershell
 python scripts/build_public_dist.py

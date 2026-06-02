@@ -142,6 +142,13 @@
     return clientPromise;
   }
 
+  async function adminAuthHeaders() {
+    const supabase = await supabaseClient();
+    const { data } = await supabase.auth.getSession();
+    const token = data?.session?.access_token;
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  }
+
   function profileToUser(profile) {
     return {
       id: profile.id,
@@ -289,32 +296,40 @@
     await loadApiAuth();
     await loadSupabaseUsers();
 
-    try {
-      if (state.apiAuthRequired) throw new Error("API authentication required");
-      const response = await fetch(API_STATUS_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const apiStatus = await readApiJson(response);
-      if (!apiStatus.ok) throw new Error(apiStatus.error || "Admin API unavailable");
-      state.apiAvailable = true;
-      state.apiAuthRequired = false;
-      state.apiStatus = apiStatus;
-      state.results = Object.fromEntries(Object.entries(apiStatus.dataFiles || {}).map(([key, file]) => [key, file]));
-      state.logs = {
-        normal: { ok: true, text: (apiStatus.logs?.macro || []).join("\n") },
-        error: { ok: true, text: (apiStatus.logs?.macroError || []).join("\n") },
-      };
-      return;
-    } catch (_) {
-      state.apiAvailable = false;
-      state.apiStatus = null;
-    }
-
     const entries = await Promise.all(healthFiles.map(fetchJson));
     state.results = Object.fromEntries(entries.map((entry) => [entry.key, entry]));
     state.logs = {
       normal: await fetchText("../data/macro-auto-updater.log"),
       error: await fetchText("../data/macro-auto-updater.err.log"),
     };
+
+    try {
+      if (state.apiAuthRequired) throw new Error("API authentication required");
+      const response = await fetch(API_STATUS_URL, {
+        cache: "no-store",
+        headers: await adminAuthHeaders(),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const apiStatus = await readApiJson(response);
+      if (!apiStatus.ok) throw new Error(apiStatus.error || "Admin API unavailable");
+      state.apiAvailable = true;
+      state.apiAuthRequired = false;
+      state.apiStatus = apiStatus;
+      state.apiUser = apiStatus.user || state.apiUser;
+      if (apiStatus.dataFiles) {
+        state.results = Object.fromEntries(Object.entries(apiStatus.dataFiles).map(([key, file]) => [key, file]));
+      }
+      if (apiStatus.logs) {
+        state.logs = {
+          normal: { ok: true, text: (apiStatus.logs?.macro || []).join("\n") },
+          error: { ok: true, text: (apiStatus.logs?.macroError || []).join("\n") },
+        };
+      }
+      return;
+    } catch (_) {
+      state.apiAvailable = false;
+      state.apiStatus = null;
+    }
   }
 
   async function loadApiAuth() {
@@ -391,15 +406,15 @@
     const message = $("[data-api-auth-message]");
 
     if (state.apiUser) {
-      message.textContent = `已登入 ${state.apiUser.nickname || state.apiUser.account}，敏感操作會由後端驗證管理員權限。`;
+      message.textContent = `Cloudflare 管理 API 已連線：${state.apiUser.nickname || state.apiUser.account || "admin"}。更新按鈕會觸發 GitHub Actions。`;
       form.hidden = true;
-      passwordForm.hidden = false;
-      logoutButton.hidden = false;
+      passwordForm.hidden = true;
+      logoutButton.hidden = true;
       return;
     }
 
-    message.textContent = "敏感操作需要後端 API 登入。預設本機帳號為 admin / admin1234，正式使用前請更換。";
-    form.hidden = false;
+    message.textContent = "尚未連線 Cloudflare 管理 API。請確認已用管理員帳號登入，且 Cloudflare 環境變數已設定。";
+    form.hidden = true;
     passwordForm.hidden = true;
     logoutButton.hidden = true;
   }
@@ -639,27 +654,30 @@
 
   async function runTask(task) {
     if (!state.apiAvailable) {
-      showToast(state.apiAuthRequired ? "請先登入 Admin API。" : "目前是靜態模式。請用 python scripts/admin_server.py --port 4177 啟動管理 API。");
+      showToast("管理 API 尚未連線。請確認 Cloudflare Pages 環境變數已設定，並重新部署。");
       return;
     }
     const item = updateItems.find((entry) => entry.task === task);
     if (!item) return;
 
-    const confirmed = window.confirm(`確定要執行「${item.title}」嗎？\n\n這會在本機啟動更新腳本，可能需要一段時間並改寫 data 資料檔。`);
+    const confirmed = window.confirm(`確定要執行「${item.title}」嗎？\n\n這會觸發 GitHub Actions 執行資料更新，完成後會自動 commit 並讓 Cloudflare 重新部署。`);
     if (!confirmed) return;
 
     try {
       const response = await fetch(API_RUN_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(await adminAuthHeaders()),
+        },
         body: JSON.stringify({ task, operator: operatorPayload() }),
       });
       const payload = await readApiJson(response);
       if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
-      showToast(`已啟動「${item.title}」，狀態會自動更新。`);
+      showToast(`已觸發「${item.title}」更新，GitHub Actions 會在背景執行。`);
       await hydrate({ silent: true });
     } catch (error) {
-      showToast(`執行失敗：${error.message}`);
+      showToast(`觸發失敗：${error.message}`);
     }
   }
 

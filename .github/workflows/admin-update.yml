@@ -1,0 +1,92 @@
+name: Admin Data Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: Update task to run
+        required: true
+        type: choice
+        options:
+          - daily-market
+          - intelligence
+          - institutional
+          - macro
+          - short-margin
+          - all
+      operator:
+        description: Admin account that triggered the update
+        required: false
+        default: admin
+
+permissions:
+  contents: write
+
+concurrency:
+  group: admin-data-update-${{ inputs.task }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run selected update
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Triggered by: ${{ inputs.operator }}"
+          echo "Task: ${{ inputs.task }}"
+
+          case "${{ inputs.task }}" in
+            daily-market)
+              python scripts/update_daily_history.py --all --workers 12 --rebuild-site-data --update-candidates --quiet
+              ;;
+            intelligence)
+              python scripts/update_intelligence.py --target all
+              ;;
+            institutional)
+              python scripts/update_institutional_robot.py
+              ;;
+            macro)
+              python scripts/update_macro_robot.py
+              ;;
+            short-margin)
+              python scripts/update_short_margin_ratio.py
+              ;;
+            all)
+              python scripts/update_daily_history.py --all --workers 12 --rebuild-site-data --update-candidates --quiet
+              python scripts/update_intelligence.py --target all
+              python scripts/update_short_margin_ratio.py
+              ;;
+            *)
+              echo "Unknown task: ${{ inputs.task }}" >&2
+              exit 2
+              ;;
+          esac
+
+      - name: Rebuild public package
+        run: python scripts/build_public_dist.py
+
+      - name: Commit updated data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "ai-stock-lab-bot"
+          git config user.email "ai-stock-lab-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "Update public data via admin task ${{ inputs.task }}"
+          git push
