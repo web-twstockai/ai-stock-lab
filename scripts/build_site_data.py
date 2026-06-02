@@ -921,7 +921,42 @@ STRATEGY_DEFINITIONS = [
 
 
 def compact_stock(stock):
-    return {key: value for key, value in stock.items() if key != "series"}
+    fields = (
+        "symbol",
+        "name",
+        "sector",
+        "market",
+        "marketCode",
+        "date",
+        "close",
+        "previousClose",
+        "changePercent",
+        "volume",
+        "turnover",
+        "avgTurnover20",
+        "return5",
+        "return20",
+        "return60",
+        "ma10",
+        "ma20",
+        "ma60",
+        "high20",
+        "low20",
+        "high60",
+        "low60",
+        "distanceHigh60",
+        "rangePosition60",
+        "closePosition",
+        "volumeRatio20",
+        "volatility20",
+        "score",
+        "rankScore",
+        "risk",
+        "themeBoost",
+        "themeHeatScore",
+        "themes",
+    )
+    return {key: stock[key] for key in fields if key in stock}
 
 
 def compact_sector(sector):
