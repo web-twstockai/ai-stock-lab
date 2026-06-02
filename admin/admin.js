@@ -11,6 +11,9 @@
   const API_LOGS_URL = "../api/admin/logs";
   const API_BACKUP_URL = "../api/admin/backup";
   const API_AUDIT_URL = "../api/admin/audit";
+  const API_SCREENING_STRATEGIES_URL = "../api/admin/screening-strategies";
+  const SCREENING_STRATEGIES_DATA_URL = "../data/daily-screening-strategies.json";
+  const SITE_DATA_URL = "../data/site-data.json";
   const SUPABASE_URL = "https://xtimhfolzbeczngvzlxi.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0aW1oZm9semJlY3puZ3Z6bHhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNjY5NzEsImV4cCI6MjA5NTk0Mjk3MX0.ioz4NIVRJ8evKG3u0U-cOjzfnsY0HaotQUfSHCan4oI";
   const SUPABASE_SDK = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
@@ -19,6 +22,12 @@
     basic: "基本會員",
     advanced: "進階會員",
     admin: "管理員",
+  };
+
+  const strategyTierLabels = {
+    basic: "基本會員可使用",
+    advanced: "進階會員可使用",
+    admin: "管理員可使用",
   };
 
   const updateItems = [
@@ -61,6 +70,7 @@
 
   const healthFiles = [
     { label: "網站主資料", path: "../data/site-data.json", key: "site" },
+    { label: "每日篩選策略權限", path: "../data/daily-screening-strategies.json", key: "screeningStrategies" },
     { label: "模型庫", path: "../data/model_library.json", key: "modelLibrary" },
     { label: "情報中心", path: "../data/intelligence-overview.json", key: "intelligence" },
     { label: "法人機器人", path: "../data/institutional-robot.json", key: "institutional" },
@@ -84,6 +94,9 @@
     apiStatus: null,
     supabaseUsers: null,
     advancedRequests: null,
+    screeningStrategies: null,
+    screeningStrategyConfig: null,
+    screeningStrategyWritable: false,
     results: {},
     logs: { normal: { text: "" }, error: { text: "" } },
   };
@@ -313,6 +326,86 @@
     }
   }
 
+  function normalizeStrategyGroups(groups, strategies = {}) {
+    const output = { basic: [], advanced: [], admin: [] };
+    const known = new Set(Object.keys(strategies || {}));
+    const seen = new Set();
+    Object.keys(output).forEach((tier) => {
+      const values = Array.isArray(groups?.[tier]) ? groups[tier] : [];
+      values.forEach((value) => {
+        const key = String(value || "").trim();
+        if (!key || seen.has(key)) return;
+        if (known.size && !known.has(key)) return;
+        output[tier].push(key);
+        seen.add(key);
+      });
+    });
+    Object.values(strategies || {}).forEach((strategy) => {
+      const key = strategy?.key;
+      if (!key || seen.has(key)) return;
+      const tier = output[strategy.tier] ? strategy.tier : "basic";
+      output[tier].push(key);
+      seen.add(key);
+    });
+    return output;
+  }
+
+  function applyStrategyConfig(strategies, config) {
+    const groups = normalizeStrategyGroups(config?.strategyGroups, strategies);
+    Object.entries(groups).forEach(([tier, keys]) => {
+      keys.forEach((key) => {
+        if (strategies[key]) {
+          strategies[key].tier = tier;
+          strategies[key].tierLabel = roleLabels[tier] || tier;
+        }
+      });
+    });
+    return groups;
+  }
+
+  async function loadScreeningStrategies() {
+    state.screeningStrategyWritable = false;
+    try {
+      const siteResponse = await fetch(SITE_DATA_URL, { cache: "no-store" });
+      if (!siteResponse.ok) throw new Error(`site-data HTTP ${siteResponse.status}`);
+      const siteData = await siteResponse.json();
+      state.screeningStrategies = siteData.dailyScreening?.strategies || {};
+    } catch (error) {
+      state.screeningStrategies = {};
+      console.warn("[AI Stock Lab] screening strategies unavailable", error);
+    }
+
+    let config = null;
+    if (state.apiAvailable) {
+      try {
+        const response = await fetch(API_SCREENING_STRATEGIES_URL, {
+          cache: "no-store",
+          headers: await adminAuthHeaders(),
+        });
+        const payload = await readApiJson(response);
+        if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
+        config = payload.config;
+        state.screeningStrategyWritable = true;
+      } catch (error) {
+        state.screeningStrategyWritable = false;
+        console.warn("[AI Stock Lab] screening strategy API unavailable", error);
+      }
+    }
+
+    if (!config) {
+      try {
+        const response = await fetch(SCREENING_STRATEGIES_DATA_URL, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        config = await response.json();
+      } catch (_) {
+        config = { strategyGroups: normalizeStrategyGroups(null, state.screeningStrategies) };
+      }
+    }
+
+    config.strategyGroups = applyStrategyConfig(state.screeningStrategies, config);
+    state.screeningStrategyConfig = config;
+  }
+
   async function fetchText(path) {
     try {
       const response = await fetch(path, { cache: "no-store" });
@@ -454,8 +547,16 @@
     const message = $("[data-api-auth-message]");
 
     if (state.apiUser) {
-      message.textContent = `Cloudflare 管理 API 已連線：${state.apiUser.nickname || state.apiUser.account || "admin"}。更新按鈕會觸發 GitHub Actions。`;
+      message.textContent = `Admin API 已登入：${state.apiUser.nickname || state.apiUser.account || "admin"}。更新與策略權限調整可寫入後端。`;
       form.hidden = true;
+      passwordForm.hidden = false;
+      logoutButton.hidden = false;
+      return;
+    }
+
+    if (state.apiAuthRequired) {
+      message.textContent = "Admin API 需要登入。請輸入管理員帳號與密碼，登入後即可執行更新與調整策略權限。";
+      form.hidden = false;
       passwordForm.hidden = true;
       logoutButton.hidden = true;
       return;
@@ -595,6 +696,47 @@
     }).join("") || '<div class="log-row">目前沒有進階會員申請。</div>';
   }
 
+  function renderScreeningStrategies() {
+    const mount = $("[data-screening-strategy-list]");
+    if (!mount) return;
+    const strategies = state.screeningStrategies || {};
+    const groups = normalizeStrategyGroups(state.screeningStrategyConfig?.strategyGroups, strategies);
+    const writable = state.screeningStrategyWritable;
+    const status = $("[data-screening-strategy-status]");
+    if (status) {
+      const counts = Object.fromEntries(Object.entries(groups).map(([tier, keys]) => [tier, keys.length]));
+      const updatedAt = state.screeningStrategyConfig?.updatedAt ? ` · 更新 ${formatDate(state.screeningStrategyConfig.updatedAt)}` : "";
+      status.textContent = writable
+        ? `可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin}${updatedAt}`
+        : `唯讀模式 · 啟動 Admin API 後可儲存 · 基本 ${counts.basic} / 進階 ${counts.advanced} / 管理員 ${counts.admin}`;
+    }
+
+    mount.innerHTML = Object.entries(groups).map(([tier, keys]) => `
+      <section class="strategy-admin-column ${tier}">
+        <header>
+          <h3>${escapeHtml(strategyTierLabels[tier] || tier)}</h3>
+          <span>${keys.length} 個策略</span>
+        </header>
+        <div class="strategy-admin-list">
+          ${keys.map((key) => {
+            const strategy = strategies[key] || { key, label: key, tags: [] };
+            const tags = (strategy.tags || []).slice(0, 3).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+            return `
+              <article class="strategy-admin-row">
+                <div>
+                  <strong>${escapeHtml(strategy.label || key)}</strong>
+                  <span>${escapeHtml(key)} · ${fmt(strategy.count)} 檔符合</span>
+                  <div class="strategy-admin-tags">${tags}</div>
+                </div>
+                <select class="role-select strategy-tier-select" data-strategy-tier="${escapeHtml(key)}" ${writable ? "" : "disabled"} aria-label="調整 ${escapeHtml(strategy.label || key)} 策略權限">
+                  ${Object.entries(strategyTierLabels).map(([value, label]) => `<option value="${value}" ${value === tier ? "selected" : ""}>${label}</option>`).join("")}
+                </select>
+              </article>`;
+          }).join("") || '<div class="log-row">此分區目前沒有策略。</div>'}
+        </div>
+      </section>`).join("");
+  }
+
   function renderHealth() {
     $("[data-health-list]").innerHTML = healthFiles.map((file) => {
       const result = state.results[file.key];
@@ -657,6 +799,7 @@
       "auth-login": "API 登入",
       "auth-logout": "API 登出",
       "auth-change-password": "修改密碼",
+      "update-screening-strategy": "調整篩選策略",
     }[action] || action || "操作";
   }
 
@@ -729,6 +872,39 @@
       await hydrate({ silent: true });
     } catch (error) {
       showToast(`觸發失敗：${error.message}`);
+    }
+  }
+
+  async function updateScreeningStrategyTier(strategyKey, tier) {
+    if (!state.screeningStrategyWritable) {
+      showToast("目前是唯讀模式。請用 python scripts/admin_server.py --port 4177 啟動 Admin API 後再調整策略權限。");
+      renderScreeningStrategies();
+      return;
+    }
+    const strategies = state.screeningStrategies || {};
+    const strategy = strategies[strategyKey];
+    const previousTier = strategy?.tier || "basic";
+    if (!strategy || previousTier === tier) return;
+
+    try {
+      const response = await fetch(API_SCREENING_STRATEGIES_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(await adminAuthHeaders()),
+        },
+        body: JSON.stringify({ strategyKey, tier }),
+      });
+      const payload = await readApiJson(response);
+      if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
+      state.screeningStrategyConfig = payload.config;
+      state.screeningStrategyConfig.strategyGroups = applyStrategyConfig(strategies, payload.config);
+      renderScreeningStrategies();
+      showToast(`已將「${strategy.label || strategyKey}」移到${strategyTierLabels[tier]}。`);
+    } catch (error) {
+      if (strategy) strategy.tier = previousTier;
+      renderScreeningStrategies();
+      showToast(`策略權限更新失敗：${error.message}`);
     }
   }
 
@@ -844,11 +1020,13 @@
 
   async function hydrate(options = {}) {
     await loadAdminStatus();
+    await loadScreeningStrategies();
     renderMetrics();
     renderApiAuth();
     renderUpdates();
     renderUsers();
     renderAdvancedRequests();
+    renderScreeningStrategies();
     renderHealth();
     renderLogs();
     renderBackups();
@@ -963,6 +1141,12 @@
   });
 
   document.addEventListener("change", async (event) => {
+    const strategySelect = event.target.closest("[data-strategy-tier]");
+    if (strategySelect) {
+      updateScreeningStrategyTier(strategySelect.dataset.strategyTier, strategySelect.value);
+      return;
+    }
+
     const select = event.target.closest("[data-role-account]");
     if (!select) return;
     const users = readUsers();

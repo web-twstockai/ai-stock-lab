@@ -2,6 +2,7 @@
   const path = window.location.pathname.replace(/\\/g, "/");
   const base = path.includes("/daily-screening/volume-breakout/") ? "../../" : "../";
   const dataUrl = `${base}data/site-data.json`;
+  const screeningStrategyUrl = `${base}data/daily-screening-strategies.json`;
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -269,6 +270,68 @@
       order: 3,
     },
   };
+  const tierLabels = {
+    basic: "基本會員",
+    advanced: "進階會員",
+    admin: "管理員",
+  };
+
+  function normalizeStrategyGroups(groups) {
+    const output = { basic: [], advanced: [], admin: [] };
+    if (!groups || typeof groups !== "object") return output;
+    Object.keys(output).forEach((tier) => {
+      if (Array.isArray(groups[tier])) {
+        output[tier] = groups[tier].map((key) => String(key || "")).filter(Boolean);
+      }
+    });
+    return output;
+  }
+
+  function applyScreeningStrategyAccess(data, config) {
+    const groups = normalizeStrategyGroups(config?.strategyGroups);
+    const strategies = data.dailyScreening?.strategies || {};
+    const knownKeys = new Set(Object.keys(strategies));
+    const assigned = new Set();
+    Object.entries(groups).forEach(([tier, keys]) => {
+      groups[tier] = keys.filter((key) => {
+        if (!knownKeys.has(key) || assigned.has(key)) return false;
+        assigned.add(key);
+        return true;
+      });
+    });
+    Object.values(strategies).forEach((strategy) => {
+      if (!assigned.has(strategy.key)) {
+        const tier = strategy.tier && groups[strategy.tier] ? strategy.tier : "basic";
+        groups[tier].push(strategy.key);
+      }
+    });
+    Object.entries(groups).forEach(([tier, keys]) => {
+      keys.forEach((key) => {
+        if (strategies[key]) {
+          strategies[key].tier = tier;
+          strategies[key].tierLabel = tierLabels[tier] || tier;
+        }
+      });
+    });
+    if (data.dailyScreening) {
+      data.dailyScreening.strategyGroups = groups;
+      data.dailyScreening.basicCount = groups.basic.length;
+      data.dailyScreening.advancedCount = groups.advanced.length;
+      data.dailyScreening.adminCount = groups.admin.length;
+    }
+    return data;
+  }
+
+  async function loadScreeningStrategyAccess() {
+    try {
+      const response = await fetch(screeningStrategyUrl, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Cannot load ${screeningStrategyUrl}`);
+      return response.json();
+    } catch (error) {
+      console.warn("[AI Stock Lab] screening strategy access unavailable", error);
+      return null;
+    }
+  }
 
   function strategiesByTier(data, tier) {
     const keys = data.dailyScreening?.strategyGroups?.[tier] || [];
@@ -703,12 +766,16 @@
       });
   }
 
-  fetch(dataUrl, { cache: "no-store" })
-    .then((response) => {
+  Promise.all([
+    fetch(dataUrl, { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Cannot load ${dataUrl}`);
       return response.json();
-    })
-    .then((data) => {
+    }),
+    loadScreeningStrategyAccess(),
+  ])
+    .then((response) => {
+      const [siteData, strategyAccess] = response;
+      const data = strategyAccess ? applyScreeningStrategyAccess(siteData, strategyAccess) : siteData;
       document.documentElement.dataset.realData = "loaded";
       if (path.includes("/market-overview/")) hydrateMarket(data);
       if (path.includes("/daily-screening/volume-breakout/")) hydrateDailyDetail(data);

@@ -23,8 +23,10 @@ JOB_DIR = DATA_DIR / "admin-jobs"
 BACKUP_DIR = DATA_DIR / "admin-backups"
 AUDIT_LOG = DATA_DIR / "admin-audit.jsonl"
 USERS_FILE = DATA_DIR / "admin-users.json"
+SCREENING_STRATEGIES_FILE = DATA_DIR / "daily-screening-strategies.json"
 SESSION_COOKIE = "aiStockLabAdminSession"
 SESSION_TTL_SECONDS = 8 * 60 * 60
+STRATEGY_TIERS = ("basic", "advanced", "admin")
 
 TASKS = {
     "daily-market": {
@@ -55,6 +57,7 @@ TASKS = {
 
 DATA_FILES = {
     "site": DATA_DIR / "site-data.json",
+    "screeningStrategies": SCREENING_STRATEGIES_FILE,
     "modelLibrary": DATA_DIR / "model_library.json",
     "intelligence": DATA_DIR / "intelligence-overview.json",
     "institutional": DATA_DIR / "institutional-robot.json",
@@ -328,6 +331,83 @@ def create_backups(keys=None):
     return created
 
 
+def default_screening_strategy_groups():
+    site = safe_read_json(DATA_DIR / "site-data.json")
+    data = site.get("data") if site.get("ok") else {}
+    groups = data.get("dailyScreening", {}).get("strategyGroups", {}) if isinstance(data, dict) else {}
+    output = {tier: [] for tier in STRATEGY_TIERS}
+    for tier in STRATEGY_TIERS:
+        values = groups.get(tier, []) if isinstance(groups, dict) else []
+        if isinstance(values, list):
+            output[tier] = [str(value) for value in values if value]
+    return output
+
+
+def normalize_screening_strategy_groups(groups):
+    output = {tier: [] for tier in STRATEGY_TIERS}
+    seen = set()
+    if isinstance(groups, dict):
+        for tier in STRATEGY_TIERS:
+            values = groups.get(tier, [])
+            if not isinstance(values, list):
+                continue
+            for value in values:
+                key = str(value or "").strip()
+                if key and key not in seen:
+                    output[tier].append(key)
+                    seen.add(key)
+    defaults = default_screening_strategy_groups()
+    for tier in STRATEGY_TIERS:
+        for key in defaults.get(tier, []):
+            if key not in seen:
+                output[tier].append(key)
+                seen.add(key)
+    return output
+
+
+def read_screening_strategy_config():
+    if SCREENING_STRATEGIES_FILE.exists():
+        try:
+            payload = json.loads(SCREENING_STRATEGIES_FILE.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            payload = {}
+    else:
+        payload = {}
+    payload["strategyGroups"] = normalize_screening_strategy_groups(payload.get("strategyGroups"))
+    payload.setdefault("updatedAt", None)
+    return payload
+
+
+def write_screening_strategy_config(payload):
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    next_payload = {
+        **payload,
+        "updatedAt": utc_now(),
+        "strategyGroups": normalize_screening_strategy_groups(payload.get("strategyGroups")),
+    }
+    temp_path = SCREENING_STRATEGIES_FILE.with_suffix(".json.tmp")
+    temp_path.write_text(json.dumps(next_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    temp_path.replace(SCREENING_STRATEGIES_FILE)
+    return next_payload
+
+
+def move_screening_strategy(strategy_key, target_tier):
+    if target_tier not in STRATEGY_TIERS:
+        raise ValueError("Unknown strategy tier")
+    key = str(strategy_key or "").strip()
+    if not key:
+        raise ValueError("Missing strategy key")
+    payload = read_screening_strategy_config()
+    groups = normalize_screening_strategy_groups(payload.get("strategyGroups"))
+    if key not in {item for values in groups.values() for item in values}:
+        raise ValueError("Unknown strategy key")
+    for tier in STRATEGY_TIERS:
+        groups[tier] = [item for item in groups[tier] if item != key]
+    groups[target_tier].append(key)
+    payload["strategyGroups"] = groups
+    return write_screening_strategy_config(payload)
+
+
 def job_snapshot():
     with jobs_lock:
         return list(jobs.values())
@@ -482,6 +562,12 @@ class AdminRequestHandler(SimpleHTTPRequestHandler):
                 self.send_json({"ok": False, "error": "Unknown log key"}, HTTPStatus.NOT_FOUND)
                 return
             self.send_json({"ok": True, "key": key, "lines": tail_text(LOG_FILES[key], limit)})
+            return
+
+        if parsed.path == "/api/admin/screening-strategies":
+            if not self.require_admin():
+                return
+            self.send_json({"ok": True, "config": read_screening_strategy_config()})
             return
 
         if parsed.path.startswith("/api/admin/jobs/") and parsed.path.endswith("/log"):
@@ -640,6 +726,33 @@ class AdminRequestHandler(SimpleHTTPRequestHandler):
                 self,
             )
             self.send_json({"ok": True, "created": created, "backups": list_backups()}, HTTPStatus.CREATED)
+            return
+
+        if parsed.path == "/api/admin/screening-strategies":
+            auth_user = self.require_admin()
+            if not auth_user:
+                return
+            try:
+                payload = self.read_json_body()
+                config = move_screening_strategy(payload.get("strategyKey"), payload.get("tier"))
+            except Exception as error:
+                append_audit(
+                    "update-screening-strategy",
+                    auth_user,
+                    "failed",
+                    {"error": str(error)},
+                    self,
+                )
+                self.send_json({"ok": False, "error": str(error)}, HTTPStatus.BAD_REQUEST)
+                return
+            append_audit(
+                "update-screening-strategy",
+                auth_user,
+                "success",
+                {"strategyKey": payload.get("strategyKey"), "tier": payload.get("tier")},
+                self,
+            )
+            self.send_json({"ok": True, "config": config})
             return
 
         self.send_json({"ok": False, "error": "Unknown endpoint"}, HTTPStatus.NOT_FOUND)

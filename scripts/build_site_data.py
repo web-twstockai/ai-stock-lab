@@ -15,8 +15,14 @@ MANIFEST = HISTORY / "manifest.json"
 COMPANY_META = ROOT / "data" / "company-meta.json"
 THEME_DATA = ROOT / "data" / "stock-themes.json"
 OUT = ROOT / "data" / "site-data.json"
+SCREENING_STRATEGIES_CONFIG = ROOT / "data" / "daily-screening-strategies.json"
 MIN_DAILY_VOLUME_LOTS = 1000
 MIN_DAILY_VOLUME_SHARES = MIN_DAILY_VOLUME_LOTS * 1000
+TIER_LABELS = {
+    "basic": "基本會員",
+    "advanced": "進階會員",
+    "admin": "管理員",
+}
 
 COMPANY_URLS = {
     "twse": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
@@ -163,6 +169,47 @@ def load_theme_data():
         return json.loads(THEME_DATA.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         return {"stocks": {}, "themes": {}, "sources": [], "stats": {}}
+
+
+def load_screening_strategy_groups():
+    if not SCREENING_STRATEGIES_CONFIG.exists():
+        return {}
+    try:
+        payload = json.loads(SCREENING_STRATEGIES_CONFIG.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+    groups = payload.get("strategyGroups", {})
+    if not isinstance(groups, dict):
+        return {}
+    normalized = {}
+    for tier in ("basic", "advanced", "admin"):
+        values = groups.get(tier, [])
+        if isinstance(values, list):
+            normalized[tier] = [str(value) for value in values if value]
+    return normalized
+
+
+def apply_screening_strategy_groups(definitions):
+    groups = load_screening_strategy_groups()
+    if not groups:
+        return [dict(definition) for definition in definitions]
+
+    tier_by_key = {
+        key: tier
+        for tier, keys in groups.items()
+        for key in keys
+        if tier in TIER_LABELS
+    }
+    updated = []
+    for definition in definitions:
+        item = dict(definition)
+        tier = tier_by_key.get(item["key"], item.get("tier", "basic"))
+        if tier not in TIER_LABELS:
+            tier = "basic"
+        item["tier"] = tier
+        item["tierLabel"] = TIER_LABELS[tier]
+        updated.append(item)
+    return updated
 
 
 def read_rows(path):
@@ -715,9 +762,10 @@ def build():
     hot_score = round(sum(item["score"] for item in sectors[:5]) / max(1, len(sectors[:5])), 1)
     heat = max(0, min(100, hot_score))
 
-    strategies = {definition["key"]: strategy_payload(stocks, definition) for definition in STRATEGY_DEFINITIONS}
+    strategy_definitions = apply_screening_strategy_groups(STRATEGY_DEFINITIONS)
+    strategies = {definition["key"]: strategy_payload(stocks, definition) for definition in strategy_definitions}
     strategy_groups = {
-        tier: [definition["key"] for definition in STRATEGY_DEFINITIONS if definition["tier"] == tier]
+        tier: [definition["key"] for definition in strategy_definitions if definition["tier"] == tier]
         for tier in ("basic", "advanced", "admin")
     }
 

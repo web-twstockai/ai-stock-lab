@@ -1,0 +1,36 @@
+{
+  "updatedAt": null,
+  "strategyGroups": {
+    "basic": [
+      "strength",
+      "volumeBreakout",
+      "maBull",
+      "newHigh60",
+      "rsiStrong"
+    ],
+    "advanced": [
+      "maClusterBreakout",
+      "boxBreakout",
+      "wBottomRebound",
+      "rsiMacdConfirm",
+      "liquidityVolume",
+      "bollingerRebound",
+      "macdTurnRed",
+      "pullbackMa20",
+      "volumeDryExpand",
+      "sectorLeader"
+    ],
+    "admin": [
+      "trendBacktest",
+      "breakoutRetest",
+      "relativeStrengthLeader",
+      "moneyFlowLeader",
+      "lowRiskBreakout",
+      "aiScoreTop",
+      "lowVolStrength",
+      "liquidityBreakout",
+      "highBaseConsolidation",
+      "riskControlList"
+    ]
+  }
+}
