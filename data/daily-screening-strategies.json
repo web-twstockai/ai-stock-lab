@@ -32,6 +32,11 @@
       "highBaseConsolidation",
       "riskControlList"
     ],
-    "warehouse": []
+    "warehouse": [
+      "qualityBreakoutRetest",
+      "attackKPlatform",
+      "firstPullbackAfterHigh",
+      "tightHighBaseTurnUp"
+    ]
   }
 }

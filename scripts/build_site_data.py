@@ -244,6 +244,17 @@ def stdev(values):
     return math.sqrt(sum((item - mean) ** 2 for item in values) / len(values))
 
 
+def avg(values):
+    return sum(values) / len(values) if values else 0.0
+
+
+def safe_range_position(close, low, high):
+    spread = high - low
+    if spread <= 0:
+        return 0.5
+    return (close - low) / spread
+
+
 def stock_name(symbol):
     if symbol in SYMBOL_META and SYMBOL_META[symbol].get("name"):
         return SYMBOL_META[symbol]["name"]
@@ -278,6 +289,7 @@ def summarize_symbol(path, market_code):
 
     symbol = path.stem
     recent = rows[-126:]
+    opens = [num(row["open"]) for row in rows]
     closes = [num(row["close"]) for row in rows]
     highs = [num(row["high"]) for row in rows]
     lows = [num(row["low"]) for row in rows]
@@ -288,18 +300,109 @@ def summarize_symbol(path, market_code):
     previous = closes[-2]
     high60 = max(highs[-60:])
     low60 = min(lows[-60:])
+    high100 = max(highs[-100:]) if len(highs) >= 100 else high60
     high20 = max(highs[-20:])
     low20 = min(lows[-20:])
+    ma10 = ma(closes, 10) or close
     ma20 = ma(closes, 20) or close
     ma60 = ma(closes, 60) or close
     avg_turnover20 = sum(closes[-20 + i] * volumes[-20 + i] for i in range(20)) / 20
     avg_volume20 = sum(volumes[-20:]) / 20
+    avg_volume5 = avg(volumes[-5:])
+    prev_avg_volume5 = avg(volumes[-6:-1])
     volatility20 = stdev(returns[-20:]) * math.sqrt(252) * 100
     range_position60 = (close - low60) / (high60 - low60) if high60 > low60 else 0.5
     distance_high60 = pct(close, high60)
+    distance_high100 = pct(close, high100)
     volume_ratio = volumes[-1] / avg_volume20 if avg_volume20 else 0
     return20 = pct(close, closes[-21])
     return60 = pct(close, closes[-61])
+    day_range = highs[-1] - lows[-1]
+    close_position = safe_range_position(close, lows[-1], highs[-1])
+    upper_shadow_ratio = (highs[-1] - max(close, opens[-1])) / day_range if day_range > 0 else 0
+    prev_high5 = max(highs[-6:-1])
+    range_pct5 = pct(max(highs[-5:]), min(lows[-5:]))
+    daily_ranges20 = [
+        (highs[i] - lows[i]) / closes[i] * 100
+        for i in range(len(closes) - 20, len(closes))
+        if closes[i]
+    ]
+    avg_daily_range20 = avg(daily_ranges20)
+    tight_range5 = range_pct5 <= max(4.5, avg_daily_range20 * 2.4)
+    volume_dry5 = prev_avg_volume5 > 0 and prev_avg_volume5 <= avg_volume20 * 0.75
+    no_long_upper_shadow = upper_shadow_ratio <= 0.35
+    not_overheated = return20 <= 25 and close <= ma20 * 1.15
+
+    recent_breakouts = []
+    for idx in range(max(20, len(closes) - 10), len(closes) - 1):
+        prior_high = max(highs[max(0, idx - 60):idx])
+        prior_avg_volume = avg(volumes[max(0, idx - 20):idx])
+        if closes[idx] >= prior_high * 0.995 and volumes[idx] >= prior_avg_volume * 1.15:
+            recent_breakouts.append(idx)
+    breakout_idx = recent_breakouts[-1] if recent_breakouts else None
+    breakout_volume = volumes[breakout_idx] if breakout_idx is not None else 0
+    breakout_mid = (opens[breakout_idx] + closes[breakout_idx]) / 2 if breakout_idx is not None else close
+    days_after_breakout = len(closes) - 1 - breakout_idx if breakout_idx is not None else 0
+    quality_retest = (
+        breakout_idx is not None
+        and 1 <= days_after_breakout <= 7
+        and close >= breakout_mid
+        and close >= ma20
+        and volumes[-1] <= breakout_volume * 0.65
+        and distance_high60 >= -6
+        and close_position >= 0.45
+    )
+
+    attack_k_indices = []
+    for idx in range(max(21, len(closes) - 10), len(closes) - 1):
+        prior_avg_volume = avg(volumes[idx - 20:idx])
+        candle_position = safe_range_position(closes[idx], lows[idx], highs[idx])
+        if (
+            closes[idx] > opens[idx]
+            and pct(closes[idx], closes[idx - 1]) >= 4
+            and volumes[idx] >= prior_avg_volume * 1.6
+            and candle_position >= 0.65
+        ):
+            attack_k_indices.append(idx)
+    attack_idx = attack_k_indices[-1] if attack_k_indices else None
+    post_attack_lows = lows[attack_idx + 1:] if attack_idx is not None else []
+    post_attack_volumes = volumes[attack_idx + 1:] if attack_idx is not None else []
+    post_attack_highs = highs[attack_idx + 1:-1] if attack_idx is not None else []
+    attack_mid = (opens[attack_idx] + closes[attack_idx]) / 2 if attack_idx is not None else close
+    platform_high = max(post_attack_highs) if post_attack_highs else highs[-1]
+    attack_k_platform = (
+        attack_idx is not None
+        and 2 <= len(closes) - 1 - attack_idx <= 7
+        and post_attack_lows
+        and min(post_attack_lows) >= attack_mid * 0.98
+        and avg(post_attack_volumes) <= volumes[attack_idx] * 0.72
+        and close >= platform_high * 0.995
+        and close_position >= 0.6
+        and not_overheated
+    )
+
+    high100_window_start = max(0, len(highs) - 100)
+    high100_idx = max(range(high100_window_start, len(highs)), key=lambda idx: highs[idx])
+    days_since_high100 = len(highs) - 1 - high100_idx
+    first_pullback_after_high = (
+        1 <= days_since_high100 <= 8
+        and distance_high100 >= -8
+        and close >= min(ma10, ma20) * 0.99
+        and volumes[-1] <= avg_volume20 * 0.85
+        and return20 <= 25
+        and close_position >= 0.45
+    )
+
+    tight_high_base_turnup = (
+        distance_high60 >= -5
+        and close >= ma20
+        and tight_range5
+        and avg_volume5 <= avg_volume20 * 1.05
+        and 2 <= return20 <= 25
+        and close >= prev_high5 * 0.995
+        and close_position >= 0.6
+        and no_long_upper_shadow
+    )
 
     score = (
         min(max(return20, -20), 40) * 0.9
@@ -325,15 +428,23 @@ def summarize_symbol(path, market_code):
         "avgTurnover20": round(avg_turnover20),
         "return20": round(return20, 2),
         "return60": round(return60, 2),
+        "ma10": round(ma10, 2),
         "ma20": round(ma20, 2),
         "ma60": round(ma60, 2),
         "high20": round(high20, 2),
         "low20": round(low20, 2),
         "high60": round(high60, 2),
         "low60": round(low60, 2),
+        "high100": round(high100, 2),
         "distanceHigh60": round(distance_high60, 2),
+        "distanceHigh100": round(distance_high100, 2),
         "rangePosition60": round(range_position60, 3),
+        "closePosition": round(close_position, 3),
         "volumeRatio20": round(volume_ratio, 2),
+        "volumeDry5": volume_dry5,
+        "rangePct5": round(range_pct5, 2),
+        "avgDailyRange20": round(avg_daily_range20, 2),
+        "daysSinceHigh100": days_since_high100,
         "volatility20": round(volatility20, 2),
         "score": round(max(0, min(99, score)), 1),
         "risk": "高" if volatility20 >= 55 else ("中" if volatility20 >= 32 else "低"),
@@ -363,6 +474,10 @@ def summarize_symbol(path, market_code):
             "liquidityBreakout": avg_turnover20 >= 500_000_000 and close >= high20 * 0.98,
             "highBaseConsolidation": distance_high60 >= -5 and return20 > -3 and volume_ratio < 1.3,
             "riskControlList": volatility20 <= 40 and close >= ma60 and return20 >= 0,
+            "qualityBreakoutRetest": quality_retest and volumes[-1] <= avg_volume20 * 0.95,
+            "attackKPlatform": attack_k_platform,
+            "firstPullbackAfterHigh": first_pullback_after_high,
+            "tightHighBaseTurnUp": tight_high_base_turnup,
         },
         "series": [
             {
@@ -618,6 +733,42 @@ STRATEGY_DEFINITIONS = [
         "criteria": "距60日高點 >= -5%、20日報酬 > -3%、量能倍率 < 1.3",
     },
     {
+        "key": "qualityBreakoutRetest",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "突破後量縮回測",
+        "description": "近 10 日先有帶量突破，回測時量縮、守住攻擊 K 中值與 MA20，避開假突破追高。",
+        "tags": ["突破回測", "量縮", "勝率強化"],
+        "criteria": "近10日帶量突破；回測1~7日；收盤守攻擊K中值與MA20；今日量低於突破量65%",
+    },
+    {
+        "key": "attackKPlatform",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "攻擊K後小平台",
+        "description": "先出現帶量長紅攻擊 K，之後量縮橫盤不破中值，今日再突破小平台高點。",
+        "tags": ["攻擊K", "小平台", "起漲點"],
+        "criteria": "近10日紅K漲幅>=4%；量>=前20日均量1.6倍；平台2~7日守中值；今日突破平台高點",
+    },
+    {
+        "key": "firstPullbackAfterHigh",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "創高後首回量縮",
+        "description": "100 日創高後第一次短線回測，量縮且守住 MA10/MA20，偏向波段續抱觀察點。",
+        "tags": ["創高回測", "首回", "量縮"],
+        "criteria": "100日高點後1~8日；距高點回落不超過8%；今日量低於20日均量85%；守MA10/MA20",
+    },
+    {
+        "key": "tightHighBaseTurnUp",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "高檔窄幅轉強",
+        "description": "股價仍貼近 60 日高點，近 5 日窄幅量縮整理，今日收盤轉強且沒有明顯長上影。",
+        "tags": ["高檔整理", "量縮", "轉強"],
+        "criteria": "距60日高點>=-5%；近5日振幅收斂；5日均量<=20日均量；收盤突破近5日壓力",
+    },
+    {
         "key": "riskControlList",
         "tier": "admin",
         "tierLabel": "管理員",
@@ -767,9 +918,8 @@ def build():
     strategies = {definition["key"]: strategy_payload(stocks, definition) for definition in strategy_definitions}
     strategy_groups = {
         tier: [definition["key"] for definition in strategy_definitions if definition["tier"] == tier]
-        for tier in ("basic", "advanced", "admin")
+        for tier in ("basic", "advanced", "admin", "warehouse")
     }
-    warehouse_strategies = [definition["key"] for definition in strategy_definitions if definition["tier"] == "warehouse"]
 
     stock_details = {}
     for symbol in ("1303", "2330", "2382", "2317", "2303"):
@@ -803,9 +953,9 @@ def build():
             "basicCount": len(strategy_groups["basic"]),
             "advancedCount": len(strategy_groups["advanced"]),
             "adminCount": len(strategy_groups["admin"]),
-            "warehouseCount": len(warehouse_strategies),
+            "warehouseCount": len(strategy_groups["warehouse"]),
             "strategyGroups": strategy_groups,
-            "warehouseStrategies": warehouse_strategies,
+            "warehouseStrategies": strategy_groups["warehouse"],
             "strategies": strategies,
         },
         "stockDetails": stock_details,
