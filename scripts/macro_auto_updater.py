@@ -86,6 +86,9 @@ def commit_updated_data():
     timestamp = datetime.now(TAIPEI).strftime("%Y-%m-%d %H:%M")
     if run_command(["git", "commit", "-m", f"Update macro data at {timestamp}"]):
         return 2
+    run_command(["git", "status", "--short"])
+    if run_command(["git", "restore", "--worktree", "."]):
+        return 2
     if run_command(["git", "pull", "--rebase", "origin", "main"]):
         return 2
     if run_command(["git", "push"]):
