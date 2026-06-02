@@ -721,7 +721,10 @@
         body: JSON.stringify({ task, operator: operatorPayload() }),
       });
       const payload = await readApiJson(response);
-      if (!response.ok || !payload.ok) throw new Error(payload.error || `HTTP ${response.status}`);
+      if (!response.ok || !payload.ok) {
+        const detail = payload.detail ? `（${payload.detail}）` : "";
+        throw new Error(`${payload.error || `HTTP ${response.status}`}${detail}`);
+      }
       showToast(`已觸發「${item.title}」更新，GitHub Actions 會在背景執行。`);
       await hydrate({ silent: true });
     } catch (error) {

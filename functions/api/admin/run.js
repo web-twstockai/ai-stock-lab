@@ -1,5 +1,27 @@
 import { TASKS, githubConfig, githubFetch, json, requireAdmin } from "./_shared.js";
 
+function parseGitHubError(text) {
+  try {
+    const payload = JSON.parse(text);
+    return payload.message || text;
+  } catch (_) {
+    return text;
+  }
+}
+
+function dispatchErrorMessage(status, detail) {
+  if (status === 401) {
+    return "GitHub Token 無效，請重新建立 GitHub PAT 並更新 Cloudflare 的 GITHUB_DISPATCH_TOKEN。";
+  }
+  if (status === 403) {
+    return "GitHub Token 權限不足，請確認 GITHUB_DISPATCH_TOKEN 對 ai-stock-lab 有 Actions 讀寫權限。";
+  }
+  if (status === 404) {
+    return "找不到 GitHub repo 或 workflow，請確認 GITHUB_REPO、GITHUB_WORKFLOW、GITHUB_REF 設定。";
+  }
+  return `GitHub dispatch failed: HTTP ${status}${detail ? ` - ${detail}` : ""}`;
+}
+
 export async function onRequestPost({ request, env }) {
   const admin = await requireAdmin(request, env);
   if (admin.error) return admin.error;
@@ -34,7 +56,8 @@ export async function onRequestPost({ request, env }) {
 
     if (response.status !== 204) {
       const text = await response.text();
-      return json({ ok: false, error: `GitHub dispatch failed: HTTP ${response.status}`, detail: text }, 502);
+      const detail = parseGitHubError(text);
+      return json({ ok: false, error: dispatchErrorMessage(response.status, detail), detail }, 502);
     }
 
     return json({

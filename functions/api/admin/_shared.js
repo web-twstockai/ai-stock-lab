@@ -3,9 +3,11 @@ const DEFAULT_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3Mi
 
 export const TASKS = {
   "daily-market": "每日行情資料",
+  "evening-batch": "每日盤後批次",
   intelligence: "情報中心",
   institutional: "法人機器人",
   macro: "總經資料",
+  "macro-due-check": "總經公布追蹤",
   "short-margin": "融資融券比率",
 };
 
