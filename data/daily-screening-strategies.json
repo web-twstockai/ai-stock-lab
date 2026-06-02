@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02T13:54:33.090Z",
+  "updatedAt": "2026-06-02T13:54:36.716Z",
   "strategyGroups": {
     "basic": [
       "strength",
@@ -28,11 +28,11 @@
       "lowRiskBreakout",
       "aiScoreTop",
       "liquidityBreakout",
-      "highBaseConsolidation"
+      "highBaseConsolidation",
+      "attackKPlatform"
     ],
     "warehouse": [
       "qualityBreakoutRetest",
-      "attackKPlatform",
       "firstPullbackAfterHigh",
       "tightHighBaseTurnUp",
       "lowVolStrength",
