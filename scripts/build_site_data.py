@@ -315,13 +315,17 @@ def summarize_symbol(path, market_code):
     distance_high60 = pct(close, high60)
     distance_high100 = pct(close, high100)
     volume_ratio = volumes[-1] / avg_volume20 if avg_volume20 else 0
+    return5 = pct(close, closes[-6])
     return20 = pct(close, closes[-21])
     return60 = pct(close, closes[-61])
     day_range = highs[-1] - lows[-1]
     close_position = safe_range_position(close, lows[-1], highs[-1])
     upper_shadow_ratio = (highs[-1] - max(close, opens[-1])) / day_range if day_range > 0 else 0
     prev_high5 = max(highs[-6:-1])
+    prev_low5 = min(lows[-6:-1])
     range_pct5 = pct(max(highs[-5:]), min(lows[-5:]))
+    prior_range_pct5 = pct(max(highs[-10:-5]), min(lows[-10:-5]))
+    prior_range_pct10 = pct(max(highs[-20:-10]), min(lows[-20:-10]))
     daily_ranges20 = [
         (highs[i] - lows[i]) / closes[i] * 100
         for i in range(len(closes) - 20, len(closes))
@@ -404,6 +408,58 @@ def summarize_symbol(path, market_code):
         and no_long_upper_shadow
     )
 
+    weekly_closes = [closes[idx] for idx in range(max(0, len(closes) - 65) + 4, len(closes), 5)]
+    if weekly_closes and weekly_closes[-1] != close:
+        weekly_closes.append(close)
+    weekly_ma5 = avg(weekly_closes[-5:])
+    weekly_ma13 = avg(weekly_closes[-13:])
+    high65 = max(highs[-65:])
+    weekly_trend_first_pullback = (
+        len(weekly_closes) >= 13
+        and weekly_ma5 > weekly_ma13
+        and close >= high65 * 0.9
+        and return60 > 8
+        and lows[-1] <= ma20 * 1.02
+        and close >= ma20 * 0.995
+        and volumes[-1] <= avg_volume20 * 1.1
+        and close_position >= 0.45
+        and not_overheated
+    )
+
+    vcp_volatility_contraction = (
+        return60 > 10
+        and distance_high60 >= -8
+        and close >= ma20 >= ma60
+        and range_pct5 <= max(6, prior_range_pct5 * 0.75)
+        and avg_volume5 <= avg_volume20 * 1.2
+        and volume_ratio <= 1.5
+        and close >= prev_high5 * 0.98
+        and close_position >= 0.45
+        and return20 <= 35
+    )
+
+    high_challenge_count20 = sum(1 for item in closes[-20:] if item >= high60 * 0.985)
+    repeated_high_challenge = (
+        high_challenge_count20 >= 3
+        and distance_high60 >= -6
+        and 3 <= return20 <= 25
+        and close >= min(ma10, ma20) * 0.99
+        and volumes[-1] <= avg_volume20 * 1.05
+        and close >= prev_high5 * 0.99
+        and close_position >= 0.5
+    )
+
+    false_breakdown_reclaim = (
+        distance_high60 >= -8
+        and return20 > 0
+        and (lows[-1] < ma10 * 0.99 or lows[-1] < prev_low5 * 0.995)
+        and close >= ma10
+        and close >= highs[-2] * 0.995
+        and volumes[-1] <= avg_volume20 * 1.35
+        and close_position >= 0.6
+        and no_long_upper_shadow
+    )
+
     score = (
         min(max(return20, -20), 40) * 0.9
         + min(max(return60, -30), 70) * 0.42
@@ -426,6 +482,7 @@ def summarize_symbol(path, market_code):
         "volume": volumes[-1],
         "turnover": round(close * volumes[-1]),
         "avgTurnover20": round(avg_turnover20),
+        "return5": round(return5, 2),
         "return20": round(return20, 2),
         "return60": round(return60, 2),
         "ma10": round(ma10, 2),
@@ -443,8 +500,12 @@ def summarize_symbol(path, market_code):
         "volumeRatio20": round(volume_ratio, 2),
         "volumeDry5": volume_dry5,
         "rangePct5": round(range_pct5, 2),
+        "priorRangePct5": round(prior_range_pct5, 2),
+        "priorRangePct10": round(prior_range_pct10, 2),
         "avgDailyRange20": round(avg_daily_range20, 2),
         "daysSinceHigh100": days_since_high100,
+        "weeklyMa5": round(weekly_ma5, 2),
+        "weeklyMa13": round(weekly_ma13, 2),
         "volatility20": round(volatility20, 2),
         "score": round(max(0, min(99, score)), 1),
         "risk": "高" if volatility20 >= 55 else ("中" if volatility20 >= 32 else "低"),
@@ -478,6 +539,11 @@ def summarize_symbol(path, market_code):
             "attackKPlatform": attack_k_platform,
             "firstPullbackAfterHigh": first_pullback_after_high,
             "tightHighBaseTurnUp": tight_high_base_turnup,
+            "vcpVolatilityContraction": vcp_volatility_contraction,
+            "weeklyTrendFirstPullback": weekly_trend_first_pullback,
+            "repeatedHighChallenge": repeated_high_challenge,
+            "sectorSecondWave": False,
+            "falseBreakdownReclaim": false_breakdown_reclaim,
         },
         "series": [
             {
@@ -513,6 +579,35 @@ def sector_stats(stocks):
             }
         )
     return sorted(stats, key=lambda item: item["score"], reverse=True)
+
+
+def apply_sector_second_wave(stocks):
+    groups = {}
+    for stock in stocks:
+        groups.setdefault(stock["sector"], []).append(stock)
+
+    for items in groups.values():
+        if len(items) < 5:
+            continue
+        active_count = sum(1 for item in items if item["return5"] > 0 and item["close"] >= item["ma20"])
+        if active_count < 3:
+            continue
+
+        ranked = sorted(items, key=lambda item: item["return20"], reverse=True)
+        denominator = max(1, len(ranked) - 1)
+        for rank, stock in enumerate(ranked):
+            rank_pct = rank / denominator
+            stock["sectorReturn20RankPct"] = round(rank_pct, 3)
+            stock["sectorActiveCount"] = active_count
+            stock["passes"]["sectorSecondWave"] = (
+                0.1 <= rank_pct <= 0.4
+                and 0 <= stock["return20"] <= 25
+                and stock["return5"] >= -1
+                and stock["close"] >= stock["ma20"]
+                and stock["distanceHigh60"] >= -8
+                and stock["volumeRatio20"] <= 1.4
+                and stock["closePosition"] >= 0.5
+            )
 
 
 STRATEGY_DEFINITIONS = [
@@ -769,6 +864,51 @@ STRATEGY_DEFINITIONS = [
         "criteria": "距60日高點>=-5%；近5日振幅收斂；5日均量<=20日均量；收盤突破近5日壓力",
     },
     {
+        "key": "vcpVolatilityContraction",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "VCP 波動收縮突破",
+        "description": "強勢股回檔區間逐步縮小、量能收斂，最後重新突破短平台，偏向波段起漲前整理。",
+        "tags": ["VCP", "收縮", "突破"],
+        "criteria": "60日報酬>10%；距60日高點>=-6%；MA20>MA60；5日振幅小於前5日；量縮後突破5日高點",
+    },
+    {
+        "key": "weeklyTrendFirstPullback",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "週線多頭日線首回",
+        "description": "週線趨勢維持多頭，日線第一次回測 MA20 附近且量能未失控，適合找波段低風險切入點。",
+        "tags": ["週線", "首回", "波段"],
+        "criteria": "13週代理趨勢向上；60日報酬>8%；日線回測MA20且收回；今日量<=20日均量1.1倍",
+    },
+    {
+        "key": "repeatedHighChallenge",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "新高連續挑戰小回檔",
+        "description": "近 20 日多次接近 60 日高點，短線小回檔不破均線後再轉強，比單日新高更重視持續性。",
+        "tags": ["連續新高", "小回檔", "續漲"],
+        "criteria": "近20日至少3次貼近60日高點；20日報酬3%~25%；守MA10/MA20；量能不過熱",
+    },
+    {
+        "key": "sectorSecondWave",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "強族群第二棒",
+        "description": "同族群已有多檔轉強，挑選相對強但尚未最過熱的第二棒或第三棒，降低追第一棒風險。",
+        "tags": ["族群", "第二棒", "相對強弱"],
+        "criteria": "同族群至少3檔短線轉強；個股20日報酬位於族群前10%~40%；站上MA20且距60日高點>=-8%",
+    },
+    {
+        "key": "falseBreakdownReclaim",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "假跌破後收回",
+        "description": "強勢股盤中跌破 MA10 或短平台低點後收回，並重新站上前一日高點附近，觀察洗盤後續攻。",
+        "tags": ["假跌破", "洗盤", "收回"],
+        "criteria": "距60日高點>=-8%；盤中跌破MA10或5日低點；收盤站回MA10並接近前高；量能未失控",
+    },
+    {
         "key": "riskControlList",
         "tier": "admin",
         "tierLabel": "管理員",
@@ -906,6 +1046,7 @@ def build():
 
     theme_heat = build_theme_heat(stocks, theme_data)
     apply_theme_boost(stocks, theme_heat)
+    apply_sector_second_wave(stocks)
 
     stocks.sort(key=lambda item: (item.get("rankScore", item["score"]), item["turnover"]), reverse=True)
     candidates = [stock for stock in stocks if stock.get("rankScore", stock["score"]) >= 35][:220]

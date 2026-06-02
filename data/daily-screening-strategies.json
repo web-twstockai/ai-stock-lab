@@ -36,6 +36,12 @@
       "tightHighBaseTurnUp",
       "firstPullbackAfterHigh"
     ],
-    "warehouse": []
+    "warehouse": [
+      "vcpVolatilityContraction",
+      "weeklyTrendFirstPullback",
+      "repeatedHighChallenge",
+      "sectorSecondWave",
+      "falseBreakdownReclaim"
+    ]
   }
 }
