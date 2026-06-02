@@ -91,22 +91,91 @@
     return level >= 1;
   };
   const watchlistBaseKey = "aiStockLabWatchlist";
+  let remoteWatchlist = null;
+  let watchlistLoadPromise = null;
   const currentAccount = () => authUser()?.account || "guest";
   const scopedStorageKey = (base) => `${base}:${currentAccount()}`;
-  const readWatchlist = () => {
+  const normalizeWatchlist = (list) => Array.from(new Set((Array.isArray(list) ? list : [])
+    .map((item) => String(item || "").trim())
+    .filter(Boolean)));
+  const readLocalWatchlist = () => {
     try {
       const list = JSON.parse(localStorage.getItem(scopedStorageKey(watchlistBaseKey)) || "[]");
-      return Array.isArray(list) ? list.filter(Boolean) : [];
+      return normalizeWatchlist(list);
     } catch (_) {
       return [];
     }
   };
-  const writeWatchlist = (list) => {
+  const readWatchlist = () => remoteWatchlist ? [...remoteWatchlist] : readLocalWatchlist();
+  const writeLocalWatchlist = (list) => {
     try {
-      localStorage.setItem(scopedStorageKey(watchlistBaseKey), JSON.stringify(Array.from(new Set(list))));
+      localStorage.setItem(scopedStorageKey(watchlistBaseKey), JSON.stringify(normalizeWatchlist(list)));
     } catch (_) {}
   };
+  const writeWatchlist = (list) => {
+    const next = normalizeWatchlist(list);
+    remoteWatchlist = next;
+    writeLocalWatchlist(next);
+    syncWatchlistToSupabase(next);
+  };
   const canAddWatchlist = (list) => effectiveRole(authUser()) !== "basic" || list.length < 5;
+  async function currentSupabaseUser() {
+    const supabase = await window.AIStockSupabase?.client?.();
+    if (!supabase) return null;
+    const { data, error } = await supabase.auth.getUser();
+    if (error) throw error;
+    return data?.user || null;
+  }
+  async function persistWatchlistToSupabase(user, list) {
+    const supabase = await window.AIStockSupabase?.client?.();
+    if (!supabase || !user?.id) return;
+    const { error: deleteError } = await supabase.from("watchlist_items").delete().eq("user_id", user.id);
+    if (deleteError) throw deleteError;
+    const rows = normalizeWatchlist(list).map((symbol) => ({ user_id: user.id, symbol }));
+    if (rows.length) {
+      const { error } = await supabase.from("watchlist_items").insert(rows);
+      if (error) throw error;
+    }
+  }
+  async function syncWatchlistToSupabase(list) {
+    try {
+      const user = await currentSupabaseUser();
+      if (!user) return;
+      await persistWatchlistToSupabase(user, list);
+    } catch (error) {
+      console.warn("[AI Stock Lab] watchlist sync failed", error);
+    }
+  }
+  async function loadWatchlistFromSupabase() {
+    if (watchlistLoadPromise) return watchlistLoadPromise;
+    watchlistLoadPromise = (async () => {
+      try {
+        const supabase = await window.AIStockSupabase?.client?.();
+        const user = await currentSupabaseUser();
+        if (!supabase || !user?.id) return readWatchlist();
+        const { data, error } = await supabase
+          .from("watchlist_items")
+          .select("symbol")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: false });
+        if (error) throw error;
+        const local = readLocalWatchlist();
+        const merged = normalizeWatchlist([...(data || []).map((item) => item.symbol), ...local]);
+        remoteWatchlist = merged;
+        writeLocalWatchlist(merged);
+        if (merged.length !== (data || []).length || merged.some((symbol, index) => symbol !== data[index]?.symbol)) {
+          await persistWatchlistToSupabase(user, merged);
+        }
+        return merged;
+      } catch (error) {
+        console.warn("[AI Stock Lab] watchlist load failed", error);
+        return readWatchlist();
+      } finally {
+        watchlistLoadPromise = null;
+      }
+    })();
+    return watchlistLoadPromise;
+  }
 
   function updateStatusDates(dateText) {
     $$("strong").forEach((node) => {
@@ -449,6 +518,7 @@
       renderRows();
     });
     renderRows();
+    loadWatchlistFromSupabase().then(updateFavoriteButtons);
     text($$(".detail-side h2")[0], "策略說明");
     text($$(".detail-side p")[0], `${strategy.description} 條件：${strategy.criteria || "依日線價量與波動資料計算"}`);
     const conditionList = $$(".condition-list")[0];

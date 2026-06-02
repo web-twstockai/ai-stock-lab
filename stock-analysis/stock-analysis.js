@@ -73,6 +73,8 @@
   let volumeObserver;
   let favoriteNoticeTimer;
   let regularBoardVolumePromise;
+  let remoteWatchlist = null;
+  let watchlistLoadPromise = null;
 
   function setupChartSurface() {
     if (!chartScroll) return;
@@ -173,6 +175,10 @@
     loadCompanyUniverse();
     loadRevenueUniverse();
     loadRegularBoardVolume();
+    loadWatchlistFromSupabase().then(() => {
+      renderWatchlistSelect();
+      updateFavoriteState();
+    });
 
     favorite?.addEventListener("click", () => {
       if (!state.symbol) return;
@@ -362,19 +368,101 @@
     return `${base}:${currentAccount()}`;
   }
 
-  function readWatchlist() {
+  function normalizeWatchlist(list) {
+    return Array.from(new Set((Array.isArray(list) ? list : [])
+      .map((item) => String(item || "").trim())
+      .filter(Boolean)));
+  }
+
+  function readLocalWatchlist() {
     try {
       const list = JSON.parse(localStorage.getItem(scopedKey(watchlistBaseKey)) || "[]");
-      return Array.isArray(list) ? list.filter(Boolean) : [];
+      return normalizeWatchlist(list);
     } catch (_) {
       return [];
     }
   }
 
-  function writeWatchlist(list) {
+  function readWatchlist() {
+    return remoteWatchlist ? [...remoteWatchlist] : readLocalWatchlist();
+  }
+
+  function writeLocalWatchlist(list) {
     try {
-      localStorage.setItem(scopedKey(watchlistBaseKey), JSON.stringify(Array.from(new Set(list))));
+      localStorage.setItem(scopedKey(watchlistBaseKey), JSON.stringify(normalizeWatchlist(list)));
     } catch (_) {}
+  }
+
+  function writeWatchlist(list) {
+    const next = normalizeWatchlist(list);
+    remoteWatchlist = next;
+    writeLocalWatchlist(next);
+    syncWatchlistToSupabase(next);
+  }
+
+  async function currentSupabaseUser() {
+    const supabase = await window.AIStockSupabase?.client?.();
+    if (!supabase) return null;
+    const { data, error } = await supabase.auth.getUser();
+    if (error) throw error;
+    return data?.user || null;
+  }
+
+  async function persistWatchlistToSupabase(user, list) {
+    const supabase = await window.AIStockSupabase?.client?.();
+    if (!supabase || !user?.id) return;
+    const { error: deleteError } = await supabase.from("watchlist_items").delete().eq("user_id", user.id);
+    if (deleteError) throw deleteError;
+    const rows = normalizeWatchlist(list).map((symbol) => ({
+      user_id: user.id,
+      symbol,
+      stock_name: stockInfo(symbol).name || null,
+    }));
+    if (rows.length) {
+      const { error } = await supabase.from("watchlist_items").insert(rows);
+      if (error) throw error;
+    }
+  }
+
+  async function syncWatchlistToSupabase(list) {
+    try {
+      const user = await currentSupabaseUser();
+      if (!user) return;
+      await persistWatchlistToSupabase(user, list);
+    } catch (error) {
+      console.warn("[stock-analysis] watchlist sync failed", error);
+    }
+  }
+
+  async function loadWatchlistFromSupabase() {
+    if (watchlistLoadPromise) return watchlistLoadPromise;
+    watchlistLoadPromise = (async () => {
+      try {
+        const supabase = await window.AIStockSupabase?.client?.();
+        const user = await currentSupabaseUser();
+        if (!supabase || !user?.id) return readWatchlist();
+        const { data, error } = await supabase
+          .from("watchlist_items")
+          .select("symbol")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: false });
+        if (error) throw error;
+        const local = readLocalWatchlist();
+        const merged = normalizeWatchlist([...(data || []).map((item) => item.symbol), ...local]);
+        remoteWatchlist = merged;
+        writeLocalWatchlist(merged);
+        if (merged.length !== (data || []).length || merged.some((symbol, index) => symbol !== data[index]?.symbol)) {
+          await persistWatchlistToSupabase(user, merged);
+        }
+        return merged;
+      } catch (error) {
+        console.warn("[stock-analysis] watchlist load failed", error);
+        return readWatchlist();
+      } finally {
+        watchlistLoadPromise = null;
+      }
+    })();
+    return watchlistLoadPromise;
   }
 
   function readLastSymbol() {
