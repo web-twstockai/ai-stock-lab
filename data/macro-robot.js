@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/02 17:28",
+  "updatedAt": "2026/06/02 17:31",
   "status": "運作中",
   "summary": [
     {
@@ -2530,7 +2530,7 @@ window.MacroRobotData = {
       "previous": "52.6",
       "forecast": "48.5",
       "actual": null,
-      "status": "倒數 24 小時",
+      "status": "倒數 23 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -2565,7 +2565,7 @@ window.MacroRobotData = {
       "previous": "52.7",
       "forecast": "47.9",
       "actual": null,
-      "status": "倒數 24 小時",
+      "status": "倒數 23 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
