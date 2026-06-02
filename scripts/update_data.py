@@ -3,6 +3,8 @@ import json
 import math
 import ssl
 import statistics
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -69,9 +71,25 @@ TECH_SECTORS = {"半導體", "電腦週邊", "光電", "通信網路", "電子�
 
 def http_json(url):
     context = ssl._create_unverified_context()
-    request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 AlphaDeck/0.3"})
-    with urllib.request.urlopen(request, timeout=35, context=context) as response:
-        return json.loads(response.read().decode("utf-8-sig"))
+    headers = {
+        "Accept": "application/json,text/plain,*/*",
+        "User-Agent": "Mozilla/5.0 AlphaDeck/0.3",
+    }
+    last_error = None
+    for attempt in range(4):
+        request = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(request, timeout=35, context=context) as response:
+                return json.loads(response.read().decode("utf-8-sig"))
+        except urllib.error.HTTPError as exc:
+            last_error = exc
+            if exc.code < 500 and exc.code != 429:
+                raise
+        except urllib.error.URLError as exc:
+            last_error = exc
+        if attempt < 3:
+            time.sleep(2 * (attempt + 1))
+    raise last_error
 
 
 def to_float(value, default=None):
