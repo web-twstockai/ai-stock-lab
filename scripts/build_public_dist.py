@@ -225,6 +225,8 @@ def write_public_auth_script() -> None:
       role: profile?.role || "basic",
       roleLabel: profile?.role === "admin" ? "Admin" : profile?.role === "advanced" ? "Advanced member" : "Basic member",
       status: profile?.status || "active",
+      advancedApprovedAt: profile?.advanced_approved_at || null,
+      advancedExpiresAt: profile?.advanced_expires_at || null,
       createdAt: profile?.created_at || fallbackUser?.created_at || null,
     };
   }
@@ -493,6 +495,8 @@ def write_public_dashboard_header_script() -> None:
       role: profile?.role || "basic",
       roleLabel: profile?.role === "admin" ? "Admin" : profile?.role === "advanced" ? "Advanced member" : "Basic member",
       status: profile?.status || "active",
+      advancedApprovedAt: profile?.advanced_approved_at || null,
+      advancedExpiresAt: profile?.advanced_expires_at || null,
       createdAt: profile?.created_at || fallbackUser?.created_at || null,
     };
   }
@@ -526,6 +530,10 @@ def write_public_dashboard_header_script() -> None:
   }
 
   function effectiveRole(user) {
+    if (user?.role === "advanced" && user.advancedExpiresAt) {
+      const expiresAt = new Date(user.advancedExpiresAt).getTime();
+      if (!Number.isNaN(expiresAt) && expiresAt <= Date.now()) return "basic";
+    }
     return user?.role || "basic";
   }
 
@@ -544,7 +552,11 @@ def write_public_dashboard_header_script() -> None:
   }
 
   function remainingDaysLabel(user, role) {
-    return role === "advanced" ? "\u7121\u671f\u9650" : "\u7121\u671f\u9650";
+    if (role !== "advanced") return "\u7121\u671f\u9650";
+    const expiresAt = new Date(user.advancedExpiresAt).getTime();
+    if (Number.isNaN(expiresAt)) return "\u672a\u8a2d\u5b9a";
+    const days = Math.max(0, Math.ceil((expiresAt - Date.now()) / 86400000));
+    return `\u5269\u9918 ${days} \u5929`;
   }
 
   function logoSvg() {

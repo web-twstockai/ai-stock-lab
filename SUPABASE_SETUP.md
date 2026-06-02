@@ -14,7 +14,7 @@ SQL Editor -> New query
 supabase/schema.sql
 ```
 
-這會建立 `public.profiles` 與 `public.watchlist_items`，並啟用 Row Level Security。一般會員只能看自己的會員資料與自選股清單，`role = 'admin'` 的管理員可以管理會員資料。
+這會建立 `public.profiles`、`public.watchlist_items` 與 `public.advanced_applications`，並啟用 Row Level Security。一般會員只能看自己的會員資料、自選股清單與進階申請，`role = 'admin'` 的管理員可以管理會員資料與審核申請。
 
 ## 2. Auth 設定
 

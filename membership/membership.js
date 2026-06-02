@@ -30,7 +30,38 @@
     window.AIStockAuth?.openAuth?.(tab);
   }
 
-  function submitAdvancedApplication() {
+  async function supabaseClient() {
+    return window.AIStockSupabase?.client?.() || null;
+  }
+
+  async function submitRemoteApplication(user) {
+    const supabase = await supabaseClient();
+    if (!supabase || !user?.id) return false;
+
+    const { data: existing, error: existingError } = await supabase
+      .from("advanced_applications")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("status", "pending")
+      .maybeSingle();
+    if (existingError) throw existingError;
+    if (existing) {
+      toast("你已送出進階會員申請，目前等待管理員審核。");
+      return true;
+    }
+
+    const { error } = await supabase.from("advanced_applications").insert({
+      user_id: user.id,
+      account: user.account,
+      nickname: user.nickname || user.account,
+      current_role: user.role || "basic",
+      status: "pending",
+    });
+    if (error) throw error;
+    return true;
+  }
+
+  async function submitAdvancedApplication() {
     const user = currentUser();
     if (!user) {
       toast("請先登入基本會員，再回到會員方案頁提交進階申請。");
@@ -48,13 +79,23 @@
       return;
     }
 
+    try {
+      if (await submitRemoteApplication(user)) {
+        toast("進階會員申請已送出，待管理員審核後會設定權限開放天數。");
+        return;
+      }
+    } catch (error) {
+      console.warn("[AI Stock Lab] advanced application sync failed", error);
+      toast(`進階會員申請送出失敗：${error.message || "請稍後再試"}`);
+      return;
+    }
+
     const requests = readRequests();
     const existing = requests.find((item) => item.account === user.account && item.status === "pending");
     if (existing) {
       toast("你已送出進階會員申請，目前等待管理員審核。");
       return;
     }
-
     requests.unshift({
       id: `advanced-${user.account}-${Date.now()}`,
       account: user.account,
@@ -72,6 +113,6 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("[data-membership-register]")?.addEventListener("click", () => openAuth("register"));
-    document.querySelector("[data-advanced-apply]")?.addEventListener("click", submitAdvancedApplication);
+    document.querySelector("[data-advanced-apply]")?.addEventListener("click", () => submitAdvancedApplication());
   });
 })();

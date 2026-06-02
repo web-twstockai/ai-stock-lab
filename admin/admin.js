@@ -83,6 +83,7 @@
     apiUser: null,
     apiStatus: null,
     supabaseUsers: null,
+    advancedRequests: null,
     results: {},
     logs: { normal: { text: "" }, error: { text: "" } },
   };
@@ -158,6 +159,8 @@
       roleLabel: roleLabels[profile.role] || profile.role || "basic",
       status: profile.status || "active",
       createdAt: profile.created_at,
+      advancedApprovedAt: profile.advanced_approved_at,
+      advancedExpiresAt: profile.advanced_expires_at,
       lastLoginAt: profile.last_login_at,
     };
   }
@@ -167,7 +170,7 @@
       const supabase = await supabaseClient();
       const { data, error } = await supabase
         .from("profiles")
-        .select("id, account, nickname, role, status, created_at, updated_at, last_login_at")
+        .select("id, account, nickname, role, status, advanced_approved_at, advanced_expires_at, created_at, updated_at, last_login_at")
         .order("created_at", { ascending: false });
       if (error) throw error;
       state.supabaseUsers = data || [];
@@ -177,16 +180,50 @@
     }
   }
 
-  async function updateSupabaseUserRole(user, role) {
+  async function updateSupabaseUserRole(user, role, extra = {}) {
     if (!user?.id) return false;
     const supabase = await supabaseClient();
-    const { error } = await supabase.from("profiles").update({ role }).eq("id", user.id);
+    const patch = { role, ...extra };
+    const { error } = await supabase.from("profiles").update(patch).eq("id", user.id);
     if (error) throw error;
     await loadSupabaseUsers();
     return true;
   }
 
+  function applicationToRequest(application) {
+    return {
+      id: application.id,
+      userId: application.user_id,
+      account: application.account,
+      nickname: application.nickname,
+      currentRole: application.current_role,
+      status: application.status || "pending",
+      requestedAt: application.requested_at,
+      approvedDays: application.approved_days,
+      expiresAt: application.expires_at,
+      reviewedAt: application.reviewed_at,
+      reviewedBy: application.reviewed_by,
+    };
+  }
+
+  async function loadSupabaseAdvancedRequests() {
+    try {
+      const supabase = await supabaseClient();
+      const { data, error } = await supabase
+        .from("advanced_applications")
+        .select("id, user_id, account, nickname, current_role, status, requested_at, approved_days, expires_at, reviewed_at, reviewed_by")
+        .eq("status", "pending")
+        .order("requested_at", { ascending: false });
+      if (error) throw error;
+      state.advancedRequests = (data || []).map(applicationToRequest);
+    } catch (error) {
+      state.advancedRequests = null;
+      console.warn("[AI Stock Lab] Supabase advanced applications unavailable", error);
+    }
+  }
+
   function readAdvancedRequests() {
+    if (state.advancedRequests) return [...state.advancedRequests];
     try {
       return JSON.parse(getStored(ADVANCED_REQUESTS_KEY) || "[]");
     } catch (_) {
@@ -196,6 +233,16 @@
 
   function writeAdvancedRequests(requests) {
     setStored(ADVANCED_REQUESTS_KEY, JSON.stringify(requests));
+  }
+
+  async function updateSupabaseAdvancedRequest(requestId, patch) {
+    const supabase = await supabaseClient();
+    const { data: userData } = await supabase.auth.getUser();
+    const payload = { ...patch, reviewed_by: userData?.user?.id || null };
+    const { error } = await supabase.from("advanced_applications").update(payload).eq("id", requestId);
+    if (error) throw error;
+    await loadSupabaseAdvancedRequests();
+    return true;
   }
 
   function isAdvancedExpired(user) {
@@ -295,6 +342,7 @@
   async function loadAdminStatus() {
     await loadApiAuth();
     await loadSupabaseUsers();
+    await loadSupabaseAdvancedRequests();
 
     const entries = await Promise.all(healthFiles.map(fetchJson));
     state.results = Object.fromEntries(entries.map((entry) => [entry.key, entry]));
@@ -806,7 +854,7 @@
     }
   }
 
-  document.addEventListener("click", (event) => {
+  document.addEventListener("click", async (event) => {
     const runButton = event.target.closest("[data-run-task]");
     if (runButton) runTask(runButton.dataset.runTask);
 
@@ -862,11 +910,29 @@
       user.roleLabel = roleLabels.advanced;
       user.advancedApprovedAt = now.toISOString();
       user.advancedExpiresAt = expiresAt;
-      writeUsers(users);
-      writeAdvancedRequests(requests.filter((item) => item.id !== requestId));
-      renderUsers();
-      renderAdvancedRequests();
-      showToast(`已核准 ${request.account} 的進階會員權限 ${days} 天。`);
+      try {
+        const updated = await updateSupabaseUserRole(user, "advanced", {
+          advanced_approved_at: user.advancedApprovedAt,
+          advanced_expires_at: expiresAt,
+        });
+        if (updated) {
+          await updateSupabaseAdvancedRequest(requestId, {
+            status: "approved",
+            approved_days: days,
+            expires_at: expiresAt,
+            reviewed_at: now.toISOString(),
+          });
+        } else {
+          writeUsers(users);
+          writeAdvancedRequests(requests.filter((item) => item.id !== requestId));
+        }
+        renderMetrics();
+        renderUsers();
+        renderAdvancedRequests();
+        showToast(`已核准 ${request.account} 的進階會員權限 ${days} 天。`);
+      } catch (error) {
+        showToast(error.message || "核准進階會員申請失敗。");
+      }
       return;
     }
 
@@ -876,9 +942,20 @@
       const requests = readAdvancedRequests();
       const request = requests.find((item) => item.id === requestId);
       if (!request) return;
-      writeAdvancedRequests(requests.filter((item) => item.id !== requestId));
-      renderAdvancedRequests();
-      showToast(`已拒絕 ${request.account} 的進階會員申請。`);
+      try {
+        if (state.advancedRequests) {
+          await updateSupabaseAdvancedRequest(requestId, {
+            status: "rejected",
+            reviewed_at: new Date().toISOString(),
+          });
+        } else {
+          writeAdvancedRequests(requests.filter((item) => item.id !== requestId));
+        }
+        renderAdvancedRequests();
+        showToast(`已拒絕 ${request.account} 的進階會員申請。`);
+      } catch (error) {
+        showToast(error.message || "拒絕進階會員申請失敗。");
+      }
     }
   });
 
@@ -896,7 +973,10 @@
       delete users[account].advancedExpiresAt;
     }
     try {
-      if (!(await updateSupabaseUserRole(users[account], select.value))) {
+      const extra = select.value === "advanced"
+        ? {}
+        : { advanced_approved_at: null, advanced_expires_at: null };
+      if (!(await updateSupabaseUserRole(users[account], select.value, extra))) {
         writeUsers(users);
       }
       renderMetrics();
