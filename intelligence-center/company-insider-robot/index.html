@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>雙券資比偵測機器人 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../../dashboard-header.css" />
+    <link rel="stylesheet" href="../intelligence-center.css" />
+  </head>
+  <body>
+    <div data-dashboard-header data-active="intelligence-center" data-base="../../" data-min-role="advanced"></div>
+    <main class="intel-shell short-ratio-page">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="../">情報中心</a>
+        <span> / 雙券資比偵測機器人</span>
+      </nav>
+
+      <header class="short-ratio-hero">
+        <div class="short-ratio-title">
+          <span class="hero-icon short-ratio-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="14" stroke="#fff" stroke-width="3" />
+              <circle cx="24" cy="24" r="5" fill="#fff" />
+              <path d="M24 7v8M24 33v8M7 24h8M33 24h8" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </span>
+          <div>
+            <h1>雙券資比偵測機器人</h1>
+            <p>追蹤借券、融券與融資變化，偵測空方壓力、軋空燃料與多空籌碼異常。</p>
+          </div>
+        </div>
+        <div class="short-ratio-meta">
+          <button class="back-link" type="button" data-robot-back>← 返回前頁</button>
+          <div class="hero-meta">
+            <span>最近更新</span>
+            <strong data-updated-at>載入中</strong>
+            <em class="status-badge">運作中</em>
+          </div>
+        </div>
+      </header>
+
+      <section class="short-ratio-stats" data-stat-grid aria-label="雙券資比統計"></section>
+
+      <section class="short-ratio-main">
+        <article class="panel short-ratio-list-card">
+          <h2>雙券資比異常清單</h2>
+          <div class="filter-row" data-filter-row aria-label="狀態篩選"></div>
+          <div class="short-ratio-tools">
+            <label class="search-field">
+              <span>⌕</span>
+              <input data-search placeholder="搜尋股票代號或名稱" />
+            </label>
+            <label class="date-field">
+              <span>▣</span>
+              <input data-date type="date" />
+            </label>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table short-ratio-table">
+              <thead>
+                <tr>
+                  <th>股票</th>
+                  <th>雙券資比</th>
+                  <th>融資餘額</th>
+                  <th>融券餘額</th>
+                  <th>借券賣出</th>
+                  <th>狀態</th>
+                  <th>時間</th>
+                </tr>
+              </thead>
+              <tbody data-stock-table></tbody>
+            </table>
+          </div>
+          <div class="pagination short-ratio-pagination">
+            <span data-total-text>共 0 筆</span>
+            <div class="page-controls" data-pagination></div>
+          </div>
+        </article>
+
+        <aside class="analysis-card short-ratio-analysis-card">
+          <h2>雙券資比詳細分析</h2>
+          <div data-detail-card></div>
+        </aside>
+      </section>
+
+      <section class="short-ratio-chart-grid" data-chart-grid aria-label="雙券資比 TOP 5"></section>
+
+      <footer class="short-ratio-footnote">
+        <span>註：雙券資比 =（借券賣出餘額 + 融券餘額）/ 融資餘額 × 100%</span>
+        <span>資料來源：臺灣證券交易所（上市）</span>
+        <span>僅供參考，投資請審慎評估</span>
+      </footer>
+    </main>
+    <script src="../../dashboard-header.js"></script>
+    <script src="../../data/shortMarginRatioMockData.js?v=20260601-ratio-official"></script>
+    <script src="../../services/shortMarginRatioService.js?v=20260601-ratio-ui"></script>
+    <script src="../robot-back.js"></script>
+    <script src="company-insider-robot.js?v=20260601-ratio-ui"></script>
+  </body>
+</html>

@@ -1,0 +1,837 @@
+{
+  "channel": "投資腦袋の熊敖",
+  "channelId": "UCQ9fNvNHNRQkqFgOCPpu5dg",
+  "channelUrl": "https://www.youtube.com/@bh1908/videos",
+  "videoCount": 82,
+  "reviewMethod": "Public video title and metadata scan. Captions were unavailable through yt-dlp for tested videos, so indicator rules are transparent OHLCV/fundamental proxies rather than transcript quotations.",
+  "entries": [
+    {
+      "index": 1,
+      "id": "mtlUBTJWp9A",
+      "title": "再不學就晚了！揭秘大戶都在用的「飆股篩選公式」！噴發前暗藏3大特徵！徹底解決選股困擾！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 597.0,
+      "url": "https://www.youtube.com/watch?v=mtlUBTJWp9A",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_big_player_breakout_formula"
+      ]
+    },
+    {
+      "index": 2,
+      "id": "zZ6Gqi_NY1w",
+      "title": "太恐怖了！最強零延遲AI指標，訊號從此領先市場！最新AI 演算技術震撼問世！錯過注定落後別人（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 554.0,
+      "url": "https://www.youtube.com/watch?v=zZ6Gqi_NY1w",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_zero_lag_ai_proxy"
+      ]
+    },
+    {
+      "index": 3,
+      "id": "Er669XqGMBA",
+      "title": "【實戰】每日一小時-精準套利法！上班族驗證加薪32萬！短時間最高回報的完整攻略！90% 的人都輸在做太多！(附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 514.0,
+      "url": "https://www.youtube.com/watch?v=Er669XqGMBA",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 4,
+      "id": "cK0QKdqMZYA",
+      "title": "RSI 翻倍隱藏用法！這訊號的出現，經常出現暴漲行情！精準捕捉暴漲行情的啟動點！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 544.0,
+      "url": "https://www.youtube.com/watch?v=cK0QKdqMZYA",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_rsi_launch_point"
+      ]
+    },
+    {
+      "index": 5,
+      "id": "u3YJDGOuNuc",
+      "title": "新手學會『K線階梯法』，勝率飆升到 85% ！丟掉所有延遲指標，別再被騙進場！交易越簡單越暴利！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 462.0,
+      "url": "https://www.youtube.com/watch?v=u3YJDGOuNuc",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_kline_stair_trend"
+      ]
+    },
+    {
+      "index": 6,
+      "id": "ygzzFJQjoLY",
+      "title": "布林通道 + 批量操作法＝布林逆轉系統！從慘賠到資產翻三倍真實案例！新手也能複製的翻倍路徑！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 524.0,
+      "url": "https://www.youtube.com/watch?v=ygzzFJQjoLY",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_bollinger_reversal_batch"
+      ]
+    },
+    {
+      "index": 7,
+      "id": "-8HVQDBRueM",
+      "title": "散戶都用錯MA 均線！公開高手才懂的『扣抵值』神操作，勝率直接翻倍！擺脫金叉買進就套牢！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 487.0,
+      "url": "https://www.youtube.com/watch?v=-8HVQDBRueM",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_ma_deduction_value"
+      ]
+    },
+    {
+      "index": 8,
+      "id": "SPerBx16hMA",
+      "title": "【實戰解析】SMC聰明線最強用法！一套能直接在實戰使用的交易流程！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 657.0,
+      "url": "https://www.youtube.com/watch?v=SPerBx16hMA",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_smc_smart_money_line"
+      ]
+    },
+    {
+      "index": 9,
+      "id": "QknUwOqT4-4",
+      "title": "本益成長比-掌握飆股成功率最高用法！快速看穿隱藏市場飆股！本益比的進階指標！一般人都忽略的強大工具！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 516.0,
+      "url": "https://www.youtube.com/watch?v=QknUwOqT4-4",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_peg_growth_breakout"
+      ]
+    },
+    {
+      "index": 10,
+      "id": "tcsMYy1B-kU",
+      "title": "MACD短線交易，買在低點最準的用法！只要這樣搭配K線，解決macd失準！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 535.0,
+      "url": "https://www.youtube.com/watch?v=tcsMYy1B-kU",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_kline_low_point"
+      ]
+    },
+    {
+      "index": 11,
+      "id": "eD7BT99K-Z8",
+      "title": "黃金迎來最慘跌幅！牛市飆漲已結束？黃金還能入手嗎？一口氣了解黃金走勢！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 679.0,
+      "url": "https://www.youtube.com/watch?v=eD7BT99K-Z8",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 12,
+      "id": "dCQg9XYrroc",
+      "title": "成交量分布圖：進出場最準的用法！驗證一天獲利7萬9台幣！實戰操作完整解析！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 654.0,
+      "url": "https://www.youtube.com/watch?v=dCQg9XYrroc",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_volume_profile_acceptance"
+      ]
+    },
+    {
+      "index": 13,
+      "id": "zHhiWJ6u1M4",
+      "title": "【震驚】為什麼越有錢的人，反而負債越多？負債轉為資產的秘訣！窮人存錢，富人拼命借錢！普通人底層翻身全攻略！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 564.0,
+      "url": "https://www.youtube.com/watch?v=zHhiWJ6u1M4",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 14,
+      "id": "_sN8CxKwMTM",
+      "title": "【長期獲利】關鍵三步驟，新手快速成為交易高手！讓你不畏懼風險的秘訣！風險轉換高收益的技巧！市場長久生存的必看的一集！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 533.0,
+      "url": "https://www.youtube.com/watch?v=_sN8CxKwMTM",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 15,
+      "id": "huFMxPk3N5c",
+      "title": "【震撼】MACD高勝率操作流程公開！指標用不準就是缺少這關鍵步驟,！90%的人都用錯指標真正用法！會讓你忍不住重複觀看的一集！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 453.0,
+      "url": "https://www.youtube.com/watch?v=huFMxPk3N5c",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_kline_low_point"
+      ]
+    },
+    {
+      "index": 16,
+      "id": "NzhcoZtaB2U",
+      "title": "【久等了】全職交易者的秘訣！重複六步驟，實現穩定獲利！連老手都不知道！從此不再靠感覺交易！忍不住想重複觀看的一集！（上集）（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 799.0,
+      "url": "https://www.youtube.com/watch?v=NzhcoZtaB2U",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 17,
+      "id": "ZX-1wd5Omac",
+      "title": "【別點進來】趨勢線最頂級用法！解決你趨勢判斷不好的所有問題！判斷趨勢不再失效！掌握趨勢起漲關鍵位！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 532.0,
+      "url": "https://www.youtube.com/watch?v=ZX-1wd5Omac",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_trendline_breakout_quality"
+      ]
+    },
+    {
+      "index": 18,
+      "id": "1T2M7AkoIiE",
+      "title": "【限時公開】SMC聰明錢全攻略！比macd更準更好用！追蹤主力動向的秘訣！五步驟帶你進出場！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 698.0,
+      "url": "https://www.youtube.com/watch?v=1T2M7AkoIiE",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_smc_smart_money_line"
+      ]
+    },
+    {
+      "index": 19,
+      "id": "wq-h5PT3coI",
+      "title": "【揭秘】成交量指標 提高勝率的必備神器！強化交易策略最好用的秘訣！解析三大秘訣：k線更強動能動能／辨識MACD假訊號／提前掌握趨勢變盤（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 496.0,
+      "url": "https://www.youtube.com/watch?v=wq-h5PT3coI",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_volume_confirmation"
+      ]
+    },
+    {
+      "index": 20,
+      "id": "lpL6e-JJ8yg",
+      "title": "【川普關稅】 Vegas雙通道短線交易法！新手驗證1小時賺4萬台幣！不再使用布林通道的原因！市場崩盤 黑色星期一（4月7日實戰交易解析）內有福利彩蛋！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 776.0,
+      "url": "https://www.youtube.com/watch?v=lpL6e-JJ8yg",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_vegas_dual_channel"
+      ]
+    },
+    {
+      "index": 21,
+      "id": "u21i6iXiUrw",
+      "title": "K線三秒看透趨勢起漲！一買就賺的用法！沒學會注定套牢！新手也能快速掌握！解決MACD RSI KD指標通病！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 507.0,
+      "url": "https://www.youtube.com/watch?v=u21i6iXiUrw",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_kline_trend_3sec"
+      ]
+    },
+    {
+      "index": 22,
+      "id": "3ewWAWU7uD8",
+      "title": "【出乎意料】 程式能取代手動交易？新手到高手抄捷徑的秘訣！擺脫投資賠錢的困境！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 515.0,
+      "url": "https://www.youtube.com/watch?v=3ewWAWU7uD8",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 23,
+      "id": "kz6DplTdAU0",
+      "title": "【 揭秘 】1.5萬賺到1.5億的致富策略！短線MACD+均線乖離率！最強散戶短線策略公開！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 510.0,
+      "url": "https://www.youtube.com/watch?v=kz6DplTdAU0",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_bias_short_swing"
+      ]
+    },
+    {
+      "index": 24,
+      "id": "gID2GpGGFO4",
+      "title": "【不可不知】支撐壓力最精準的用法！2025不可不知的關鍵買賣點！別再用傳統方式判斷支撐壓力！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 494.0,
+      "url": "https://www.youtube.com/watch?v=gID2GpGGFO4",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_support_resistance_strength"
+      ]
+    },
+    {
+      "index": 25,
+      "id": "WO_dqq7d6wI",
+      "title": "判斷K線走勢，最準確得用法！新手最快掌握走勢的秘訣！讓你判斷K線不再失效！還沒看過這集，千萬別做交易！哪個週期判斷K線最準確？注意這細節，讓你贏過大部分投資人！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 595.0,
+      "url": "https://www.youtube.com/watch?v=WO_dqq7d6wI",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_kline_trend_3sec"
+      ]
+    },
+    {
+      "index": 26,
+      "id": "DG7peePrNac",
+      "title": "不懂這投資能力之前，千萬別做投資交易！想由虧轉盈靠這招！搞懂了就能儘早賺錢！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 604.0,
+      "url": "https://www.youtube.com/watch?v=DG7peePrNac",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 27,
+      "id": "95amZtPVII8",
+      "title": "Vegas雙通道交易法！比布林通道更準更穩！公開新手財富快速增長的實際案例！買入飆股的細節sop解說！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 648.0,
+      "url": "https://www.youtube.com/watch?v=95amZtPVII8",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_vegas_dual_channel"
+      ]
+    },
+    {
+      "index": 28,
+      "id": "tcGJrYQ7PLw",
+      "title": "這才是KD高勝率策略！交易沒搞懂這細節將注定賠錢！如何操作短線交易？提高交易勝率的技巧！簡單動作，讓你少走冤旺路！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 560.0,
+      "url": "https://www.youtube.com/watch?v=tcGJrYQ7PLw",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_kd_trend_setup"
+      ]
+    },
+    {
+      "index": 29,
+      "id": "H02YhxDkCYA",
+      "title": "投資新手獲利最快的趨勢策略！精準抓住趨勢的買賣點！掌握趨勢必須搞懂的趨勢規律！交易不要再盯盤了！投資新手公開獲利五倍的成功關鍵！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 854.0,
+      "url": "https://www.youtube.com/watch?v=H02YhxDkCYA",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 30,
+      "id": "YmPNCJXd4K8",
+      "title": "【先說聲抱歉  】DMI指標：解決趨勢交易所有問題！辨識趨勢動能的強弱！掌握趨勢最簡單的方法！精通DMI讓你多空兩邊賺！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 527.0,
+      "url": "https://www.youtube.com/watch?v=YmPNCJXd4K8",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_dmi_trend_strength"
+      ]
+    },
+    {
+      "index": 31,
+      "id": "PWWqaW0RwZw",
+      "title": "杯柄型態：一招掌握市場飆股！揭露台積電暴漲的關鍵！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 573.0,
+      "url": "https://www.youtube.com/watch?v=PWWqaW0RwZw",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "cup_handle_proxy"
+      ]
+    },
+    {
+      "index": 32,
+      "id": "ZsKnUmVahx4",
+      "title": "【務必收藏】假突破+K線+EMA！投資賺錢必須搞懂的細節運用！EMA策略+破解假突破＝投資成功（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 598.0,
+      "url": "https://www.youtube.com/watch?v=ZsKnUmVahx4",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_ema_false_breakout_reclaim"
+      ]
+    },
+    {
+      "index": 33,
+      "id": "SqgOmcSqJmU",
+      "title": "支撐壓力-不再失效的判斷方式！辨識真正高強度的支撐壓力！設置最大獲利位的秘訣！【內藏驚喜大禮】（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 535.0,
+      "url": "https://www.youtube.com/watch?v=SqgOmcSqJmU",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 34,
+      "id": "LkmYZ9TBS00",
+      "title": "【建議收藏】成交量 - 不會騙人的指標用法！強化交易策略的秘訣！這樣做跟著大戶賺大錢！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 520.0,
+      "url": "https://www.youtube.com/watch?v=LkmYZ9TBS00",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_volume_confirmation"
+      ]
+    },
+    {
+      "index": 35,
+      "id": "-T_jj5pnf7A",
+      "title": "MACD強化版（最強參數） 指標最精準的用法 / 公開新手賺5倍的完整數據 （附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 926.0,
+      "url": "https://www.youtube.com/watch?v=-T_jj5pnf7A",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_kline_low_point"
+      ]
+    },
+    {
+      "index": 36,
+      "id": "H9u51K0-bbs",
+      "title": "MACD+KDJ=MJ強化版！高勝率最簡單的用法！讓指標不再失效！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 518.0,
+      "url": "https://www.youtube.com/watch?v=H9u51K0-bbs",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_kdj_combo"
+      ]
+    },
+    {
+      "index": 37,
+      "id": "anIIlaW7Rao",
+      "title": "【非常強大】布林通道＋RSI！指標搭配最準確的用法！讓指標不再失效！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 543.0,
+      "url": "https://www.youtube.com/watch?v=anIIlaW7Rao",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_bollinger_rsi_reversal"
+      ]
+    },
+    {
+      "index": 38,
+      "id": "5HSS4pz8WKw",
+      "title": "MACD獲利最快的用法！不會延遲的私藏判斷！MACD最有效的賺錢時機！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 563.0,
+      "url": "https://www.youtube.com/watch?v=5HSS4pz8WKw",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_bias_short_swing"
+      ]
+    },
+    {
+      "index": 39,
+      "id": "Wlqtzowv6z0",
+      "title": "挑選飆股最強用法！快速篩選有潛力的股票！不懂就注定落後別人！新手也能快速上手！  (附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 536.0,
+      "url": "https://www.youtube.com/watch?v=Wlqtzowv6z0",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_big_player_breakout_formula"
+      ]
+    },
+    {
+      "index": 40,
+      "id": "gM2d9flEuz8",
+      "title": "【必看 】移動止損：掌握高報酬的最強用法！穩賺不賠的唯一方法！小資金賺大錢的秘訣！  (附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 645.0,
+      "url": "https://www.youtube.com/watch?v=gM2d9flEuz8",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 41,
+      "id": "-icSOMaf_bA",
+      "title": "【高含金量】移動止盈：獲利最大化的秘訣！這招大幅提升獲利值！直接現賺140萬  (附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 641.0,
+      "url": "https://www.youtube.com/watch?v=-icSOMaf_bA",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 42,
+      "id": "OMrtEzqr4Io",
+      "title": "網格自動化交易的套利秘訣！第一次操作快速賺進3萬台幣！網格交易賺錢的最佳時機！ (附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 786.0,
+      "url": "https://www.youtube.com/watch?v=OMrtEzqr4Io",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 43,
+      "id": "Oj9SatilbIk",
+      "title": "【重磅教學】EMA暴漲關鍵訊號！新手報酬率+456% (完整數據公開) - (附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 619.0,
+      "url": "https://www.youtube.com/watch?v=Oj9SatilbIk",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_ema_false_breakout_reclaim"
+      ]
+    },
+    {
+      "index": 44,
+      "id": "_hpnMgyf9aw",
+      "title": "【警告】K線三種走勢   精通整個盤面訊號！沒搞懂千萬別投資！95%都學錯才會虧錢！從新手到精通！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 670.0,
+      "url": "https://www.youtube.com/watch?v=_hpnMgyf9aw",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 45,
+      "id": "uGaJ8ifdBiU",
+      "title": "【不看不行】一口氣摸透 K線關鍵反轉！千萬不能忽略，K線三種階段裡其中任何一種！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 644.0,
+      "url": "https://www.youtube.com/watch?v=uGaJ8ifdBiU",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 46,
+      "id": "4eHTxVmh590",
+      "title": "【最強乾貨】斐波那契：大幅提高你交易勝率！解決交易市場公認，最容易產生虧損的行情！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 598.0,
+      "url": "https://www.youtube.com/watch?v=4eHTxVmh590",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_fibonacci_pullback"
+      ]
+    },
+    {
+      "index": 47,
+      "id": "4kf47ffNock",
+      "title": "窮人在投資市場致富 (真實經歷)！成功四大步驟！別再說努力沒有用了！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 516.0,
+      "url": "https://www.youtube.com/watch?v=4kf47ffNock",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 48,
+      "id": "7BW4niqSTs8",
+      "title": "使你無法穩定獲利，4個交易致命傷！比學習任何技術分析.指標都更重要的一集！（附中文字幕）投資腦袋の熊敖",
+      "durationSeconds": 513.0,
+      "url": "https://www.youtube.com/watch?v=7BW4niqSTs8",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 49,
+      "id": "zCBe-n1IXXE",
+      "title": "KDJ：交易賺錢必須懂的指標！這才是賺錢交易者的用法！學員一天賺15萬-解析！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 703.0,
+      "url": "https://www.youtube.com/watch?v=zCBe-n1IXXE",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_kdj_combo"
+      ]
+    },
+    {
+      "index": 50,
+      "id": "yVaUirbGBcI",
+      "title": "ATR指標：價格漲跌都在它掌控之中！止損止盈的進階用法！必須注意三個重要環節（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 473.0,
+      "url": "https://www.youtube.com/watch?v=yVaUirbGBcI",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_atr_risk_box"
+      ]
+    },
+    {
+      "index": 51,
+      "id": "dPA9CX0MiSk",
+      "title": "【重磅教學】OBV指標：價格暴漲由它來決定！大戶最怕你學會的指標！解決所有指標都存在的問題！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 602.0,
+      "url": "https://www.youtube.com/watch?v=dPA9CX0MiSk",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_obv_accumulation_breakout"
+      ]
+    },
+    {
+      "index": 52,
+      "id": "pXrfj36impc",
+      "title": "高盈虧比-交易必備的賺錢能力！掌握高盈虧比的秘訣！學員賺六倍的完整數據！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 500.0,
+      "url": "https://www.youtube.com/watch?v=pXrfj36impc",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 53,
+      "id": "Mg9cTwaB6r0",
+      "title": "精準抓住趨勢高低點的唯一方法！要利用趨勢賺錢，必須了解的四大規律！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 710.0,
+      "url": "https://www.youtube.com/watch?v=Mg9cTwaB6r0",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 54,
+      "id": "a4ca6iWqmKE",
+      "title": "【建議收藏】別再犯了！五種錯誤交易習慣！像高手一樣的操作！這樣做能達到長期收益！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 630.0,
+      "url": "https://www.youtube.com/watch?v=a4ca6iWqmKE",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 55,
+      "id": "jSLO05WDCv0",
+      "title": "別再抄底交易了！這樣持續買進，輕鬆贏過專業投資人！全職交易者密技！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 531.0,
+      "url": "https://www.youtube.com/watch?v=jSLO05WDCv0",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 56,
+      "id": "xv7WO7URZfw",
+      "title": "【建議收藏】為什麼會有假突破？這招破解假突破！從此擺脫韭菜命運！跟著大戶賺錢的秘訣！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 590.0,
+      "url": "https://www.youtube.com/watch?v=xv7WO7URZfw",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 57,
+      "id": "iO3PVkob6fA",
+      "title": "【震驚】將會是你看過MACD最厲害的用法！原來高手都這樣掌握行情！別再用錯方法了！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 657.0,
+      "url": "https://www.youtube.com/watch?v=iO3PVkob6fA",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 58,
+      "id": "sOED7K89HhU",
+      "title": "小資金交易者，獲利快速成長的唯一方法！擺脫社會底層真實案例！學員證實月獲利10萬以上！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 684.0,
+      "url": "https://www.youtube.com/watch?v=sOED7K89HhU",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 59,
+      "id": "eI4Ld_CywiQ",
+      "title": "19歲狠賺千萬，具體策略大公開，人人都能賺大錢的海龜交易法則！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 625.0,
+      "url": "https://www.youtube.com/watch?v=eI4Ld_CywiQ",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "turtle_20d_breakout"
+      ]
+    },
+    {
+      "index": 60,
+      "id": "ToOI0RnJbhU",
+      "title": "交易週期：使用錯誤注定賠錢！選擇你最適合的交易週期！結合交易策略的勝利方程式！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 665.0,
+      "url": "https://www.youtube.com/watch?v=ToOI0RnJbhU",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 61,
+      "id": "TcOu0Un1Qno",
+      "title": "KD指標：高手真正的用法！避免這3個常犯的錯誤！轉換為掌握大行情的技巧！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 769.0,
+      "url": "https://www.youtube.com/watch?v=TcOu0Un1Qno",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_kd_trend_setup"
+      ]
+    },
+    {
+      "index": 62,
+      "id": "w9JkzTqAtzY",
+      "title": "布林通道：4招讓你翻倍賺！2招短線高勝率的方式！2招獲利最大化的技巧！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 616.0,
+      "url": "https://www.youtube.com/watch?v=w9JkzTqAtzY",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_bollinger_reversal_batch"
+      ]
+    },
+    {
+      "index": 63,
+      "id": "5pkYWK4EM1o",
+      "title": "三角收斂型態，交易賺大錢的技巧！這才是正確的用法！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 674.0,
+      "url": "https://www.youtube.com/watch?v=5pkYWK4EM1o",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "triangle_squeeze_proxy"
+      ]
+    },
+    {
+      "index": 64,
+      "id": "rjpO96Fy2Ak",
+      "title": "止損/獲利位最準確的用法！虧損最小化的止損位！獲利最大化的停利位！（附中文字幕）投資腦袋の 熊敖源源不絕的被動收入",
+      "durationSeconds": 896.0,
+      "url": "https://www.youtube.com/watch?v=rjpO96Fy2Ak",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 65,
+      "id": "nNtM929kFWE",
+      "title": "如何挑選飆股，具體步驟大公開！看穿飆股所在的時機點！擁有絕對優勢的交易模式！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 1056.0,
+      "url": "https://www.youtube.com/watch?v=nNtM929kFWE",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_big_player_breakout_formula"
+      ]
+    },
+    {
+      "index": 66,
+      "id": "Huy_X5Ci-As",
+      "title": "SMA＋EMA指標運用！讓交易處於絕對優勢！新手一週獲利14萬！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 661.0,
+      "url": "https://www.youtube.com/watch?v=Huy_X5Ci-As",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_ma_deduction_value"
+      ]
+    },
+    {
+      "index": 67,
+      "id": "rh6zbiQFkoo",
+      "title": "想成為賺錢操盤手，都必須看的一集！成功交易者養成計畫大公開！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 636.0,
+      "url": "https://www.youtube.com/watch?v=rh6zbiQFkoo",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 68,
+      "id": "0teS03V36BA",
+      "title": "建立你最強的交易系統！沒有交易系統將注定失敗！交易策略與交易系統的區別！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 523.0,
+      "url": "https://www.youtube.com/watch?v=0teS03V36BA",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 69,
+      "id": "pwYDJfEMfPk",
+      "title": "RSI 短線最有效的用法！大戶來也不怕！新手也能擁有高勝率！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 547.0,
+      "url": "https://www.youtube.com/watch?v=pwYDJfEMfPk",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_rsi_launch_point"
+      ]
+    },
+    {
+      "index": 70,
+      "id": "zlCLg90R-do",
+      "title": "風險控管：交易賺錢的必勝法則！低勝率竟然能賺大錢！風險控管的具體運用方式！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 658.0,
+      "url": "https://www.youtube.com/watch?v=zlCLg90R-do",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 71,
+      "id": "nwp5kwQU3x0",
+      "title": "支撐/壓力 最賺錢的買賣時機！新手證實一天賺5萬1 (2.0版)！支撐壓力正確的判斷步驟！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 662.0,
+      "url": "https://www.youtube.com/watch?v=nwp5kwQU3x0",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_support_resistance_strength"
+      ]
+    },
+    {
+      "index": 72,
+      "id": "IafJA8bNRlM",
+      "title": "趨勢線最賺錢的用法！新手實戰一天賺5萬1台幣！這才是趨勢線判斷的正確步驟！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 460.0,
+      "url": "https://www.youtube.com/watch?v=IafJA8bNRlM",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_trendline_breakout_quality"
+      ]
+    },
+    {
+      "index": 73,
+      "id": "tVn1KCTjPMI",
+      "title": "MACD勝率最高的用法！新手驗證一天賺3萬6台幣！指標判斷錯誤的問題點！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 571.0,
+      "url": "https://www.youtube.com/watch?v=tVn1KCTjPMI",
+      "actionableIndicator": true,
+      "mappedIndicatorIds": [
+        "bh_macd_kline_low_point"
+      ]
+    },
+    {
+      "index": 74,
+      "id": "Z-FG91_x2kM",
+      "title": "外匯VS股票懂選擇！才是賺錢的關鍵！投資新手或投資賠錢的人必看！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 454.0,
+      "url": "https://www.youtube.com/watch?v=Z-FG91_x2kM",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 75,
+      "id": "kjGBKjZUKE8",
+      "title": "住在精神病房的領悟！ 負面想法為你帶來快樂！擁抱與接納負面想法！（附中文字幕）投資腦袋の 熊敖",
+      "durationSeconds": 731.0,
+      "url": "https://www.youtube.com/watch?v=kjGBKjZUKE8",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 76,
+      "id": "EM0HB9gzPMw",
+      "title": "吸引力法則真的存在的證明！吸引財富的正確用法！揭開有效和無效的差異！（附中文字幕）投資腦袋の無尾熊 I 熊敖 I",
+      "durationSeconds": 346.0,
+      "url": "https://www.youtube.com/watch?v=EM0HB9gzPMw",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 77,
+      "id": "-Mim8S5Zh6A",
+      "title": "被親人詐騙的慘痛經驗！百年受騙不斷的手法！5招識破所有金融詐騙！（附中文字幕）投資腦袋の無尾熊 I 熊敖 I",
+      "durationSeconds": 458.0,
+      "url": "https://www.youtube.com/watch?v=-Mim8S5Zh6A",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 78,
+      "id": "Pg4HN3bf0lE",
+      "title": "巴菲特的價值投資，會害慘你的！股票暴漲關鍵時機！掌握獲利空間的秘訣（附中文字幕）投資腦袋の無尾熊 I 熊敖 I",
+      "durationSeconds": 587.0,
+      "url": "https://www.youtube.com/watch?v=Pg4HN3bf0lE",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 79,
+      "id": "JcxCQMvPCHw",
+      "title": "震驚！股票最有效的賺錢方法！股票買在低點會賠錢！散戶別再被割韭菜了！（附中文字幕）投資腦袋の無尾熊 I 熊敖 I",
+      "durationSeconds": 555.0,
+      "url": "https://www.youtube.com/watch?v=JcxCQMvPCHw",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 80,
+      "id": "Aw_TOHiz6TU",
+      "title": "投資賺錢的真相，原來風險才是獲利來源！利用投資風險，轉換為獲利的關鍵！如何達到『長期且穩定的投資收益』？（附中文字幕）投資腦袋の無尾熊 I 熊敖 I",
+      "durationSeconds": 480.0,
+      "url": "https://www.youtube.com/watch?v=Aw_TOHiz6TU",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 81,
+      "id": "oJN_vAMowws",
+      "title": "省吃儉用反而更窮，巴菲特告訴妳真正原因！避免讓你變窮的五大法則！巴菲特不受市場影響的訣竅！（附中文字幕）投資腦袋の無尾熊 I 熊敖 I",
+      "durationSeconds": 376.0,
+      "url": "https://www.youtube.com/watch?v=oJN_vAMowws",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    },
+    {
+      "index": 82,
+      "id": "lv_TfZzAPEs",
+      "title": "感謝老闆開除我！讓我賺到人生第一間房！讓你快速增長財富的秘訣！（附中文字幕）投資腦袋の無尾熊 I 熊敖 I",
+      "durationSeconds": 465.0,
+      "url": "https://www.youtube.com/watch?v=lv_TfZzAPEs",
+      "actionableIndicator": false,
+      "mappedIndicatorIds": []
+    }
+  ]
+}

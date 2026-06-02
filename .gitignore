@@ -1,0 +1,10 @@
+public-dist/
+data/admin-users.json
+data/admin-audit.jsonl
+data/admin-backups/
+data/admin-jobs/
+data/public-users.sqlite
+data/public-users.sqlite-*
+*.bak
+*.log
+verification-screenshots/

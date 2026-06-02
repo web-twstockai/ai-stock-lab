@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>關於 AI Stock Lab</title>
+    <style>
+      :root {
+        --bg: #f8fbff;
+        --card: rgba(255, 255, 255, 0.86);
+        --blue: #2563eb;
+        --blue-soft: #60a5fa;
+        --blue-pale: #eff6ff;
+        --ink: #0b1b3a;
+        --text: #334155;
+        --muted: #64748b;
+        --line: #e5edf8;
+        --header-line: #e6ecf5;
+        --shadow: 0 18px 45px rgba(37, 99, 235, 0.08);
+        --serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+        --sans: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-width: 320px;
+        min-height: 100%;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 72% 18%, rgba(191, 219, 254, 0.48), transparent 31%),
+          radial-gradient(circle at 14% 80%, rgba(219, 234, 254, 0.38), transparent 27%),
+          var(--bg);
+        font-family: var(--sans);
+      }
+
+      html {
+        overflow-y: scroll;
+        scrollbar-gutter: stable;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .about-page {
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-page::before {
+        content: "";
+        position: absolute;
+        inset: 72px -6% auto -6%;
+        height: 640px;
+        pointer-events: none;
+        opacity: 0.68;
+        background:
+          radial-gradient(circle at 93% 12%, rgba(255, 255, 255, 0.92) 0 2px, transparent 3px) 0 0 / 28px 28px,
+          repeating-radial-gradient(ellipse at 82% 42%, transparent 0 86px, rgba(178, 205, 246, 0.34) 87px 88px),
+          repeating-radial-gradient(ellipse at 20% 58%, transparent 0 122px, rgba(202, 219, 247, 0.32) 123px 124px);
+      }
+
+      .site-header {
+        height: 72px;
+        position: relative;
+        z-index: 10;
+        border-bottom: 1px solid var(--header-line);
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(18px);
+      }
+
+      .header-inner {
+        width: min(100%, 1760px);
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 64px;
+        display: flex;
+        align-items: center;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 23px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 36px;
+        flex: 0 0 auto;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 58px;
+        margin-left: auto;
+      }
+
+      .nav a {
+        position: relative;
+        display: grid;
+        place-items: center;
+        height: 72px;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .nav a.active {
+        color: var(--blue);
+      }
+
+      .nav a.active::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 36px;
+        height: 4px;
+        transform: translateX(-50%);
+        border-radius: 99px;
+        background: linear-gradient(90deg, #2f6df2, #63a6ff);
+      }
+
+      .login {
+        display: grid;
+        place-items: center;
+        width: 96px;
+        height: 40px;
+        margin-left: 58px;
+        border-radius: 16px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        box-shadow: 0 10px 22px rgba(37, 99, 235, 0.24);
+      }
+
+      .page-inner {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 1760px);
+        margin: 0 auto;
+        padding: 66px 64px 0;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        align-items: center;
+        min-height: 336px;
+      }
+
+      .hero-copy {
+        padding-left: 78px;
+        transform: translateY(-4px);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 28px;
+        margin: 0 0 30px;
+        padding: 0 12px;
+        color: var(--blue);
+        border: 1px solid #d8e7ff;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: 0 8px 22px rgba(37, 99, 235, 0.06);
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+
+      .star {
+        width: 14px;
+        height: 14px;
+        position: relative;
+        display: inline-block;
+        flex: 0 0 auto;
+      }
+
+      .star::before,
+      .star::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 14px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6);
+      }
+
+      .star::after {
+        transform: rotate(90deg);
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 64px;
+        line-height: 1.08;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        text-shadow: 0 9px 26px rgba(11, 27, 58, 0.06);
+      }
+
+      .title-line {
+        width: 52px;
+        height: 4px;
+        margin: 30px 0 24px;
+        border-radius: 99px;
+        background: linear-gradient(90deg, var(--blue), #7dd3fc);
+      }
+
+      .lead {
+        max-width: 680px;
+        margin: 0;
+        color: var(--text);
+        font-size: 17px;
+        line-height: 1.86;
+        letter-spacing: 0.04em;
+      }
+
+      .visual {
+        position: relative;
+        min-height: 336px;
+      }
+
+      .halo {
+        position: absolute;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(219, 234, 254, 0.45));
+        box-shadow: inset 0 1px 12px rgba(255, 255, 255, 0.92), 0 24px 55px rgba(37, 99, 235, 0.08);
+      }
+
+      .halo.one {
+        width: 78px;
+        height: 78px;
+        left: 54px;
+        top: 14px;
+      }
+
+      .halo.two {
+        width: 98px;
+        height: 98px;
+        right: 56px;
+        top: 18px;
+      }
+
+      .visual-floor {
+        position: absolute;
+        left: 8px;
+        right: 16px;
+        bottom: 18px;
+        height: 118px;
+        border: 1px solid rgba(219, 234, 254, 0.72);
+        border-radius: 50%;
+        background: radial-gradient(ellipse at center, rgba(147, 197, 253, 0.18), rgba(255, 255, 255, 0) 68%);
+      }
+
+      .glass-panel {
+        position: absolute;
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(239, 246, 255, 0.58));
+        box-shadow: 0 22px 58px rgba(37, 99, 235, 0.13), inset 0 1px 1px rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(12px);
+      }
+
+      .main-panel {
+        width: 380px;
+        height: 188px;
+        right: 132px;
+        top: 28px;
+        border-radius: 24px;
+        transform: perspective(880px) rotateY(-7deg) rotateX(3deg);
+      }
+
+      .main-panel .dot-row {
+        position: absolute;
+        top: 28px;
+        left: 28px;
+        display: flex;
+        gap: 9px;
+      }
+
+      .main-panel .dot-row i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #93c5fd;
+      }
+
+      .main-panel .dot-row i:nth-child(n + 2) {
+        opacity: 0.24;
+      }
+
+      .cube {
+        position: absolute;
+        left: 70px;
+        top: 72px;
+        width: 74px;
+        height: 74px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #eaf3ff, #dceafe);
+      }
+
+      .main-lines {
+        position: absolute;
+        left: 168px;
+        top: 75px;
+        width: 180px;
+      }
+
+      .main-lines i {
+        display: block;
+        height: 9px;
+        margin-bottom: 13px;
+        border-radius: 999px;
+        background: #dbeafe;
+      }
+
+      .main-lines i:nth-child(1) {
+        width: 170px;
+      }
+
+      .main-lines i:nth-child(2) {
+        width: 132px;
+      }
+
+      .main-lines i:nth-child(3) {
+        width: 102px;
+      }
+
+      .ai-card {
+        width: 96px;
+        height: 92px;
+        left: 98px;
+        top: 154px;
+        display: grid;
+        place-items: center;
+        color: #5b86f7;
+        border-radius: 16px;
+        font-size: 28px;
+        font-weight: 900;
+      }
+
+      .bar-card {
+        width: 134px;
+        height: 92px;
+        left: 250px;
+        top: 214px;
+        border-radius: 16px;
+        padding: 16px 18px 13px;
+      }
+
+      .bar-card .bars {
+        height: 58px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .bar-card i {
+        display: block;
+        width: 12px;
+        border-radius: 4px 4px 0 0;
+        background: linear-gradient(180deg, #c7d8ff, #6b92f7);
+      }
+
+      .bar-card i:nth-child(1) { height: 27px; }
+      .bar-card i:nth-child(2) { height: 40px; }
+      .bar-card i:nth-child(3) { height: 56px; }
+      .bar-card i:nth-child(4) { height: 35px; }
+      .bar-card i:nth-child(5) { height: 50px; }
+
+      .pie-card {
+        width: 116px;
+        height: 102px;
+        right: 58px;
+        top: 174px;
+        border-radius: 16px;
+      }
+
+      .pie {
+        position: absolute;
+        left: 22px;
+        top: 26px;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: conic-gradient(#3b82f6 0 28%, #93c5fd 28% 52%, #fff 52% 70%, #dbeafe 70% 100%);
+      }
+
+      .pie::after {
+        content: "";
+        position: absolute;
+        inset: 16px;
+        border-radius: 50%;
+        background: #f8fbff;
+      }
+
+      .pie-lines {
+        position: absolute;
+        right: 16px;
+        top: 31px;
+        width: 26px;
+      }
+
+      .pie-lines i {
+        display: block;
+        height: 6px;
+        margin-bottom: 10px;
+        border-radius: 999px;
+        background: #dbeafe;
+      }
+
+      .content-block {
+        margin-top: 42px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .info-card {
+        min-height: 162px;
+        display: grid;
+        grid-template-columns: 78px minmax(0, 1fr);
+        gap: 22px;
+        align-items: center;
+        padding: 28px 28px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+
+      .icon-disc {
+        width: 68px;
+        height: 68px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #eef6ff, #f8fbff);
+      }
+
+      .icon-disc svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .info-card h2 {
+        margin: 0 0 9px;
+        color: var(--ink);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+
+      .info-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.78;
+        letter-spacing: 0.02em;
+      }
+
+      .process-card {
+        position: relative;
+        min-height: 145px;
+        margin-top: 32px;
+        padding: 48px 94px 28px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+
+      .process-line {
+        position: absolute;
+        left: 288px;
+        right: 288px;
+        top: 29px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #3b82f6, #6ea8ff);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 44px;
+      }
+
+      .step {
+        position: relative;
+        display: grid;
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .step::before {
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: 72px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #3b82f6;
+        box-shadow: 0 0 0 4px #eaf2ff;
+      }
+
+      .step .icon-disc {
+        width: 60px;
+        height: 60px;
+      }
+
+      .step h3 {
+        margin: 0 0 6px;
+        color: var(--ink);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .footer {
+        display: grid;
+        place-items: center;
+        min-height: 62px;
+        color: #94a3b8;
+        font-size: 13px;
+      }
+
+      @media (max-width: 1280px) {
+        .header-inner,
+        .page-inner {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+
+        .hero-copy {
+          padding-left: 38px;
+        }
+
+        h1 {
+          font-size: 56px;
+        }
+
+        .main-panel {
+          right: 76px;
+        }
+
+        .ai-card {
+          left: 58px;
+        }
+
+        .bar-card {
+          left: 202px;
+        }
+
+        .pie-card {
+          right: 18px;
+        }
+
+        .info-card {
+          grid-template-columns: 56px minmax(0, 1fr);
+          gap: 15px;
+          padding: 24px 20px;
+        }
+
+        .icon-disc {
+          width: 54px;
+          height: 54px;
+        }
+
+        .icon-disc svg {
+          width: 29px;
+          height: 29px;
+        }
+
+        .info-card h2 {
+          font-size: 17px;
+        }
+
+        .info-card p {
+          font-size: 12px;
+        }
+
+        .process-card {
+          padding-left: 72px;
+          padding-right: 72px;
+        }
+
+        .process-line {
+          left: 220px;
+          right: 220px;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .header-inner,
+        .page-inner {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+
+        .nav {
+          gap: 34px;
+        }
+
+        .login {
+          margin-left: 34px;
+        }
+
+        .hero {
+          grid-template-columns: 52% 48%;
+          min-height: 270px;
+        }
+
+        .hero-copy {
+          padding-left: 0;
+        }
+
+        h1 {
+          font-size: 42px;
+        }
+
+        .eyebrow {
+          height: 24px;
+          margin-bottom: 18px;
+          font-size: 13px;
+        }
+
+        .title-line {
+          margin: 18px 0 14px;
+        }
+
+        .lead {
+          font-size: 12.5px;
+          line-height: 1.64;
+        }
+
+        .visual {
+          min-height: 270px;
+          transform: scale(0.7) translateX(-82px);
+          transform-origin: center right;
+        }
+
+        .content-block {
+          margin-top: 28px;
+        }
+
+        .info-grid {
+          gap: 16px;
+        }
+
+        .info-card {
+          min-height: 138px;
+          grid-template-columns: 44px minmax(0, 1fr);
+          gap: 12px;
+          padding: 20px 14px;
+        }
+
+        .icon-disc {
+          width: 44px;
+          height: 44px;
+        }
+
+        .icon-disc svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        .info-card h2,
+        .step h3 {
+          font-size: 15px;
+        }
+
+        .info-card p,
+        .step p {
+          font-size: 10.5px;
+          line-height: 1.62;
+        }
+
+        .process-card {
+          min-height: 124px;
+          padding: 40px 52px 20px;
+        }
+
+        .process-line {
+          left: 162px;
+          right: 162px;
+          top: 25px;
+        }
+
+        .steps {
+          gap: 24px;
+        }
+
+        .step {
+          grid-template-columns: 44px minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .step::before {
+          top: -22px;
+          left: 52px;
+          width: 10px;
+          height: 10px;
+        }
+      }
+
+      @media (min-width: 761px) and (max-width: 980px) and (max-height: 700px) {
+        .page-inner {
+          padding-top: 36px;
+          padding-bottom: 0;
+        }
+
+        .hero {
+          grid-template-columns: 52% 48%;
+          min-height: 270px;
+        }
+
+        .eyebrow {
+          height: 24px;
+          margin-bottom: 18px;
+          font-size: 13px;
+        }
+
+        h1 {
+          font-size: 42px;
+        }
+
+        .title-line {
+          margin: 18px 0 14px;
+        }
+
+        .lead {
+          max-width: 500px;
+          font-size: 12.5px;
+          line-height: 1.64;
+        }
+
+        .visual {
+          min-height: 270px;
+          transform: scale(0.7) translateX(-82px);
+          transform-origin: center right;
+        }
+
+        .content-block {
+          margin-top: 28px;
+        }
+
+        .info-card {
+          min-height: 138px;
+          grid-template-columns: 44px minmax(0, 1fr);
+          gap: 12px;
+          padding: 20px 14px;
+        }
+
+        .info-card .icon-disc {
+          width: 44px;
+          height: 44px;
+        }
+
+        .info-card .icon-disc svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        .info-card h2 {
+          font-size: 15px;
+        }
+
+        .info-card p {
+          font-size: 10.5px;
+          line-height: 1.62;
+        }
+
+        .process-card {
+          min-height: 124px;
+          margin-top: 32px;
+          padding: 40px 52px 20px;
+        }
+
+        .process-line {
+          top: 25px;
+          left: 162px;
+          right: 162px;
+        }
+
+        .steps {
+          gap: 24px;
+        }
+
+        .step {
+          grid-template-columns: 44px minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .step::before {
+          top: -22px;
+          left: 52px;
+          width: 10px;
+          height: 10px;
+        }
+
+        .step .icon-disc {
+          width: 44px;
+          height: 44px;
+        }
+
+        .step .icon-disc svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        .step h3 {
+          font-size: 15px;
+        }
+
+        .step p {
+          font-size: 10.5px;
+          line-height: 1.62;
+        }
+
+        .footer {
+          min-height: 62px;
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .site-header {
+          height: auto;
+        }
+
+        .header-inner {
+          min-height: 72px;
+          flex-wrap: wrap;
+          gap: 12px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+
+        .nav {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          gap: 24px;
+        }
+
+        .login {
+          margin-left: auto;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          min-height: auto;
+        }
+
+        .hero-copy {
+          padding-left: 0;
+        }
+
+        h1 {
+          font-size: 42px;
+          white-space: normal;
+        }
+
+        .visual {
+          min-height: 270px;
+        }
+
+        .main-panel {
+          left: 22%;
+          right: auto;
+        }
+
+        .ai-card {
+          left: 18%;
+        }
+
+        .bar-card {
+          left: 40%;
+        }
+
+        .pie-card {
+          right: 18%;
+        }
+
+        .info-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .process-card {
+          padding: 40px 42px 24px;
+        }
+
+        .process-line {
+          display: none;
+        }
+
+        .steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 26px;
+        }
+
+        .step::before {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner,
+        .page-inner {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .brand {
+          font-size: 20px;
+        }
+
+        .nav {
+          gap: 18px;
+          justify-content: space-between;
+        }
+
+        .nav a {
+          font-size: 13px;
+        }
+
+        .login {
+          width: 78px;
+          height: 36px;
+        }
+
+        .page-inner {
+          padding-top: 36px;
+        }
+
+        .eyebrow {
+          max-width: 100%;
+          font-size: 13px;
+        }
+
+        h1 {
+          font-size: 38px;
+        }
+
+        .lead {
+          font-size: 15px;
+        }
+
+        .visual {
+          transform: scale(0.82);
+          transform-origin: top left;
+          width: 122%;
+          min-height: 246px;
+        }
+
+        .info-grid,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .info-card {
+          min-height: auto;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="../site-auth.css" />
+  </head>
+  <body>
+    <div class="about-page">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="../" aria-label="AI Stock Lab 首頁">
+            <svg class="brand-mark" viewBox="0 0 64 50" aria-hidden="true">
+              <defs>
+                <linearGradient id="logoGradient" x1="8" x2="56" y1="44" y2="4">
+                  <stop stop-color="#2563eb" />
+                  <stop offset="1" stop-color="#7dd3fc" />
+                </linearGradient>
+              </defs>
+              <path d="M10 34 24 17l17 14L54 8v33L41 31 24 17v26" fill="none" stroke="url(#logoGradient)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+              <circle cx="10" cy="34" r="5" fill="#2563eb" />
+              <circle cx="24" cy="17" r="5" fill="#60a5fa" />
+              <circle cx="41" cy="31" r="5" fill="#6d86f7" />
+              <circle cx="54" cy="8" r="5" fill="#7dd3fc" />
+            </svg>
+            <span>AI Stock Lab</span>
+          </a>
+          <nav class="nav" aria-label="主導覽">
+            <a href="../">首頁</a>
+            <a href="../membership/">會員方案</a>
+            <a href="../terms/">服務條款與風險</a>
+            <a class="active" href="./">關於</a>
+          </nav>
+          <a class="login" href="../market-overview/">登入</a>
+        </div>
+      </header>
+
+      <main class="page-inner">
+        <section class="hero" aria-label="關於 AI Stock Lab">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="star"></span>以 AI 洞察市場，讓研究更有方向</p>
+            <h1>關於 AI Stock Lab</h1>
+            <div class="title-line"></div>
+            <p class="lead">
+              AI Stock Lab 是一個以 AI 輔助的股票研究與學習網站，<br />
+              協助使用者以更有結構、更有效率的方式，整理資訊、建立觀點、持續成長。
+            </p>
+          </div>
+
+          <div class="visual" aria-hidden="true">
+            <span class="halo one"></span>
+            <span class="halo two"></span>
+            <div class="visual-floor"></div>
+            <div class="glass-panel main-panel">
+              <div class="dot-row"><i></i><i></i><i></i></div>
+              <div class="cube">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <path d="M24 7 38 15v18l-14 8-14-8V15z" fill="#dbeafe" stroke="#93c5fd" stroke-width="2.8" />
+                  <path d="m18 25 5 5 9-13" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="main-lines"><i></i><i></i><i></i></div>
+            </div>
+            <div class="glass-panel ai-card">AI</div>
+            <div class="glass-panel bar-card">
+              <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="glass-panel pie-card">
+              <div class="pie"></div>
+              <div class="pie-lines"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block">
+          <div class="info-grid">
+            <article class="info-card">
+              <span class="icon-disc">
+                <svg viewBox="0 0 48 48" fill="none"><path d="M24 41v-6M18 31h12M16 25a10 10 0 1 1 16 0c-2 2-3 4-3 6H19c0-2-1-4-3-6z" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+              <div>
+                <h2>平台理念</h2>
+                <p>我們相信，投資的本質是理解與紀律。透過 AI 的協助，讓繁雜的資訊變得清晰，讓每一次研究都更有價值。</p>
+              </div>
+            </article>
+            <article class="info-card">
+              <span class="icon-disc">
+                <svg viewBox="0 0 48 48" fill="none"><path d="M9 38h30V12H9zM15 31l7-7 5 4 8-10" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+              <div>
+                <h2>我們在做什麼</h2>
+                <p>整合市場資訊與技術分析，運用 AI 整理重點、提煉觀點，協助使用者建立自己的研究脈絡與投資視角。</p>
+              </div>
+            </article>
+            <article class="info-card">
+              <span class="icon-disc">
+                <svg viewBox="0 0 48 48" fill="none"><circle cx="17" cy="17" r="6" stroke="#3b82f6" stroke-width="3" /><circle cx="31" cy="17" r="6" stroke="#3b82f6" stroke-width="3" /><path d="M8 39c1-7 5-11 9-11s8 4 9 11M22 39c1-7 5-11 9-11s8 4 9 11" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" /></svg>
+              </span>
+              <div>
+                <h2>適合誰使用</h2>
+                <p>無論是投資新手、進階投資人，或是持續學習的研究者，都能在這裡找到適合自己的節奏與方向。</p>
+              </div>
+            </article>
+            <article class="info-card">
+              <span class="icon-disc">
+                <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#3b82f6" stroke-width="3" /><path d="M24 6v8M24 34v8M6 24h8M34 24h8M24 19v10M19 24h10" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" /></svg>
+              </span>
+              <div>
+                <h2>研究方式</h2>
+                <p>以資料為基礎，結合 AI 分析與人工判斷，從整理、比較到推論，建立可重複、可驗證的研究流程。</p>
+              </div>
+            </article>
+          </div>
+
+          <section class="process-card" aria-label="研究流程">
+            <div class="process-line"></div>
+            <div class="steps">
+              <article class="step">
+                <span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M14 8h15l7 7v25H14zM29 8v8h8M20 25h10M20 32h10" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                <div><h3>整理</h3><p>收集與歸納市場資訊<br />建立有結構的知識庫</p></div>
+              </article>
+              <article class="step">
+                <span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M10 13c7-3 13 0 14 4 1-4 7-7 14-4v27c-7-3-13 0-14 4-1-4-7-7-14-4zM24 17v27" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round" /></svg></span>
+                <div><h3>學習</h3><p>理解市場與產業脈絡<br />持續累積知識與經驗</p></div>
+              </article>
+              <article class="step">
+                <span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><circle cx="21" cy="21" r="12" stroke="#3b82f6" stroke-width="3" /><path d="m31 31 9 9" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" /></svg></span>
+                <div><h3>研究</h3><p>運用 AI 協助分析比較<br />形成觀點與投資想法</p></div>
+              </article>
+              <article class="step">
+                <span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M9 39h31M14 34v-8M24 34V16M34 34V10M13 22l9-9 7 6 9-12" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                <div><h3>成長</h3><p>驗證與調整研究方法<br />持續優化，穩健前行</p></div>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <footer class="footer">© 2024 AI Stock Lab. All rights reserved.</footer>
+      </main>
+    </div>
+    <script src="../site-auth.js"></script>
+  </body>
+</html>

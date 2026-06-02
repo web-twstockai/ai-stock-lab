@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>情報中心 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../dashboard-header.css" />
+    <link rel="stylesheet" href="intelligence-center.css" />
+  </head>
+  <body>
+    <div data-dashboard-header data-active="intelligence-center" data-base="../"></div>
+    <main class="intel-shell">
+      <header class="intel-hero">
+        <div class="hero-main">
+          <span class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="10" y="15" width="28" height="24" rx="9" fill="currentColor" opacity=".2" />
+              <rect x="12" y="17" width="24" height="20" rx="8" stroke="#fff" stroke-width="3" />
+              <path d="M18 28h.1M30 28h.1M21 33h6" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+              <path d="M24 9v6M16 11v6M32 11v6" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </span>
+          <div class="hero-text">
+            <h1>AI 情報機器人中心</h1>
+            <p>由多個情報機器人自動追蹤雙券資比、法人機構動向與重大總經數據，協助快速掌握市場關鍵訊號。</p>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <span>最近更新</span>
+          <strong data-updated-at>--</strong>
+          <em class="status-badge">運作中</em>
+        </div>
+      </header>
+
+      <section class="overview-grid" data-overview-cards aria-label="情報中心總覽"></section>
+      <section class="robot-grid" data-robot-grid aria-label="情報機器人"></section>
+    </main>
+    <script src="../dashboard-header.js"></script>
+    <script src="../data/shortMarginRatioMockData.js?v=20260601-ratio-official"></script>
+    <script src="../services/shortMarginRatioService.js?v=20260601-ratio-ui"></script>
+    <script src="../data/macro-robot.js?v=20260601-macro-live-overview"></script>
+    <script src="../data/intelligence-overview.js?v=20260601-ratio-overview"></script>
+    <script src="intelligence-data.js?v=20260601-live-overview"></script>
+    <script src="intelligence-center.js?v=20260601-live-overview"></script>
+  </body>
+</html>
+

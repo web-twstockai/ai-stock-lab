@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>總經數據雷達機器人 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../../dashboard-header.css" />
+    <link rel="stylesheet" href="../intelligence-center.css?v=20260601-macro-counts" />
+  </head>
+  <body>
+    <div data-dashboard-header data-active="intelligence-center" data-base="../../"></div>
+    <main class="intel-shell">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="../">情報中心</a>
+        <span> / 總經數據雷達機器人</span>
+        <button class="back-link" type="button" data-robot-back>← 返回前頁</button>
+      </nav>
+
+      <header class="intel-hero">
+        <div class="hero-main">
+          <span class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="12" y="17" width="24" height="20" rx="8" stroke="#fff" stroke-width="3" />
+              <path d="M18 28h.1M30 28h.1M21 33h6M24 9v6M16 11v6M32 11v6" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </span>
+          <div class="hero-text">
+            <h1>總經數據雷達機器人</h1>
+            <p>追蹤全球重大經濟數據與事件，第一時間分析數據結果與市場可能方向。</p>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <span>最近更新</span>
+          <strong data-updated-at>--</strong>
+          <em class="status-badge">運作中</em>
+        </div>
+      </header>
+
+      <section class="detail-stats stats-five" data-detail-stats aria-label="總經數據雷達統計"></section>
+
+      <section class="detail-layout macro-detail-layout">
+        <div>
+          <article class="panel">
+            <div class="filter-row" aria-label="總經篩選">
+              <button class="chip-btn is-active" type="button" data-macro-filter="all">全部</button>
+              <button class="chip-btn" type="button" data-macro-filter="upcoming">即將公布</button>
+              <button class="chip-btn" type="button" data-macro-filter="published">已公布</button>
+              <button class="chip-btn" type="button" data-macro-filter="美國">美國</button>
+              <button class="chip-btn" type="button" data-macro-filter="台灣">台灣</button>
+              <button class="chip-btn" type="button" data-macro-filter="歐洲">歐洲</button>
+              <button class="chip-btn" type="button" data-macro-filter="high">高影響事件</button>
+            </div>
+            <div class="tools-row macro-tools">
+              <label class="search-field">
+                <span>⌕</span>
+                <input data-search placeholder="搜尋事件或國家" />
+              </label>
+              <label class="date-field">
+                <span>▣</span>
+                <input data-date-start type="date" value="2026-05-29" />
+              </label>
+              <label class="date-field">
+                <span>▣</span>
+                <input data-date-end type="date" value="2026-06-30" />
+              </label>
+            </div>
+            <h2>重大總經事件清單</h2>
+            <div class="table-wrap macro-table-wrap">
+              <table class="data-table macro-events-table">
+                <thead>
+                  <tr>
+                    <th>事件</th>
+                    <th>國家</th>
+                    <th>公布時間</th>
+                    <th>前值</th>
+                    <th>預期值</th>
+                    <th>實際值</th>
+                    <th>狀態</th>
+                    <th>影響方向</th>
+                  </tr>
+                </thead>
+                <tbody data-macro-event-table></tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <span data-total-text>共 0 筆</span>
+              <label class="page-size">每頁顯示
+                <select data-page-size>
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                </select>
+              </label>
+              <div class="page-controls" data-pagination></div>
+            </div>
+          </article>
+
+          <section class="macro-lower-layout">
+            <article class="chart-card">
+              <h2>市場預期（降息機率）</h2>
+              <div class="odds-list" data-rate-odds></div>
+            </article>
+            <section class="source-grid macro-source-grid" data-source-grid aria-label="機器人說明"></section>
+          </section>
+        </div>
+
+        <aside class="side-stack">
+          <article class="analysis-card">
+            <h2>事件詳細分析</h2>
+            <div data-macro-analysis></div>
+          </article>
+          <div class="bottom-actions">
+            <a class="primary-btn" href="../../market-overview/">查看市場總覽</a>
+            <button class="outline-btn" type="button" data-watch>加入觀察名單</button>
+            <button class="outline-btn" type="button" data-read>標記已讀</button>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <script src="../../dashboard-header.js"></script>
+    <script src="../../data/macro-robot.js?v=20260601-macro-actuals"></script>
+    <script src="../intelligence-data.js?v=20260531-split-data"></script>
+    <script src="../robot-back.js"></script>
+    <script src="macro-robot.js?v=20260601-auto-actuals"></script>
+  </body>
+</html>
+

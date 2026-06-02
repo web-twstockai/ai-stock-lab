@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>法人機構動向機器人 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../../dashboard-header.css" />
+    <link rel="stylesheet" href="../intelligence-center.css" />
+  </head>
+  <body>
+    <div data-dashboard-header data-active="intelligence-center" data-base="../../" data-min-role="advanced"></div>
+    <main class="intel-shell">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="../">情報中心</a>
+        <span> / 法人機構動向機器人</span>
+        <button class="back-link" type="button" data-robot-back>← 返回前頁</button>
+      </nav>
+
+      <header class="intel-hero">
+        <div class="hero-main">
+          <span class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="12" y="17" width="24" height="20" rx="8" stroke="#fff" stroke-width="3" />
+              <path d="M18 28h.1M30 28h.1M21 33h6M24 9v6M16 11v6M32 11v6" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </span>
+          <div class="hero-text">
+            <h1>法人機構動向機器人</h1>
+            <p>追蹤投信、外資與自營商對台股個股的買賣超、加碼與減碼變化。</p>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <span>最近更新</span>
+          <strong data-updated-at>--</strong>
+          <em class="status-badge">運作中</em>
+        </div>
+      </header>
+
+      <section class="detail-stats stats-five" data-detail-stats aria-label="法人機構動向統計"></section>
+
+      <section class="detail-layout">
+        <div>
+          <article class="panel">
+            <div class="filter-row" aria-label="法人篩選">
+              <button class="chip-btn is-active" type="button" data-inst-filter="all">全部</button>
+              <button class="chip-btn" type="button" data-inst-filter="投信">投信</button>
+              <button class="chip-btn" type="button" data-inst-filter="外資">外資</button>
+              <button class="chip-btn" type="button" data-inst-filter="自營商">自營商</button>
+              <button class="chip-btn" type="button" data-inst-filter="sync">三大法人同步買</button>
+              <button class="chip-btn" type="button" data-inst-filter="high">高重要度</button>
+            </div>
+            <div class="tools-row institutional-tools">
+              <label class="search-field">
+                <span>⌕</span>
+                <input data-search placeholder="搜尋股票代號或名稱" />
+              </label>
+              <label class="date-field">
+                <span>▣</span>
+                <input data-date-start type="date" value="2026-05-29" />
+              </label>
+              <label class="date-field">
+                <span>▣</span>
+                <input data-date-end type="date" value="2026-05-29" />
+              </label>
+            </div>
+            <h2>法人動向清單</h2>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>股票</th>
+                    <th>機構類型</th>
+                    <th>動向</th>
+                    <th>連買天數</th>
+                    <th>買超張數</th>
+                    <th>時間</th>
+                  </tr>
+                </thead>
+                <tbody data-institutional-table></tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <span data-total-text>共 0 筆</span>
+              <label class="page-size">每頁顯示
+                <select data-page-size>
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                </select>
+              </label>
+              <div class="page-controls" data-pagination></div>
+            </div>
+          </article>
+
+        </div>
+
+        <aside class="side-stack">
+          <article class="analysis-card">
+            <h2>動向詳細分析</h2>
+            <div data-institutional-analysis></div>
+          </article>
+          <article class="chart-card">
+            <h2>法人偏好族群 TOP 5</h2>
+            <div class="group-bars" data-group-bars></div>
+          </article>
+          <section class="source-grid insider-source-grid" data-source-grid aria-label="機器人說明"></section>
+        </aside>
+      </section>
+    </main>
+    <script src="../../dashboard-header.js"></script>
+    <script src="../../data/institutional-robot.js?v=20260601-right-groups"></script>
+    <script src="../intelligence-data.js?v=20260601-right-groups"></script>
+    <script src="../robot-back.js"></script>
+    <script src="institutional-robot.js?v=20260601-right-groups"></script>
+  </body>
+</html>
+

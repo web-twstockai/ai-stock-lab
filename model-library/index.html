@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>模型庫 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../dashboard-header.css" />
+    <link rel="stylesheet" href="../dashboard-simple.css" />
+  </head>
+  <body data-dashboard-page="model-library">
+    <div data-dashboard-header data-active="model-library" data-base="../"></div>
+    <main class="simple-shell">
+      <header class="simple-heading">
+        <div>
+          <h1>模型庫</h1>
+          <p>整理目前每日篩選使用的策略模型與最新符合數量，方便後續擴充權限與回測。</p>
+        </div>
+        <span class="data-pill">載入資料中</span>
+      </header>
+      <section class="simple-grid">
+        <article class="simple-card"><h2>基本模型</h2><strong>--</strong><p>開放給基本會員使用。</p></article>
+        <article class="simple-card"><h2>進階模型</h2><strong>--</strong><p>進階會員可使用的條件組合。</p></article>
+        <article class="simple-card"><h2>管理員模型</h2><strong>--</strong><p>保留給管理與限定開放用途。</p></article>
+      </section>
+      <section class="simple-panel">
+        <h2>策略模型清單</h2>
+        <table class="simple-table">
+          <thead><tr><th>模型名稱</th><th>類型</th><th>核心條件</th><th>條件數</th><th>來源</th><th>狀態</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="../dashboard-header.js"></script>
+    <script src="../dashboard-simple.js"></script>
+  </body>
+</html>

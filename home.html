@@ -1,0 +1,1463 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Stock Lab</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #071a3a;
+        --text: #243a5b;
+        --muted: #6d7c99;
+        --blue: #347cff;
+        --blue-2: #72c8ff;
+        --soft-blue: #eff5ff;
+        --line: #dfe7f5;
+        --card: rgba(255, 255, 255, 0.78);
+        --shadow: 0 22px 70px rgba(70, 113, 184, 0.13);
+        font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-width: 320px;
+        min-height: 100%;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 72% 21%, rgba(115, 160, 255, 0.16), transparent 22%),
+          radial-gradient(circle at 10% 88%, rgba(130, 200, 255, 0.12), transparent 24%),
+          linear-gradient(180deg, #fbfdff 0%, #f7fbff 48%, #ffffff 100%);
+      }
+
+      button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .site {
+        min-height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .site::before {
+        content: "";
+        position: absolute;
+        inset: 108px -6% auto -6%;
+        height: 690px;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 92% 32%, rgba(255, 255, 255, 0.98) 0 2px, transparent 3px) 0 0 / 28px 28px,
+          repeating-radial-gradient(ellipse at 89% 44%, transparent 0 84px, rgba(196, 213, 244, 0.34) 85px 86px),
+          repeating-radial-gradient(ellipse at 4% 65%, transparent 0 118px, rgba(203, 217, 244, 0.34) 119px 120px);
+        opacity: 0.7;
+      }
+
+      .nav {
+        position: relative;
+        z-index: 5;
+        height: 108px;
+        border-bottom: 1px solid #dbe4f2;
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(20px);
+      }
+
+      .nav-inner {
+        width: min(1600px, calc(100vw - 80px));
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--ink);
+        font-size: 27px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+
+      .brand svg {
+        width: 57px;
+        height: 47px;
+        overflow: visible;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 72px;
+        margin-left: auto;
+      }
+
+      .nav-link {
+        position: relative;
+        min-height: 108px;
+        border: 0;
+        background: transparent;
+        color: #0d2245;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 0 3px;
+      }
+
+      .nav-link.active {
+        color: var(--blue);
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 16px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #2f75ff, #68a4ff);
+      }
+
+      .login {
+        min-width: 128px;
+        height: 50px;
+        margin-left: 68px;
+        border: 0;
+        border-radius: 18px;
+        color: #ffffff;
+        background: linear-gradient(135deg, #2d72ff, #488dff);
+        box-shadow: 0 10px 24px rgba(46, 115, 255, 0.28);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .page {
+        display: none;
+        position: relative;
+        z-index: 1;
+        width: min(1600px, calc(100vw - 80px));
+        min-height: calc(100vh - 108px);
+        margin: 0 auto;
+        padding: 40px 0 26px;
+      }
+
+      .page.active {
+        display: grid;
+        align-content: space-between;
+      }
+
+      .hero {
+        min-height: 500px;
+        display: grid;
+        grid-template-columns: minmax(620px, 0.92fr) minmax(520px, 1.08fr);
+        align-items: center;
+        gap: 34px;
+      }
+
+      .hero-copy {
+        padding-left: 82px;
+        padding-top: 20px;
+        min-width: 0;
+      }
+
+      .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        height: 34px;
+        margin: 0 0 36px;
+        padding: 0 14px;
+        border: 1px solid #d7e4fb;
+        border-radius: 10px;
+        color: var(--blue);
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: 0 6px 18px rgba(72, 126, 221, 0.08);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+
+      .star {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .star::before,
+      .star::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 18px;
+        height: 6px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #7cbcff, #547cff);
+      }
+
+      .star::after {
+        transform: rotate(90deg);
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+        font-size: clamp(62px, 4.2vw, 82px);
+        line-height: 1.05;
+        font-weight: 900;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+        text-shadow: 0 8px 24px rgba(19, 54, 107, 0.08);
+      }
+
+      .title-mark {
+        width: 70px;
+        height: 5px;
+        margin: 42px 0 34px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #2e76ff, #7ed4ff);
+      }
+
+      .lead {
+        max-width: 720px;
+        margin: 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.85;
+        letter-spacing: 0.04em;
+      }
+
+      .visual {
+        min-height: 500px;
+        position: relative;
+      }
+
+      .visual::before {
+        content: "";
+        position: absolute;
+        left: 2%;
+        right: 1%;
+        bottom: 44px;
+        height: 136px;
+        border: 1px solid rgba(202, 215, 242, 0.58);
+        border-radius: 50%;
+        background: radial-gradient(ellipse at center, rgba(87, 132, 230, 0.16), transparent 66%);
+        transform: rotate(-1deg);
+      }
+
+      .bubble {
+        position: absolute;
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(212, 226, 255, 0.45));
+        box-shadow: inset 0 1px 10px rgba(255, 255, 255, 0.7), 0 22px 54px rgba(79, 120, 213, 0.12);
+      }
+
+      .bubble.one {
+        left: 70px;
+        top: 72px;
+      }
+
+      .bubble.two {
+        right: 62px;
+        top: 48px;
+        width: 126px;
+        height: 126px;
+      }
+
+      .glass {
+        position: absolute;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(234, 242, 255, 0.58));
+        box-shadow: 0 24px 65px rgba(96, 130, 203, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(14px);
+      }
+
+      .dashboard-visual {
+        right: 86px;
+        top: 70px;
+        width: 462px;
+        height: 310px;
+        border-radius: 24px;
+        transform: perspective(900px) rotateY(-8deg) rotateX(4deg);
+        padding: 44px 38px;
+      }
+
+      .dashboard-visual .dots,
+      .terms-card .dots {
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        left: 38px;
+        top: 42px;
+      }
+
+      .dashboard-visual .dots i,
+      .terms-card .dots i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #6eb3ff;
+      }
+
+      .dashboard-visual .dots i:nth-child(2),
+      .dashboard-visual .dots i:nth-child(3),
+      .terms-card .dots i:nth-child(2),
+      .terms-card .dots i:nth-child(3) {
+        opacity: 0.13;
+      }
+
+      .line-chart {
+        position: absolute;
+        left: 38px;
+        top: 92px;
+        width: 200px;
+        height: 76px;
+      }
+
+      .candle-row {
+        position: absolute;
+        left: 198px;
+        top: 124px;
+        display: flex;
+        align-items: end;
+        gap: 18px;
+      }
+
+      .candle {
+        width: 18px;
+        height: 58px;
+        position: relative;
+        background: linear-gradient(180deg, rgba(115, 150, 250, 0.45), rgba(75, 125, 255, 0.9));
+        box-shadow: 0 9px 20px rgba(66, 116, 230, 0.22);
+      }
+
+      .candle::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: -22px;
+        width: 2px;
+        height: 102px;
+        background: rgba(75, 125, 255, 0.58);
+      }
+
+      .candle:nth-child(1) {
+        height: 42px;
+        margin-bottom: 0;
+      }
+
+      .candle:nth-child(2) {
+        height: 64px;
+      }
+
+      .candle:nth-child(3) {
+        height: 78px;
+      }
+
+      .candle:nth-child(4) {
+        height: 46px;
+      }
+
+      .donut {
+        position: absolute;
+        right: 48px;
+        top: 142px;
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        background: conic-gradient(#4f82ff 0 30%, #8dc4ff 30% 48%, #ffffff 48% 70%, #d8e6ff 70% 100%);
+      }
+
+      .donut::after {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 50%;
+        background: #f7fbff;
+      }
+
+      .soft-lines {
+        position: absolute;
+        left: 38px;
+        right: 36px;
+        bottom: 36px;
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 58px;
+      }
+
+      .soft-lines span {
+        display: block;
+        height: 12px;
+        margin-top: 13px;
+        border-radius: 999px;
+        background: rgba(203, 218, 249, 0.52);
+      }
+
+      .mini-card {
+        left: 248px;
+        top: 306px;
+        width: 310px;
+        height: 176px;
+        border-radius: 20px;
+        transform: perspective(800px) rotateY(8deg) rotateX(-3deg);
+        padding: 34px;
+      }
+
+      .ai-chip {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        color: #5e83ff;
+        background: #dce8ff;
+        font-size: 28px;
+        font-weight: 900;
+      }
+
+      .mini-bars {
+        position: absolute;
+        right: 32px;
+        bottom: 34px;
+        width: 168px;
+        height: 86px;
+        border: 1px solid #dce6f7;
+        border-radius: 13px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+      }
+
+      .mini-bars i {
+        width: 14px;
+        border-radius: 4px 4px 0 0;
+        background: linear-gradient(180deg, #b8ccff, #7397ff);
+      }
+
+      .mini-bars i:nth-child(1) { height: 28px; }
+      .mini-bars i:nth-child(2) { height: 40px; }
+      .mini-bars i:nth-child(3) { height: 62px; }
+      .mini-bars i:nth-child(4) { height: 42px; }
+      .mini-bars i:nth-child(5) { height: 72px; }
+      .mini-bars i:nth-child(6) { height: 54px; }
+
+      .card-grid {
+        display: grid;
+        gap: 32px;
+      }
+
+      .home-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding: 6px 26px 0;
+      }
+
+      .home-cards .info-card {
+        grid-template-columns: 92px minmax(300px, 1fr);
+      }
+
+      .home-cards .info-card p {
+        white-space: nowrap;
+      }
+
+      .info-card {
+        min-height: 208px;
+        display: grid;
+        grid-template-columns: 106px 1fr;
+        align-items: center;
+        gap: 28px;
+        padding: 38px 42px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+
+      .icon-disc {
+        width: 92px;
+        height: 92px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #edf4ff, #f6f9ff);
+      }
+
+      .icon-disc svg {
+        width: 45px;
+        height: 45px;
+      }
+
+      .info-card h3 {
+        margin: 0 0 14px;
+        color: var(--ink);
+        font-size: 24px;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+
+      .info-card p {
+        margin: 0;
+        color: #40506f;
+        font-size: 15px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+      }
+
+      .terms-page .hero {
+        min-height: 360px;
+        grid-template-columns: minmax(780px, 0.95fr) minmax(420px, 1.05fr);
+      }
+
+      .terms-page .hero-copy {
+        padding-left: 70px;
+      }
+
+      .terms-page .visual,
+      .about-page .visual {
+        min-height: 360px;
+      }
+
+      .terms-card {
+        right: 255px;
+        top: 30px;
+        width: 248px;
+        height: 286px;
+        border-radius: 24px;
+        display: grid;
+        place-items: center;
+      }
+
+      .terms-card svg {
+        width: 116px;
+        height: 116px;
+        filter: drop-shadow(0 16px 28px rgba(52, 124, 255, 0.24));
+      }
+
+      .float-icon {
+        position: absolute;
+        width: 92px;
+        height: 92px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(235, 243, 255, 0.58));
+        border: 1px solid rgba(255, 255, 255, 0.9);
+      }
+
+      .float-icon svg {
+        width: 44px;
+        height: 44px;
+      }
+
+      .float-icon.a {
+        left: 122px;
+        top: 88px;
+      }
+
+      .float-icon.b {
+        right: 112px;
+        top: 74px;
+      }
+
+      .float-icon.c {
+        right: 212px;
+        bottom: 68px;
+      }
+
+      .terms-cards {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 24px;
+        padding: 0 40px;
+      }
+
+      .terms-cards .info-card {
+        min-height: 316px;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: left;
+        padding: 30px 28px;
+        gap: 18px;
+      }
+
+      .terms-cards .info-card h3 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .terms-cards .info-card p {
+        font-size: 15px;
+      }
+
+      .risk-note {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        align-items: center;
+        width: calc(100% - 80px);
+        min-height: 78px;
+        margin: 18px 40px 18px;
+        padding: 14px 38px;
+        border: 1px solid #f4cf93;
+        border-radius: 14px;
+        background: rgba(255, 251, 244, 0.82);
+        color: #33435f;
+      }
+
+      .risk-note svg {
+        width: 50px;
+        height: 50px;
+      }
+
+      .risk-note strong {
+        display: block;
+        margin-bottom: 3px;
+        color: #ff9b16;
+        font-size: 20px;
+      }
+
+      .risk-note span {
+        font-size: 16px;
+      }
+
+      .about-page .hero {
+        min-height: 330px;
+        grid-template-columns: minmax(780px, 0.95fr) minmax(430px, 1.05fr);
+      }
+
+      .about-page .hero-copy {
+        padding-left: 70px;
+        padding-top: 0;
+      }
+
+      .about-page h1 {
+        font-size: clamp(58px, 4vw, 76px);
+      }
+
+      .about-page .tagline {
+        margin-bottom: 28px;
+      }
+
+      .about-page .title-mark {
+        margin: 32px 0 24px;
+      }
+
+      .about-page .lead {
+        font-size: 17px;
+        line-height: 1.72;
+      }
+
+      .about-visual-main {
+        right: 112px;
+        top: 36px;
+        width: 424px;
+        height: 236px;
+        border-radius: 24px;
+        transform: perspective(800px) rotateY(-7deg) rotateX(3deg);
+      }
+
+      .about-small {
+        position: absolute;
+        border-radius: 15px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(235, 243, 255, 0.62));
+        border: 1px solid #e2ebfb;
+        box-shadow: 0 18px 48px rgba(80, 122, 210, 0.16);
+      }
+
+      .about-small.ai {
+        left: 154px;
+        top: 182px;
+        width: 106px;
+        height: 98px;
+        display: grid;
+        place-items: center;
+        color: #5e83ff;
+        font-size: 30px;
+        font-weight: 900;
+      }
+
+      .about-small.chart {
+        left: 310px;
+        top: 258px;
+        width: 142px;
+        height: 96px;
+      }
+
+      .about-small.donut-card {
+        right: 42px;
+        top: 202px;
+        width: 138px;
+        height: 110px;
+      }
+
+      .about-main-content {
+        position: absolute;
+        inset: 46px;
+        display: grid;
+        grid-template-columns: 86px 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .cube {
+        width: 74px;
+        height: 74px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #edf4ff, #dfeaff);
+        display: grid;
+        place-items: center;
+      }
+
+      .cube svg {
+        width: 44px;
+        height: 44px;
+      }
+
+      .mock-lines span {
+        display: block;
+        height: 10px;
+        margin: 13px 0;
+        border-radius: 999px;
+        background: #dce7fb;
+      }
+
+      .about-cards {
+        position: relative;
+        z-index: 2;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+        padding: 4px 12px 0;
+      }
+
+      .about-cards .info-card {
+        min-height: 174px;
+        grid-template-columns: 74px minmax(0, 1fr);
+        gap: 20px;
+        padding: 26px 24px;
+      }
+
+      .about-cards .icon-disc {
+        width: 74px;
+        height: 74px;
+      }
+
+      .about-cards .icon-disc svg {
+        width: 38px;
+        height: 38px;
+      }
+
+      .about-cards .info-card h3 {
+        font-size: 21px;
+        margin-bottom: 9px;
+      }
+
+      .about-cards .info-card p {
+        font-size: 13px;
+        line-height: 1.7;
+        letter-spacing: 0.02em;
+      }
+
+      .process {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+        align-items: end;
+        min-height: 148px;
+        margin: 24px 12px 12px;
+        padding: 48px 64px 26px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: var(--shadow);
+      }
+
+      .process::before {
+        content: "";
+        position: absolute;
+        top: 31px;
+        left: 270px;
+        right: 270px;
+        height: 2px;
+        background: linear-gradient(90deg, #4d85ff, #7aa7ff);
+      }
+
+      .process-step {
+        display: grid;
+        grid-template-columns: 68px 1fr;
+        gap: 18px;
+        align-items: center;
+        position: relative;
+      }
+
+      .process-step::before {
+        content: "";
+        position: absolute;
+        top: -23px;
+        left: 74px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #3c7dff;
+        box-shadow: 0 0 0 4px #e8f1ff;
+      }
+
+      .process-step h3 {
+        margin: 0 0 8px;
+        font-size: 21px;
+        white-space: nowrap;
+      }
+
+      .process-step p {
+        margin: 0;
+        color: #53617b;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      footer {
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-top: 1px solid #dfe7f5;
+        color: #9aa8c2;
+        font-size: 17px;
+      }
+
+      @media (max-width: 1450px) {
+        .home-cards .info-card {
+          grid-template-columns: 64px minmax(280px, 1fr);
+          gap: 18px;
+          padding: 28px 18px;
+        }
+
+        .home-cards .icon-disc {
+          width: 64px;
+          height: 64px;
+        }
+
+        .home-cards .icon-disc svg {
+          width: 38px;
+          height: 38px;
+        }
+
+        .home-cards .info-card h3 {
+          font-size: 22px;
+        }
+
+        .home-cards .info-card p {
+          font-size: 14px;
+          letter-spacing: 0;
+        }
+      }
+
+      @media (min-width: 1181px) and (max-height: 780px) {
+        .about-page {
+          padding-top: 8px;
+          padding-bottom: 6px;
+        }
+
+        .about-page .hero {
+          min-height: 270px;
+        }
+
+        .about-page h1 {
+          font-size: 54px;
+        }
+
+        .about-page .tagline {
+          height: 28px;
+          margin-bottom: 18px;
+          font-size: 16px;
+        }
+
+        .about-page .title-mark {
+          margin: 20px 0 14px;
+        }
+
+        .about-page .lead {
+          font-size: 15px;
+          line-height: 1.65;
+        }
+
+        .about-page .visual {
+          min-height: 270px;
+          transform: translate(-118px, -30px) scale(0.72);
+          transform-origin: center;
+        }
+
+        .about-cards .info-card {
+          min-height: 132px;
+          padding: 16px 18px;
+        }
+
+        .about-cards .icon-disc,
+        .process .icon-disc {
+          width: 52px;
+          height: 52px;
+        }
+
+        .about-cards .icon-disc svg,
+        .process .icon-disc svg {
+          width: 28px;
+          height: 28px;
+        }
+
+        .about-cards .info-card {
+          grid-template-columns: 52px minmax(0, 1fr);
+          gap: 15px;
+        }
+
+        .about-cards .info-card h3 {
+          font-size: 18px;
+          margin-bottom: 5px;
+        }
+
+        .about-cards .info-card p {
+          font-size: 11px;
+          line-height: 1.5;
+          letter-spacing: 0;
+        }
+
+        .process {
+          min-height: 124px;
+          margin-top: 18px;
+          margin-bottom: 4px;
+          padding: 40px 52px 18px;
+        }
+
+        .process::before {
+          top: 24px;
+          left: 135px;
+          right: 240px;
+        }
+
+        .process-step {
+          grid-template-columns: 52px 1fr;
+          gap: 13px;
+        }
+
+        .process-step::before {
+          top: -19px;
+          left: 62px;
+          width: 11px;
+          height: 11px;
+          box-shadow: 0 0 0 3px #e8f1ff;
+        }
+
+        .process-step h3 {
+          font-size: 18px;
+          margin-bottom: 3px;
+        }
+
+        .process-step p {
+          font-size: 11px;
+          line-height: 1.38;
+        }
+
+        .about-page footer {
+          height: 28px;
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 1180px) {
+        .nav-inner,
+        .page {
+          width: min(100% - 48px, 1040px);
+        }
+
+        .nav-links {
+          gap: 30px;
+        }
+
+        .login {
+          margin-left: 30px;
+        }
+
+        .hero,
+        .terms-page .hero,
+        .about-page .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy,
+        .terms-page .hero-copy,
+        .about-page .hero-copy {
+          padding-left: 0;
+        }
+
+        .visual {
+          min-height: 430px;
+        }
+
+        h1 {
+          white-space: normal;
+        }
+
+        .info-card h3,
+        .process-step h3 {
+          white-space: normal;
+        }
+
+        .home-cards,
+        .about-cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          padding: 0;
+        }
+
+        .terms-cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          padding: 0;
+        }
+
+        .risk-note {
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        .process {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          padding: 32px;
+        }
+
+        .process::before,
+        .process-step::before {
+          display: none;
+        }
+      }
+
+      @media (min-width: 761px) and (max-width: 1180px) {
+        .about-page {
+          width: calc(100vw - 48px);
+          min-height: calc(100vh - 108px);
+          padding-top: 4px;
+          padding-bottom: 4px;
+        }
+
+        .about-page .hero {
+          grid-template-columns: minmax(470px, 1fr) minmax(310px, 0.72fr);
+          min-height: 220px;
+          gap: 12px;
+        }
+
+        .about-page .hero-copy {
+          padding-left: 28px;
+          padding-top: 0;
+        }
+
+        .about-page .tagline {
+          height: 24px;
+          margin-bottom: 12px;
+          padding: 0 12px;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+
+        .about-page h1 {
+          font-size: 38px;
+          white-space: nowrap;
+        }
+
+        .about-page .title-mark {
+          width: 52px;
+          height: 4px;
+          margin: 14px 0 10px;
+        }
+
+        .about-page .lead {
+          max-width: 610px;
+          font-size: 12px;
+          line-height: 1.55;
+          letter-spacing: 0.02em;
+        }
+
+        .about-page .visual {
+          min-height: 220px;
+          transform: translate(-126px, -42px) scale(0.52);
+          transform-origin: center right;
+        }
+
+        .about-cards {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 14px;
+          padding: 0;
+        }
+
+        .about-cards .info-card {
+          min-height: 92px;
+          grid-template-columns: 38px minmax(0, 1fr);
+          gap: 8px;
+          padding: 9px 10px;
+        }
+
+        .about-cards .icon-disc {
+          width: 38px;
+          height: 38px;
+        }
+
+        .about-cards .icon-disc svg {
+          width: 21px;
+          height: 21px;
+        }
+
+        .about-cards .info-card h3 {
+          margin-bottom: 3px;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+
+        .about-cards .info-card p {
+          font-size: 8.5px;
+          line-height: 1.42;
+          letter-spacing: 0;
+        }
+
+        .process {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 12px;
+          min-height: 78px;
+          margin: 10px 0 3px;
+          padding: 27px 36px 8px;
+        }
+
+        .process::before {
+          display: block;
+          top: 18px;
+          left: 92px;
+          right: 134px;
+          height: 2px;
+        }
+
+        .process-step {
+          grid-template-columns: 38px minmax(0, 1fr);
+          gap: 8px;
+        }
+
+        .process-step::before {
+          display: block;
+          top: -14px;
+          left: 46px;
+          width: 9px;
+          height: 9px;
+          box-shadow: 0 0 0 3px #e8f1ff;
+        }
+
+        .process .icon-disc {
+          width: 38px;
+          height: 38px;
+        }
+
+        .process .icon-disc svg {
+          width: 21px;
+          height: 21px;
+        }
+
+        .process-step h3 {
+          margin-bottom: 2px;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+
+        .process-step p {
+          font-size: 8.5px;
+          line-height: 1.35;
+        }
+
+        .about-page footer {
+          height: 20px;
+          font-size: 11px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          height: auto;
+          min-height: 96px;
+        }
+
+        .nav-inner {
+          width: calc(100% - 28px);
+          flex-wrap: wrap;
+          gap: 12px;
+          padding: 16px 0;
+        }
+
+        .brand {
+          font-size: 23px;
+        }
+
+        .nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: space-between;
+          gap: 12px;
+        }
+
+        .nav-link {
+          min-height: 44px;
+          font-size: 15px;
+        }
+
+        .nav-link.active::after {
+          bottom: 1px;
+        }
+
+        .login {
+          margin-left: auto;
+          min-width: 88px;
+          height: 42px;
+          border-radius: 14px;
+          font-size: 15px;
+        }
+
+        .page {
+          width: calc(100% - 28px);
+          padding-top: 26px;
+        }
+
+        h1 {
+          font-size: 46px;
+          white-space: normal;
+        }
+
+        .lead {
+          font-size: 16px;
+          letter-spacing: 0.03em;
+        }
+
+        .visual {
+          transform: scale(0.72);
+          transform-origin: top left;
+          width: 138%;
+          min-height: 330px;
+        }
+
+        .home-cards,
+        .about-cards,
+        .terms-cards,
+        .process {
+          grid-template-columns: 1fr;
+        }
+
+        .info-card,
+        .about-cards .info-card {
+          grid-template-columns: 82px 1fr;
+          min-height: 160px;
+          padding: 24px;
+        }
+
+        .terms-cards .info-card {
+          min-height: auto;
+        }
+
+        .home-cards .info-card p {
+          white-space: normal;
+        }
+
+        .process {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        footer {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <header class="nav">
+        <div class="nav-inner">
+          <div class="brand" aria-label="AI Stock Lab">
+            <svg viewBox="0 0 64 50" aria-hidden="true">
+              <defs>
+                <linearGradient id="brandGradient" x1="8" x2="56" y1="44" y2="4">
+                  <stop stop-color="#2e73ff" />
+                  <stop offset="1" stop-color="#83d7ff" />
+                </linearGradient>
+              </defs>
+              <path d="M10 34 24 17l17 14L54 8v33L41 31 24 17v26" fill="none" stroke="url(#brandGradient)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+              <circle cx="10" cy="34" r="5" fill="#2e73ff" />
+              <circle cx="24" cy="17" r="5" fill="#5e9cff" />
+              <circle cx="41" cy="31" r="5" fill="#7a8fff" />
+              <circle cx="54" cy="8" r="5" fill="#74c7ff" />
+            </svg>
+            <span>AI Stock Lab</span>
+          </div>
+          <nav class="nav-links" aria-label="主選單">
+            <button class="nav-link active" type="button" data-page="home">首頁</button>
+            <button class="nav-link" type="button" data-page="terms">服務條款與風險</button>
+            <button class="nav-link" type="button" data-page="about">關於</button>
+          </nav>
+          <button class="login" type="button" onclick="location.href='index.html'">登入</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="home" class="page active">
+          <div>
+            <section class="hero">
+              <div class="hero-copy">
+                <p class="tagline"><span class="star"></span>以 AI 洞察市場，讓研究更有方向</p>
+                <h1>AI 股票研究平台</h1>
+                <div class="title-mark"></div>
+                <p class="lead">整合市場資訊與技術分析，協助你整理重點、學習技術<br />建立屬於自己的研究脈絡與投資視角。</p>
+              </div>
+              <div class="visual" aria-hidden="true">
+                <span class="bubble one"></span>
+                <span class="bubble two"></span>
+                <div class="glass dashboard-visual">
+                  <div class="dots"><i></i><i></i><i></i></div>
+                  <svg class="line-chart" viewBox="0 0 200 76">
+                    <polyline points="0,54 40,30 78,44 116,12 154,28 198,0" fill="none" stroke="#7aa7ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                    <g fill="#78b9ff">
+                      <circle cx="0" cy="54" r="5" /><circle cx="40" cy="30" r="5" /><circle cx="78" cy="44" r="5" /><circle cx="116" cy="12" r="5" /><circle cx="154" cy="28" r="5" /><circle cx="198" cy="0" r="5" />
+                    </g>
+                  </svg>
+                  <div class="candle-row"><span class="candle"></span><span class="candle"></span><span class="candle"></span><span class="candle"></span></div>
+                  <div class="donut"></div>
+                  <div class="soft-lines"><div><span></span><span></span><span></span></div><div><span></span><span></span><span></span></div></div>
+                </div>
+                <div class="glass mini-card">
+                  <div class="ai-chip">AI</div>
+                  <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card-grid home-cards">
+              <article class="info-card">
+                <span class="icon-disc">
+                  <svg viewBox="0 0 48 48" fill="none"><path d="M14 8h15l7 7v25H14z" stroke="#5f8dff" stroke-width="3.2" stroke-linejoin="round" /><path d="M29 8v8h8M20 23h12M20 30h12M20 36h8" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" /></svg>
+                </span>
+                <div><h3>市場資訊整理</h3><p>整理市場重點資訊，掌握趨勢脈動。</p></div>
+              </article>
+              <article class="info-card">
+                <span class="icon-disc">
+                  <svg viewBox="0 0 48 48" fill="none"><path d="m12 34 4 4 24-24-4-4zM30 16l4 4M12 34l-3 9 9-3" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <div><h3>技術學習筆記</h3><p>記錄與學習技術分析，累積理解與經驗。</p></div>
+              </article>
+              <article class="info-card">
+                <span class="icon-disc">
+                  <svg viewBox="0 0 48 48" fill="none"><path d="M17 20a7 7 0 1 1 14 0v13a7 7 0 0 1-14 0z" stroke="#5f8dff" stroke-width="3.2" /><path d="M17 24h-3a6 6 0 0 0 0 12h3M31 24h3a6 6 0 0 1 0 12h-3M24 13v26M18 29h12" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" /></svg>
+                </span>
+                <div><h3>AI 研究輔助</h3><p>運用 AI 輔助思考，提升研究效率與品質。</p></div>
+              </article>
+            </section>
+          </div>
+          <footer>© 2024 AI Stock Lab. All rights reserved.</footer>
+        </section>
+
+        <section id="terms" class="page terms-page">
+          <div>
+            <section class="hero">
+              <div class="hero-copy">
+                <h1>服務條款與風險</h1>
+                <div class="title-mark"></div>
+                <p class="lead">請在使用 AI Stock Lab 服務前，詳閱以下條款、資料使用說明與風險聲明，<br />以確保您充分了解本平台的服務內容與相關風險。</p>
+              </div>
+              <div class="visual" aria-hidden="true">
+                <div class="float-icon a"><svg viewBox="0 0 48 48" fill="none"><path d="M13 16h22M16 16l-6 14h12zm16 0-6 14h12zM24 10v28M15 38h18" stroke="#9cc2ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                <div class="float-icon b"><svg viewBox="0 0 48 48" fill="none"><path d="M24 8 42 40H6zM24 19v9M24 34h.1" stroke="#9cc2ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                <div class="float-icon c"><svg viewBox="0 0 48 48" fill="none"><path d="M12 38V24M22 38V16M32 38V11M10 38h28" stroke="#79a5ff" stroke-width="3" stroke-linecap="round" /></svg></div>
+                <div class="glass terms-card">
+                  <div class="dots"><i></i><i></i><i></i></div>
+                  <svg viewBox="0 0 120 120" fill="none">
+                    <path d="M60 12 94 26v24c0 27-14 45-34 58-20-13-34-31-34-58V26z" fill="#8bb5ff" stroke="#5d92ff" stroke-width="4" />
+                    <path d="m42 59 13 13 26-29" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </section>
+
+            <section class="card-grid terms-cards">
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M10 13c7-3 13 0 14 4 1-4 7-7 14-4v27c-7-3-13 0-14 4-1-4-7-7-14-4z" stroke="#5f8dff" stroke-width="3.2" stroke-linejoin="round" /><path d="M24 17v27" stroke="#5f8dff" stroke-width="3.2" /></svg></span><div><h3>使用說明</h3><p>AI Stock Lab 提供 AI 輔助的市場資訊整理、技術分析與研究輔助工具，協助使用者進行投資研究與學習，所有內容不構成任何投資建議。</p></div></article>
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="13" rx="13" ry="6" stroke="#5f8dff" stroke-width="3.2" /><path d="M11 13v22c0 3 6 6 13 6s13-3 13-6V13M11 24c0 3 6 6 13 6s13-3 13-6" stroke="#5f8dff" stroke-width="3.2" /></svg></span><div><h3>資料來源聲明</h3><p>本平台所提供之資料來自公開資訊來源或第三方授權資料，雖已盡力確保其正確性與即時性，惟不保證資料之完整性、準確性或適用性。</p></div></article>
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M24 7 39 14v12c0 12-6 19-15 24-9-5-15-12-15-24V14z" stroke="#5f8dff" stroke-width="3.2" stroke-linejoin="round" /></svg></span><div><h3>免責聲明</h3><p>本平台內容僅供參考，使用者應自行評估並承擔投資決策之風險。本平台不對因使用本服務或依據本平台內容所致之任何損失承擔責任。</p></div></article>
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M9 39h31M13 34l8-9 7 5 10-16M37 14v10H27" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><h3>投資風險提醒</h3><p>投資涉及風險，標的價格可能波動，並可能導致本金損失。過往績效不代表未來表現，請謹慎評估自身風險承受能力後再進行投資。</p></div></article>
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="7" stroke="#5f8dff" stroke-width="3.2" /><path d="M11 41c2-9 8-13 13-13s11 4 13 13z" stroke="#5f8dff" stroke-width="3.2" stroke-linejoin="round" /></svg></span><div><h3>帳號與使用規範</h3><p>使用者應提供正確資訊並妥善保管帳號安全，不得濫用本服務或進行任何違法、不當或干擾系統正常運作之行為，違者本平台得終止服務。</p></div></article>
+            </section>
+
+            <div class="risk-note">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" fill="#ffb14c" /><path d="M24 12 38 36H10zM24 20v8M24 33h.1" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <div><strong>重要風險提示</strong><span>投資一定有風險，請詳閱並充分理解本頁內容。若您不同意本服務條款與風險聲明，請勿使用本平台服務。</span></div>
+            </div>
+          </div>
+          <footer>© 2024 AI Stock Lab. All rights reserved.</footer>
+        </section>
+
+        <section id="about" class="page about-page">
+          <div>
+            <section class="hero">
+              <div class="hero-copy">
+                <p class="tagline"><span class="star"></span>以 AI 洞察市場，讓研究更有方向</p>
+                <h1>關於 AI Stock Lab</h1>
+                <div class="title-mark"></div>
+                <p class="lead">AI Stock Lab 是一個以 AI 輔助的股票研究與學習網站，<br />協助使用者以更有結構、更有效率的方式，整理資訊、建立觀點、持續成長。</p>
+              </div>
+              <div class="visual" aria-hidden="true">
+                <span class="bubble one"></span>
+                <span class="bubble two"></span>
+                <div class="glass about-visual-main">
+                  <div class="about-main-content">
+                    <span class="cube"><svg viewBox="0 0 48 48" fill="none"><path d="M24 7 39 15v18l-15 8-15-8V15z" fill="#dce8ff" stroke="#8db4ff" stroke-width="3" /><path d="m18 25 5 5 10-13" stroke="#5f8dff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                    <div class="mock-lines"><span style="width:90%"></span><span style="width:74%"></span><span style="width:58%"></span></div>
+                  </div>
+                </div>
+                <div class="about-small ai">AI</div>
+                <div class="about-small chart"><div class="mini-bars" style="inset:8px;width:auto;height:auto"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="about-small donut-card"><div class="donut" style="left:18px;top:24px;width:64px;height:64px"></div></div>
+              </div>
+            </section>
+
+            <section class="card-grid about-cards">
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M24 41v-6M18 31h12M16 25a10 10 0 1 1 16 0c-2 2-3 4-3 6H19c0-2-1-4-3-6z" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><h3>平台理念</h3><p>我們相信，投資的本質是理解與紀律。透過 AI 的協助，讓繁雜的資訊變得清晰，讓每一次研究都更有價值。</p></div></article>
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M9 38h30V12H9zM15 31l7-7 5 4 8-10" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><h3>我們在做什麼</h3><p>整合市場資訊與技術分析，運用 AI 整理重點、提煉觀點，協助使用者建立自己的研究脈絡與投資視角。</p></div></article>
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><circle cx="17" cy="17" r="6" stroke="#5f8dff" stroke-width="3.2" /><circle cx="31" cy="17" r="6" stroke="#5f8dff" stroke-width="3.2" /><path d="M8 39c1-7 5-11 9-11s8 4 9 11M22 39c1-7 5-11 9-11s8 4 9 11" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" /></svg></span><div><h3>適合誰使用</h3><p>無論是投資新手、進階投資人，或是持續學習的研究者，都能在這裡找到適合自己的節奏與方向。</p></div></article>
+              <article class="info-card"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="#5f8dff" stroke-width="3.2" /><path d="M24 6v8M24 34v8M6 24h8M34 24h8M24 19v10M19 24h10" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" /></svg></span><div><h3>研究方式</h3><p>以資料為基礎，結合 AI 分析與人工判斷，從整理、比較到推論，建立可重複、可驗證的研究流程。</p></div></article>
+            </section>
+
+            <section class="process" aria-label="研究流程">
+              <div class="process-step"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M14 8h15l7 7v25H14zM29 8v8h8M20 25h10M20 32h10" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><h3>整理</h3><p>收集與歸納市場資訊<br />建立有結構的知識庫</p></div></div>
+              <div class="process-step"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M10 13c7-3 13 0 14 4 1-4 7-7 14-4v27c-7-3-13 0-14 4-1-4-7-7-14-4zM24 17v27" stroke="#5f8dff" stroke-width="3.2" stroke-linejoin="round" /></svg></span><div><h3>學習</h3><p>理解市場與產業脈絡<br />持續累積知識與經驗</p></div></div>
+              <div class="process-step"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><circle cx="21" cy="21" r="12" stroke="#5f8dff" stroke-width="3.2" /><path d="m31 31 9 9" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" /></svg></span><div><h3>研究</h3><p>運用 AI 協助分析比較<br />形成觀點與投資想法</p></div></div>
+              <div class="process-step"><span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M9 39h31M14 34v-8M24 34V16M34 34V10M13 22l9-9 7 6 9-12" stroke="#5f8dff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><h3>成長</h3><p>驗證與調整研究方法<br />持續優化，穩健前行</p></div></div>
+            </section>
+          </div>
+          <footer>© 2024 AI Stock Lab. All rights reserved.</footer>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const links = document.querySelectorAll(".nav-link");
+      const pages = document.querySelectorAll(".page");
+
+      function showPage(id) {
+        links.forEach((link) => link.classList.toggle("active", link.dataset.page === id));
+        pages.forEach((page) => page.classList.toggle("active", page.id === id));
+      }
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => showPage(link.dataset.page));
+      });
+    </script>
+  </body>
+</html>

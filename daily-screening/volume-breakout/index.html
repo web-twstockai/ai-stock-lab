@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>放量突破 - 每日篩選 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../../dashboard-header.css" />
+    <link rel="stylesheet" href="../daily-screening.css" />
+  </head>
+  <body class="dashboard-page-loading">
+    <div class="screening-page detail-page">
+      <div data-dashboard-header data-active="daily-screening" data-base="../../"></div>
+
+      <main class="page-shell">
+        <section class="title-row">
+          <span class="title-icon"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M13 34V23M24 34V14M35 34V19" stroke="#fff" stroke-width="4" stroke-linecap="round" /><path d="M10 38h28" stroke="#fff" stroke-width="4" stroke-linecap="round" /></svg></span>
+          <div>
+            <h1>每日篩選</h1>
+            <p>盤後依策略條件自動篩選，快速查看符合條件的觀察標的。</p>
+          </div>
+        </section>
+
+        <div class="detail-layout">
+          <section class="main-column">
+            <section class="stat-grid detail-stats" aria-label="套用策略資訊">
+              <article class="stat-card blue"><span><svg viewBox="0 0 48 48" fill="none"><path d="M24 7 39 14v11c0 12-7 18-15 23-8-5-15-11-15-23V14Z" fill="currentColor" /><path d="m18 25 5 5 9-11" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><p>已套用策略</p><strong class="text-value">放量突破</strong></div></article>
+              <article class="stat-card blue"><span><svg viewBox="0 0 48 48" fill="none"><path d="M9 13h17l13 13-13 13L9 22Z" fill="currentColor" /><circle cx="18" cy="20" r="3" fill="#fff" /></svg></span><div><p>策略類型</p><strong class="text-value">基本款</strong></div></article>
+              <article class="stat-card blue"><span><svg viewBox="0 0 48 48" fill="none"><rect x="10" y="28" width="8" height="10" rx="2" fill="currentColor" /><rect x="21" y="18" width="8" height="20" rx="2" fill="currentColor" opacity=".78" /><rect x="32" y="10" width="8" height="28" rx="2" fill="currentColor" /></svg></span><div><p>符合股票</p><strong>172 <em>檔</em></strong></div></article>
+              <article class="stat-card green"><span><svg viewBox="0 0 48 48" fill="none"><path d="M35 17a13 13 0 1 0 2 12M35 17h-9M35 17V8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><p>更新模式</p><strong class="text-value">盤後更新</strong></div></article>
+            </section>
+
+            <section class="hero-strategy">
+              <div class="hero-check">✓</div>
+              <div class="hero-left">
+                <span class="hero-icon"><svg viewBox="0 0 48 48" fill="none"><path d="m8 19 8 7 8-17 8 17 8-7-4 20H12Z" fill="#2563eb" /></svg></span>
+                <div>
+                  <div class="hero-name"><h2>放量突破</h2><em>已套用</em></div>
+                  <p>價格接近區間高點，成交量放大確認買盤。</p>
+                  <div class="chips"><span>成交量</span><span>突破</span><span>價量</span></div>
+                </div>
+              </div>
+              <div class="hero-count"><strong>172</strong><span>檔符合股票</span></div>
+              <a class="switch-btn" href="../">↻ 更換策略</a>
+            </section>
+
+            <section class="condition-strip">
+              <div><span class="filter-icon">▽</span><strong>條件摘要：</strong><em>基本款</em><em>放量突破</em><em>成交量</em><em>突破</em><em>價量</em></div>
+              <a href="../">清除條件 ×</a>
+            </section>
+
+            <section class="table-card">
+              <div class="table-tools"><span></span><div><button type="button">⇩ 匯出 CSV</button><select aria-label="顯示筆數"><option>顯示 10 檔</option></select></div></div>
+              <div class="table-scroll">
+                <table>
+                  <thead><tr><th>收藏</th><th>代號</th><th>名稱</th><th>產業</th><th>入選原因</th><th>收盤價</th><th>漲跌幅</th><th>成交量</th></tr></thead>
+                  <tbody>
+                    <tr><td class="favorite-cell"><button class="favorite-stock-button" type="button" data-favorite-symbol="2330" aria-pressed="false">☆</button></td><td><a>2330</a></td><td>台積電</td><td>半導體</td><td>量能放大，突破整理區，站上短均線</td><td>968.00</td><td class="up">+1.47%</td><td>32,451 張</td></tr>
+                    <tr><td class="favorite-cell"><button class="favorite-stock-button" type="button" data-favorite-symbol="2382" aria-pressed="false">☆</button></td><td><a>2382</a></td><td>廣達</td><td>電腦及週邊設備</td><td>量能明顯放大，突破前高壓力帶</td><td>288.50</td><td class="up">+3.78%</td><td>48,732 張</td></tr>
+                    <tr><td class="favorite-cell"><button class="favorite-stock-button" type="button" data-favorite-symbol="2303" aria-pressed="false">☆</button></td><td><a>2303</a></td><td>聯電</td><td>半導體</td><td>量能放大，突破月線壓力</td><td>49.30</td><td class="up">+1.44%</td><td>28,915 張</td></tr>
+                    <tr><td class="favorite-cell"><button class="favorite-stock-button" type="button" data-favorite-symbol="2454" aria-pressed="false">☆</button></td><td><a>2454</a></td><td>聯發科</td><td>半導體</td><td>量能放大，突破區間高點</td><td>1,185.00</td><td class="up">+2.16%</td><td>12,804 張</td></tr>
+                    <tr><td class="favorite-cell"><button class="favorite-stock-button" type="button" data-favorite-symbol="2377" aria-pressed="false">☆</button></td><td><a>2377</a></td><td>微星</td><td>電腦及週邊設備</td><td>量能放大，突破整理區，站上均線</td><td>178.00</td><td class="up">+4.41%</td><td>21,673 張</td></tr>
+                    <tr><td class="favorite-cell"><button class="favorite-stock-button" type="button" data-favorite-symbol="3231" aria-pressed="false">☆</button></td><td><a>3231</a></td><td>緯創</td><td>電子零組件</td><td>量能明顯增加，突破區間高點</td><td>115.50</td><td class="up">+2.30%</td><td>33,587 張</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <button class="more-btn" type="button">顯示更多⌄</button>
+            </section>
+          </section>
+
+          <aside class="side-column">
+            <section class="side-card detail-side"><h2><span>▣</span>策略說明</h2><p>價格接近區間高點，且成交量明顯放大，顯示買盤積極進場，突破壓力後有機會延續上攻動能。</p></section>
+            <section class="side-card detail-side"><h2><span>▽</span>套用條件</h2><div class="condition-list"><p><span>市場別</span><strong>台灣上市櫃</strong></p><p><span>策略類型</span><em>基本款</em></p><p><span>條件標籤</span><b>成交量</b><b>突破</b><b>價量</b></p></div></section>
+            <section class="side-card detail-side"><h2><span>↻</span>盤後更新</h2><div class="condition-list"><p><span>最近更新時間</span><strong>2025/05/26 18:30</strong></p><p><span>狀態</span><strong class="done">● 更新完成</strong></p></div></section>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <script src="../../dashboard-header.js"></script>
+    <script src="../../dashboard-data.js?v=themes-20260530"></script>
+  </body>
+</html>

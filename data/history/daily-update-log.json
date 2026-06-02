@@ -1,0 +1,34 @@
+[
+  {
+    "ranAt": "2026-06-01T10:21:07.305300+00:00",
+    "targetDate": "2026-06-01",
+    "symbols": 1972,
+    "updatedSymbols": 1961,
+    "newRows": 1961,
+    "errors": 0,
+    "rebuildFailures": [
+      {
+        "step": "update_data",
+        "returnCode": 1
+      }
+    ]
+  },
+  {
+    "ranAt": "2026-06-01T10:24:16.299953+00:00",
+    "targetDate": "2026-06-01",
+    "symbols": 1972,
+    "updatedSymbols": 0,
+    "newRows": 0,
+    "errors": 0,
+    "rebuildFailures": []
+  },
+  {
+    "ranAt": "2026-06-01T10:32:58.605885+00:00",
+    "targetDate": "2026-06-01",
+    "symbols": 1972,
+    "updatedSymbols": 0,
+    "newRows": 0,
+    "errors": 0,
+    "rebuildFailures": []
+  }
+]

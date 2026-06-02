@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>量化指標 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../dashboard-header.css" />
+    <link rel="stylesheet" href="../dashboard-simple.css" />
+  </head>
+  <body data-dashboard-page="quant-indicators">
+    <div data-dashboard-header data-active="quant-indicators" data-base="../"></div>
+    <main class="simple-shell">
+      <header class="simple-heading">
+        <div>
+          <h1>量化指標</h1>
+          <p>以 20 日報酬、60 日高點、流動性、波動與量能倍率整理目前候選清單。</p>
+        </div>
+        <span class="data-pill">載入資料中</span>
+      </header>
+      <section class="simple-grid">
+        <article class="simple-card"><h2>候選清單</h2><strong>--</strong><p>依綜合分數排序的觀察標的。</p></article>
+        <article class="simple-card"><h2>均線多頭</h2><strong>--</strong><p>收盤價站上 MA20，且 MA20 高於 MA60。</p></article>
+        <article class="simple-card"><h2>放量突破</h2><strong>--</strong><p>接近 60 日高點且成交量放大。</p></article>
+      </section>
+      <section class="simple-panel">
+        <h2>量化候選排行</h2>
+        <table class="simple-table">
+          <thead><tr><th>代號</th><th>名稱</th><th>產業</th><th>分數</th><th>20日報酬</th><th>量能倍率</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="../dashboard-header.js"></script>
+    <script src="../dashboard-simple.js"></script>
+  </body>
+</html>

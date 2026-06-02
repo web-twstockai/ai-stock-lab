@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>市場總覽 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../dashboard-header.css" />
+    <link rel="stylesheet" href="market-overview.css" />
+  </head>
+  <body class="dashboard-page-loading">
+    <div class="market-page">
+      <div data-dashboard-header data-active="market-overview" data-base="../"></div>
+
+      <main class="page-wrap">
+        <div class="tech-cube" aria-hidden="true">
+          <span class="cube-face top"></span>
+          <span class="cube-face left"></span>
+          <span class="cube-face right"></span>
+          <span class="orbit orbit-a"></span>
+          <span class="orbit orbit-b"></span>
+          <span class="node n1"></span>
+          <span class="node n2"></span>
+          <span class="node n3"></span>
+        </div>
+
+        <header class="page-heading">
+          <h1>市場總覽</h1>
+          <p>快速掌握盤後整理後的族群熱度與市場觀察重點。</p>
+        </header>
+
+        <section class="summary-grid" aria-label="市場數據總覽">
+          <article class="summary-card">
+            <div class="icon-disc">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M25 5c2 8 10 11 10 22 0 8-5 14-11 14S13 35 13 27c0-7 5-12 8-16 1 6 4 9 8 12 1-5-1-10-4-18Z" fill="#2563eb" opacity=".92" />
+                <path d="M25 41c-5 0-9-4-9-10 0-4 2-7 5-10 1 5 4 7 8 8 1-3 0-7-2-11 4 4 6 8 6 13 0 6-3 10-8 10Z" fill="#ffffff" opacity=".88" />
+              </svg>
+            </div>
+            <div class="summary-copy">
+              <span class="summary-title">族群熱度</span>
+              <div class="metric-row"><strong>78.6</strong><em>/ 100</em></div>
+              <span class="hot-badge">中高熱度</span>
+            </div>
+          </article>
+
+          <article class="summary-card">
+            <div class="icon-disc">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="18" cy="16" r="6" fill="#2563eb" />
+                <circle cx="31" cy="15" r="7" fill="#2563eb" opacity=".9" />
+                <path d="M8 39c2-9 7-13 13-13s11 4 13 13H8Z" fill="#2563eb" opacity=".82" />
+                <path d="M24 39c2-8 7-12 12-12 4 0 8 4 10 12H24Z" fill="#2563eb" opacity=".72" />
+              </svg>
+            </div>
+            <div class="summary-copy">
+              <span class="summary-title">追蹤標的數量</span>
+              <div class="metric-row"><strong>128</strong><em>檔</em></div>
+            </div>
+          </article>
+
+          <article class="summary-card">
+            <div class="icon-disc">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="10" y="10" width="12" height="12" rx="3" fill="#2563eb" />
+                <rect x="26" y="10" width="12" height="12" rx="3" fill="#2563eb" opacity=".88" />
+                <rect x="10" y="26" width="12" height="12" rx="3" fill="#2563eb" opacity=".82" />
+                <rect x="26" y="26" width="12" height="12" rx="3" fill="#2563eb" />
+              </svg>
+            </div>
+            <div class="summary-copy">
+              <span class="summary-title">追蹤族群數量</span>
+              <div class="metric-row"><strong>35</strong><em>個</em></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="ranking-section">
+          <div class="section-heading">
+            <span></span>
+            <h2>目前族群排名 TOP 4</h2>
+          </div>
+
+          <div class="rank-grid">
+            <article class="rank-card">
+              <div class="rank-top">
+                <span class="rank-num gold">1</span>
+                <svg class="rank-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <rect x="13" y="13" width="22" height="22" rx="3" stroke="#2563eb" stroke-width="3" />
+                  <path d="M18 6v7M24 6v7M30 6v7M18 35v7M24 35v7M30 35v7M6 18h7M6 24h7M6 30h7M35 18h7M35 24h7M35 30h7" stroke="#2563eb" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                <h3>半導體</h3>
+                <strong>85.4</strong>
+              </div>
+              <p class="rank-desc">先進製程與 AI 需求帶動，<br />資金持續聚焦大型權值股。</p>
+              <div class="stock-list">
+                <div class="stock-title"><span>熱門股票（依成交量）</span></div>
+                <p><span>2330&nbsp;&nbsp;台積電</span><em class="tag hot">成交量大</em></p>
+                <p><span>2303&nbsp;&nbsp;聯電</span><em class="tag hot">成交量大</em></p>
+                <p><span>2408&nbsp;&nbsp;南亞科</span><em class="tag mid">成交量中</em></p>
+              </div>
+            </article>
+
+            <article class="rank-card">
+              <div class="rank-top">
+                <span class="rank-num silver">2</span>
+                <svg class="rank-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <path d="M16 8v32M32 8v32" stroke="#2563eb" stroke-width="3" stroke-linecap="round" />
+                  <rect x="11" y="15" width="10" height="18" rx="2" fill="#2563eb" opacity=".86" />
+                  <rect x="27" y="12" width="10" height="24" rx="2" fill="#2563eb" opacity=".86" />
+                </svg>
+                <h3>電子零組件</h3>
+                <strong>78.2</strong>
+              </div>
+              <p class="rank-desc">AI 伺服器與新應用拉貨延續，<br />需求支撐族群表現。</p>
+              <div class="stock-list">
+                <div class="stock-title"><span>熱門股票（依成交量）</span></div>
+                <p><span>2317&nbsp;&nbsp;鴻海</span><em class="tag hot">成交量大</em></p>
+                <p><span>2382&nbsp;&nbsp;廣達</span><em class="tag hot">成交量大</em></p>
+                <p><span>3037&nbsp;&nbsp;欣興</span><em class="tag mid">成交量中</em></p>
+              </div>
+            </article>
+
+            <article class="rank-card">
+              <div class="rank-top">
+                <span class="rank-num bronze">3</span>
+                <svg class="rank-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <rect x="9" y="11" width="30" height="22" rx="2" stroke="#2563eb" stroke-width="3" />
+                  <path d="M20 39h8M24 33v6" stroke="#2563eb" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                <h3>電腦及週邊設備</h3>
+                <strong>71.3</strong>
+              </div>
+              <p class="rank-desc">品牌拉貨與 AI PC 需求回溫，<br />帶動相關供應鏈活躍。</p>
+              <div class="stock-list">
+                <div class="stock-title"><span>熱門股票（依成交量）</span></div>
+                <p><span>2356&nbsp;&nbsp;英業達</span><em class="tag hot">成交量大</em></p>
+                <p><span>2377&nbsp;&nbsp;微星</span><em class="tag hot">成交量大</em></p>
+                <p><span>2382&nbsp;&nbsp;廣達</span><em class="tag mid">成交量中</em></p>
+              </div>
+            </article>
+
+            <article class="rank-card">
+              <div class="rank-top">
+                <span class="rank-num blue">4</span>
+                <svg class="rank-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <path d="M24 7 38 13v11c0 11-6 18-14 23-8-5-14-12-14-23V13Z" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" />
+                  <path d="M24 16v16M19 20c1-2 3-3 5-3 3 0 5 2 5 4 0 5-10 2-10 8 0 2 2 4 5 4 2 0 4-1 6-3" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <h3>金融保險</h3>
+                <strong>66.8</strong>
+              </div>
+              <p class="rank-desc">利率環境穩定之下，<br />金融股族群表現穩健。</p>
+              <div class="stock-list">
+                <div class="stock-title"><span>熱門股票（依成交量）</span></div>
+                <p><span>2881&nbsp;&nbsp;富邦金</span><em class="tag hot">成交量大</em></p>
+                <p><span>2882&nbsp;&nbsp;國泰金</span><em class="tag hot">成交量大</em></p>
+                <p><span>2891&nbsp;&nbsp;中信金</span><em class="tag mid">成交量中</em></p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="info-card observation">
+            <div class="info-title">
+              <span class="small-icon">
+                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <path d="M17 31c-3-3-5-7-4-12 1-6 6-10 12-10s11 5 11 11c0 4-2 8-5 11-2 2-2 3-2 5H19c0-2 0-3-2-5Z" fill="#2563eb" />
+                  <path d="M19 40h10M20 44h8" stroke="#2563eb" stroke-width="3" stroke-linecap="round" />
+                  <path d="M24 4V1M38 12l3-3M10 12 7 9" stroke="#93c5fd" stroke-width="3" stroke-linecap="round" />
+                </svg>
+              </span>
+              <h2>今日市場觀察重點</h2>
+            </div>
+            <ul>
+              <li>AI 供應鏈需求續強，半導體與伺服器相關族群仍為資金聚焦核心。</li>
+              <li>半導體族群受惠先進製程與高效能晶片需求，權值股表現持續受到關注。</li>
+              <li>電子零組件在 AI 應用拉貨動能支撐下，整體需求延續向上。</li>
+              <li>盤後整理後資金呈現輪動，資金由整理、航運等族群轉向電子族群布局。</li>
+              <li>觀察重點：關注 AI PC、AI 伺服器、先進封裝等供應鏈的營運動能與訂單變化。</li>
+            </ul>
+          </article>
+
+          <article class="info-card update-card">
+            <div class="info-title">
+              <span class="small-icon">
+                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <path d="M39 18A15 15 0 0 0 13 12l-4 4M9 9v7h7M9 30a15 15 0 0 0 26 6l4-4M39 39v-7h-7" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <h2>資料更新狀態</h2>
+            </div>
+            <div class="status-table">
+              <div>
+                <span class="row-label">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" stroke="#2563eb" stroke-width="2" /><path d="M8 3v4M16 3v4M4 10h16" stroke="#2563eb" stroke-width="2" stroke-linecap="round" /></svg>
+                  更新模式
+                </span>
+                <strong>每日盤後更新</strong>
+              </div>
+              <div>
+                <span class="row-label">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="#2563eb" stroke-width="2" /><path d="M12 7v6l4 2" stroke="#2563eb" stroke-width="2" stroke-linecap="round" /></svg>
+                  最近更新
+                </span>
+                <strong>2025/05/26 18:30</strong>
+              </div>
+              <div>
+                <span class="row-label success">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="#16a34a" /><path d="m8 12 3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  狀態
+                </span>
+                <strong class="done">更新完成</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="../dashboard-header.js"></script>
+    <script src="../dashboard-data.js?v=themes-20260530"></script>
+  </body>
+</html>

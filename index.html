@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Stock Lab</title>
+    <link rel="stylesheet" href="public-pages.css" />
+    <link rel="stylesheet" href="site-auth.css" />
+  </head>
+  <body>
+    <div class="public-page home">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="./" aria-label="AI Stock Lab 首頁">
+            <svg viewBox="0 0 64 50" aria-hidden="true">
+              <defs><linearGradient id="logoGradient" x1="8" x2="56" y1="44" y2="4"><stop stop-color="#2563eb" /><stop offset="1" stop-color="#7dd3fc" /></linearGradient></defs>
+              <path d="M10 34 24 17l17 14L54 8v33L41 31 24 17v26" fill="none" stroke="url(#logoGradient)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+              <circle cx="10" cy="34" r="5" fill="#2563eb" /><circle cx="24" cy="17" r="5" fill="#60a5fa" /><circle cx="41" cy="31" r="5" fill="#6d86f7" /><circle cx="54" cy="8" r="5" fill="#7dd3fc" />
+            </svg>
+            <span>AI Stock Lab</span>
+          </a>
+          <nav class="nav" aria-label="主導覽">
+            <a class="active" href="./">首頁</a>
+            <a href="membership/">會員方案</a>
+            <a href="terms/">服務條款與風險</a>
+            <a href="about/">關於</a>
+          </nav>
+          <a class="login" href="market-overview/">登入</a>
+        </div>
+      </header>
+
+      <main class="page-inner">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="star"></span>以 AI 洞察市場，讓研究更有方向</p>
+            <h1>AI 股票研究平台</h1>
+            <div class="title-line"></div>
+            <p class="lead">整合市場資訊與技術分析，協助你整理重點、學習技術<br />建立屬於自己的研究脈絡與投資視角。</p>
+          </div>
+
+          <div class="visual" aria-hidden="true">
+            <span class="halo one"></span>
+            <span class="halo two"></span>
+            <div class="visual-floor"></div>
+            <div class="glass market-panel">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <svg class="line-svg" viewBox="0 0 190 74">
+                <polyline points="0,52 38,30 76,43 112,12 150,27 188,0" fill="none" stroke="#7aa7ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                <g fill="#79b8ff"><circle cx="0" cy="52" r="5" /><circle cx="38" cy="30" r="5" /><circle cx="76" cy="43" r="5" /><circle cx="112" cy="12" r="5" /><circle cx="150" cy="27" r="5" /><circle cx="188" cy="0" r="5" /></g>
+              </svg>
+              <div class="candles"><span class="candle"></span><span class="candle"></span><span class="candle"></span><span class="candle"></span></div>
+              <div class="donut"></div>
+              <div class="panel-lines"><div><span></span><span></span><span></span></div><div><span></span><span></span><span></span></div></div>
+            </div>
+            <div class="glass ai-market-card">
+              <div class="ai-mark">AI</div>
+              <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content">
+          <div class="home-cards">
+            <article class="feature-card">
+              <span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M14 8h15l7 7v25H14z" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round" /><path d="M29 8v8h8M20 23h12M20 30h12M20 36h8" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" /></svg></span>
+              <div><h2>市場資訊整理</h2><p>整理市場重點資訊，掌握趨勢脈動。</p></div>
+            </article>
+            <article class="feature-card">
+              <span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="m12 34 4 4 24-24-4-4zM30 16l4 4M12 34l-3 9 9-3" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              <div><h2>技術學習筆記</h2><p>記錄與學習技術分析，累積理解與經驗。</p></div>
+            </article>
+            <article class="feature-card">
+              <span class="icon-disc"><svg viewBox="0 0 48 48" fill="none"><path d="M17 20a7 7 0 1 1 14 0v13a7 7 0 0 1-14 0z" stroke="#3b82f6" stroke-width="3" /><path d="M17 24h-3a6 6 0 0 0 0 12h3M31 24h3a6 6 0 0 1 0 12h-3M24 13v26M18 29h12" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" /></svg></span>
+              <div><h2>AI 研究輔助</h2><p>運用 AI 輔助思考，提升研究效率與品質。</p></div>
+            </article>
+          </div>
+        </section>
+
+        <div class="divider"></div>
+        <footer class="footer">© 2024 AI Stock Lab. All rights reserved.</footer>
+      </main>
+    </div>
+    <script src="site-auth.js"></script>
+  </body>
+</html>

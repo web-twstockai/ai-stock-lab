@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>管理員中控台 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../dashboard-header.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body data-dashboard-page="admin">
+    <div data-dashboard-header data-active="admin" data-base="../"></div>
+
+    <main class="admin-shell" aria-labelledby="admin-title">
+      <header class="admin-hero">
+        <div>
+          <p class="admin-kicker">AI Stock Lab Admin</p>
+          <h1 id="admin-title">管理員中控台</h1>
+          <p>集中檢視資料更新、會員權限、系統紀錄與備份狀態。</p>
+        </div>
+        <div class="admin-status-card" aria-label="系統狀態">
+          <span class="status-dot" data-health-dot></span>
+          <div>
+            <strong data-system-status>檢查中</strong>
+            <span data-system-summary>正在讀取資料狀態</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="admin-panel api-auth-panel" data-api-auth-panel aria-label="Admin API 權限">
+        <div>
+          <h2>Admin API 權限</h2>
+          <p data-api-auth-message>檢查後端登入狀態中。</p>
+        </div>
+        <form class="api-login-form" data-api-login-form>
+          <input name="account" autocomplete="username" placeholder="帳號" required />
+          <input name="password" type="password" autocomplete="current-password" placeholder="密碼" required />
+          <button class="ghost-button" type="submit">登入 API</button>
+        </form>
+        <form class="api-password-form" data-api-password-form hidden>
+          <input name="currentPassword" type="password" autocomplete="current-password" placeholder="舊密碼" required />
+          <input name="newPassword" type="password" autocomplete="new-password" placeholder="新密碼至少 8 碼" minlength="8" required />
+          <button class="ghost-button" type="submit">修改密碼</button>
+        </form>
+        <button class="ghost-button" type="button" data-api-logout hidden>登出 API</button>
+      </section>
+
+      <section class="metric-grid" aria-label="系統指標">
+        <article class="metric-card">
+          <span class="metric-label">今日候選股</span>
+          <strong data-metric="candidateCount">--</strong>
+          <small data-metric-note="candidateCount">等待資料載入</small>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">股票資料</span>
+          <strong data-metric="stockCount">--</strong>
+          <small data-metric-note="stockCount">全市場追蹤檔</small>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">使用者</span>
+          <strong data-metric="userCount">--</strong>
+          <small data-metric-note="userCount">含管理員帳號</small>
+        </article>
+        <article class="metric-card metric-card-alert">
+          <span class="metric-label">異常警示</span>
+          <strong data-metric="warningCount">--</strong>
+          <small data-metric-note="warningCount">資料與紀錄檢查</small>
+        </article>
+      </section>
+
+      <section class="admin-layout">
+        <section class="admin-panel admin-panel-wide" aria-labelledby="updates-title">
+          <div class="panel-heading">
+            <div>
+              <h2 id="updates-title">資料更新管理</h2>
+              <p>先提供狀態與建議指令，正式執行腳本需接後端權限。</p>
+            </div>
+            <button class="ghost-button" type="button" data-refresh>重新整理</button>
+          </div>
+          <div class="update-list" data-update-list></div>
+        </section>
+
+        <section class="admin-panel" aria-labelledby="users-title">
+          <div class="panel-heading">
+            <div>
+              <h2 id="users-title">會員權限管理</h2>
+              <p>目前管理瀏覽器本機帳號資料。</p>
+            </div>
+          </div>
+          <div class="user-toolbar">
+            <label>
+              <span>搜尋帳號</span>
+              <input data-user-search type="search" placeholder="輸入名稱或帳號" autocomplete="off" />
+            </label>
+          </div>
+          <div class="user-list" data-user-list></div>
+        </section>
+      </section>
+
+      <section class="admin-panel" aria-labelledby="advanced-requests-title">
+        <div class="panel-heading">
+          <div>
+            <h2 id="advanced-requests-title">進階會員申請</h2>
+            <p>審核會員提交的進階權限申請，核准時設定開放天數。</p>
+          </div>
+        </div>
+        <div class="request-list" data-advanced-request-list></div>
+      </section>
+
+      <section class="admin-panel" aria-labelledby="maintenance-title">
+        <div class="panel-heading">
+          <div>
+            <h2 id="maintenance-title">系統紀錄與備份</h2>
+            <p>檢查 JSON 資料檔、更新紀錄與備份線索。</p>
+          </div>
+          <div class="panel-actions">
+            <button class="ghost-button" type="button" data-open-log="macro">查看紀錄</button>
+            <button class="ghost-button" type="button" data-open-audit>操作紀錄</button>
+            <button class="ghost-button" type="button" data-create-backup>建立備份</button>
+            <span class="panel-meta" data-generated-at>--</span>
+          </div>
+        </div>
+        <div class="maintenance-grid">
+          <div>
+            <h3>資料檔健康狀態</h3>
+            <div class="health-list" data-health-list></div>
+          </div>
+          <div>
+            <h3>最近紀錄</h3>
+            <div class="log-list" data-log-list></div>
+          </div>
+          <div>
+            <h3>備份與更新</h3>
+            <div class="backup-list" data-backup-list></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../dashboard-header.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

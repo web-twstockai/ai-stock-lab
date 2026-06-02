@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>每日篩選 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../dashboard-header.css" />
+    <link rel="stylesheet" href="daily-screening.css" />
+  </head>
+  <body class="dashboard-page-loading">
+    <div class="screening-page">
+      <div data-dashboard-header data-active="daily-screening" data-base="../"></div>
+
+      <main class="page-shell">
+        <section class="title-row">
+          <span class="title-icon"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M13 34V23M24 34V14M35 34V19" stroke="#fff" stroke-width="4" stroke-linecap="round" /><path d="M10 38h28" stroke="#fff" stroke-width="4" stroke-linecap="round" /></svg></span>
+          <div>
+            <h1>每日篩選</h1>
+            <p>盤後依策略條件進行自動篩選，提供隔日觀察清單與投資靈感。</p>
+          </div>
+        </section>
+
+        <div class="layout-grid">
+          <section class="main-column">
+            <section class="stat-grid" aria-label="每日篩選統計">
+              <article class="stat-card blue"><span><svg viewBox="0 0 48 48" fill="none"><path d="M14 8h16l6 7v25H14Z" fill="currentColor" /><path d="M30 8v8h8" stroke="#fff" stroke-width="3" stroke-linejoin="round" /></svg></span><div><p>基本策略數量</p><strong>5 <em>個</em></strong></div></article>
+              <article class="stat-card purple"><span><svg viewBox="0 0 48 48" fill="none"><path d="m8 19 8 7 8-17 8 17 8-7-4 20H12Z" fill="currentColor" /></svg></span><div><p>進階策略數量</p><strong>10 <em>個</em></strong></div></article>
+              <article class="stat-card orange"><span><svg viewBox="0 0 48 48" fill="none"><path d="M24 6 39 13v11c0 12-7 19-15 23-8-4-15-11-15-23V13Z" fill="currentColor" /><path d="m24 16 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z" fill="#fff" /></svg></span><div><p>管理員策略數量</p><strong>10 <em>個</em></strong></div></article>
+              <article class="stat-card green"><span><svg viewBox="0 0 48 48" fill="none"><path d="M35 17a13 13 0 1 0 2 12M35 17h-9M35 17V8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg></span><div><p>更新模式</p><strong class="text-value">盤後更新</strong></div></article>
+            </section>
+
+            <section class="strategy-section basic">
+              <div class="section-title"><div><span class="section-icon">●</span><h2>基本會員可使用</h2><em>基本</em></div><a href="#">查看全部 ›</a></div>
+              <div class="strategy-grid">
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>強勢股篩選</h3><p>20 日區間強偏，股價位於<br />60 日區間高檔。</p><div class="chips"><span>動能</span><span>趨勢</span><span>籌碼</span></div><div class="count"><strong>381</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>放量突破</h3><p>價格突破區間高點，成交量<br />放大且能突破。</p><div class="chips"><span>成交量</span><span>突破</span><span>價量</span></div><div class="count"><strong>172</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>均線多頭排列</h3><p>短線站上中線，中線再高於長線<br />為多頭排列組合。</p><div class="chips"><span>均線</span><span>趨勢</span><span>基本</span></div><div class="count"><strong>458</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>60 日新高</h3><p>股價突破並創造 60 日新高點，<br />觀察是否延續。</p><div class="chips"><span>價量</span><span>突破</span></div><div class="count"><strong>224</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>RSI 轉強</h3><p>RSI 自低檔向上突破轉強，<br />適合趨勢初始。</p><div class="chips"><span>RSI</span><span>動能</span></div><div class="count"><strong>289</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+              </div>
+            </section>
+
+            <section class="strategy-section advanced">
+              <div class="section-title"><div><span class="section-icon">♛</span><h2>進階會員可使用</h2><em>進階</em></div><a href="#">查看全部 ›</a></div>
+              <div class="strategy-grid">
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>均線糾結突破</h3><p>均線群聚後突破向上突破，<br />常見波段起漲訊號。</p><div class="chips"><span>均線糾結</span><span>突破</span></div><div class="count"><strong>211</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>箱型整理突破</h3><p>價格整理區間突破上緣，<br />搭配量能確認。</p><div class="chips"><span>箱型</span><span>突破</span></div><div class="count"><strong>82</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>W 底反彈</h3><p>二次測底形成 W 型結構，<br />搭配 RSI 或 MACD 轉強。</p><div class="chips"><span>W底</span><span>反彈</span></div><div class="count"><strong>267</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>RSI + MACD 雙確認</h3><p>同時滿足指標轉強的確認，<br />降低單一指標風險。</p><div class="chips"><span>RSI</span><span>MACD</span></div><div class="count"><strong>229</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>法人籌碼 + 放量</h3><p>法人買超與量能同步出現，<br />確認資金介入。</p><div class="chips"><span>法人</span><span>成交量</span></div><div class="count"><strong>146</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+              </div>
+            </section>
+
+            <section class="strategy-section admin">
+              <div class="section-title"><div><span class="section-icon">★</span><h2>管理員可使用 / 可限定開放</h2><em>管理員</em></div><a href="#">查看全部 ›</a></div>
+              <div class="strategy-grid">
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>高勝率趨勢回測</h3><p>主升趨勢中回測 MA20 不破，<br />歷史勝率高回測模式。</p><div class="chips"><span>趨勢</span><span>回測</span></div><div class="count"><strong>129</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>突破後回踩確認</h3><p>突破後下拉測，等待回踩<br />支撐再啟動。</p><div class="chips"><span>突破</span><span>回踩</span></div><div class="count"><strong>378</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>相對強度領先</h3><p>市場資金流向的領先勢股<br />及領先個股。</p><div class="chips"><span>相對強度</span><span>領先</span></div><div class="count"><strong>407</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>法人連買趨勢</h3><p>法人連買且 OBV 趨勢同步<br />創高。</p><div class="chips"><span>法人</span><span>OBV</span></div><div class="count"><strong>212</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+                <article class="strategy-card" onclick="location.href='volume-breakout/'"><h3>低風險突破</h3><p>突破帶量後低檔波動，且<br />波動率低。</p><div class="chips"><span>穩定</span><span>低風險</span></div><div class="count"><strong>104</strong><em>檔符合</em></div><a class="apply" href="volume-breakout/">套用</a></article>
+              </div>
+            </section>
+          </section>
+
+          <aside class="side-column">
+            <section class="side-card permissions"><h2>權限說明</h2><div class="permission-item blue"><span>●</span><div><strong>基本會員</strong><p>可使用基本策略</p></div></div><div class="permission-item purple"><span>♛</span><div><strong>進階會員</strong><p>可使用基本 + 進階策略</p></div></div><div class="permission-item orange"><span>★</span><div><strong>管理員</strong><p>可使用全部策略，<br />並可限定開放給會員使用</p></div></div></section>
+            <section class="side-card update"><h2><span>↻</span>盤後更新</h2><div class="update-box"><p><span>更新模式：</span><strong>盤後更新</strong></p><p><span>最近更新：</span><strong>2025/05/26 18:30</strong></p><p><span>狀態：</span><strong class="done">● 更新完成</strong></p></div></section>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <script src="../dashboard-header.js"></script>
+    <script src="../dashboard-data.js?v=themes-20260530"></script>
+  </body>
+</html>

@@ -1,0 +1,1590 @@
+{
+  "version": "2026-05-30-bh1908",
+  "description": "AlphaDeck strategy and indicator model database. Includes public YouTube-derived proxy indicators from BH1908. Rules are educational screening models, not investment advice.",
+  "models": [
+    {
+      "id": "growth_acceleration",
+      "name": "營收加速成長",
+      "family": "基本面分析",
+      "style": "growth",
+      "summary": "月營收年增率與月增率同步轉強，搭配股價站上中期均線。",
+      "rules": [
+        "月營收 YoY > 20%",
+        "月營收 MoM > 0%",
+        "股價站上 20/60 日線",
+        "20 日均成交金額 > 1 億"
+      ],
+      "fields": [
+        "revenueYoy",
+        "revenueMom",
+        "aboveMa20",
+        "aboveMa60",
+        "avgTurnover20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/CAN_SLIM"
+      ]
+    },
+    {
+      "id": "canslim_lite",
+      "name": "CAN SLIM Lite",
+      "family": "大神策略",
+      "style": "growth",
+      "summary": "以營收成長、接近新高、法人參與與流動性近似 CAN SLIM 的 C/N/I/M 精神。",
+      "rules": [
+        "營收 YoY > 25%",
+        "距 60 日高點 < 3%",
+        "外資 5 日買超",
+        "20 日均成交金額 > 1 億"
+      ],
+      "fields": [
+        "revenueYoy",
+        "distanceTo60dHigh",
+        "foreign5d",
+        "avgTurnover20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/CAN_SLIM"
+      ]
+    },
+    {
+      "id": "minervini_trend_template_lite",
+      "name": "Minervini 趨勢模板 Lite",
+      "family": "大神策略",
+      "style": "momentum",
+      "summary": "用 20/60 日線、60 日高點距離、相對強勢和流動性近似趨勢模板。",
+      "rules": [
+        "股價 > MA20 > MA60",
+        "距 60 日高點 < 3%",
+        "20 日報酬 > 10%",
+        "20 日均成交金額 > 1 億"
+      ],
+      "fields": [
+        "close",
+        "ma20",
+        "ma60",
+        "distanceTo60dHigh",
+        "return20d",
+        "avgTurnover20d"
+      ],
+      "sources": [
+        "https://www.chartmill.com/documentation/stock-screener/technical-analysis-trading-strategies/496-Mark-Minervini-Trend-Template-A-Step-by-Step-Guide-for-Beginners"
+      ]
+    },
+    {
+      "id": "darvas_box_breakout_lite",
+      "name": "Darvas 箱型突破 Lite",
+      "family": "形態學",
+      "style": "breakout",
+      "summary": "用接近 60 日新高、近期動能與成交額作為箱型突破代理訊號。",
+      "rules": [
+        "60 日新高或距高點 < 1%",
+        "20 日報酬 > 8%",
+        "20 日均成交金額 > 1 億",
+        "波動不列高風險"
+      ],
+      "fields": [
+        "is60dHigh",
+        "distanceTo60dHigh",
+        "return20d",
+        "avgTurnover20d",
+        "risk"
+      ],
+      "sources": [
+        "https://www.ebc.com/forex/what-is-the-box-theory",
+        "https://arongroups.co/forex-articles/darvas-boxes-strategy/"
+      ]
+    },
+    {
+      "id": "weinstein_stage2_lite",
+      "name": "Weinstein 第二階段 Lite",
+      "family": "大神策略",
+      "style": "trend",
+      "summary": "以價格站上 60 日線、60 日線向上代理 Weinstein Stage 2 的趨勢推升。",
+      "rules": [
+        "股價站上 MA60",
+        "MA20 > MA60",
+        "20 日報酬 > 0",
+        "距 60 日高點 < 8%"
+      ],
+      "fields": [
+        "close",
+        "ma20",
+        "ma60",
+        "return20d",
+        "distanceTo60dHigh"
+      ],
+      "sources": [
+        "https://kasauti.in/blog/methodology/weinstein/"
+      ]
+    },
+    {
+      "id": "turtle_20d_breakout",
+      "name": "Turtle 20 日突破",
+      "family": "技術指標",
+      "style": "breakout",
+      "summary": "Donchian/Turtle 的 20 日突破精神，使用近期新高與趨勢過濾。",
+      "rules": [
+        "60 日新高或距高點 < 1%",
+        "股價站上 MA20",
+        "20 日報酬 > 5%"
+      ],
+      "fields": [
+        "is60dHigh",
+        "distanceTo60dHigh",
+        "aboveMa20",
+        "return20d"
+      ],
+      "sources": [
+        "https://www.turtelli.com/articles/20-day-breakout-strategy",
+        "https://journalplus.co/strategies/donchian-channel-strategy"
+      ]
+    },
+    {
+      "id": "bollinger_squeeze_proxy",
+      "name": "Bollinger 壓縮突破 Proxy",
+      "family": "技術指標",
+      "style": "volatility",
+      "summary": "用較低波動、股價站上均線和接近高點近似壓縮後向上突破。",
+      "rules": [
+        "20 日波動 < 35%",
+        "股價站上 MA20/MA60",
+        "距 60 日高點 < 5%",
+        "20 日報酬 > 0"
+      ],
+      "fields": [
+        "volatility20d",
+        "aboveMa20",
+        "aboveMa60",
+        "distanceTo60dHigh",
+        "return20d"
+      ],
+      "sources": [
+        "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/bollinger-bands",
+        "https://www.britannica.com/money/bollinger-bands-indicator"
+      ]
+    },
+    {
+      "id": "rsi_momentum_proxy",
+      "name": "RSI 動能 Proxy",
+      "family": "技術指標",
+      "style": "momentum",
+      "summary": "目前資料未直接計 RSI，先用 20 日報酬與均線結構代理強勢動能。",
+      "rules": [
+        "20 日報酬 5% 至 35%",
+        "股價站上 MA20",
+        "風險非高"
+      ],
+      "fields": [
+        "return20d",
+        "aboveMa20",
+        "risk"
+      ],
+      "sources": [
+        "https://www.investopedia.com/terms/r/rsi.asp"
+      ]
+    },
+    {
+      "id": "macd_trend_proxy",
+      "name": "MACD 趨勢 Proxy",
+      "family": "技術指標",
+      "style": "trend",
+      "summary": "以短均線高於長均線和正報酬近似 MACD 多頭排列。",
+      "rules": [
+        "MA20 > MA60",
+        "20 日報酬 > 0",
+        "股價站上 MA20"
+      ],
+      "fields": [
+        "ma20",
+        "ma60",
+        "return20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://www.investopedia.com/terms/m/macd.asp"
+      ]
+    },
+    {
+      "id": "foreign_accumulation",
+      "name": "外資累積買超",
+      "family": "籌碼分析",
+      "style": "chip",
+      "summary": "外資 5 日買超、流動性達標且價格不破中期均線。",
+      "rules": [
+        "外資 5 日買超",
+        "三大法人 5 日買超",
+        "20 日均成交金額 > 1 億",
+        "股價站上 MA60"
+      ],
+      "fields": [
+        "foreign5d",
+        "institutional5d",
+        "avgTurnover20d",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://www.twse.com.tw/rwd/zh/fund/T86",
+        "https://www.tpex.org.tw/www/zh-tw/insti/dailyTrade"
+      ]
+    },
+    {
+      "id": "trust_following",
+      "name": "投信接力",
+      "family": "籌碼分析",
+      "style": "chip",
+      "summary": "投信 5 日買超且價格接近高點，偏向波段法人接力。",
+      "rules": [
+        "投信 5 日買超",
+        "距 60 日高點 < 5%",
+        "20 日報酬 > 0"
+      ],
+      "fields": [
+        "trust5d",
+        "distanceTo60dHigh",
+        "return20d"
+      ],
+      "sources": [
+        "https://www.twse.com.tw/rwd/zh/fund/T86",
+        "https://www.tpex.org.tw/www/zh-tw/insti/dailyTrade"
+      ]
+    },
+    {
+      "id": "value_repair",
+      "name": "價值修復",
+      "family": "基本面分析",
+      "style": "value",
+      "summary": "估值低、殖利率有支撐，且股價已回到中期均線之上。",
+      "rules": [
+        "PE < 18",
+        "PB < 2",
+        "殖利率 > 3%",
+        "股價站上 MA60"
+      ],
+      "fields": [
+        "pe",
+        "pb",
+        "dividendYield",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Value_investing"
+      ]
+    },
+    {
+      "id": "deep_value_yield",
+      "name": "低估值高殖利率",
+      "family": "基本面分析",
+      "style": "value",
+      "summary": "偏防禦型價值篩選，重視低 PB、低 PE 與高殖利率。",
+      "rules": [
+        "PE < 15",
+        "PB < 1.5",
+        "殖利率 > 5%"
+      ],
+      "fields": [
+        "pe",
+        "pb",
+        "dividendYield"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Value_investing"
+      ]
+    },
+    {
+      "id": "oshaughnessy_trending_value_lite",
+      "name": "O'Shaughnessy Trending Value Lite",
+      "family": "大神策略",
+      "style": "value_momentum",
+      "summary": "低估值股票中挑選 6 個月/近月動能強者的簡化版。",
+      "rules": [
+        "PE < 20 或 PB < 2",
+        "20 日報酬 > 5%",
+        "股價站上 MA60",
+        "20 日均成交金額 > 1 億"
+      ],
+      "fields": [
+        "pe",
+        "pb",
+        "return20d",
+        "aboveMa60",
+        "avgTurnover20d"
+      ],
+      "sources": [
+        "https://www.quant-investing.com/strategies/oshaughnessy-trending-value-investment-strategy"
+      ]
+    },
+    {
+      "id": "greenblatt_proxy",
+      "name": "Magic Formula Proxy",
+      "family": "基本面分析",
+      "style": "quality_value",
+      "summary": "沒有 EBIT/EV 與 ROC 時，以低 PE、合理 PB、正動能近似好公司不太貴。",
+      "rules": [
+        "PE < 20",
+        "PB < 3",
+        "20 日報酬 > 0",
+        "殖利率 >= 0"
+      ],
+      "fields": [
+        "pe",
+        "pb",
+        "return20d",
+        "dividendYield"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Magic_formula_investing"
+      ]
+    },
+    {
+      "id": "low_volatility_trend",
+      "name": "低波趨勢",
+      "family": "風險模型",
+      "style": "risk",
+      "summary": "波動較低但仍站上均線，適合觀察穩定型趨勢。",
+      "rules": [
+        "20 日波動 < 30%",
+        "股價站上 MA20/MA60",
+        "20 日報酬 > 0"
+      ],
+      "fields": [
+        "volatility20d",
+        "aboveMa20",
+        "aboveMa60",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Factor_investing"
+      ]
+    },
+    {
+      "id": "quality_growth_proxy",
+      "name": "品質成長 Proxy",
+      "family": "基本面分析",
+      "style": "quality_growth",
+      "summary": "用營收成長、合理估值與低波動代理品質成長。",
+      "rules": [
+        "營收 YoY > 15%",
+        "PE < 40",
+        "20 日波動 < 45%",
+        "股價站上 MA60"
+      ],
+      "fields": [
+        "revenueYoy",
+        "pe",
+        "volatility20d",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Quality_investing"
+      ]
+    },
+    {
+      "id": "ma_bull_stack",
+      "name": "均線多頭排列",
+      "family": "技術分析",
+      "style": "trend",
+      "summary": "股價位於 20/60 日線上，短均線高於長均線，偏中期多頭。",
+      "rules": [
+        "收盤價 > MA20 > MA60",
+        "20 日報酬 > 0"
+      ],
+      "fields": [
+        "close",
+        "ma20",
+        "ma60",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "ma60_reclaim",
+      "name": "重回 60 日線",
+      "family": "技術分析",
+      "style": "reversal",
+      "summary": "股價站回 60 日線且 20 日報酬轉正，觀察中期趨勢修復。",
+      "rules": [
+        "股價站上 MA60",
+        "20 日報酬 > 0",
+        "距 60 日高點 < 12%"
+      ],
+      "fields": [
+        "aboveMa60",
+        "return20d",
+        "distanceTo60dHigh"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "price_volume_breakout",
+      "name": "量價突破",
+      "family": "量價分析",
+      "style": "breakout",
+      "summary": "價格接近近期高點，同時成交量或成交額明顯放大。",
+      "rules": [
+        "距 60 日高點 < 2%",
+        "量比 > 1.2",
+        "20 日報酬 > 5%"
+      ],
+      "fields": [
+        "distanceTo60dHigh",
+        "volumeRatio20d",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "relative_volume_surge",
+      "name": "相對量能放大",
+      "family": "量價分析",
+      "style": "volume",
+      "summary": "當日成交量明顯高於 20 日均量，且價格仍維持正動能。",
+      "rules": [
+        "量比 > 1.5",
+        "20 日報酬 > 0",
+        "股價站上 MA20"
+      ],
+      "fields": [
+        "volumeRatio20d",
+        "return20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "high_volume_no_drop",
+      "name": "高量不跌",
+      "family": "量價分析",
+      "style": "accumulation",
+      "summary": "成交量放大但價格仍守在 20 日區間上緣，可能代表承接力強。",
+      "rules": [
+        "量比 > 1.3",
+        "20 日區間位置 > 60%",
+        "20 日報酬 > 0"
+      ],
+      "fields": [
+        "volumeRatio20d",
+        "rangePosition20d",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "ma20_pullback_hold",
+      "name": "回測 MA20 不破",
+      "family": "技術分析",
+      "style": "pullback",
+      "summary": "股價接近 MA20 但仍在其上，適合觀察強勢股回檔。",
+      "rules": [
+        "股價高於 MA20",
+        "收盤價距 MA20 < 5%",
+        "MA20 > MA60"
+      ],
+      "fields": [
+        "close",
+        "ma20",
+        "ma60"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "ma60_pullback_hold",
+      "name": "回測 MA60 不破",
+      "family": "技術分析",
+      "style": "pullback",
+      "summary": "股價接近 MA60 並守住，偏中期支撐觀察。",
+      "rules": [
+        "股價高於 MA60",
+        "收盤價距 MA60 < 6%",
+        "20 日報酬 > -5%"
+      ],
+      "fields": [
+        "close",
+        "ma60",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "rs_rank_leader",
+      "name": "相對強弱領先",
+      "family": "股票篩選策略",
+      "style": "relative_strength",
+      "summary": "以綜合分數、20 日報酬與接近高點代理相對強弱領先股。",
+      "rules": [
+        "分數 >= 85",
+        "20 日報酬 > 10%",
+        "距 60 日高點 < 5%"
+      ],
+      "fields": [
+        "score",
+        "return20d",
+        "distanceTo60dHigh"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Factor_investing"
+      ]
+    },
+    {
+      "id": "sector_rank_leader",
+      "name": "族群龍頭",
+      "family": "股票篩選策略",
+      "style": "relative_strength",
+      "summary": "同市場同族群排名前段，且本身維持正動能。",
+      "rules": [
+        "同族群排名前 3",
+        "20 日報酬 > 0",
+        "20 日均成交額 > 1 億"
+      ],
+      "fields": [
+        "sectorRank",
+        "return20d",
+        "avgTurnover20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Factor_investing"
+      ]
+    },
+    {
+      "id": "vcp_proxy",
+      "name": "VCP 波動收縮 Proxy",
+      "family": "形態學",
+      "style": "pattern",
+      "summary": "用低波動、接近高點、站上均線近似 VCP 收縮後等待突破。",
+      "rules": [
+        "20 日波動 < 45%",
+        "距 60 日高點 < 6%",
+        "股價站上 MA20/MA60"
+      ],
+      "fields": [
+        "volatility20d",
+        "distanceTo60dHigh",
+        "aboveMa20",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://www.financialtechwiz.com/post/mark-minervini-trading-strategy"
+      ]
+    },
+    {
+      "id": "cup_handle_proxy",
+      "name": "杯柄形態 Proxy",
+      "family": "形態學",
+      "style": "pattern",
+      "summary": "大波段回到高點附近、波動未過熱，近似杯柄右側或柄部突破前。",
+      "rules": [
+        "60 日報酬 > 20%",
+        "距 60 日高點 0% 至 -8%",
+        "20 日波動 < 55%"
+      ],
+      "fields": [
+        "return60d",
+        "distanceTo60dHigh",
+        "volatility20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "platform_breakout_proxy",
+      "name": "平台突破 Proxy",
+      "family": "形態學",
+      "style": "breakout",
+      "summary": "股價位於近 20 日區間高位且量能放大，近似平台整理後突破。",
+      "rules": [
+        "20 日區間位置 > 85%",
+        "量比 > 1.1",
+        "距 60 日高點 < 4%"
+      ],
+      "fields": [
+        "rangePosition20d",
+        "volumeRatio20d",
+        "distanceTo60dHigh"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "flag_breakout_proxy",
+      "name": "旗型整理突破 Proxy",
+      "family": "形態學",
+      "style": "pattern",
+      "summary": "前段已有正報酬，短期仍接近高點並放量，近似旗型整理後續攻。",
+      "rules": [
+        "20 日報酬 > 12%",
+        "距 60 日高點 < 3%",
+        "量比 > 1"
+      ],
+      "fields": [
+        "return20d",
+        "distanceTo60dHigh",
+        "volumeRatio20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "triangle_squeeze_proxy",
+      "name": "三角收斂 Proxy",
+      "family": "形態學",
+      "style": "pattern",
+      "summary": "低波動、接近區間上緣且成交量未失控，近似收斂末端。",
+      "rules": [
+        "20 日波動 < 40%",
+        "20 日區間位置 > 70%",
+        "量比 < 1.5"
+      ],
+      "fields": [
+        "volatility20d",
+        "rangePosition20d",
+        "volumeRatio20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "strong_close_range",
+      "name": "區間強收盤",
+      "family": "技術分析",
+      "style": "momentum",
+      "summary": "收盤價位於 20 日區間高位，代表短期買盤掌控。",
+      "rules": [
+        "20 日區間位置 > 80%",
+        "股價站上 MA20",
+        "20 日報酬 > 0"
+      ],
+      "fields": [
+        "rangePosition20d",
+        "aboveMa20",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "obv_accumulation_proxy",
+      "name": "OBV 吸籌 Proxy",
+      "family": "量價分析",
+      "style": "accumulation",
+      "summary": "以法人買超、成交量放大與價格抗跌近似 OBV 向上。",
+      "rules": [
+        "三大法人 5 日買超",
+        "量比 > 1",
+        "20 日報酬 > -3%"
+      ],
+      "fields": [
+        "institutional5d",
+        "volumeRatio20d",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "mfi_money_flow_proxy",
+      "name": "MFI 資金流 Proxy",
+      "family": "量價分析",
+      "style": "money_flow",
+      "summary": "用成交額放大、價格上漲與法人流入近似資金流入。",
+      "rules": [
+        "成交額比 > 1.2",
+        "20 日報酬 > 5%",
+        "外資 5 日買超"
+      ],
+      "fields": [
+        "turnoverRatio20d",
+        "return20d",
+        "foreign5d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "foreign_10d_proxy",
+      "name": "外資連買 Proxy",
+      "family": "籌碼分析",
+      "style": "chip",
+      "summary": "目前使用 5 日外資買超與股價站上均線代理外資連買。",
+      "rules": [
+        "外資 5 日買超 > 1000 張",
+        "股價站上 MA20",
+        "20 日均成交額 > 1 億"
+      ],
+      "fields": [
+        "foreign5d",
+        "aboveMa20",
+        "avgTurnover20d"
+      ],
+      "sources": [
+        "https://www.twse.com.tw/rwd/zh/fund/T86",
+        "https://www.tpex.org.tw/www/zh-tw/insti/dailyTrade"
+      ]
+    },
+    {
+      "id": "institutional_sync_buy",
+      "name": "法人同步偏多",
+      "family": "籌碼分析",
+      "style": "chip",
+      "summary": "外資、投信、自營商合計偏多，且至少兩類法人買超。",
+      "rules": [
+        "三大法人買超",
+        "外資/投信/自營商至少兩者買超",
+        "股價站上 MA20"
+      ],
+      "fields": [
+        "foreign5d",
+        "trust5d",
+        "dealer5d",
+        "institutional5d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://www.twse.com.tw/rwd/zh/fund/T86",
+        "https://www.tpex.org.tw/www/zh-tw/insti/dailyTrade"
+      ]
+    },
+    {
+      "id": "smart_money_absorption",
+      "name": "法人吸籌抗跌",
+      "family": "籌碼分析",
+      "style": "accumulation",
+      "summary": "法人買超但短期漲幅不大，觀察可能的低調吸籌。",
+      "rules": [
+        "三大法人 5 日買超",
+        "20 日報酬介於 -3% 到 8%",
+        "股價站上 MA60"
+      ],
+      "fields": [
+        "institutional5d",
+        "return20d",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://www.twse.com.tw/rwd/zh/fund/T86",
+        "https://www.tpex.org.tw/www/zh-tw/insti/dailyTrade"
+      ]
+    },
+    {
+      "id": "revenue_turnaround",
+      "name": "營收轉機",
+      "family": "基本面分析",
+      "style": "turnaround",
+      "summary": "月營收 YoY 轉正且 MoM 成長，搭配價格站回均線。",
+      "rules": [
+        "營收 YoY > 0",
+        "營收 MoM > 5%",
+        "股價站上 MA60"
+      ],
+      "fields": [
+        "revenueYoy",
+        "revenueMom",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Fundamental_analysis"
+      ]
+    },
+    {
+      "id": "revenue_high_growth",
+      "name": "營收高成長",
+      "family": "基本面分析",
+      "style": "growth",
+      "summary": "月營收年增率明顯高於一般成長門檻。",
+      "rules": [
+        "營收 YoY > 50%",
+        "20 日均成交額 > 1 億",
+        "股價站上 MA20"
+      ],
+      "fields": [
+        "revenueYoy",
+        "avgTurnover20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Fundamental_analysis"
+      ]
+    },
+    {
+      "id": "reasonable_growth",
+      "name": "合理估值成長",
+      "family": "基本面分析",
+      "style": "growth_value",
+      "summary": "營收成長、估值未過高且價格趨勢轉強。",
+      "rules": [
+        "營收 YoY > 20%",
+        "PE < 30",
+        "PB < 5",
+        "股價站上 MA60"
+      ],
+      "fields": [
+        "revenueYoy",
+        "pe",
+        "pb",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Fundamental_analysis"
+      ]
+    },
+    {
+      "id": "dividend_momentum",
+      "name": "高息動能",
+      "family": "基本面分析",
+      "style": "yield_momentum",
+      "summary": "殖利率有支撐，同時股價維持正動能。",
+      "rules": [
+        "殖利率 > 4%",
+        "20 日報酬 > 3%",
+        "股價站上 MA60"
+      ],
+      "fields": [
+        "dividendYield",
+        "return20d",
+        "aboveMa60"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Value_investing"
+      ]
+    },
+    {
+      "id": "cheap_rebound",
+      "name": "低估值反彈",
+      "family": "基本面分析",
+      "style": "reversal",
+      "summary": "低 PE/PB 股票出現短期正報酬與均線修復。",
+      "rules": [
+        "PE < 15 或 PB < 1.5",
+        "20 日報酬 > 5%",
+        "股價站上 MA20"
+      ],
+      "fields": [
+        "pe",
+        "pb",
+        "return20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Value_investing"
+      ]
+    },
+    {
+      "id": "low_risk_value",
+      "name": "低風險價值",
+      "family": "風險模型",
+      "style": "value",
+      "summary": "波動較低、估值合理且具殖利率支撐。",
+      "rules": [
+        "20 日波動 < 35%",
+        "PE < 20",
+        "殖利率 > 3%"
+      ],
+      "fields": [
+        "volatility20d",
+        "pe",
+        "dividendYield"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Factor_investing"
+      ]
+    },
+    {
+      "id": "risk_on_momentum",
+      "name": "Risk-on 攻擊動能",
+      "family": "風險模型",
+      "style": "momentum",
+      "summary": "高報酬、高量能、接近高點，適合標記攻擊型候選。",
+      "rules": [
+        "20 日報酬 > 25%",
+        "距 60 日高點 < 3%",
+        "成交額比 > 1"
+      ],
+      "fields": [
+        "return20d",
+        "distanceTo60dHigh",
+        "turnoverRatio20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Momentum_investing"
+      ]
+    },
+    {
+      "id": "oversold_reclaim",
+      "name": "超跌收復 Proxy",
+      "family": "技術分析",
+      "style": "reversal",
+      "summary": "60 日仍偏弱但 20 日轉強並站回 MA20，觀察反彈修復。",
+      "rules": [
+        "60 日報酬 < 0",
+        "20 日報酬 > 5%",
+        "股價站上 MA20"
+      ],
+      "fields": [
+        "return60d",
+        "return20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Technical_analysis"
+      ]
+    },
+    {
+      "id": "near_high_low_vol",
+      "name": "近高低波",
+      "family": "股票篩選策略",
+      "style": "quality_momentum",
+      "summary": "股價接近高點但波動相對不高，偏穩健強勢。",
+      "rules": [
+        "距 60 日高點 < 3%",
+        "20 日波動 < 40%",
+        "20 日報酬 > 0"
+      ],
+      "fields": [
+        "distanceTo60dHigh",
+        "volatility20d",
+        "return20d"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Factor_investing"
+      ]
+    },
+    {
+      "id": "piotroski_placeholder",
+      "name": "Piotroski F-Score 待接財報",
+      "family": "基本面分析",
+      "style": "quality",
+      "summary": "Piotroski 需要完整財報九項資料；目前標記為待接，不參與命中。",
+      "rules": [
+        "需 ROA、CFO、槓桿、流動比、股本、毛利率、資產週轉等完整財報"
+      ],
+      "fields": [
+        "financial_statements"
+      ],
+      "implemented": false,
+      "sources": [
+        "https://www.quant-investing.com/glossary/piotroski-f-score",
+        "https://en.wikipedia.org/wiki/Piotroski_F-score"
+      ]
+    },
+    {
+      "id": "bh_big_player_breakout_formula",
+      "name": "大戶飆股篩選公式",
+      "family": "熊敖影片指標",
+      "style": "breakout_accumulation",
+      "summary": "Near-high breakout with volume expansion, liquidity, and institutional participation.",
+      "rules": [
+        "Distance to 60d high >= -4%",
+        "20d return > 8%",
+        "Volume ratio >= 1.2",
+        "20d average turnover > 100M TWD",
+        "Foreign or institutional 5d net buy"
+      ],
+      "fields": [
+        "distanceTo60dHigh",
+        "return20d",
+        "volumeRatio20d",
+        "avgTurnover20d",
+        "foreign5d",
+        "institutional5d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=mtlUBTJWp9A",
+        "https://www.youtube.com/watch?v=Wlqtzowv6z0",
+        "https://www.youtube.com/watch?v=nNtM929kFWE"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_zero_lag_ai_proxy",
+      "name": "零延遲 AI 領先動能",
+      "family": "熊敖影片指標",
+      "style": "early_momentum",
+      "summary": "Early momentum proxy using MA20 reclaim, improving range position, and volume or institutional lead.",
+      "rules": [
+        "Close above MA20",
+        "20d return > 0",
+        "20d range position > 65%",
+        "Volume ratio > 1 or institutional 5d net buy"
+      ],
+      "fields": [
+        "aboveMa20",
+        "return20d",
+        "rangePosition20d",
+        "volumeRatio20d",
+        "institutional5d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=zZ6Gqi_NY1w"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_rsi_launch_point",
+      "name": "RSI 暴漲啟動點",
+      "family": "熊敖影片指標",
+      "style": "momentum",
+      "summary": "RSI-style launch proxy using moderate momentum, MA20 support, near-high structure, and non-shrinking volume.",
+      "rules": [
+        "20d return between 3% and 25%",
+        "Close above MA20",
+        "Distance to 60d high >= -6%",
+        "Volume ratio >= 0.9"
+      ],
+      "fields": [
+        "return20d",
+        "aboveMa20",
+        "distanceTo60dHigh",
+        "volumeRatio20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=cK0QKdqMZYA",
+        "https://www.youtube.com/watch?v=pwYDJfEMfPk"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_kline_stair_trend",
+      "name": "K 線階梯趨勢",
+      "family": "熊敖影片指標",
+      "style": "price_action",
+      "summary": "Stair-step trend proxy with bullish MA stack, strong range close, positive momentum, and controlled volatility.",
+      "rules": [
+        "Close > MA20 > MA60",
+        "20d range position > 65%",
+        "20d return > 5%",
+        "20d annualized volatility < 60%"
+      ],
+      "fields": [
+        "close",
+        "ma20",
+        "ma60",
+        "rangePosition20d",
+        "return20d",
+        "volatility20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=u3YJDGOuNuc"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_bollinger_reversal_batch",
+      "name": "布林逆轉系統",
+      "family": "熊敖影片指標",
+      "style": "reversal",
+      "summary": "Bollinger reversal proxy using volatility compression, MA20 reclaim, positive return, and limited drawdown from 20d high.",
+      "rules": [
+        "20d volatility < 45%",
+        "Close above MA20",
+        "20d return > 0",
+        "20d drawdown >= -8%",
+        "20d range position > 55%"
+      ],
+      "fields": [
+        "volatility20d",
+        "aboveMa20",
+        "return20d",
+        "drawdown20d",
+        "rangePosition20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=ygzzFJQjoLY",
+        "https://www.youtube.com/watch?v=w9JkzTqAtzY"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_ma_deduction_value",
+      "name": "MA 扣抵值趨勢",
+      "family": "熊敖影片指標",
+      "style": "trend_pullback",
+      "summary": "Moving-average pullback proxy for names close to MA20 while MA20 remains above MA60.",
+      "rules": [
+        "MA20 > MA60",
+        "Close is 0% to 6% above MA20",
+        "20d return > 0"
+      ],
+      "fields": [
+        "ma20",
+        "ma60",
+        "close",
+        "return20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=-8HVQDBRueM",
+        "https://www.youtube.com/watch?v=Huy_X5Ci-As"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_smc_smart_money_line",
+      "name": "SMC 聰明錢吸籌線",
+      "family": "熊敖影片指標",
+      "style": "smart_money",
+      "summary": "Smart-money absorption proxy using institutional buying, MA60 support, non-overheated return, and stronger range position.",
+      "rules": [
+        "Institutional 5d net buy",
+        "Close above MA60",
+        "20d return between -5% and 15%",
+        "20d range position > 55%"
+      ],
+      "fields": [
+        "institutional5d",
+        "aboveMa60",
+        "return20d",
+        "rangePosition20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=SPerBx16hMA",
+        "https://www.youtube.com/watch?v=1T2M7AkoIiE"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_peg_growth_breakout",
+      "name": "本益成長比飆股",
+      "family": "熊敖影片指標",
+      "style": "growth_value",
+      "summary": "PEG-style growth breakout proxy using revenue growth, reasonable PE versus growth, momentum, and near-high structure.",
+      "rules": [
+        "Revenue YoY > 20%",
+        "PE > 0 and PE / revenue YoY < 1.5",
+        "20d return > 5%",
+        "Distance to 60d high >= -5%"
+      ],
+      "fields": [
+        "revenueYoy",
+        "pe",
+        "return20d",
+        "distanceTo60dHigh"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=QknUwOqT4-4"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_macd_kline_low_point",
+      "name": "MACD 搭 K 線低點",
+      "family": "熊敖影片指標",
+      "style": "swing_reversal",
+      "summary": "Swing reversal proxy using bullish MA context and pullback around MA20.",
+      "rules": [
+        "Close above MA20",
+        "MA20 > MA60",
+        "Distance to MA20 between -2% and 4%",
+        "20d return > 0"
+      ],
+      "fields": [
+        "aboveMa20",
+        "ma20",
+        "ma60",
+        "close",
+        "return20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=tcsMYy1B-kU",
+        "https://www.youtube.com/watch?v=huFMxPk3N5c",
+        "https://www.youtube.com/watch?v=-T_jj5pnf7A",
+        "https://www.youtube.com/watch?v=tVn1KCTjPMI"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_volume_profile_acceptance",
+      "name": "成交量分布接受區",
+      "family": "熊敖影片指標",
+      "style": "volume_profile",
+      "summary": "Volume-profile acceptance proxy using volume, turnover, mid-to-high range position, and MA20 support.",
+      "rules": [
+        "Volume ratio > 1.1",
+        "Turnover ratio > 1",
+        "20d range position between 35% and 85%",
+        "20d return > -3%",
+        "Close above MA20"
+      ],
+      "fields": [
+        "volumeRatio20d",
+        "turnoverRatio20d",
+        "rangePosition20d",
+        "return20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=dCQg9XYrroc"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_trendline_breakout_quality",
+      "name": "趎勢線起漲突破",
+      "family": "熊敖影片指標",
+      "style": "breakout",
+      "summary": "Trendline breakout quality proxy based on momentum, near-high structure, volume, and MA20 support.",
+      "rules": [
+        "20d return > 8%",
+        "Distance to 60d high >= -5%",
+        "Volume ratio > 1.1",
+        "Close above MA20"
+      ],
+      "fields": [
+        "return20d",
+        "distanceTo60dHigh",
+        "volumeRatio20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=ZX-1wd5Omac",
+        "https://www.youtube.com/watch?v=IafJA8bNRlM"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_volume_confirmation",
+      "name": "成交量確認指標",
+      "family": "熊敖影片指標",
+      "style": "volume",
+      "summary": "Volume confirmation signal for price strength.",
+      "rules": [
+        "Volume ratio > 1.3",
+        "20d return > 3%",
+        "20d range position > 65%"
+      ],
+      "fields": [
+        "volumeRatio20d",
+        "return20d",
+        "rangePosition20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=wq-h5PT3coI",
+        "https://www.youtube.com/watch?v=LkmYZ9TBS00"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_vegas_dual_channel",
+      "name": "Vegas 雙通道趨勢",
+      "family": "熊敖影片指標",
+      "style": "channel_trend",
+      "summary": "Vegas dual-channel trend proxy using MA20/MA60 support, positive momentum, and manageable volatility.",
+      "rules": [
+        "Close above MA20 and MA60",
+        "20d return > 5%",
+        "20d volatility < 65%"
+      ],
+      "fields": [
+        "aboveMa20",
+        "aboveMa60",
+        "return20d",
+        "volatility20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=lpL6e-JJ8yg",
+        "https://www.youtube.com/watch?v=95amZtPVII8"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_macd_bias_short_swing",
+      "name": "MACD 乖離短線",
+      "family": "熊敖影片指標",
+      "style": "short_swing",
+      "summary": "Short-swing proxy using positive MA20 bias, strong 20d return, and volume confirmation.",
+      "rules": [
+        "Distance to MA20 between 3% and 15%",
+        "20d return > 8%",
+        "Volume ratio > 1"
+      ],
+      "fields": [
+        "close",
+        "ma20",
+        "return20d",
+        "volumeRatio20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=kz6DplTdAU0",
+        "https://www.youtube.com/watch?v=5HSS4pz8WKw"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_support_resistance_strength",
+      "name": "支撐壓力強度",
+      "family": "熊敖影片指標",
+      "style": "support_resistance",
+      "summary": "Support/resistance proxy for stocks near resistance but holding the upper range.",
+      "rules": [
+        "Distance to 60d high between -8% and 0.5%",
+        "20d range position > 60%",
+        "20d return >= 0"
+      ],
+      "fields": [
+        "distanceTo60dHigh",
+        "rangePosition20d",
+        "return20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=gID2GpGGFO4",
+        "https://www.youtube.com/watch?v=SqgOmcSqJmU",
+        "https://www.youtube.com/watch?v=nwp5kwQU3x0"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_kline_trend_3sec",
+      "name": "K 線三秒趨勢",
+      "family": "熊敖影片指標",
+      "style": "price_action",
+      "summary": "Fast K-line trend proxy using MA direction, MA20 support, and range strength.",
+      "rules": [
+        "MA20 > MA60",
+        "Close above MA20",
+        "20d range position > 55%",
+        "20d return > 0"
+      ],
+      "fields": [
+        "ma20",
+        "ma60",
+        "aboveMa20",
+        "rangePosition20d",
+        "return20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=u21i6iXiUrw",
+        "https://www.youtube.com/watch?v=WO_dqq7d6wI"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_kd_trend_setup",
+      "name": "KD 順勢訊號",
+      "family": "熊敖影片指標",
+      "style": "oscillator_trend",
+      "summary": "KD trend proxy using range position, MA20 support, positive return, and controlled volatility.",
+      "rules": [
+        "20d range position > 55%",
+        "Close above MA20",
+        "20d return > 0",
+        "20d volatility < 70%"
+      ],
+      "fields": [
+        "rangePosition20d",
+        "aboveMa20",
+        "return20d",
+        "volatility20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=tcGJrYQ7PLw",
+        "https://www.youtube.com/watch?v=TcOu0Un1Qno"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_dmi_trend_strength",
+      "name": "DMI 趨勢強度",
+      "family": "熊敖影片指標",
+      "style": "trend_strength",
+      "summary": "DMI/ADX-style trend strength proxy using 20d return, bullish MA stack, and near-high condition.",
+      "rules": [
+        "20d return > 8%",
+        "MA20 > MA60",
+        "Distance to 60d high >= -5%"
+      ],
+      "fields": [
+        "return20d",
+        "ma20",
+        "ma60",
+        "distanceTo60dHigh"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=YmPNCJXd4K8"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_ema_false_breakout_reclaim",
+      "name": "EMA 假突破收復",
+      "family": "熊敖影片指標",
+      "style": "false_breakout",
+      "summary": "EMA false-breakout reclaim proxy using MA20 reclaim, shallow drawdown, positive return, and strong range position.",
+      "rules": [
+        "Close above MA20",
+        "20d drawdown >= -5%",
+        "20d return > 3%",
+        "20d range position > 60%"
+      ],
+      "fields": [
+        "aboveMa20",
+        "drawdown20d",
+        "return20d",
+        "rangePosition20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=ZsKnUmVahx4",
+        "https://www.youtube.com/watch?v=Oj9SatilbIk"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_macd_kdj_combo",
+      "name": "MACD KDJ 共振",
+      "family": "熊敖影片指標",
+      "style": "combo_momentum",
+      "summary": "MACD/KDJ confluence proxy using trend, range position, momentum, and volume confirmation.",
+      "rules": [
+        "MA20 > MA60",
+        "20d range position > 60%",
+        "20d return > 3%",
+        "Volume ratio > 1"
+      ],
+      "fields": [
+        "ma20",
+        "ma60",
+        "rangePosition20d",
+        "return20d",
+        "volumeRatio20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=H9u51K0-bbs",
+        "https://www.youtube.com/watch?v=zCBe-n1IXXE"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_bollinger_rsi_reversal",
+      "name": "布林 RSI 反轉共振",
+      "family": "熊敖影片指標",
+      "style": "combo_reversal",
+      "summary": "Bollinger/RSI reversal confluence proxy using moderate volatility, shallow drawdown, positive return, and MA20 reclaim.",
+      "rules": [
+        "20d volatility < 50%",
+        "20d drawdown between -6% and 0%",
+        "20d return > 0",
+        "Close above MA20"
+      ],
+      "fields": [
+        "volatility20d",
+        "drawdown20d",
+        "return20d",
+        "aboveMa20"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=anIIlaW7Rao"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_atr_risk_box",
+      "name": "ATR 風險盒",
+      "family": "熊敖影片指標",
+      "style": "risk_control",
+      "summary": "ATR-style risk box proxy for low-volatility positive trend candidates.",
+      "rules": [
+        "20d volatility < 35%",
+        "Close above MA20",
+        "20d return > 0",
+        "Risk is not high"
+      ],
+      "fields": [
+        "volatility20d",
+        "aboveMa20",
+        "return20d",
+        "risk"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=yVaUirbGBcI"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_obv_accumulation_breakout",
+      "name": "OBV 吸籌突破",
+      "family": "熊敖影片指標",
+      "style": "accumulation",
+      "summary": "OBV-style accumulation breakout proxy using institutional buying, volume expansion, positive return, and near-high structure.",
+      "rules": [
+        "Institutional 5d net buy",
+        "Volume ratio > 1.1",
+        "20d return > 0",
+        "Distance to 60d high >= -6%"
+      ],
+      "fields": [
+        "institutional5d",
+        "volumeRatio20d",
+        "return20d",
+        "distanceTo60dHigh"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=dPA9CX0MiSk"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    },
+    {
+      "id": "bh_fibonacci_pullback",
+      "name": "斐波那契強勢回檔",
+      "family": "熊敖影片指標",
+      "style": "pullback",
+      "summary": "Fibonacci-style pullback proxy for stocks in 60d uptrend pulling back from highs while holding MA60.",
+      "rules": [
+        "60d return > 10%",
+        "Distance to 60d high between -13% and -3%",
+        "Close above MA60",
+        "20d volatility < 65%"
+      ],
+      "fields": [
+        "return60d",
+        "distanceTo60dHigh",
+        "aboveMa60",
+        "volatility20d"
+      ],
+      "sources": [
+        "https://www.youtube.com/watch?v=4eHTxVmh590"
+      ],
+      "sourceChannel": "bh1908",
+      "implemented": true
+    }
+  ]
+}

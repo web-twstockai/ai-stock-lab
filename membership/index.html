@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>會員方案 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../site-auth.css" />
+    <link rel="stylesheet" href="membership.css" />
+  </head>
+  <body>
+    <div class="membership-page">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="../" aria-label="AI Stock Lab 首頁">
+            <svg viewBox="0 0 64 50" aria-hidden="true">
+              <defs><linearGradient id="logoGradient" x1="8" x2="56" y1="44" y2="4"><stop stop-color="#2563eb" /><stop offset="1" stop-color="#7dd3fc" /></linearGradient></defs>
+              <path d="M10 34 24 17l17 14L54 8v33L41 31 24 17v26" fill="none" stroke="url(#logoGradient)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+              <circle cx="10" cy="34" r="5" fill="#2563eb" /><circle cx="24" cy="17" r="5" fill="#60a5fa" /><circle cx="41" cy="31" r="5" fill="#6d86f7" /><circle cx="54" cy="8" r="5" fill="#7dd3fc" />
+            </svg>
+            <span>AI Stock Lab</span>
+          </a>
+          <nav class="nav" aria-label="主導覽">
+            <a href="../">首頁</a>
+            <a class="active" href="./">會員方案</a>
+            <a href="../terms/">服務條款與風險</a>
+            <a href="../about/">關於</a>
+          </nav>
+          <a class="login" href="../market-overview/">登入</a>
+        </div>
+      </header>
+
+      <main class="membership-shell">
+        <section class="membership-hero" aria-labelledby="membership-title">
+          <p class="eyebrow"><span class="spark"></span>會員方案</p>
+          <h1 id="membership-title">選擇你的研究節奏</h1>
+          <p class="lead">依照目前開放板塊整理會員權限，基本會員可直接註冊使用；進階會員需登入後提交申請，待管理員審核並設定開放天數。</p>
+        </section>
+
+        <section class="plan-grid" aria-label="會員方案比較">
+          <article class="plan-card basic-plan">
+            <div class="plan-head">
+              <div>
+                <span class="plan-code">BASIC</span>
+                <h2>基本會員</h2>
+              </div>
+              <em>直接註冊</em>
+            </div>
+            <p class="fit">適合想看市場總覽、查個股、建立自選股，並使用基本篩選與情報觀察的使用者。</p>
+            <ul class="feature-list">
+              <li><span>✓</span>市場總覽：掌握盤面、族群與重要變化</li>
+              <li><span>✓</span>個股分析：查看個股資料、走勢與 AI 摘要</li>
+              <li><span>✓</span>自選股：可加入自選股清單，最多 5 個位置</li>
+              <li><span>✓</span>每日篩選：使用 5 個基本策略</li>
+              <li><span>✓</span>情報中心：查看情報總覽與總經數據雷達</li>
+            </ul>
+            <button class="plan-action basic-action" type="button" data-membership-register>註冊基本會員</button>
+          </article>
+
+          <article class="plan-card advanced-plan">
+            <div class="plan-head">
+              <div>
+                <span class="plan-code">ADVANCED</span>
+                <h2>進階會員</h2>
+              </div>
+              <em>審核開通</em>
+            </div>
+            <p class="fit">適合需要更多篩選策略、量化指標與完整情報機器人的使用者。</p>
+            <ul class="feature-list">
+              <li><span>✓</span>包含基本會員所有開放功能</li>
+              <li><span>✓</span>每日篩選：基本 5 個 + 進階 10 個策略</li>
+              <li><span>✓</span>量化指標：技術、量價與籌碼指標工具</li>
+              <li><span>✓</span>情報中心：雙券資比偵測、法人機構動向</li>
+              <li><span>✓</span>自選股：加入自選股清單無上限</li>
+            </ul>
+            <button class="plan-action advanced-action" type="button" data-advanced-apply>提交進階申請</button>
+            <p class="review-note">送出後由管理員審核，核准時會設定進階權限開放天數。</p>
+          </article>
+        </section>
+
+        <section class="compare-panel" aria-label="功能比較">
+          <div class="compare-row compare-head">
+            <div>功能比較</div>
+            <div>基本會員</div>
+            <div>進階會員</div>
+          </div>
+          <div class="compare-row">
+            <div>市場總覽</div>
+            <div>開放</div>
+            <div>開放</div>
+          </div>
+          <div class="compare-row">
+            <div>個股分析</div>
+            <div>開放</div>
+            <div>開放</div>
+          </div>
+          <div class="compare-row">
+            <div>自選股 / 追蹤清單</div>
+            <div>開放，最多 5 個位置</div>
+            <div>開放，無上限</div>
+          </div>
+          <div class="compare-row">
+            <div>每日篩選</div>
+            <div>基本策略 5 個</div>
+            <div>基本 5 個 + 進階 10 個</div>
+          </div>
+          <div class="compare-row">
+            <div>情報中心</div>
+            <div>情報總覽、總經數據雷達</div>
+            <div>雙券資比、法人機構、總經雷達</div>
+          </div>
+          <div class="compare-row">
+            <div>量化指標</div>
+            <div>未開放</div>
+            <div>開放</div>
+          </div>
+        </section>
+
+        <p class="footnote">模型庫與管理員為管理端功能，不列入會員方案展示；本平台內容僅供研究參考，不構成任何投資建議。</p>
+      </main>
+    </div>
+
+    <div class="application-toast" data-application-toast aria-live="polite"></div>
+
+    <script src="../site-auth.js"></script>
+    <script src="membership.js"></script>
+  </body>
+</html>

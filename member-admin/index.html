@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>會員管理 - AI Stock Lab</title>
+    <link rel="stylesheet" href="../dashboard-header.css" />
+    <link rel="stylesheet" href="member-admin.css" />
+  </head>
+  <body data-dashboard-page="member-admin">
+    <div data-dashboard-header data-active="member-admin" data-base="../"></div>
+
+    <main class="member-admin-shell">
+      <header class="member-admin-heading">
+        <div>
+          <p>AI Stock Lab Admin</p>
+          <h1>會員管理</h1>
+        </div>
+        <button class="member-admin-button" type="button" data-refresh>重新整理</button>
+      </header>
+
+      <section class="member-admin-panel">
+        <div class="member-admin-toolbar">
+          <label>
+            <span>搜尋帳號或名稱</span>
+            <input data-search type="search" autocomplete="off" />
+          </label>
+          <strong data-count>--</strong>
+        </div>
+        <div class="member-admin-table-wrap">
+          <table class="member-admin-table">
+            <thead>
+              <tr>
+                <th>帳號</th>
+                <th>名稱</th>
+                <th>角色</th>
+                <th>註冊時間</th>
+                <th>最後登入</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody data-users>
+              <tr><td colspan="6">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div class="member-admin-toast" data-toast></div>
+    <script src="../dashboard-header.js"></script>
+    <script src="member-admin.js"></script>
+  </body>
+</html>
