@@ -6,6 +6,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "public-dist"
+SUPABASE_URL = "https://xtimhfolzbeczngvzlxi.supabase.co"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0aW1oZm9semJlY3puZ3Z6bHhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNjY5NzEsImV4cCI6MjA5NTk0Mjk3MX0.ioz4NIVRJ8evKG3u0U-cOjzfnsY0HaotQUfSHCan4oI"
 
 ROOT_FILES = [
     "app.html",
@@ -150,188 +152,6 @@ def write_deploy_metadata() -> None:
     )
 
 
-def write_public_auth_script() -> None:
-    (DIST / "site-auth.js").write_text(
-        "\n".join(
-            [
-                "(function () {",
-                "  const USERS_KEY = 'aiStockLabUsers';",
-                "  const SESSION_KEY = 'aiStockLabSession';",
-                "",
-                "  function getStored(key) {",
-                "    try { return localStorage.getItem(key); } catch (_) { return null; }",
-                "  }",
-                "",
-                "  function setStored(key, value) {",
-                "    try { localStorage.setItem(key, value); } catch (_) {}",
-                "  }",
-                "",
-                "  function removeStored(key) {",
-                "    try { localStorage.removeItem(key); } catch (_) {}",
-                "  }",
-                "",
-                "  function readUsers() {",
-                "    try { return JSON.parse(getStored(USERS_KEY) || '{}'); } catch (_) { return {}; }",
-                "  }",
-                "",
-                "  function writeUsers(users) { setStored(USERS_KEY, JSON.stringify(users)); }",
-                "",
-                "  function currentUser() {",
-                "    const account = getStored(SESSION_KEY);",
-                "    return account ? readUsers()[account] || null : null;",
-                "  }",
-                "",
-                "  function setSession(account) { setStored(SESSION_KEY, account); }",
-                "  function clearSession() { removeStored(SESSION_KEY); }",
-                "",
-                "  function basePath() {",
-                "    return location.pathname.includes('/about/')",
-                "      || location.pathname.includes('/terms/')",
-                "      || location.pathname.includes('/membership/') ? '../' : '';",
-                "  }",
-                "",
-                "  function goDashboard() {",
-                "    const base = basePath();",
-                "    location.href = `${base}market-overview/`;",
-                "  }",
-                "",
-                "  function ensureModal() {",
-                "    let modal = document.querySelector('[data-auth-modal]');",
-                "    if (modal) return modal;",
-                "    modal = document.createElement('div');",
-                "    modal.className = 'auth-modal';",
-                "    modal.dataset.authModal = 'true';",
-                "    modal.innerHTML = `",
-                "      <div class=\"auth-panel\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Account\">",
-                "        <button class=\"auth-close\" type=\"button\" aria-label=\"Close\">x</button>",
-                "        <div class=\"auth-tabs\">",
-                "          <button type=\"button\" class=\"is-active\" data-auth-tab=\"login\">Login</button>",
-                "          <button type=\"button\" data-auth-tab=\"register\">Register</button>",
-                "        </div>",
-                "        <form class=\"auth-form is-active\" data-auth-form=\"login\">",
-                "          <h2>Login</h2>",
-                "          <p>This public test account is saved only in this browser.</p>",
-                "          <label>Account<input name=\"account\" autocomplete=\"username\" required /></label>",
-                "          <label>Password<input name=\"password\" type=\"password\" autocomplete=\"current-password\" required /></label>",
-                "          <strong class=\"auth-error\" data-auth-error=\"login\"></strong>",
-                "          <button class=\"auth-submit\" type=\"submit\">Login</button>",
-                "        </form>",
-                "        <form class=\"auth-form\" data-auth-form=\"register\">",
-                "          <h2>Register</h2>",
-                "          <p>Create a basic test account for browsing the public dashboard.</p>",
-                "          <label>Name<input name=\"nickname\" autocomplete=\"nickname\" required /></label>",
-                "          <label>Account<input name=\"account\" autocomplete=\"username\" required /></label>",
-                "          <label>Password<input name=\"password\" type=\"password\" autocomplete=\"new-password\" minlength=\"4\" required /></label>",
-                "          <strong class=\"auth-error\" data-auth-error=\"register\"></strong>",
-                "          <button class=\"auth-submit\" type=\"submit\">Register</button>",
-                "        </form>",
-                "      </div>`;",
-                "    document.body.appendChild(modal);",
-                "",
-                "    const showTab = (name) => {",
-                "      modal.querySelectorAll('[data-auth-tab]').forEach((button) => {",
-                "        button.classList.toggle('is-active', button.dataset.authTab === name);",
-                "      });",
-                "      modal.querySelectorAll('[data-auth-form]').forEach((form) => {",
-                "        form.classList.toggle('is-active', form.dataset.authForm === name);",
-                "      });",
-                "    };",
-                "",
-                "    modal.querySelectorAll('[data-auth-tab]').forEach((button) => {",
-                "      button.addEventListener('click', () => showTab(button.dataset.authTab));",
-                "    });",
-                "    modal.querySelector('.auth-close').addEventListener('click', () => modal.classList.remove('is-open'));",
-                "    modal.addEventListener('click', (event) => { if (event.target === modal) modal.classList.remove('is-open'); });",
-                "",
-                "    modal.querySelector('[data-auth-form=\"login\"]').addEventListener('submit', (event) => {",
-                "      event.preventDefault();",
-                "      const form = event.currentTarget;",
-                "      const account = form.account.value.trim();",
-                "      const password = form.password.value;",
-                "      const users = readUsers();",
-                "      const error = modal.querySelector('[data-auth-error=\"login\"]');",
-                "      if (!users[account] || users[account].password !== password) {",
-                "        error.textContent = 'Invalid account or password.';",
-                "        return;",
-                "      }",
-                "      error.textContent = '';",
-                "      setSession(account);",
-                "      goDashboard();",
-                "    });",
-                "",
-                "    modal.querySelector('[data-auth-form=\"register\"]').addEventListener('submit', (event) => {",
-                "      event.preventDefault();",
-                "      const form = event.currentTarget;",
-                "      const nickname = form.nickname.value.trim();",
-                "      const account = form.account.value.trim();",
-                "      const password = form.password.value;",
-                "      const users = readUsers();",
-                "      const error = modal.querySelector('[data-auth-error=\"register\"]');",
-                "      if (!nickname || !account || !password) {",
-                "        error.textContent = 'Please fill in all fields.';",
-                "        return;",
-                "      }",
-                "      if (users[account]) {",
-                "        error.textContent = 'This account already exists in this browser.';",
-                "        return;",
-                "      }",
-                "      users[account] = {",
-                "        nickname,",
-                "        account,",
-                "        password,",
-                "        role: 'basic',",
-                "        roleLabel: 'Basic member',",
-                "        createdAt: new Date().toISOString(),",
-                "      };",
-                "      writeUsers(users);",
-                "      setSession(account);",
-                "      goDashboard();",
-                "    });",
-                "",
-                "    return modal;",
-                "  }",
-                "",
-                "  function openAuth(defaultTab = 'login') {",
-                "    if (currentUser()) { goDashboard(); return; }",
-                "    const modal = ensureModal();",
-                "    modal.classList.add('is-open');",
-                "    modal.querySelector(`[data-auth-tab=\"${defaultTab}\"]`)?.click();",
-                "  }",
-                "",
-                "  function effectiveRole(user) {",
-                "    if (user?.role === 'advanced' && user.advancedExpiresAt) {",
-                "      const expiresAt = new Date(user.advancedExpiresAt).getTime();",
-                "      if (!Number.isNaN(expiresAt) && expiresAt <= Date.now()) return 'basic';",
-                "    }",
-                "    return user?.role || 'basic';",
-                "  }",
-                "",
-                "  window.AIStockAuth = {",
-                "    currentUser,",
-                "    openAuth,",
-                "    logout() { clearSession(); location.href = '/'; },",
-                "    isBasic(user = currentUser()) { return !user || effectiveRole(user) === 'basic'; },",
-                "    hasAdvanced(user = currentUser()) { return !!user && ['advanced', 'admin'].includes(effectiveRole(user)); },",
-                "    hasAdmin(user = currentUser()) { return !!user && user.role === 'admin'; },",
-                "  };",
-                "",
-                "  document.addEventListener('DOMContentLoaded', () => {",
-                "    document.querySelectorAll('.login, [data-auth-open]').forEach((link) => {",
-                "      link.addEventListener('click', (event) => {",
-                "        event.preventDefault();",
-                "        openAuth('login');",
-                "      });",
-                "    });",
-                "    if (new URLSearchParams(location.search).get('auth') === 'login') openAuth('login');",
-                "  });",
-                "})();",
-                "",
-            ]
-        ),
-        encoding="utf-8",
-    )
-
-
 def sanitize_public_text() -> None:
     replacements = {
         "python scripts/update_data.py --workers 12": "內部資料更新流程",
@@ -348,14 +168,19 @@ def sanitize_public_text() -> None:
 
 
 def write_public_auth_script() -> None:
-    (DIST / "site-auth.js").write_text(
-        r"""(function () {
+    script = r"""(function () {
+  const SUPABASE_URL = "__SUPABASE_URL__";
+  const SUPABASE_ANON_KEY = "__SUPABASE_ANON_KEY__";
+  const SUPABASE_SDK = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
   const USERS_KEY = "aiStockLabUsers";
   const SESSION_KEY = "aiStockLabSession";
   const USER_CACHE_KEY = "aiStockLabPublicUser";
+  let clientPromise = null;
 
-  function getStored(key) {
-    try { return localStorage.getItem(key); } catch (_) { return null; }
+  function accountToEmail(account) {
+    const value = String(account || "").trim().toLowerCase();
+    if (value.includes("@")) return value;
+    return `${value.replace(/[^a-z0-9_.-]/g, "-")}@users.ai-stock-lab.local`;
   }
 
   function setStored(key, value) {
@@ -367,18 +192,36 @@ def write_public_auth_script() -> None:
   }
 
   function readJson(key, fallback) {
-    try { return JSON.parse(getStored(key) || ""); } catch (_) { return fallback; }
+    try { return JSON.parse(localStorage.getItem(key) || ""); } catch (_) { return fallback; }
+  }
+
+  async function supabaseClient() {
+    if (!clientPromise) {
+      clientPromise = import(SUPABASE_SDK).then(({ createClient }) =>
+        createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+        })
+      );
+    }
+    return clientPromise;
+  }
+
+  function normalizeProfile(profile, fallbackUser) {
+    if (!profile && !fallbackUser) return null;
+    return {
+      id: profile?.id || fallbackUser?.id || null,
+      account: profile?.account || fallbackUser?.user_metadata?.account || fallbackUser?.email || "",
+      nickname: profile?.nickname || fallbackUser?.user_metadata?.nickname || profile?.account || fallbackUser?.email || "",
+      role: profile?.role || "basic",
+      roleLabel: profile?.role === "admin" ? "Admin" : profile?.role === "advanced" ? "Advanced member" : "Basic member",
+      status: profile?.status || "active",
+      createdAt: profile?.created_at || fallbackUser?.created_at || null,
+    };
   }
 
   function rememberUser(user) {
     if (!user) return;
-    const safeUser = {
-      account: user.account,
-      nickname: user.nickname || user.account,
-      role: user.role || "basic",
-      roleLabel: user.roleLabel || "Basic member",
-      createdAt: user.createdAt || null,
-    };
+    const safeUser = normalizeProfile(user);
     const users = readJson(USERS_KEY, {});
     users[safeUser.account] = safeUser;
     setStored(USERS_KEY, JSON.stringify(users));
@@ -395,16 +238,29 @@ def write_public_auth_script() -> None:
     return readJson(USER_CACHE_KEY, null);
   }
 
-  async function requestAuth(path, body) {
-    const response = await fetch(path, {
-      method: "POST",
-      credentials: "same-origin",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body || {}),
-    });
-    const payload = await response.json().catch(() => ({}));
-    if (!response.ok || !payload.ok) throw new Error(payload.error || "Request failed.");
-    return payload;
+  async function ensureProfile(authUser, nickname, account) {
+    const supabase = await supabaseClient();
+    const desired = {
+      id: authUser.id,
+      account: String(account || authUser.user_metadata?.account || authUser.email || "").trim().toLowerCase(),
+      nickname: String(nickname || authUser.user_metadata?.nickname || account || authUser.email || "").trim(),
+    };
+    const { data: existing, error: selectError } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", authUser.id)
+      .maybeSingle();
+    if (selectError) throw selectError;
+    if (!existing) {
+      const { data, error } = await supabase
+        .from("profiles")
+        .insert(desired)
+        .select("*")
+        .single();
+      if (error) throw error;
+      return data;
+    }
+    return existing;
   }
 
   function basePath() {
@@ -434,8 +290,8 @@ def write_public_auth_script() -> None:
 
         <form class="auth-form is-active" data-auth-form="login">
           <h2>Login</h2>
-          <p>Use your test account to enter the public dashboard.</p>
-          <label>Account<input name="account" autocomplete="username" required /></label>
+          <p>Use your account to enter the dashboard.</p>
+          <label>Account or email<input name="account" autocomplete="username" required /></label>
           <label>Password<input name="password" type="password" autocomplete="current-password" required /></label>
           <strong class="auth-error" data-auth-error="login"></strong>
           <button class="auth-submit" type="submit">Login</button>
@@ -443,9 +299,9 @@ def write_public_auth_script() -> None:
 
         <form class="auth-form" data-auth-form="register">
           <h2>Register</h2>
-          <p>Your account is stored on this site's local backend.</p>
+          <p>Create an account for the public dashboard.</p>
           <label>Name<input name="nickname" autocomplete="nickname" required /></label>
-          <label>Account<input name="account" autocomplete="username" required /></label>
+          <label>Account or email<input name="account" autocomplete="username" required /></label>
           <label>Password<input name="password" type="password" autocomplete="new-password" minlength="6" required /></label>
           <strong class="auth-error" data-auth-error="register"></strong>
           <button class="auth-submit" type="submit">Register</button>
@@ -476,11 +332,20 @@ def write_public_auth_script() -> None:
       const error = modal.querySelector('[data-auth-error="login"]');
       error.textContent = "";
       try {
-        const payload = await requestAuth("/api/auth/login", {
-          account: form.account.value.trim(),
+        const supabase = await supabaseClient();
+        const account = form.account.value.trim();
+        const { data, error: authError } = await supabase.auth.signInWithPassword({
+          email: accountToEmail(account),
           password: form.password.value,
         });
-        rememberUser(payload.user);
+        if (authError) throw authError;
+        const profile = await ensureProfile(data.user, null, account);
+        if (profile.status === "disabled") {
+          await supabase.auth.signOut();
+          clearUser();
+          throw new Error("This account has been disabled.");
+        }
+        rememberUser(profile);
         form.password.value = "";
         goDashboard();
       } catch (authError) {
@@ -494,12 +359,18 @@ def write_public_auth_script() -> None:
       const error = modal.querySelector('[data-auth-error="register"]');
       error.textContent = "";
       try {
-        const payload = await requestAuth("/api/auth/register", {
-          nickname: form.nickname.value.trim(),
-          account: form.account.value.trim(),
+        const supabase = await supabaseClient();
+        const account = form.account.value.trim();
+        const nickname = form.nickname.value.trim();
+        const { data, error: authError } = await supabase.auth.signUp({
+          email: accountToEmail(account),
           password: form.password.value,
+          options: { data: { account: account.toLowerCase(), nickname } },
         });
-        rememberUser(payload.user);
+        if (authError) throw authError;
+        if (!data.session) throw new Error("Registration created. Please disable email confirmation in Supabase Auth settings for username/password testing, or confirm the email before logging in.");
+        const profile = await ensureProfile(data.user, nickname, account);
+        rememberUser(profile);
         form.password.value = "";
         goDashboard();
       } catch (authError) {
@@ -521,10 +392,6 @@ def write_public_auth_script() -> None:
   }
 
   function effectiveRole(user) {
-    if (user?.role === "advanced" && user.advancedExpiresAt) {
-      const expiresAt = new Date(user.advancedExpiresAt).getTime();
-      if (!Number.isNaN(expiresAt) && expiresAt <= Date.now()) return "basic";
-    }
     return user?.role || "basic";
   }
 
@@ -533,7 +400,8 @@ def write_public_auth_script() -> None:
     openAuth,
     async logout() {
       try {
-        await fetch("/api/auth/logout", { method: "POST", credentials: "same-origin" });
+        const supabase = await supabaseClient();
+        await supabase.auth.signOut();
       } catch (_) {}
       clearUser();
       location.href = "/";
@@ -549,6 +417,8 @@ def write_public_auth_script() -> None:
     },
   };
 
+  window.AIStockSupabase = { client: supabaseClient, rememberUser, normalizeProfile };
+
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".login, [data-auth-open]").forEach((link) => {
       link.addEventListener("click", (event) => {
@@ -559,14 +429,18 @@ def write_public_auth_script() -> None:
     if (new URLSearchParams(location.search).get("auth") === "login") openAuth("login");
   });
 })();
-""",
+"""
+    (DIST / "site-auth.js").write_text(
+        script.replace("__SUPABASE_URL__", SUPABASE_URL).replace("__SUPABASE_ANON_KEY__", SUPABASE_ANON_KEY),
         encoding="utf-8",
     )
 
 
 def write_public_dashboard_header_script() -> None:
-    (DIST / "dashboard-header.js").write_text(
-        r"""(function () {
+    script = r"""(function () {
+  const SUPABASE_URL = "__SUPABASE_URL__";
+  const SUPABASE_ANON_KEY = "__SUPABASE_ANON_KEY__";
+  const SUPABASE_SDK = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
   const navItems = [
     { key: "market-overview", label: "\u5e02\u5834\u7e3d\u89bd", path: "market-overview/" },
     { key: "daily-screening", label: "\u6bcf\u65e5\u7be9\u9078", path: "daily-screening/" },
@@ -580,6 +454,18 @@ def write_public_dashboard_header_script() -> None:
   const usersKey = "aiStockLabUsers";
   const sessionKey = "aiStockLabSession";
   const userCacheKey = "aiStockLabPublicUser";
+  let clientPromise = null;
+
+  async function supabaseClient() {
+    if (!clientPromise) {
+      clientPromise = import(SUPABASE_SDK).then(({ createClient }) =>
+        createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+        })
+      );
+    }
+    return clientPromise;
+  }
 
   function setStored(key, value) {
     try { localStorage.setItem(key, value); } catch (_) {}
@@ -589,15 +475,21 @@ def write_public_dashboard_header_script() -> None:
     try { localStorage.removeItem(key); } catch (_) {}
   }
 
+  function normalizeProfile(profile, fallbackUser) {
+    return {
+      id: profile?.id || fallbackUser?.id || null,
+      account: profile?.account || fallbackUser?.user_metadata?.account || fallbackUser?.email || "",
+      nickname: profile?.nickname || fallbackUser?.user_metadata?.nickname || profile?.account || fallbackUser?.email || "",
+      role: profile?.role || "basic",
+      roleLabel: profile?.role === "admin" ? "Admin" : profile?.role === "advanced" ? "Advanced member" : "Basic member",
+      status: profile?.status || "active",
+      createdAt: profile?.created_at || fallbackUser?.created_at || null,
+    };
+  }
+
   function rememberUser(user) {
     if (!user) return;
-    const safeUser = {
-      account: user.account,
-      nickname: user.nickname || user.account,
-      role: user.role || "basic",
-      roleLabel: user.roleLabel || "Basic member",
-      createdAt: user.createdAt || null,
-    };
+    const safeUser = normalizeProfile(user);
     let users = {};
     try { users = JSON.parse(localStorage.getItem(usersKey) || "{}"); } catch (_) {}
     users[safeUser.account] = safeUser;
@@ -624,10 +516,6 @@ def write_public_dashboard_header_script() -> None:
   }
 
   function effectiveRole(user) {
-    if (user?.role === "advanced" && user.advancedExpiresAt) {
-      const expiresAt = new Date(user.advancedExpiresAt).getTime();
-      if (!Number.isNaN(expiresAt) && expiresAt <= Date.now()) return "basic";
-    }
     return user?.role || "basic";
   }
 
@@ -646,11 +534,7 @@ def write_public_dashboard_header_script() -> None:
   }
 
   function remainingDaysLabel(user, role) {
-    if (role !== "advanced") return "\u7121\u671f\u9650";
-    const expiresAt = new Date(user.advancedExpiresAt).getTime();
-    if (Number.isNaN(expiresAt)) return "\u672a\u8a2d\u5b9a";
-    const days = Math.max(0, Math.ceil((expiresAt - Date.now()) / 86400000));
-    return `\u5269\u9918 ${days} \u5929`;
+    return role === "advanced" ? "\u7121\u671f\u9650" : "\u7121\u671f\u9650";
   }
 
   function logoSvg() {
@@ -674,11 +558,22 @@ def write_public_dashboard_header_script() -> None:
   }
 
   async function fetchCurrentUser() {
-    const response = await fetch("/api/auth/me", { credentials: "same-origin", cache: "no-store" });
-    const payload = await response.json().catch(() => ({}));
-    if (!response.ok || !payload.ok) return null;
-    rememberUser(payload.user);
-    return payload.user;
+    const supabase = await supabaseClient();
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    if (userError || !userData.user) return null;
+    const { data: profile, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", userData.user.id)
+      .maybeSingle();
+    if (error) throw error;
+    if (!profile) return null;
+    if (profile.status === "disabled") {
+      await supabase.auth.signOut();
+      return null;
+    }
+    rememberUser(profile);
+    return normalizeProfile(profile, userData.user);
   }
 
   async function renderHeader(mount) {
@@ -699,11 +594,6 @@ def write_public_dashboard_header_script() -> None:
       return;
     }
 
-    if (mount.dataset.minRole && !canAccess({ minRole: mount.dataset.minRole }, user)) {
-      window.location.replace(`${base}market-overview/`);
-      return;
-    }
-
     const links = navItems.filter((item) => canAccess(item, user)).map((item) => {
       const href = `${base}${item.path}`;
       const activeClass = item.key === active ? " is-active" : "";
@@ -711,7 +601,7 @@ def write_public_dashboard_header_script() -> None:
     }).join("");
     const displayName = user.nickname || user.account || "\u4f7f\u7528\u8005";
     const role = effectiveRole(user);
-    const roleLabel = (user.role === role ? user.roleLabel : null) || (role === "admin" ? "\u7ba1\u7406\u54e1" : role === "advanced" ? "\u9032\u968e\u6703\u54e1" : "\u57fa\u672c\u6703\u54e1");
+    const roleLabel = user.roleLabel || (role === "admin" ? "\u7ba1\u7406\u54e1" : role === "advanced" ? "\u9032\u968e\u6703\u54e1" : "\u57fa\u672c\u6703\u54e1");
     const remainingLabel = remainingDaysLabel(user, role);
     const safeDisplayName = escapeHtml(displayName);
     const safeRoleLabel = escapeHtml(roleLabel);
@@ -753,18 +643,25 @@ def write_public_dashboard_header_script() -> None:
       userMenu?.setAttribute("aria-hidden", String(!isOpen));
     });
     header?.querySelector("[data-dashboard-logout]")?.addEventListener("click", async () => {
-      try { await fetch("/api/auth/logout", { method: "POST", credentials: "same-origin" }); } catch (_) {}
+      try {
+        const supabase = await supabaseClient();
+        await supabase.auth.signOut();
+      } catch (_) {}
       removeStored(sessionKey);
       removeStored(userCacheKey);
       window.location.href = base || "/";
     });
   }
 
+  window.AIStockSupabase = { client: supabaseClient, rememberUser, normalizeProfile };
+
   document.querySelectorAll("[data-dashboard-header]").forEach((mount) => {
     renderHeader(mount).catch(() => window.location.replace(`${normalizeBase(mount.dataset.base || "")}?auth=login`));
   });
 })();
-""",
+"""
+    (DIST / "dashboard-header.js").write_text(
+        script.replace("__SUPABASE_URL__", SUPABASE_URL).replace("__SUPABASE_ANON_KEY__", SUPABASE_ANON_KEY),
         encoding="utf-8",
     )
 

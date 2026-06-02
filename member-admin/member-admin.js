@@ -1,10 +1,27 @@
 (function () {
+  const SUPABASE_URL = "https://xtimhfolzbeczngvzlxi.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0aW1oZm9semJlY3puZ3Z6bHhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNjY5NzEsImV4cCI6MjA5NTk0Mjk3MX0.ioz4NIVRJ8evKG3u0U-cOjzfnsY0HaotQUfSHCan4oI";
+  const SUPABASE_SDK = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
   const state = {
     users: [],
     query: "",
   };
+  let clientPromise = null;
 
   const $ = (selector) => document.querySelector(selector);
+
+  async function supabaseClient() {
+    if (window.AIStockSupabase?.client) return window.AIStockSupabase.client();
+    if (!clientPromise) {
+      clientPromise = import(SUPABASE_SDK).then(({ createClient }) =>
+        createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+        })
+      );
+    }
+    return clientPromise;
+  }
 
   function toast(message) {
     const node = $("[data-toast]");
@@ -32,21 +49,6 @@
     return date.toLocaleString("zh-TW", { hour12: false });
   }
 
-  async function requestJson(path, options = {}) {
-    const response = await fetch(path, {
-      credentials: "same-origin",
-      cache: "no-store",
-      ...options,
-      headers: {
-        "Content-Type": "application/json",
-        ...(options.headers || {}),
-      },
-    });
-    const payload = await response.json().catch(() => ({}));
-    if (!response.ok || !payload.ok) throw new Error(payload.error || "Request failed.");
-    return payload;
-  }
-
   function roleLabel(role) {
     if (role === "admin") return "Admin";
     if (role === "advanced") return "Advanced member";
@@ -57,7 +59,7 @@
     const query = state.query.trim().toLowerCase();
     if (!query) return state.users;
     return state.users.filter((user) =>
-      [user.account, user.nickname, user.role].some((value) => String(value || "").toLowerCase().includes(query))
+      [user.account, user.nickname, user.role, user.status].some((value) => String(value || "").toLowerCase().includes(query))
     );
   }
 
@@ -70,19 +72,21 @@
 
     body.innerHTML = users.map((user) => `
       <tr>
-        <td><strong>${escapeHtml(user.account)}</strong></td>
+        <td><strong>${escapeHtml(user.account)}</strong><br><small>${escapeHtml(user.status || "active")}</small></td>
         <td>${escapeHtml(user.nickname || "-")}</td>
         <td>${escapeHtml(roleLabel(user.role))}</td>
-        <td>${escapeHtml(formatTime(user.created_at || user.createdAt))}</td>
-        <td>${escapeHtml(formatTime(user.last_login_at || user.lastLoginAt))}</td>
+        <td>${escapeHtml(formatTime(user.created_at))}</td>
+        <td>${escapeHtml(formatTime(user.last_login_at))}</td>
         <td>
           <div class="member-admin-row-actions">
-            <select class="member-admin-select" data-role="${escapeHtml(user.account)}">
+            <select class="member-admin-select" data-role="${escapeHtml(user.id)}">
               <option value="basic"${user.role === "basic" ? " selected" : ""}>Basic</option>
               <option value="advanced"${user.role === "advanced" ? " selected" : ""}>Advanced</option>
               <option value="admin"${user.role === "admin" ? " selected" : ""}>Admin</option>
             </select>
-            <button class="member-admin-danger" type="button" data-delete="${escapeHtml(user.account)}">刪除</button>
+            <button class="member-admin-danger" type="button" data-status="${escapeHtml(user.id)}" data-next-status="${user.status === "disabled" ? "active" : "disabled"}">
+              ${user.status === "disabled" ? "啟用" : "停用"}
+            </button>
           </div>
         </td>
       </tr>
@@ -90,34 +94,28 @@
   }
 
   async function loadUsers() {
-    const payload = await requestJson("/api/admin/users");
-    state.users = payload.users || [];
+    const supabase = await supabaseClient();
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("id, account, nickname, role, status, created_at, updated_at, last_login_at")
+      .order("created_at", { ascending: false });
+    if (error) throw error;
+    state.users = data || [];
     render();
   }
 
-  async function setRole(account, role) {
-    await requestJson("/api/admin/users/role", {
-      method: "POST",
-      body: JSON.stringify({ account, role }),
-    });
-    toast("角色已更新");
-    await loadUsers();
-  }
-
-  async function deleteUser(account) {
-    if (!window.confirm(`確定刪除 ${account}？`)) return;
-    await requestJson("/api/admin/users/delete", {
-      method: "POST",
-      body: JSON.stringify({ account }),
-    });
-    toast("會員已刪除");
+  async function updateProfile(id, patch, message) {
+    const supabase = await supabaseClient();
+    const { error } = await supabase.from("profiles").update(patch).eq("id", id);
+    if (error) throw error;
+    toast(message);
     await loadUsers();
   }
 
   document.addEventListener("change", (event) => {
     const select = event.target.closest("[data-role]");
     if (!select) return;
-    setRole(select.dataset.role, select.value).catch((error) => toast(error.message));
+    updateProfile(select.dataset.role, { role: select.value }, "角色已更新").catch((error) => toast(error.message));
   });
 
   document.addEventListener("click", (event) => {
@@ -125,8 +123,12 @@
       loadUsers().catch((error) => toast(error.message));
       return;
     }
-    const deleteButton = event.target.closest("[data-delete]");
-    if (deleteButton) deleteUser(deleteButton.dataset.delete).catch((error) => toast(error.message));
+    const statusButton = event.target.closest("[data-status]");
+    if (statusButton) {
+      const nextStatus = statusButton.dataset.nextStatus;
+      updateProfile(statusButton.dataset.status, { status: nextStatus }, nextStatus === "active" ? "會員已啟用" : "會員已停用")
+        .catch((error) => toast(error.message));
+    }
   });
 
   document.addEventListener("input", (event) => {

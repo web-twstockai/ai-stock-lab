@@ -146,3 +146,15 @@ schtasks /Create /SC DAILY /TN "AI Stock Lab Public Update" /ST 18:30 /TR "cmd /
 ```
 
 如果 `scripts\public_server.py` 和 Cloudflare Tunnel 正在跑，更新完成後使用者重新整理頁面就會讀到新的前台資料。
+
+## Supabase 會員系統
+
+Cloudflare Pages 雲端版使用 Supabase Auth，不再依賴本機 `scripts\public_server.py`。
+
+請依照：
+
+```text
+SUPABASE_SETUP.md
+```
+
+先建立 `profiles` table、RLS policy，並把第一個帳號升成 admin。
