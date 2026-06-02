@@ -172,7 +172,7 @@
         account,
         password,
         role: "basic",
-        roleLabel: "基本會員",
+        roleLabel: "基礎會員",
         createdAt: new Date().toISOString(),
       };
       writeUsers(users);

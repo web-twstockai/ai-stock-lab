@@ -50,9 +50,9 @@
   }
 
   function roleLabel(role) {
-    if (role === "admin") return "Admin";
-    if (role === "advanced") return "Advanced member";
-    return "Basic member";
+    if (role === "admin") return "管理員";
+    if (role === "advanced") return "進階會員";
+    return "基礎會員";
   }
 
   function filteredUsers() {
@@ -80,9 +80,9 @@
         <td>
           <div class="member-admin-row-actions">
             <select class="member-admin-select" data-role="${escapeHtml(user.id)}">
-              <option value="basic"${user.role === "basic" ? " selected" : ""}>Basic</option>
-              <option value="advanced"${user.role === "advanced" ? " selected" : ""}>Advanced</option>
-              <option value="admin"${user.role === "admin" ? " selected" : ""}>Admin</option>
+              <option value="basic"${user.role === "basic" ? " selected" : ""}>基礎會員</option>
+              <option value="advanced"${user.role === "advanced" ? " selected" : ""}>進階會員</option>
+              <option value="admin"${user.role === "admin" ? " selected" : ""}>管理員</option>
             </select>
             <button class="member-admin-danger" type="button" data-status="${escapeHtml(user.id)}" data-next-status="${user.status === "disabled" ? "active" : "disabled"}">
               ${user.status === "disabled" ? "啟用" : "停用"}

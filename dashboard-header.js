@@ -135,7 +135,7 @@
     }).join("");
     const displayName = user.nickname || user.account || "\u4f7f\u7528\u8005";
     const role = effectiveRole(user);
-    const roleLabel = (user.role === role ? user.roleLabel : null) || (role === "admin" ? "\u7ba1\u7406\u54e1" : role === "advanced" ? "\u9032\u968e\u6703\u54e1" : "\u57fa\u672c\u6703\u54e1");
+    const roleLabel = (user.role === role ? user.roleLabel : null) || (role === "admin" ? "\u7ba1\u7406\u54e1" : role === "advanced" ? "\u9032\u968e\u6703\u54e1" : "\u57fa\u790e\u6703\u54e1");
     const remainingLabel = remainingDaysLabel(user, role);
     const safeDisplayName = escapeHtml(displayName);
     const safeRoleLabel = escapeHtml(roleLabel);
