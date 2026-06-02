@@ -1,10 +1,9 @@
 {
-  "updatedAt": "2026-06-02T13:53:53.966Z",
+  "updatedAt": "2026-06-02T13:53:59.904Z",
   "strategyGroups": {
     "basic": [
       "strength",
       "maBull",
-      "newHigh60",
       "rsiStrong",
       "trendBacktest",
       "sectorLeader",
@@ -19,7 +18,8 @@
       "macdTurnRed",
       "pullbackMa20",
       "volumeDryExpand",
-      "volumeBreakout"
+      "volumeBreakout",
+      "newHigh60"
     ],
     "admin": [
       "breakoutRetest",
