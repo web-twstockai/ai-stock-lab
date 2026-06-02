@@ -195,6 +195,16 @@ def write_public_auth_script() -> None:
     try { return JSON.parse(localStorage.getItem(key) || ""); } catch (_) { return fallback; }
   }
 
+  function authMessage(error, fallback) {
+    const message = String(error?.message || "");
+    if (/invalid login credentials/i.test(message)) return "帳號或密碼錯誤。";
+    if (/user already registered/i.test(message)) return "這個帳號已經註冊過。";
+    if (/password/i.test(message) && /6/.test(message)) return "密碼至少需要 6 個字元。";
+    if (/email/i.test(message) && /invalid/i.test(message)) return "帳號格式不正確。";
+    if (/disabled/i.test(message)) return "這個帳號已被停用。";
+    return message || fallback;
+  }
+
   async function supabaseClient() {
     if (!clientPromise) {
       clientPromise = import(SUPABASE_SDK).then(({ createClient }) =>
@@ -281,30 +291,30 @@ def write_public_auth_script() -> None:
     modal.className = "auth-modal";
     modal.dataset.authModal = "true";
     modal.innerHTML = `
-      <div class="auth-panel" role="dialog" aria-modal="true" aria-label="Account">
-        <button class="auth-close" type="button" aria-label="Close">x</button>
+      <div class="auth-panel" role="dialog" aria-modal="true" aria-label="會員帳號">
+        <button class="auth-close" type="button" aria-label="關閉">x</button>
         <div class="auth-tabs">
-          <button type="button" class="is-active" data-auth-tab="login">Login</button>
-          <button type="button" data-auth-tab="register">Register</button>
+          <button type="button" class="is-active" data-auth-tab="login">登入</button>
+          <button type="button" data-auth-tab="register">註冊</button>
         </div>
 
         <form class="auth-form is-active" data-auth-form="login">
-          <h2>Login</h2>
-          <p>Use your account to enter the dashboard.</p>
-          <label>Account or email<input name="account" autocomplete="username" required /></label>
-          <label>Password<input name="password" type="password" autocomplete="current-password" required /></label>
+          <h2>登入</h2>
+          <p>使用你的會員帳號進入資料看板。</p>
+          <label>帳號或 Email<input name="account" autocomplete="username" required /></label>
+          <label>密碼<input name="password" type="password" autocomplete="current-password" required /></label>
           <strong class="auth-error" data-auth-error="login"></strong>
-          <button class="auth-submit" type="submit">Login</button>
+          <button class="auth-submit" type="submit">登入</button>
         </form>
 
         <form class="auth-form" data-auth-form="register">
-          <h2>Register</h2>
-          <p>Create an account for the public dashboard.</p>
-          <label>Name<input name="nickname" autocomplete="nickname" required /></label>
-          <label>Account or email<input name="account" autocomplete="username" required /></label>
-          <label>Password<input name="password" type="password" autocomplete="new-password" minlength="6" required /></label>
+          <h2>註冊</h2>
+          <p>建立測試會員帳號。</p>
+          <label>名稱<input name="nickname" autocomplete="nickname" required /></label>
+          <label>帳號或 Email<input name="account" autocomplete="username" required /></label>
+          <label>密碼<input name="password" type="password" autocomplete="new-password" minlength="6" required /></label>
           <strong class="auth-error" data-auth-error="register"></strong>
-          <button class="auth-submit" type="submit">Register</button>
+          <button class="auth-submit" type="submit">註冊</button>
         </form>
       </div>`;
     document.body.appendChild(modal);
@@ -343,13 +353,13 @@ def write_public_auth_script() -> None:
         if (profile.status === "disabled") {
           await supabase.auth.signOut();
           clearUser();
-          throw new Error("This account has been disabled.");
+          throw new Error("這個帳號已被停用。");
         }
         rememberUser(profile);
         form.password.value = "";
         goDashboard();
       } catch (authError) {
-        error.textContent = authError.message || "Login failed.";
+        error.textContent = authMessage(authError, "登入失敗。");
       }
     });
 
@@ -368,13 +378,13 @@ def write_public_auth_script() -> None:
           options: { data: { account: account.toLowerCase(), nickname } },
         });
         if (authError) throw authError;
-        if (!data.session) throw new Error("Registration created. Please disable email confirmation in Supabase Auth settings for username/password testing, or confirm the email before logging in.");
+        if (!data.session) throw new Error("註冊已建立，但 Supabase 仍要求 Email 驗證。請先到 Supabase Auth 關閉 Email confirmation，或使用真實 Email 完成驗證後再登入。");
         const profile = await ensureProfile(data.user, nickname, account);
         rememberUser(profile);
         form.password.value = "";
         goDashboard();
       } catch (authError) {
-        error.textContent = authError.message || "Registration failed.";
+        error.textContent = authMessage(authError, "註冊失敗。");
       }
     });
 
