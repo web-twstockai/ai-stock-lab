@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02T14:26:52.908Z",
+  "updatedAt": "2026-06-02T15:36:07.925Z",
   "strategyGroups": {
     "basic": [
       "strength",
@@ -34,14 +34,13 @@
       "attackKPlatform",
       "qualityBreakoutRetest",
       "tightHighBaseTurnUp",
-      "firstPullbackAfterHigh"
-    ],
-    "warehouse": [
+      "firstPullbackAfterHigh",
       "vcpVolatilityContraction",
       "weeklyTrendFirstPullback",
       "repeatedHighChallenge",
       "sectorSecondWave",
       "falseBreakdownReclaim"
-    ]
+    ],
+    "warehouse": []
   }
 }
