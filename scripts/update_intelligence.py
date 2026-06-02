@@ -1516,8 +1516,10 @@ def macro_publish_datetime(event):
 
 
 def build_macro_robot():
-    lookback_days = 3
-    horizon_days = 45
+    # Keep a recent lookback window so due checks can still fill actual values
+    # if a source publishes late or a scheduled run misses the first attempt.
+    lookback_days = 14
+    horizon_days = 62
     fetch_start = date.today() - timedelta(days=lookback_days)
     events = fetch_macro_events(fetch_start, lookback_days + horizon_days)
     events.sort(key=lambda item: item["publishTime"])
@@ -1526,7 +1528,13 @@ def build_macro_robot():
             build_macro_event("United States CPI", "美國", (date.today() + timedelta(days=12)).strftime("%Y/%m/%d 20:30"), "3.4%", "3.3%", None),
             build_macro_event("FOMC Interest Rate Decision", "美國", (date.today() + timedelta(days=18)).strftime("%Y/%m/%d 02:00"), "5.25% - 5.50%", "維持不變", None),
         ]
-    display_events = [event for event in events if macro_publish_date(event) >= date.today()]
+    display_start = date.today() - timedelta(days=lookback_days)
+    display_end = date.today() + timedelta(days=horizon_days)
+    display_events = [
+        event
+        for event in events
+        if display_start <= macro_publish_date(event) <= display_end
+    ]
     if not display_events:
         display_events = events
     now = datetime.now()
@@ -1536,14 +1544,20 @@ def build_macro_robot():
         or display_events[0]
     )
     published = [event for event in display_events if macro_has_actual(event)]
+    upcoming = [event for event in display_events if macro_publish_datetime(event) >= now and not macro_has_actual(event)]
+    pending_actual = [
+        event
+        for event in display_events
+        if macro_publish_datetime(event) < now and not macro_has_actual(event)
+    ]
     high = [event for event in display_events if event.get("importance") == "高"]
     return {
         "updatedAt": fmt_date(datetime.now()),
         "status": "運作中",
         "summary": [
             {"label": "本週事件", "value": sum(1 for e in display_events if 0 <= (macro_publish_date(e) - date.today()).days <= 7), "unit": "個", "icon": "calendar"},
-            {"label": "即將公布", "value": len(display_events) - len(published), "unit": "個", "icon": "file"},
-            {"label": "已公布（本週）", "value": len(published), "unit": "個", "icon": "target"},
+            {"label": "即將公布", "value": len(upcoming), "unit": "個", "icon": "file"},
+            {"label": "待補實際值", "value": len(pending_actual), "unit": "個", "icon": "target"},
             {"label": "高影響事件", "value": len(high), "unit": "個", "icon": "alert", "accent": "orange"},
             {"label": "下一個事件", "value": next_event["eventName"], "unit": next_event["status"], "icon": "filter"},
         ],
@@ -1561,9 +1575,9 @@ def build_macro_robot():
             [(date.today() + timedelta(days=110)).strftime("%Y/%m/%d"), "利率決議", "維持不變 22.5%", "降息 77.5%"],
         ],
         "sourceCards": [
-            ["追蹤範圍", "追蹤 CPI、PCE、非農、FOMC、GDP、ISM 等重大總經事件。"],
+            ["追蹤範圍", "追蹤近 2 個月美國與歐洲重大總經事件：CPI、PCE、非農、失業率、PMI/ISM、GDP、FOMC/ECB。"],
             ["分析邏輯", "比對前值、預期值與實際值，判斷數據偏多、偏空或中性。"],
-            ["更新頻率", "每日更新事件清單，公布後自動切換狀態與影響判斷。"],
+            ["更新頻率", "GitHub Actions 每 30 分鐘檢查公布時間，事件到期後自動補抓實際值。"],
             ["影響評估", "依數據類型推估對科技股、金融股、傳產與匯率敏感族群的影響。"],
         ],
         "sourceStatus": {
@@ -1574,6 +1588,8 @@ def build_macro_robot():
             "filter": "美國/歐洲重大數據：CPI/PCE/PPI、GDP、就業/失業、PMI/ISM、FOMC/ECB 利率；排除談話、債券拍賣、假期與低關聯事件。",
             "lookbackDays": lookback_days,
             "horizonDays": horizon_days,
+            "calendarWindow": f"{display_start.isoformat()}~{display_end.isoformat()}",
+            "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
             "fetchedEvents": len(events),
         },
     }
