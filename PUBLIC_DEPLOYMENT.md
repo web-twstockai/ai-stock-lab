@@ -35,7 +35,7 @@ Public package may include:
 - quant indicators
 - model library
 - intelligence center
-- member admin page
+- admin dashboard
 - public data files under `data/`
 
 Public package must not include:

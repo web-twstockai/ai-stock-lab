@@ -11,6 +11,9 @@
   const API_LOGS_URL = "../api/admin/logs";
   const API_BACKUP_URL = "../api/admin/backup";
   const API_AUDIT_URL = "../api/admin/audit";
+  const SUPABASE_URL = "https://xtimhfolzbeczngvzlxi.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0aW1oZm9semJlY3puZ3Z6bHhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNjY5NzEsImV4cCI6MjA5NTk0Mjk3MX0.ioz4NIVRJ8evKG3u0U-cOjzfnsY0HaotQUfSHCan4oI";
+  const SUPABASE_SDK = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
   const roleLabels = {
     basic: "基本會員",
@@ -79,9 +82,11 @@
     apiAuthRequired: false,
     apiUser: null,
     apiStatus: null,
+    supabaseUsers: null,
     results: {},
     logs: { normal: { text: "" }, error: { text: "" } },
   };
+  let clientPromise = null;
 
   const $ = (selector) => document.querySelector(selector);
   const fmt = (value) => Number(value || 0).toLocaleString("zh-TW");
@@ -108,6 +113,12 @@
   }
 
   function readUsers() {
+    if (state.supabaseUsers) {
+      return Object.fromEntries(state.supabaseUsers.map((profile) => {
+        const user = profileToUser(profile);
+        return [user.account, user];
+      }));
+    }
     try {
       return JSON.parse(getStored(USERS_KEY) || "{}");
     } catch (_) {
@@ -117,6 +128,55 @@
 
   function writeUsers(users) {
     setStored(USERS_KEY, JSON.stringify(users));
+  }
+
+  async function supabaseClient() {
+    if (window.AIStockSupabase?.client) return window.AIStockSupabase.client();
+    if (!clientPromise) {
+      clientPromise = import(SUPABASE_SDK).then(({ createClient }) =>
+        createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+        })
+      );
+    }
+    return clientPromise;
+  }
+
+  function profileToUser(profile) {
+    return {
+      id: profile.id,
+      account: profile.account,
+      nickname: profile.nickname || profile.account,
+      role: profile.role || "basic",
+      roleLabel: roleLabels[profile.role] || profile.role || "basic",
+      status: profile.status || "active",
+      createdAt: profile.created_at,
+      lastLoginAt: profile.last_login_at,
+    };
+  }
+
+  async function loadSupabaseUsers() {
+    try {
+      const supabase = await supabaseClient();
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("id, account, nickname, role, status, created_at, updated_at, last_login_at")
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      state.supabaseUsers = data || [];
+    } catch (error) {
+      state.supabaseUsers = null;
+      console.warn("[AI Stock Lab] Supabase users unavailable", error);
+    }
+  }
+
+  async function updateSupabaseUserRole(user, role) {
+    if (!user?.id) return false;
+    const supabase = await supabaseClient();
+    const { error } = await supabase.from("profiles").update({ role }).eq("id", user.id);
+    if (error) throw error;
+    await loadSupabaseUsers();
+    return true;
   }
 
   function readAdvancedRequests() {
@@ -227,6 +287,7 @@
 
   async function loadAdminStatus() {
     await loadApiAuth();
+    await loadSupabaseUsers();
 
     try {
       if (state.apiAuthRequired) throw new Error("API authentication required");
@@ -803,21 +864,32 @@
     }
   });
 
-  document.addEventListener("change", (event) => {
+  document.addEventListener("change", async (event) => {
     const select = event.target.closest("[data-role-account]");
     if (!select) return;
     const users = readUsers();
     const account = select.dataset.roleAccount;
     if (!users[account]) return;
+    const previousRole = users[account].role;
     users[account].role = select.value;
     users[account].roleLabel = roleLabels[select.value] || select.value;
     if (select.value !== "advanced") {
       delete users[account].advancedApprovedAt;
       delete users[account].advancedExpiresAt;
     }
-    writeUsers(users);
-    renderUsers();
-    showToast(`已將 ${account} 權限調整為 ${roleLabels[select.value]}。`);
+    try {
+      if (!(await updateSupabaseUserRole(users[account], select.value))) {
+        writeUsers(users);
+      }
+      renderMetrics();
+      renderUsers();
+      showToast(`已將 ${account} 權限調整為 ${roleLabels[select.value]}。`);
+    } catch (error) {
+      users[account].role = previousRole;
+      select.value = previousRole;
+      renderUsers();
+      showToast(error.message || "權限更新失敗。");
+    }
   });
 
   document.addEventListener("input", (event) => {
