@@ -198,9 +198,11 @@ def write_public_auth_script() -> None:
     const message = String(error?.message || "");
     if (/invalid login credentials/i.test(message)) return "帳號或密碼錯誤。";
     if (/user already registered/i.test(message)) return "這個帳號已經註冊過。";
+    if (/signups?.*disabled|disabled.*signups?|new users.*disabled|email signups?.*disabled/i.test(message)) return "Supabase 目前關閉新會員註冊，請到 Authentication 設定開啟 Allow new users to sign up。";
+    if (/email rate limit exceeded/i.test(message)) return "Supabase 寄信額度已達上限。請關閉 Email confirmation，或等約 1 小時後再試。";
     if (/password/i.test(message) && /6/.test(message)) return "密碼至少需要 6 個字元。";
     if (/email/i.test(message) && /invalid/i.test(message)) return "帳號格式不正確，請使用英文、數字、底線、點或減號。";
-    if (/disabled/i.test(message)) return "這個帳號已被停用。";
+    if (/account has been disabled|user disabled/i.test(message)) return "這個帳號已被停用。";
     return message || fallback;
   }
 

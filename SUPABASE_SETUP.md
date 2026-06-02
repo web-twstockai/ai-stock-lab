@@ -36,13 +36,22 @@ admin -> admin@users.ai-stock-lab.local
 Authentication -> Providers -> Email
 ```
 
+確認這個選項是開啟：
+
+```text
+Allow new users to sign up
+```
+
 找到並關閉：
 
 ```text
 Confirm email
 ```
 
-如果新版介面沒有顯示這個選項，先測試註冊。若註冊時出現「Supabase 仍要求 Email 驗證」，代表 email confirmation 還開著，需要回到 Auth 設定頁找同義選項。
+如果新版介面沒有顯示這些選項，先測試註冊：
+
+- 若出現「Supabase 目前關閉新會員註冊」，代表 `Allow new users to sign up` 沒開。
+- 若出現「Supabase 仍要求 Email 驗證」或 `email rate limit exceeded`，代表 `Confirm email` 還開著。
 
 ## 3. 建立第一個管理員
 
