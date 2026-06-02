@@ -91,6 +91,7 @@ export async function githubFetch(env, path, options = {}) {
     headers: {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${config.token}`,
+      "User-Agent": "ai-stock-lab-admin",
       "X-GitHub-Api-Version": "2022-11-28",
       ...(options.headers || {}),
     },
