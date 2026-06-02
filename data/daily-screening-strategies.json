@@ -1,12 +1,13 @@
 {
-  "updatedAt": null,
+  "updatedAt": "2026-06-02T12:26:07.793Z",
   "strategyGroups": {
     "basic": [
       "strength",
       "volumeBreakout",
       "maBull",
       "newHigh60",
-      "rsiStrong"
+      "rsiStrong",
+      "trendBacktest"
     ],
     "advanced": [
       "maClusterBreakout",
@@ -21,7 +22,6 @@
       "sectorLeader"
     ],
     "admin": [
-      "trendBacktest",
       "breakoutRetest",
       "relativeStrengthLeader",
       "moneyFlowLeader",
