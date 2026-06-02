@@ -362,12 +362,13 @@
       if (section) section.hidden = true;
       return;
     }
-    const visibleStrategies = tier === "basic" || expanded ? strategies : strategies.slice(0, 5);
-    const canToggle = tier !== "basic" && strategies.length > 5;
+    const visibleStrategies = expanded ? strategies : strategies.slice(0, 5);
+    const canToggle = strategies.length > 5;
     if (!section || !config) return;
     section.hidden = false;
     section.classList.toggle("is-locked-section", locked);
     section.dataset.expanded = expanded ? "true" : "false";
+    section.dataset.strategyTier = tier;
     const title = $(".section-title", section);
     if (title) {
       html(title, `
@@ -381,13 +382,6 @@
     }
     const grid = $(".strategy-grid", section);
     if (grid) html(grid, visibleStrategies.map((strategy) => strategyCard(strategy, locked)).join(""));
-    const toggle = $("[data-strategy-toggle]", section);
-    if (toggle) {
-      toggle.addEventListener("click", (event) => {
-        event.preventDefault();
-        renderStrategySection(section, tier, data, section.dataset.expanded !== "true");
-      });
-    }
   }
 
   function hydrateDailyList(data) {
@@ -414,6 +408,8 @@
     renderStrategySection($(".strategy-section.basic"), "basic", data);
     renderStrategySection($(".strategy-section.advanced"), "advanced", data);
     renderStrategySection($(".strategy-section.admin"), "admin", data);
+    document.body.dataset.dailyScreeningHydrated = "true";
+    window.AIStockLabDailyScreening = { data, renderStrategySection };
     if (!hasTier("admin")) {
       $$(".permission-item.orange").forEach((item) => { item.hidden = true; });
     }
@@ -421,6 +417,18 @@
     text($(".update h2"), "盤後更新");
     updateStatusDates(data.meta.marketDate);
   }
+
+  document.addEventListener("click", (event) => {
+    const toggle = event.target.closest("[data-strategy-toggle]");
+    if (!toggle) return;
+    const daily = window.AIStockLabDailyScreening;
+    if (!daily?.data) return;
+    const section = toggle.closest(".strategy-section");
+    const tier = toggle.dataset.strategyToggle || section?.dataset.strategyTier;
+    if (!section || !tier) return;
+    event.preventDefault();
+    daily.renderStrategySection(section, tier, daily.data, section.dataset.expanded !== "true");
+  });
 
   function stockReason(stock) {
     const themes = Array.isArray(stock.themes) && stock.themes.length ? `；題材：${themeLabel(stock, 2)}` : "";
