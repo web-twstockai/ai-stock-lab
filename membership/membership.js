@@ -54,7 +54,7 @@
       user_id: user.id,
       account: user.account,
       nickname: user.nickname || user.account,
-      current_role: user.role || "basic",
+      current_member_role: user.role || "basic",
       status: "pending",
     });
     if (error) throw error;

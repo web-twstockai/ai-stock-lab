@@ -141,7 +141,7 @@ create table if not exists public.advanced_applications (
   user_id uuid not null references auth.users(id) on delete cascade,
   account text not null,
   nickname text not null,
-  current_role text not null default 'basic',
+  current_member_role text not null default 'basic',
   status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
   requested_at timestamptz not null default now(),
   approved_days integer check (approved_days is null or (approved_days >= 1 and approved_days <= 365)),

@@ -196,7 +196,7 @@
       userId: application.user_id,
       account: application.account,
       nickname: application.nickname,
-      currentRole: application.current_role,
+      currentRole: application.current_member_role,
       status: application.status || "pending",
       requestedAt: application.requested_at,
       approvedDays: application.approved_days,
@@ -211,7 +211,7 @@
       const supabase = await supabaseClient();
       const { data, error } = await supabase
         .from("advanced_applications")
-        .select("id, user_id, account, nickname, current_role, status, requested_at, approved_days, expires_at, reviewed_at, reviewed_by")
+        .select("id, user_id, account, nickname, current_member_role, status, requested_at, approved_days, expires_at, reviewed_at, reviewed_by")
         .eq("status", "pending")
         .order("requested_at", { ascending: false });
       if (error) throw error;
