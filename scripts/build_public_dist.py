@@ -29,6 +29,7 @@ PUBLIC_DIRS = [
     "daily-screening",
     "intelligence-center",
     "market-overview",
+    "member-admin",
     "membership",
     "model-library",
     "quant-indicators",
@@ -457,7 +458,8 @@ def write_public_dashboard_header_script() -> None:
     { key: "stock-analysis", label: "\u500b\u80a1\u5206\u6790", path: "stock-analysis/" },
     { key: "quant-indicators", label: "\u91cf\u5316\u6307\u6a19", path: "quant-indicators/", minRole: "advanced" },
     { key: "model-library", label: "\u6a21\u578b\u5eab", path: "model-library/", minRole: "admin" },
-    { key: "intelligence-center", label: "\u60c5\u5831\u4e2d\u5fc3", path: "intelligence-center/" }
+    { key: "intelligence-center", label: "\u60c5\u5831\u4e2d\u5fc3", path: "intelligence-center/" },
+    { key: "member-admin", label: "\u7ba1\u7406\u54e1", path: "member-admin/", minRole: "admin" }
   ];
   const roleLevel = { basic: 1, advanced: 2, admin: 3 };
   const usersKey = "aiStockLabUsers";
@@ -520,6 +522,7 @@ def write_public_dashboard_header_script() -> None:
     if (path.includes("/stock-analysis")) return "stock-analysis";
     if (path.includes("/quant-indicators")) return "quant-indicators";
     if (path.includes("/model-library")) return "model-library";
+    if (path.includes("/member-admin")) return "member-admin";
     return "home";
   }
 

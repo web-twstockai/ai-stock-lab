@@ -1,75 +1,71 @@
 # Public Deployment
 
-## 目前部署方式
+## Cloudflare Pages
 
-Cloudflare Pages 從 GitHub repo `web-twstockai/ai-stock-lab` 部署公開前台。
+Cloudflare Pages deploys the public site from GitHub repo `web-twstockai/ai-stock-lab`.
 
-Cloudflare Pages build 設定：
+Build settings:
 
 ```text
 Build command: python scripts/build_public_dist.py
 Build output directory: public-dist
-Root directory: 留空
+Root directory: leave blank
 ```
 
-`public-dist/` 是部署產物，不需要 commit 到 GitHub。
+`public-dist/` is generated during deployment and should not be committed.
 
-## 公開包只放前台
+## Public Package
 
-`scripts/build_public_dist.py` 只會把公開頁面和公開資料複製到 `public-dist/`。
+The public package includes the frontend pages, public data files, login/register UI, and the admin page shell.
 
-公開包可以包含：
+The admin page is allowed to exist in the public package, but access is controlled by Supabase:
 
-- 首頁與會員登入註冊 UI
-- 市場總覽
-- 每日篩選
-- 個股分析
-- 量化指標
-- 模型庫
-- 情報中心
-- 公開資料檔 `data/*.json` / `data/*.js`
+- The dashboard navigation only shows the admin entry for `role = 'admin'`.
+- The admin page requires a logged-in admin profile.
+- Member data reads and writes are protected by Supabase RLS.
+- The frontend only uses `SUPABASE_ANON_KEY`.
+- Never expose the Supabase `service_role key`.
 
-公開包不包含：
+Public package may include:
 
-- 管理後台頁面
-- 後端程式
-- 抓資料腳本
-- 私密 API key
+- home page
+- market overview
+- daily screening
+- stock analysis
+- quant indicators
+- model library
+- intelligence center
+- member admin page
+- public data files under `data/`
+
+Public package must not include:
+
+- backend service code
+- crawler scripts
+- private API keys
 - Supabase `service_role key`
-- 本機資料庫
-- 備份與 log
-
-## 後台不要放進公開包
-
-管理後台不應該放在 Cloudflare Pages 的公開包裡。
-
-如果要做真正後台，建議獨立成另一個私有入口，例如：
-
-- Cloudflare Access 保護的 admin 網站
-- Supabase + Edge Function 的後台 API
-- 只允許管理員登入的獨立 admin app
-
-會員登入可以留在公開前台；但管理操作、資料更新、敏感設定不應該出現在 `public-dist/`。
+- local databases
+- backups or logs
 
 ## Supabase
 
-前台會員帳號存在 Supabase：
+Frontend accounts are stored in Supabase:
 
-- Supabase Auth：登入密碼
-- `public.profiles`：帳號、名稱、角色、狀態
+- Supabase Auth stores login credentials.
+- `public.profiles` stores account, nickname, role, and status.
 
-前台只使用 `SUPABASE_ANON_KEY`。這個 key 可以公開，真正權限由 Supabase RLS 控制。
+The frontend does not ask users for email. It converts the account name into an internal Supabase email identifier, for example:
 
-不要把 `service_role key` 放到前台或 GitHub。
+```text
+admin -> admin@users.ai-stock-lab.local
+```
 
-## 自動更新資料
+Because this is not a real user email, Supabase email confirmation should be disabled.
 
-Codex 自動化抓完資料後，應該更新 repo 內的公開資料檔，再讓 Cloudflare Pages 重新部署。
+## Data Updates
 
-Cloudflare 每次部署會重新執行：
+Codex automations should update the repo's public data files. Cloudflare Pages then rebuilds the public package by running:
 
 ```powershell
 python scripts/build_public_dist.py
 ```
-
-然後只發布 `public-dist/`。
