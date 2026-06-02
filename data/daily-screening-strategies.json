@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02T13:54:13.126Z",
+  "updatedAt": "2026-06-02T13:54:18.432Z",
   "strategyGroups": {
     "basic": [
       "strength",
@@ -21,10 +21,10 @@
       "volumeBreakout",
       "newHigh60",
       "breakoutRetest",
-      "relativeStrengthLeader"
+      "relativeStrengthLeader",
+      "moneyFlowLeader"
     ],
     "admin": [
-      "moneyFlowLeader",
       "lowRiskBreakout",
       "aiScoreTop",
       "lowVolStrength",
