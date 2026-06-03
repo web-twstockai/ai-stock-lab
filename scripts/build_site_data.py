@@ -30,6 +30,11 @@ COMPANY_URLS = {
     "tpex": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O",
 }
 
+REVENUE_URLS = {
+    "twse": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
+    "tpex": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
+}
+
 SECTOR_MAP = {
     "01": "水泥工業",
     "02": "食品工業",
@@ -172,6 +177,35 @@ def load_theme_data():
         return {"stocks": {}, "themes": {}, "sources": [], "stats": {}}
 
 
+def first_value(row, *keys):
+    for key in keys:
+        value = row.get(key)
+        if value not in (None, ""):
+            return value
+    return None
+
+
+def load_revenue_data():
+    revenue = {}
+    for market_code, url in REVENUE_URLS.items():
+        try:
+            rows = http_json(url)
+        except Exception:
+            continue
+        for row in rows:
+            symbol = str(first_value(row, "公司代號", "公司代碼", "SecuritiesCompanyCode", "SecuritiesCode") or "").strip()
+            if not symbol:
+                continue
+            revenue[symbol] = {
+                "revenueMonth": first_value(row, "資料年月", "出表日期", "年月"),
+                "revenue": num(first_value(row, "營業收入-當月營收", "當月營收", "CurrentMonthRevenue")),
+                "revenueMom": num(first_value(row, "營業收入-上月比較增減(%)", "上月比較增減(%)", "MoM")),
+                "revenueYoy": num(first_value(row, "營業收入-去年同月增減(%)", "去年同月增減(%)", "YoY"), None),
+                "revenueSector": first_value(row, "產業別", "SecuritiesIndustryCode"),
+            }
+    return revenue
+
+
 def load_screening_strategy_groups():
     if not SCREENING_STRATEGIES_CONFIG.exists():
         return {}
@@ -308,12 +342,13 @@ def symbol_market(symbol, code):
     return market_label(code)
 
 
-def summarize_symbol(path, market_code):
+def summarize_symbol(path, market_code, revenue_data):
     rows = read_rows(path)
     if len(rows) < 65:
         return None
 
     symbol = path.stem
+    revenue = revenue_data.get(symbol, {})
     recent = rows[-126:]
     opens = [num(row["open"]) for row in rows]
     closes = [num(row["close"]) for row in rows]
@@ -566,6 +601,19 @@ def summarize_symbol(path, market_code):
         and no_long_upper_shadow
     )
 
+    revenue_yoy = revenue.get("revenueYoy")
+    bb_upper_breakout_revenue_growth = (
+        revenue_yoy is not None
+        and revenue_yoy > 20
+        and close >= bollinger_upper * 0.97
+        and close <= bollinger_upper * 1.03
+        and close >= ma20 >= ma60
+        and 0 <= return20 <= 30
+        and 0.75 <= volume_ratio <= 2.3
+        and close_position >= 0.55
+        and no_long_upper_shadow
+    )
+
     score = (
         min(max(return20, -20), 40) * 0.9
         + min(max(return60, -30), 70) * 0.42
@@ -588,6 +636,11 @@ def summarize_symbol(path, market_code):
         "volume": volumes[-1],
         "turnover": round(close * volumes[-1]),
         "avgTurnover20": round(avg_turnover20),
+        "revenueMonth": revenue.get("revenueMonth"),
+        "revenue": revenue.get("revenue"),
+        "revenueMom": revenue.get("revenueMom"),
+        "revenueYoy": revenue_yoy,
+        "revenueSector": revenue.get("revenueSector"),
         "return5": round(return5, 2),
         "return20": round(return20, 2),
         "return60": round(return60, 2),
@@ -663,6 +716,7 @@ def summarize_symbol(path, market_code):
             "bbPullbackMacdHold": bb_pullback_macd_hold,
             "bbSqueezeMomentum": bb_squeeze_momentum,
             "rsiKdMacdTrendConfirm": rsi_kd_macd_trend_confirm,
+            "bbUpperBreakoutRevenueGrowth": bb_upper_breakout_revenue_growth,
         },
         "series": [
             {
@@ -1064,6 +1118,15 @@ STRATEGY_DEFINITIONS = [
         "criteria": "收盤>=MA20>=MA60；MACD多方；RSI 50~72；KD K>D且未過熱；20日報酬3%~25%",
     },
     {
+        "key": "bbUpperBreakoutRevenueGrowth",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "布林上軌突破 + 營收成長",
+        "description": "股價貼近布林上軌、趨勢維持多頭，並要求最新月營收 YoY 大於 20%，用基本面成長確認突破品質。",
+        "tags": ["布林上軌", "營收成長", "突破"],
+        "criteria": "收盤接近布林上軌97%~103%；月營收YoY>20%；收盤>=MA20>=MA60；20日報酬0%~30%；量能0.75~2.3倍",
+    },
+    {
         "key": "riskControlList",
         "tier": "admin",
         "tierLabel": "管理員",
@@ -1089,6 +1152,11 @@ def compact_stock(stock):
         "volume",
         "turnover",
         "avgTurnover20",
+        "revenueMonth",
+        "revenue",
+        "revenueMom",
+        "revenueYoy",
+        "revenueSector",
         "return5",
         "return20",
         "return60",
@@ -1099,6 +1167,9 @@ def compact_stock(stock):
         "low20",
         "high60",
         "low60",
+        "bollingerUpper",
+        "bollingerLower",
+        "bollingerWidth",
         "distanceHigh60",
         "rangePosition60",
         "closePosition",
@@ -1222,6 +1293,7 @@ def build():
     manifest_meta = load_manifest_meta()
     company_meta = load_company_meta()
     theme_data = load_theme_data()
+    revenue_data = load_revenue_data()
     stock_themes = theme_data.get("stocks", {})
     SYMBOL_META = {**manifest_meta, **company_meta}
 
@@ -1229,7 +1301,7 @@ def build():
     for market_code in ("twse", "tpex"):
         raw_dir = HISTORY / market_code / "raw"
         for path in raw_dir.glob("*.csv"):
-            item = summarize_symbol(path, market_code)
+            item = summarize_symbol(path, market_code, revenue_data)
             if item:
                 item["themes"] = stock_themes.get(item["symbol"], {}).get("themes", [])
                 stocks.append(item)

@@ -45,6 +45,8 @@
       "bbPullbackMacdHold",
       "macdSmaTrendSetup"
     ],
-    "warehouse": []
+    "warehouse": [
+      "bbUpperBreakoutRevenueGrowth"
+    ]
   }
 }
