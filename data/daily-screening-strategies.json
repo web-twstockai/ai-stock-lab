@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-03T10:33:19.686Z",
+  "updatedAt": "2026-06-03T15:41:11.169Z",
   "strategyGroups": {
     "basic": [
       "strength",
@@ -44,10 +44,9 @@
       "bbSqueezeMomentum",
       "bbPullbackMacdHold",
       "macdSmaTrendSetup",
-      "bbUpperBreakoutRevenueGrowth"
-    ],
-    "warehouse": [
+      "bbUpperBreakoutRevenueGrowth",
       "volumeWashRetest"
-    ]
+    ],
+    "warehouse": []
   }
 }
