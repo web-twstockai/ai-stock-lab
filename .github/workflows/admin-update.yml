@@ -8,8 +8,6 @@ on:
     - cron: "25 12 * * 1-5"
     # Asia/Taipei 18:30, Monday-Friday.
     - cron: "30 10 * * 1-5"
-    # Asia/Taipei 22:40, Monday-Friday.
-    - cron: "40 14 * * 1-5"
   workflow_dispatch:
     inputs:
       task:
@@ -74,9 +72,6 @@ jobs:
                 ;;
               "30 10 * * 1-5")
                 task="evening-batch"
-                ;;
-              "40 14 * * 1-5")
-                task="short-margin"
                 ;;
               *)
                 echo "Unknown schedule: ${{ github.event.schedule }}" >&2
