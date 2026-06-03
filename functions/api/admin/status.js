@@ -1,4 +1,4 @@
-import { TASKS, githubConfig, githubFetch, json, requireAdmin } from "./_shared.js";
+import { TASKS, githubConfig, githubFetch, json, requireAdmin, workflowsForStatus } from "./_shared.js";
 
 function normalizeRun(run) {
   const status = run.status === "completed"
@@ -16,6 +16,17 @@ function normalizeRun(run) {
   };
 }
 
+async function fetchWorkflowRuns(env, config, workflow) {
+  const response = await githubFetch(
+    env,
+    `/repos/${config.repo}/actions/workflows/${encodeURIComponent(workflow)}/runs?branch=${encodeURIComponent(config.ref)}&per_page=5`,
+    { method: "GET" }
+  );
+  if (!response.ok) return [];
+  const payload = await response.json();
+  return (payload.workflow_runs || []).map(normalizeRun);
+}
+
 export async function onRequestGet({ request, env }) {
   const admin = await requireAdmin(request, env);
   if (admin.error) return admin.error;
@@ -25,15 +36,13 @@ export async function onRequestGet({ request, env }) {
 
   if (config.token) {
     try {
-      const response = await githubFetch(
-        env,
-        `/repos/${config.repo}/actions/workflows/${encodeURIComponent(config.workflow)}/runs?branch=${encodeURIComponent(config.ref)}&per_page=8`,
-        { method: "GET" }
+      const results = await Promise.all(
+        workflowsForStatus(env).map((workflow) => fetchWorkflowRuns(env, config, workflow).catch(() => []))
       );
-      if (response.ok) {
-        const payload = await response.json();
-        jobs = (payload.workflow_runs || []).map(normalizeRun);
-      }
+      jobs = results
+        .flat()
+        .sort((a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime())
+        .slice(0, 12);
     } catch (_) {
       jobs = [];
     }
