@@ -5,32 +5,252 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>量化指標 - AI Stock Lab</title>
     <link rel="stylesheet" href="../dashboard-header.css" />
-    <link rel="stylesheet" href="../dashboard-simple.css" />
+    <link rel="stylesheet" href="quant-indicators.css" />
   </head>
-  <body data-dashboard-page="quant-indicators">
-    <div data-dashboard-header data-active="quant-indicators" data-base="../"></div>
-    <main class="simple-shell">
-      <header class="simple-heading">
-        <div>
-          <h1>量化指標</h1>
-          <p>以 20 日報酬、60 日高點、流動性、波動與量能倍率整理目前候選清單。</p>
-        </div>
-        <span class="data-pill">載入資料中</span>
-      </header>
-      <section class="simple-grid">
-        <article class="simple-card"><h2>候選清單</h2><strong>--</strong><p>依綜合分數排序的觀察標的。</p></article>
-        <article class="simple-card"><h2>均線多頭</h2><strong>--</strong><p>收盤價站上 MA20，且 MA20 高於 MA60。</p></article>
-        <article class="simple-card"><h2>放量突破</h2><strong>--</strong><p>接近 60 日高點且成交量放大。</p></article>
-      </section>
-      <section class="simple-panel">
-        <h2>量化候選排行</h2>
-        <table class="simple-table">
-          <thead><tr><th>代號</th><th>名稱</th><th>產業</th><th>分數</th><th>20日報酬</th><th>量能倍率</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </section>
-    </main>
+  <body class="dashboard-page-loading" data-dashboard-page="quant-indicators">
+    <div class="quant-page">
+      <div data-dashboard-header data-active="quant-indicators" data-base="../"></div>
+
+      <main class="quant-shell">
+        <section class="quant-hero" aria-labelledby="quantTitle">
+          <div class="hero-copy">
+            <span class="eyebrow">QUANT ROBOT WAR ROOM</span>
+            <h1 id="quantTitle">策略機器人作戰室</h1>
+            <p>每個機器人負責一套策略，追蹤回測表現、參數版本、明日候選股與實際損益。</p>
+          </div>
+          <div class="hero-actions" aria-label="量化狀態">
+            <span class="sync-chip">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12a7 7 0 0 0-12.1-4.8M5 12a7 7 0 0 0 12.1 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              今日 18:32 已更新
+            </span>
+            <button class="ghost-button" type="button" id="refreshSignalButton">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 4v6h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              更新訊號
+            </button>
+          </div>
+        </section>
+
+        <section class="metric-grid" aria-label="量化總覽">
+          <article class="metric-card">
+            <span class="metric-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="4" width="14" height="12" rx="4" stroke="currentColor" stroke-width="2"/><path d="M9 20h6M12 16v4M9 10h.01M15 10h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <div><p>啟用機器人</p><strong id="metricRobots">8</strong><em>6 個完成今日回測</em></div>
+          </article>
+          <article class="metric-card">
+            <span class="metric-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5M4 19h17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m7 15 4-4 3 3 6-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><p>明日候選股</p><strong id="metricCandidates">12</strong><em>高信心 5 檔</em></div>
+          </article>
+          <article class="metric-card">
+            <span class="metric-icon green">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M17 7.5c-.8-1.4-2.4-2-4.3-2-2.2 0-4 1-4 2.8 0 4.3 8.8 1.8 8.8 6.3 0 1.8-1.8 2.9-4.3 2.9-2.4 0-4.2-.9-5.2-2.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <div><p>未實現損益</p><strong class="positive">+42,800</strong><em>4 檔持倉追蹤中</em></div>
+          </article>
+          <article class="metric-card">
+            <span class="metric-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/></svg>
+            </span>
+            <div><p>已實現損益</p><strong class="positive">+128,600</strong><em>近 30 筆交易</em></div>
+          </article>
+          <article class="metric-card">
+            <span class="metric-icon violet">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 19 6v5c0 5.7-3.2 8.8-7 10-3.8-1.2-7-4.3-7-10V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.8 12 2.2 2.2 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><p>總勝率</p><strong>61.4%</strong><em>Profit Factor 1.72</em></div>
+          </article>
+        </section>
+
+        <section class="quant-layout">
+          <aside class="robot-rail panel" aria-label="策略機器人列表">
+            <div class="panel-head">
+              <div>
+                <span class="panel-kicker">ROBOTS</span>
+                <h2>策略機器人</h2>
+              </div>
+              <span class="panel-count">8</span>
+            </div>
+            <div id="robotList" class="robot-list"></div>
+          </aside>
+
+          <section class="command-center">
+            <article class="robot-detail panel">
+              <div class="detail-main">
+                <div class="robot-avatar" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="12" width="28" height="24" rx="8" stroke="currentColor" stroke-width="3"/><path d="M16 30h16M20 21h.01M28 21h.01M24 8v4M17 40h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+                </div>
+                <div>
+                  <span class="panel-kicker">SELECTED STRATEGY</span>
+                  <h2 id="selectedRobotName">均線突破機器人</h2>
+                  <p id="selectedRobotDesc">站上短中期均線且量能放大，尋找趨勢初段的隔日買點。</p>
+                </div>
+              </div>
+              <div class="detail-stats" id="selectedRobotStats"></div>
+              <div class="version-strip">
+                <div>
+                  <span>策略版本</span>
+                  <strong id="selectedVersion">v2.8</strong>
+                </div>
+                <div>
+                  <span>最佳參數</span>
+                  <strong id="selectedParams">MA20 + 量能 1.6x</strong>
+                </div>
+                <div>
+                  <span>下一步</span>
+                  <strong id="selectedNext">等待明日開盤</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel candidates-panel">
+              <div class="panel-head table-head">
+                <div>
+                  <span class="panel-kicker">TOMORROW PLAN</span>
+                  <h2>明日候選股</h2>
+                </div>
+                <div class="segmented" role="group" aria-label="候選股篩選">
+                  <button class="is-active" type="button" data-candidate-filter="all">全部</button>
+                  <button type="button" data-candidate-filter="high">高分</button>
+                  <button type="button" data-candidate-filter="selected">目前機器人</button>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="quant-table">
+                  <thead>
+                    <tr>
+                      <th>股票</th>
+                      <th>推薦機器人</th>
+                      <th>訊號</th>
+                      <th>張數</th>
+                      <th>進場</th>
+                      <th>停損</th>
+                      <th>停利</th>
+                      <th>風險</th>
+                    </tr>
+                  </thead>
+                  <tbody id="candidateRows"></tbody>
+                </table>
+              </div>
+            </article>
+
+            <section class="lower-grid">
+              <article class="panel holdings-panel">
+                <div class="panel-head">
+                  <div>
+                    <span class="panel-kicker">OPEN POSITIONS</span>
+                    <h2>目前持倉</h2>
+                  </div>
+                  <span class="status-dot">監控中</span>
+                </div>
+                <div class="table-wrap compact">
+                  <table class="quant-table">
+                    <thead>
+                      <tr>
+                        <th>股票</th>
+                        <th>機器人</th>
+                        <th>張數</th>
+                        <th>成本</th>
+                        <th>現價</th>
+                        <th>未實現</th>
+                      </tr>
+                    </thead>
+                    <tbody id="holdingRows"></tbody>
+                  </table>
+                </div>
+              </article>
+
+              <article class="panel optimization-panel">
+                <div class="panel-head">
+                  <div>
+                    <span class="panel-kicker">OPTIMIZATION</span>
+                    <h2>回測優化曲線</h2>
+                  </div>
+                  <span class="status-dot green">完成</span>
+                </div>
+                <svg class="optimization-chart" viewBox="0 0 520 220" role="img" aria-label="策略版本勝率與獲利因子曲線">
+                  <defs>
+                    <linearGradient id="profitArea" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0" stop-color="#16a34a" stop-opacity=".28"/>
+                      <stop offset="1" stop-color="#16a34a" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <g class="chart-grid">
+                    <path d="M45 30H490M45 70H490M45 110H490M45 150H490M45 190H490"/>
+                    <path d="M45 30V190M134 30V190M223 30V190M312 30V190M401 30V190M490 30V190"/>
+                  </g>
+                  <path class="area" d="M45 155 L134 142 L223 128 L312 112 L401 96 L490 82 L490 190 L45 190 Z"/>
+                  <polyline class="chart-line profit" points="45,155 134,142 223,128 312,112 401,96 490,82"/>
+                  <polyline class="chart-line winrate" points="45,132 134,126 223,116 312,98 401,91 490,75"/>
+                  <g class="chart-points">
+                    <circle cx="45" cy="132" r="4"/><circle cx="134" cy="126" r="4"/><circle cx="223" cy="116" r="4"/><circle cx="312" cy="98" r="4"/><circle cx="401" cy="91" r="4"/><circle cx="490" cy="75" r="4"/>
+                  </g>
+                  <g class="chart-labels">
+                    <text x="45" y="210">v2.3</text><text x="134" y="210">v2.4</text><text x="223" y="210">v2.5</text><text x="312" y="210">v2.6</text><text x="401" y="210">v2.7</text><text x="490" y="210">v2.8</text>
+                    <text x="8" y="34">70%</text><text x="12" y="114">60%</text><text x="12" y="194">50%</text>
+                  </g>
+                </svg>
+                <div class="chart-legend">
+                  <span><i class="legend-dot blue"></i>勝率</span>
+                  <span><i class="legend-dot green"></i>Profit Factor</span>
+                </div>
+              </article>
+            </section>
+          </section>
+
+          <aside class="right-stack">
+            <article class="panel risk-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="panel-kicker">RISK CENTER</span>
+                  <h2>風控中心</h2>
+                </div>
+                <span class="risk-badge">中等</span>
+              </div>
+              <div class="risk-list">
+                <div><span>總持倉金額</span><strong>1,284,000</strong></div>
+                <div><span>今日可買額度</span><strong>360,000</strong></div>
+                <div><span>單一策略曝險</span><strong>28%</strong></div>
+                <div><span>最大允許回撤</span><strong>-12%</strong></div>
+              </div>
+              <div class="risk-rule">
+                <strong>連續虧損保護</strong>
+                <p>任一機器人連續 3 筆虧損，自動降權並縮小建議張數。</p>
+              </div>
+            </article>
+
+            <article class="panel task-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="panel-kicker">TODAY FLOW</span>
+                  <h2>今日任務</h2>
+                </div>
+              </div>
+              <ol class="task-flow">
+                <li class="done"><span></span>收盤資料更新</li>
+                <li class="done"><span></span>策略回測</li>
+                <li class="done"><span></span>參數優化</li>
+                <li class="active"><span></span>明日候選股</li>
+                <li><span></span>開盤監控</li>
+              </ol>
+            </article>
+
+            <article class="panel sold-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="panel-kicker">CLOSED TRADES</span>
+                  <h2>已賣出紀錄</h2>
+                </div>
+              </div>
+              <div id="soldRows" class="sold-list"></div>
+            </article>
+          </aside>
+        </section>
+      </main>
+    </div>
+
     <script src="../dashboard-header.js"></script>
-    <script src="../dashboard-simple.js"></script>
+    <script src="quant-indicators.js"></script>
   </body>
 </html>
