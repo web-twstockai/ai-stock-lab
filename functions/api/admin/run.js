@@ -1,4 +1,4 @@
-import { TASKS, githubConfig, githubFetch, json, requireAdmin } from "./_shared.js";
+import { TASKS, githubConfig, githubFetch, json, requireAdmin, workflowForTask } from "./_shared.js";
 
 function parseGitHubError(text) {
   try {
@@ -37,19 +37,22 @@ export async function onRequestPost({ request, env }) {
   if (!TASKS[task]) return json({ ok: false, error: "Unknown task." }, 400);
 
   const config = githubConfig(env);
+  const target = workflowForTask(env, task);
+  const inputs = {
+    operator: admin.profile.account || admin.profile.id || "admin",
+  };
+  if (target.includeTaskInput) inputs.task = task;
+
   try {
     const response = await githubFetch(
       env,
-      `/repos/${config.repo}/actions/workflows/${encodeURIComponent(config.workflow)}/dispatches`,
+      `/repos/${config.repo}/actions/workflows/${encodeURIComponent(target.workflow)}/dispatches`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ref: config.ref,
-          inputs: {
-            task,
-            operator: admin.profile.account || admin.profile.id || "admin",
-          },
+          inputs,
         }),
       }
     );
@@ -66,6 +69,7 @@ export async function onRequestPost({ request, env }) {
         id: `${task}-${Date.now()}`,
         task,
         label: TASKS[task],
+        workflow: target.workflow,
         status: "queued",
         createdAt: new Date().toISOString(),
         operator: admin.profile,
