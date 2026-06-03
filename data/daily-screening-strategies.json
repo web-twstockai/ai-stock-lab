@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02T15:36:07.925Z",
+  "updatedAt": "2026-06-03T04:55:42.935Z",
   "strategyGroups": {
     "basic": [
       "strength",
@@ -39,13 +39,12 @@
       "weeklyTrendFirstPullback",
       "repeatedHighChallenge",
       "sectorSecondWave",
-      "falseBreakdownReclaim"
-    ],
-    "warehouse": [
-      "macdSmaTrendSetup",
-      "bbPullbackMacdHold",
+      "falseBreakdownReclaim",
+      "rsiKdMacdTrendConfirm",
       "bbSqueezeMomentum",
-      "rsiKdMacdTrendConfirm"
-    ]
+      "bbPullbackMacdHold",
+      "macdSmaTrendSetup"
+    ],
+    "warehouse": []
   }
 }
