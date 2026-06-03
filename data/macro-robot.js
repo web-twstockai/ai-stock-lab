@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/03 13:44",
+  "updatedAt": "2026/06/03 13:47",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@ window.MacroRobotData = {
     },
     {
       "label": "即將公布",
-      "value": 106,
+      "value": 104,
       "unit": "個",
       "icon": "file"
     },
@@ -29,7 +29,7 @@ window.MacroRobotData = {
     },
     {
       "label": "下一個事件",
-      "value": "綜合 PMI",
+      "value": "ISM 製造業新訂單",
       "unit": "倒數 9 小時",
       "icon": "filter"
     }
@@ -2531,21 +2531,21 @@ window.MacroRobotData = {
       "publishTime": "2026/06/03 21:45",
       "previous": "51.7",
       "forecast": "51.7",
-      "actual": null,
-      "status": "倒數 9 小時",
-      "statusLevel": "soon",
-      "direction": "中性",
+      "actual": "51.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
       "timestamp": "2026/06/03 21:45",
       "tags": [
         "美國",
         "綜合",
-        "中性"
+        "偏空"
       ],
       "summary": "綜合 PMI 將於 2026/06/03 21:45 公布，市場關注前值 51.7、預期 51.7。",
-      "event": "美國 綜合 PMI，前值 51.7、預期 51.7、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "event": "美國 綜合 PMI，前值 51.7、預期 51.7、實際 51.5。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
@@ -2564,23 +2564,23 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/06/03 21:45 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/06/03 21:45",
-      "previous": "51",
+      "previous": "50.9",
       "forecast": "50.9",
-      "actual": null,
-      "status": "倒數 9 小時",
-      "statusLevel": "soon",
-      "direction": "中性",
+      "actual": "50.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
       "timestamp": "2026/06/03 21:45",
       "tags": [
         "美國",
         "服務業",
-        "中性"
+        "偏空"
       ],
-      "summary": "服務業 PMI 將於 2026/06/03 21:45 公布，市場關注前值 51、預期 50.9。",
-      "event": "美國 服務業 PMI，前值 51、預期 50.9、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "服務業 PMI 將於 2026/06/03 21:45 公布，市場關注前值 50.9、預期 50.9。",
+      "event": "美國 服務業 PMI，前值 50.9、預期 50.9、實際 50.7。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
