@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/03 12:42",
+  "updatedAt": "2026/06/03 12:45",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "綜合 PMI",
-      "unit": "倒數 10 小時",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -2532,7 +2532,7 @@ window.MacroRobotData = {
       "previous": "51.7",
       "forecast": "51.7",
       "actual": null,
-      "status": "倒數 10 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -2567,7 +2567,7 @@ window.MacroRobotData = {
       "previous": "51",
       "forecast": "50.9",
       "actual": null,
-      "status": "倒數 10 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
