@@ -1,0 +1,76 @@
+name: Daily Institutional Robot Update
+
+on:
+  schedule:
+    # Asia/Taipei 18:30 every day.
+    - cron: "30 10 * * *"
+  workflow_dispatch:
+    inputs:
+      operator:
+        description: Operator that triggered the update
+        required: false
+        default: admin
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-institutional-robot-update
+  cancel-in-progress: false
+
+jobs:
+  update-institutional-robot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run institutional robot updater
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Triggered by: ${{ github.event_name == 'schedule' && 'github-schedule' || inputs.operator }}"
+          python scripts/update_institutional_robot.py
+
+      - name: Rebuild public package
+        run: python scripts/build_public_dist.py
+
+      - name: Commit updated institutional robot data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "ai-stock-lab-bot"
+          git config user.email "ai-stock-lab-bot@users.noreply.github.com"
+
+          git add data
+          if git diff --cached --quiet; then
+            echo "No institutional robot data changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update institutional robot data"
+
+          # Keep generated validation output out of this data commit.
+          git restore --worktree .
+          git clean -fd public-dist || true
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push; then
+              exit 0
+            fi
+            echo "Push failed on attempt ${attempt}; retrying after remote sync."
+            sleep 10
+          done
+
+          echo "Unable to push institutional robot update after retries." >&2
+          exit 1
