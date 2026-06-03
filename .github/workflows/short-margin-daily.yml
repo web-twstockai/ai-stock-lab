@@ -1,0 +1,76 @@
+name: Daily Short Margin Update
+
+on:
+  schedule:
+    # Asia/Taipei 22:40 every day.
+    - cron: "40 14 * * *"
+  workflow_dispatch:
+    inputs:
+      operator:
+        description: Operator that triggered the update
+        required: false
+        default: admin
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-short-margin-update
+  cancel-in-progress: false
+
+jobs:
+  update-short-margin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run short margin updater
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Triggered by: ${{ github.event_name == 'schedule' && 'github-schedule' || inputs.operator }}"
+          python scripts/update_short_margin_ratio.py
+
+      - name: Rebuild public package
+        run: python scripts/build_public_dist.py
+
+      - name: Commit updated short margin data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "ai-stock-lab-bot"
+          git config user.email "ai-stock-lab-bot@users.noreply.github.com"
+
+          git add data
+          if git diff --cached --quiet; then
+            echo "No short margin data changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update short margin ratio"
+
+          # Clear generated files that are validated by the build but not committed here.
+          git restore --worktree .
+          git clean -fd public-dist || true
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push; then
+              exit 0
+            fi
+            echo "Push failed on attempt ${attempt}; retrying after remote sync."
+            sleep 10
+          done
+
+          echo "Unable to push short margin update after retries." >&2
+          exit 1
