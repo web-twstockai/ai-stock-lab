@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/06/03 14:59",
+  "updatedAt": "2026/06/03 15:02",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@
     {
       "label": "下一個事件",
       "value": "ISM服務業經濟活動",
-      "unit": "倒數 8 小時",
+      "unit": "倒數 7 小時",
       "icon": "filter"
     }
   ],
@@ -2776,7 +2776,7 @@
       "previous": "55.9",
       "forecast": "55.0",
       "actual": null,
-      "status": "倒數 8 小時",
+      "status": "倒數 7 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
