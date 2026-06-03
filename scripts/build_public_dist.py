@@ -705,6 +705,7 @@ def main() -> None:
         copy_file(ROOT / "data" / file_name, data_dist / file_name)
 
     copy_tree(ROOT / "data" / "history", data_dist / "history")
+    copy_tree(ROOT / "data" / "intraday", data_dist / "intraday")
 
     write_deploy_metadata()
     write_public_auth_script()
