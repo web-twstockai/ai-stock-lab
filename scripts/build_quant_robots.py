@@ -9,6 +9,13 @@ ROOT = Path(__file__).resolve().parents[1]
 CANDIDATES = ROOT / "data" / "candidates.json"
 HISTORY = ROOT / "data" / "history"
 OUT = ROOT / "data" / "quant-robots.json"
+VIRTUAL_INITIAL_CASH = 1_000_000
+LOT_SIZE = 1000
+MAX_POSITIONS = 6
+MAX_DAILY_BUYS = 2
+BUY_FEE_RATE = 0.001425
+SELL_FEE_RATE = 0.001425
+SELL_TAX_RATE = 0.003
 
 
 ROBOTS = [
@@ -343,6 +350,241 @@ def candidate_rows(stocks, robots_by_id):
     return rows[:24]
 
 
+def recent_volatility_pct(rows, index, window=20):
+    if index < 2:
+        return 4.0
+    start = max(1, index - window + 1)
+    returns = []
+    for i in range(start, index + 1):
+        previous = rows[i - 1]["close"]
+        if previous:
+            returns.append(rows[i]["close"] / previous - 1)
+    return stdev(returns) * 100 if returns else 4.0
+
+
+def robot_signal_score(robot_id, rows, index):
+    row = rows[index]
+    ma20 = row.get("ma20") or row["close"]
+    volume20 = row.get("volume20") or row["volume"] or 1
+    volume_ratio = row["volume"] / volume20 if volume20 else 1
+    day_return = row["close"] / row["open"] - 1 if row["open"] else 0
+    rsi14 = row.get("rsi14") or 50
+    macd_hist = row.get("macdHist") or 0
+    distance_ma20 = row["close"] / ma20 - 1 if ma20 else 0
+    base = 62
+    if robot_id == "ma-breakout":
+        return base + min(volume_ratio, 3) * 7 + max(0, distance_ma20) * 200
+    if robot_id == "rsi-rebound":
+        return base + max(0, 50 - rsi14) * 0.8 + max(0, day_return) * 160
+    if robot_id == "macd-momentum":
+        return base + max(0, macd_hist) * 8 + max(0, day_return) * 140
+    if robot_id == "volume-surge":
+        return base + min(volume_ratio, 4) * 8 + max(0, day_return) * 150
+    if robot_id == "bollinger-reversal":
+        return base + max(0, day_return) * 170
+    if robot_id == "day-swing":
+        return base + min(volume_ratio, 4) * 7 + max(0, day_return) * 180
+    if robot_id == "trend-swing":
+        return base + max(0, distance_ma20) * 180 + min(volume_ratio, 2) * 5
+    return base
+
+
+def build_date_index(histories):
+    date_index = {}
+    for symbol, rows in histories.items():
+        for index, row in enumerate(rows):
+            date_index.setdefault(row["date"], {})[symbol] = index
+    return date_index
+
+
+def trade_cost(price, lots):
+    return price * LOT_SIZE * lots
+
+
+def buy_fee(price, lots):
+    return trade_cost(price, lots) * BUY_FEE_RATE
+
+
+def sell_costs(price, lots):
+    value = trade_cost(price, lots)
+    return value * (SELL_FEE_RATE + SELL_TAX_RATE)
+
+
+def simulate_paper_trading(histories, robots, stock_meta):
+    robots_by_id = {robot["id"]: robot for robot in robots}
+    date_index = build_date_index(histories)
+    dates = sorted(date_index)
+    if not dates:
+        return {
+            "cash": VIRTUAL_INITIAL_CASH,
+            "holdings": [],
+            "closedTrades": [],
+            "summary": {"unrealizedPnl": 0, "realizedPnl": 0},
+            "risk": {},
+        }
+
+    simulation_dates = dates[-70:]
+    cash = float(VIRTUAL_INITIAL_CASH)
+    holdings = {}
+    closed_trades = []
+
+    for trade_date in simulation_dates:
+        symbols_today = date_index.get(trade_date, {})
+
+        for symbol, holding in list(holdings.items()):
+            index = symbols_today.get(symbol)
+            if index is None:
+                continue
+            row = histories[symbol][index]
+            exit_price = None
+            reason = None
+            if row["low"] <= holding["stopLoss"]:
+                exit_price = holding["stopLoss"]
+                reason = "觸發停損"
+            elif row["high"] >= holding["takeProfit"]:
+                exit_price = holding["takeProfit"]
+                reason = "達到停利"
+            elif holding["heldDays"] >= holding["holdDays"]:
+                exit_price = row["close"]
+                reason = "持有天數到期"
+
+            holding["heldDays"] += 1
+            if exit_price is None:
+                continue
+
+            lots = holding["lots"]
+            proceeds = trade_cost(exit_price, lots) - sell_costs(exit_price, lots)
+            realized = proceeds - holding["costAmount"]
+            cash += proceeds
+            meta = stock_meta.get(symbol, {})
+            closed_trades.append(
+                {
+                    "symbol": symbol,
+                    "name": meta.get("name") or symbol,
+                    "robotId": holding["robotId"],
+                    "robotName": robots_by_id.get(holding["robotId"], {}).get("name", holding["robotId"]),
+                    "buyDate": holding["buyDate"],
+                    "sellDate": trade_date,
+                    "lots": lots,
+                    "buyPrice": round(holding["entry"], 2),
+                    "sellPrice": round(exit_price, 2),
+                    "realizedPnl": round(realized),
+                    "reason": reason,
+                }
+            )
+            del holdings[symbol]
+
+        if len(holdings) >= MAX_POSITIONS:
+            continue
+
+        signals = []
+        for symbol, index in symbols_today.items():
+            if symbol in holdings:
+                continue
+            rows = histories[symbol]
+            if index < 61:
+                continue
+            for robot in robots:
+                robot_id = robot["id"]
+                if robot_id == "chip-follow":
+                    continue
+                if signal_for(robot_id, rows, index):
+                    score = robot_signal_score(robot_id, rows, index)
+                    signals.append((score, symbol, robot_id, index))
+                    break
+
+        signals.sort(reverse=True)
+        bought_today = 0
+        for score, symbol, robot_id, index in signals:
+            if bought_today >= MAX_DAILY_BUYS or len(holdings) >= MAX_POSITIONS:
+                break
+            row = histories[symbol][index]
+            entry = row["close"]
+            volatility = recent_volatility_pct(histories[symbol], index)
+            stop_pct = max(0.03, min(0.08, volatility / 100 * 0.85))
+            target_pct = stop_pct * 1.8
+            lots = 1
+            required_cash = trade_cost(entry, lots) + buy_fee(entry, lots)
+            if required_cash > cash:
+                continue
+            cash -= required_cash
+            holdings[symbol] = {
+                "symbol": symbol,
+                "robotId": robot_id,
+                "buyDate": trade_date,
+                "entry": entry,
+                "lots": lots,
+                "costAmount": required_cash,
+                "stopLoss": entry * (1 - stop_pct),
+                "takeProfit": entry * (1 + target_pct),
+                "holdDays": robots_by_id[robot_id]["holdDays"],
+                "heldDays": 0,
+                "signalScore": round(min(99, max(50, score))),
+            }
+            bought_today += 1
+
+    last_date = simulation_dates[-1]
+    holding_rows = []
+    total_position_value = 0.0
+    unrealized_pnl = 0.0
+    exposure_by_robot = {}
+
+    for symbol, holding in holdings.items():
+        index = date_index.get(last_date, {}).get(symbol)
+        if index is None:
+            index = len(histories[symbol]) - 1
+        row = histories[symbol][index]
+        meta = stock_meta.get(symbol, {})
+        current_value = trade_cost(row["close"], holding["lots"])
+        unrealized = current_value - holding["costAmount"]
+        total_position_value += current_value
+        unrealized_pnl += unrealized
+        exposure_by_robot[holding["robotId"]] = exposure_by_robot.get(holding["robotId"], 0) + current_value
+        holding_rows.append(
+            {
+                "symbol": symbol,
+                "name": meta.get("name") or symbol,
+                "robotId": holding["robotId"],
+                "robotName": robots_by_id.get(holding["robotId"], {}).get("name", holding["robotId"]),
+                "buyDate": holding["buyDate"],
+                "lots": holding["lots"],
+                "cost": round(holding["entry"], 2),
+                "price": round(row["close"], 2),
+                "stopLoss": round(holding["stopLoss"], 2),
+                "takeProfit": round(holding["takeProfit"], 2),
+                "unrealizedPnl": round(unrealized),
+            }
+        )
+
+    realized_pnl = sum(trade["realizedPnl"] for trade in closed_trades)
+    portfolio_value = cash + total_position_value
+    max_exposure = max(exposure_by_robot.values(), default=0)
+    single_strategy_exposure = f"{(max_exposure / portfolio_value * 100):.1f}%" if portfolio_value else "0%"
+    level = "模擬中"
+    if portfolio_value and total_position_value / portfolio_value > 0.85:
+        level = "偏高"
+    elif total_position_value == 0:
+        level = "空手"
+
+    return {
+        "cash": round(cash),
+        "holdings": sorted(holding_rows, key=lambda item: item["unrealizedPnl"], reverse=True),
+        "closedTrades": list(reversed(closed_trades[-8:])),
+        "summary": {
+            "unrealizedPnl": round(unrealized_pnl),
+            "realizedPnl": round(realized_pnl),
+            "portfolioValue": round(portfolio_value),
+        },
+        "risk": {
+            "totalPositionValue": round(total_position_value),
+            "buyingPower": round(cash),
+            "singleStrategyExposure": single_strategy_exposure,
+            "maxAllowedDrawdown": "-12%",
+            "level": level,
+        },
+    }
+
+
 def main():
     candidate_data = load_json(CANDIDATES)
     stocks = candidate_data.get("stocks", [])
@@ -356,6 +598,8 @@ def main():
     robots = [robot_stats(robot, histories) for robot in ROBOTS]
     robots_by_id = {robot["id"]: robot for robot in robots}
     candidates = candidate_rows(stocks[:160], robots_by_id)
+    stock_meta = {str(stock.get("symbol")): stock for stock in stocks if stock.get("symbol")}
+    paper = simulate_paper_trading(histories, robots, stock_meta)
 
     for robot in robots:
         robot["candidates"] = sum(1 for item in candidates if item["robotId"] == robot["id"])
@@ -367,9 +611,17 @@ def main():
             "marketDate": candidate_data.get("meta", {}).get("marketDate"),
             "source": "data/candidates.json + data/history adjusted OHLCV",
             "mode": "market-derived",
+            "paperTrading": {
+                "enabled": True,
+                "initialCash": VIRTUAL_INITIAL_CASH,
+                "lotSize": LOT_SIZE,
+                "maxPositions": MAX_POSITIONS,
+                "maxDailyBuys": MAX_DAILY_BUYS,
+                "description": "AI 機器人以虛擬資金自動買賣，不連接真實券商帳戶。",
+            },
             "notes": [
                 "候選股與策略統計由真實市場資料推導。",
-                "持倉、已實現損益與未實現損益等待交易帳本或券商 API 接入。",
+                "持倉與損益為 AI 紙上交易模擬結果，不代表真實下單。",
             ],
             "symbolsBacktested": len(histories),
         },
@@ -379,25 +631,21 @@ def main():
             "highConfidenceCount": sum(1 for item in candidates if item["signalScore"] >= 78),
             "totalWinRate": round(sum(robot["winRate"] for robot in measured_robots) / len(measured_robots), 1) if measured_robots else 0,
             "profitFactor": round(sum(robot["profitFactor"] for robot in measured_robots) / len(measured_robots), 2) if measured_robots else 0,
-            "unrealizedPnl": None,
-            "realizedPnl": None,
+            "unrealizedPnl": paper["summary"]["unrealizedPnl"],
+            "realizedPnl": paper["summary"]["realizedPnl"],
+            "portfolioValue": paper["summary"]["portfolioValue"],
+            "virtualCash": paper["cash"],
         },
         "robots": robots,
         "candidates": candidates,
-        "holdings": [],
-        "closedTrades": [],
-        "risk": {
-            "totalPositionValue": None,
-            "buyingPower": None,
-            "singleStrategyExposure": None,
-            "maxAllowedDrawdown": "-12%",
-            "level": "等待交易帳本",
-        },
+        "holdings": paper["holdings"],
+        "closedTrades": paper["closedTrades"],
+        "risk": paper["risk"],
         "taskFlow": [
             {"label": "市場資料更新", "state": "done"},
             {"label": "策略回測", "state": "done"},
-            {"label": "候選股產生", "state": "active"},
-            {"label": "交易帳本同步", "state": "pending"},
+            {"label": "候選股產生", "state": "done"},
+            {"label": "AI 紙上交易模擬", "state": "active"},
             {"label": "開盤監控", "state": "pending"},
         ],
     }

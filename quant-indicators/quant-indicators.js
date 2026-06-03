@@ -13,8 +13,8 @@
       highConfidenceCount: 0,
       totalWinRate: 0,
       profitFactor: 0,
-      unrealizedPnl: null,
-      realizedPnl: null,
+      unrealizedPnl: 0,
+      realizedPnl: 0,
     },
     robots: [
       {
@@ -43,13 +43,13 @@
       buyingPower: null,
       singleStrategyExposure: null,
       maxAllowedDrawdown: "-12%",
-      level: "等待交易帳本",
+      level: "等待模擬資料",
     },
     taskFlow: [
       { label: "市場資料更新", state: "pending" },
       { label: "策略回測", state: "pending" },
       { label: "候選股產生", state: "pending" },
-      { label: "交易帳本同步", state: "pending" },
+      { label: "AI 紙上交易模擬", state: "pending" },
       { label: "開盤監控", state: "pending" },
     ],
   };
@@ -83,7 +83,7 @@
   }
 
   function money(value) {
-    if (value === null || value === undefined || value === "") return "等待交易帳本";
+    if (value === null || value === undefined || value === "") return "等待模擬資料";
     const parsed = Number(value);
     if (!Number.isFinite(parsed)) return String(value);
     return `${parsed >= 0 ? "+" : ""}${parsed.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}`;
@@ -209,7 +209,7 @@
     if (!rows) return;
     const holdings = state.data.holdings || [];
     if (!holdings.length) {
-      rows.innerHTML = '<tr><td colspan="6" class="empty-cell">尚未接入交易帳本，暫無真實持倉資料。</td></tr>';
+      rows.innerHTML = '<tr><td colspan="6" class="empty-cell">目前 AI 紙上交易沒有持倉。</td></tr>';
       return;
     }
     rows.innerHTML = holdings.map((item) => `
@@ -229,7 +229,7 @@
     if (!list) return;
     const trades = state.data.closedTrades || [];
     if (!trades.length) {
-      list.innerHTML = '<div class="empty-note">尚未接入交易帳本，已實現損益會在交易紀錄同步後顯示。</div>';
+      list.innerHTML = '<div class="empty-note">目前 AI 紙上交易尚無賣出紀錄。</div>';
       return;
     }
     list.innerHTML = trades.map((item) => `
@@ -249,14 +249,14 @@
     const values = [
       ["總持倉金額", money(risk.totalPositionValue)],
       ["今日可買額度", money(risk.buyingPower)],
-      ["單一策略曝險", risk.singleStrategyExposure ?? "等待交易帳本"],
+      ["單一策略曝險", risk.singleStrategyExposure ?? "等待模擬資料"],
       ["最大允許回撤", risk.maxAllowedDrawdown ?? "-12%"],
     ];
     const list = byId("riskList");
     if (list) {
       list.innerHTML = values.map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join("");
     }
-    setText("riskLevel", risk.level || "等待交易帳本");
+    setText("riskLevel", risk.level || "等待模擬資料");
   }
 
   function renderTaskFlow() {
@@ -270,7 +270,7 @@
   function renderNotes() {
     const note = byId("dataNote");
     const notes = state.data.meta?.notes || [];
-    if (note) note.textContent = notes[0] || "";
+    if (note) note.textContent = notes.join(" ");
   }
 
   function renderAll() {

@@ -1,12 +1,20 @@
 {
   "meta": {
-    "generatedAt": "2026-06-03T15:59:00.483465+00:00",
+    "generatedAt": "2026-06-03T16:14:20.582155+00:00",
     "marketDate": "2026-06-03",
     "source": "data/candidates.json + data/history adjusted OHLCV",
     "mode": "market-derived",
+    "paperTrading": {
+      "enabled": true,
+      "initialCash": 1000000,
+      "lotSize": 1000,
+      "maxPositions": 6,
+      "maxDailyBuys": 2,
+      "description": "AI 機器人以虛擬資金自動買賣，不連接真實券商帳戶。"
+    },
     "notes": [
       "候選股與策略統計由真實市場資料推導。",
-      "持倉、已實現損益與未實現損益等待交易帳本或券商 API 接入。"
+      "持倉與損益為 AI 紙上交易模擬結果，不代表真實下單。"
     ],
     "symbolsBacktested": 120
   },
@@ -16,8 +24,10 @@
     "highConfidenceCount": 24,
     "totalWinRate": 53.8,
     "profitFactor": 2.11,
-    "unrealizedPnl": null,
-    "realizedPnl": null
+    "unrealizedPnl": 42521,
+    "realizedPnl": 845366,
+    "portfolioValue": 1887883,
+    "virtualCash": 102933
   },
   "robots": [
     {
@@ -527,14 +537,159 @@
       "marketDate": "2026-06-03"
     }
   ],
-  "holdings": [],
-  "closedTrades": [],
+  "holdings": [
+    {
+      "symbol": "7610",
+      "name": "聯友金屬-創",
+      "robotId": "macd-momentum",
+      "robotName": "MACD 動能機器人",
+      "buyDate": "2026-06-01",
+      "lots": 1,
+      "cost": 1615.0,
+      "price": 1660.0,
+      "stopLoss": 1543.54,
+      "takeProfit": 1743.63,
+      "unrealizedPnl": 42699
+    },
+    {
+      "symbol": "6016",
+      "name": "康和證",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-06-03",
+      "lots": 1,
+      "cost": 35.75,
+      "price": 35.75,
+      "stopLoss": 34.4,
+      "takeProfit": 38.19,
+      "unrealizedPnl": -51
+    },
+    {
+      "symbol": "6548",
+      "name": "長科*",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-06-03",
+      "lots": 1,
+      "cost": 89.2,
+      "price": 89.2,
+      "stopLoss": 85.89,
+      "takeProfit": 95.16,
+      "unrealizedPnl": -127
+    }
+  ],
+  "closedTrades": [
+    {
+      "symbol": "1409",
+      "name": "新纖",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-06-02",
+      "sellDate": "2026-06-03",
+      "lots": 1,
+      "buyPrice": 27.55,
+      "sellPrice": 29.31,
+      "realizedPnl": 1592,
+      "reason": "達到停利"
+    },
+    {
+      "symbol": "6116",
+      "name": "彩晶",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-06-02",
+      "sellDate": "2026-06-03",
+      "lots": 1,
+      "buyPrice": 20.65,
+      "sellPrice": 22.36,
+      "realizedPnl": 1585,
+      "reason": "達到停利"
+    },
+    {
+      "symbol": "2356",
+      "name": "英業達",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-06-01",
+      "sellDate": "2026-06-02",
+      "lots": 1,
+      "buyPrice": 77.2,
+      "sellPrice": 82.62,
+      "realizedPnl": 4948,
+      "reason": "達到停利"
+    },
+    {
+      "symbol": "6116",
+      "name": "彩晶",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-05-29",
+      "sellDate": "2026-06-01",
+      "lots": 1,
+      "buyPrice": 17.1,
+      "sellPrice": 18.45,
+      "realizedPnl": 1247,
+      "reason": "達到停利"
+    },
+    {
+      "symbol": "7610",
+      "name": "聯友金屬-創",
+      "robotId": "macd-momentum",
+      "robotName": "MACD 動能機器人",
+      "buyDate": "2026-05-29",
+      "sellDate": "2026-06-01",
+      "lots": 1,
+      "buyPrice": 1475.0,
+      "sellPrice": 1589.89,
+      "realizedPnl": 105750,
+      "reason": "達到停利"
+    },
+    {
+      "symbol": "6116",
+      "name": "彩晶",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-05-28",
+      "sellDate": "2026-05-29",
+      "lots": 1,
+      "buyPrice": 15.55,
+      "sellPrice": 16.76,
+      "realizedPnl": 1113,
+      "reason": "達到停利"
+    },
+    {
+      "symbol": "7610",
+      "name": "聯友金屬-創",
+      "robotId": "macd-momentum",
+      "robotName": "MACD 動能機器人",
+      "buyDate": "2026-05-28",
+      "sellDate": "2026-05-29",
+      "lots": 1,
+      "buyPrice": 1345.0,
+      "sellPrice": 1448.17,
+      "realizedPnl": 94848,
+      "reason": "達到停利"
+    },
+    {
+      "symbol": "4916",
+      "name": "事欣科",
+      "robotId": "ma-breakout",
+      "robotName": "均線突破機器人",
+      "buyDate": "2026-05-22",
+      "sellDate": "2026-05-29",
+      "lots": 1,
+      "buyPrice": 98.3,
+      "sellPrice": 105.51,
+      "realizedPnl": 6604,
+      "reason": "達到停利"
+    }
+  ],
   "risk": {
-    "totalPositionValue": null,
-    "buyingPower": null,
-    "singleStrategyExposure": null,
+    "totalPositionValue": 1784950,
+    "buyingPower": 102933,
+    "singleStrategyExposure": "87.9%",
     "maxAllowedDrawdown": "-12%",
-    "level": "等待交易帳本"
+    "level": "偏高"
   },
   "taskFlow": [
     {
@@ -547,11 +702,11 @@
     },
     {
       "label": "候選股產生",
-      "state": "active"
+      "state": "done"
     },
     {
-      "label": "交易帳本同步",
-      "state": "pending"
+      "label": "AI 紙上交易模擬",
+      "state": "active"
     },
     {
       "label": "開盤監控",
