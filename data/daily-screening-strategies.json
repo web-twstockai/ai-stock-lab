@@ -41,6 +41,11 @@
       "sectorSecondWave",
       "falseBreakdownReclaim"
     ],
-    "warehouse": []
+    "warehouse": [
+      "macdSmaTrendSetup",
+      "bbPullbackMacdHold",
+      "bbSqueezeMomentum",
+      "rsiKdMacdTrendConfirm"
+    ]
   }
 }

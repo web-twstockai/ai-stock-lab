@@ -255,6 +255,32 @@ def safe_range_position(close, low, high):
     return (close - low) / spread
 
 
+def ema_series(values, window):
+    if not values:
+        return []
+    alpha = 2 / (window + 1)
+    output = [values[0]]
+    for value in values[1:]:
+        output.append(value * alpha + output[-1] * (1 - alpha))
+    return output
+
+
+def rsi(values, window=14):
+    if len(values) <= window:
+        return 50.0
+    gains = []
+    losses = []
+    for idx in range(len(values) - window, len(values)):
+        change = values[idx] - values[idx - 1]
+        gains.append(max(change, 0))
+        losses.append(abs(min(change, 0)))
+    avg_loss = avg(losses)
+    if avg_loss == 0:
+        return 100.0
+    relative_strength = avg(gains) / avg_loss
+    return 100 - (100 / (1 + relative_strength))
+
+
 def stock_name(symbol):
     if symbol in SYMBOL_META and SYMBOL_META[symbol].get("name"):
         return SYMBOL_META[symbol]["name"]
@@ -306,6 +332,40 @@ def summarize_symbol(path, market_code):
     ma10 = ma(closes, 10) or close
     ma20 = ma(closes, 20) or close
     ma60 = ma(closes, 60) or close
+    ema12 = ema_series(closes, 12)
+    ema26 = ema_series(closes, 26)
+    macd_line = [fast - slow for fast, slow in zip(ema12, ema26)]
+    macd_signal = ema_series(macd_line, 9)
+    macd_hist = [line - signal for line, signal in zip(macd_line, macd_signal)]
+    macd = macd_line[-1] if macd_line else 0
+    macd_signal_value = macd_signal[-1] if macd_signal else 0
+    macd_histogram = macd_hist[-1] if macd_hist else 0
+    macd_hist_prev = macd_hist[-2] if len(macd_hist) >= 2 else 0
+    macd_hist_prev3 = macd_hist[-4] if len(macd_hist) >= 4 else macd_hist_prev
+    macd_hist_rising = len(macd_hist) >= 4 and macd_hist[-1] > macd_hist[-2] > macd_hist[-3]
+    rsi14 = rsi(closes, 14)
+
+    kd_window = 9
+    kd_low = min(lows[-kd_window:])
+    kd_high = max(highs[-kd_window:])
+    kd_k = safe_range_position(close, kd_low, kd_high) * 100
+    kd_values = [
+        safe_range_position(closes[idx], min(lows[idx - kd_window + 1:idx + 1]), max(highs[idx - kd_window + 1:idx + 1])) * 100
+        for idx in range(kd_window - 1, len(closes))
+    ]
+    kd_d = avg(kd_values[-3:])
+
+    bollinger_std20 = stdev(closes[-20:])
+    bollinger_upper = ma20 + bollinger_std20 * 2
+    bollinger_lower = ma20 - bollinger_std20 * 2
+    bollinger_width = (bollinger_upper - bollinger_lower) / ma20 * 100 if ma20 else 0
+    bollinger_widths = []
+    for idx in range(max(20, len(closes) - 60), len(closes) + 1):
+        center = avg(closes[idx - 20:idx])
+        width_std = stdev(closes[idx - 20:idx])
+        if center:
+            bollinger_widths.append(width_std * 4 / center * 100)
+    avg_bollinger_width60 = avg(bollinger_widths)
     avg_turnover20 = sum(closes[-20 + i] * volumes[-20 + i] for i in range(20)) / 20
     avg_volume20 = sum(volumes[-20:]) / 20
     avg_volume5 = avg(volumes[-5:])
@@ -460,6 +520,52 @@ def summarize_symbol(path, market_code):
         and no_long_upper_shadow
     )
 
+    macd_sma_trend_setup = (
+        close >= ma20 >= ma60
+        and macd > macd_signal_value
+        and macd_histogram > 0
+        and 0 <= return20 <= 25
+        and distance_high60 >= -8
+        and volume_ratio >= 0.8
+        and volume_ratio <= 2.2
+        and close_position >= 0.55
+        and no_long_upper_shadow
+    )
+
+    bb_pullback_macd_hold = (
+        return60 > 8
+        and macd > 0
+        and (macd_histogram >= 0 or macd_histogram > macd_hist_prev)
+        and lows[-1] <= ma20 * 1.03
+        and close >= ma20 * 0.995
+        and volumes[-1] <= avg_volume20 * 1.15
+        and close_position >= 0.45
+        and distance_high60 >= -10
+    )
+
+    bb_squeeze_momentum = (
+        bollinger_width <= avg_bollinger_width60 * 0.8
+        and close >= ma20
+        and macd_hist_rising
+        and macd_histogram > macd_hist_prev3
+        and 0 <= return20 <= 22
+        and 0.75 <= volume_ratio <= 1.8
+        and distance_high60 >= -12
+        and close_position >= 0.5
+    )
+
+    rsi_kd_macd_trend_confirm = (
+        close >= ma20 >= ma60
+        and macd > macd_signal_value
+        and macd_histogram > 0
+        and 50 <= rsi14 <= 72
+        and kd_k >= kd_d
+        and 45 <= kd_k <= 88
+        and 3 <= return20 <= 25
+        and close_position >= 0.55
+        and no_long_upper_shadow
+    )
+
     score = (
         min(max(return20, -20), 40) * 0.9
         + min(max(return60, -30), 70) * 0.42
@@ -488,6 +594,15 @@ def summarize_symbol(path, market_code):
         "ma10": round(ma10, 2),
         "ma20": round(ma20, 2),
         "ma60": round(ma60, 2),
+        "macd": round(macd, 4),
+        "macdSignal": round(macd_signal_value, 4),
+        "macdHistogram": round(macd_histogram, 4),
+        "rsi14": round(rsi14, 2),
+        "kdK": round(kd_k, 2),
+        "kdD": round(kd_d, 2),
+        "bollingerUpper": round(bollinger_upper, 2),
+        "bollingerLower": round(bollinger_lower, 2),
+        "bollingerWidth": round(bollinger_width, 2),
         "high20": round(high20, 2),
         "low20": round(low20, 2),
         "high60": round(high60, 2),
@@ -544,6 +659,10 @@ def summarize_symbol(path, market_code):
             "repeatedHighChallenge": repeated_high_challenge,
             "sectorSecondWave": False,
             "falseBreakdownReclaim": false_breakdown_reclaim,
+            "macdSmaTrendSetup": macd_sma_trend_setup,
+            "bbPullbackMacdHold": bb_pullback_macd_hold,
+            "bbSqueezeMomentum": bb_squeeze_momentum,
+            "rsiKdMacdTrendConfirm": rsi_kd_macd_trend_confirm,
         },
         "series": [
             {
@@ -907,6 +1026,42 @@ STRATEGY_DEFINITIONS = [
         "description": "強勢股盤中跌破 MA10 或短平台低點後收回，並重新站上前一日高點附近，觀察洗盤後續攻。",
         "tags": ["假跌破", "洗盤", "收回"],
         "criteria": "距60日高點>=-8%；盤中跌破MA10或5日低點；收盤站回MA10並接近前高；量能未失控",
+    },
+    {
+        "key": "macdSmaTrendSetup",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "MACD + SMA 趨勢轉強",
+        "description": "用 MA20/MA60 先確認趨勢，再用 MACD 快慢線與柱狀體轉強抓剛啟動的波段股。",
+        "tags": ["MACD", "SMA", "趨勢"],
+        "criteria": "收盤>=MA20>=MA60；MACD>DIF訊號線；柱狀體翻正或連續轉強；20日報酬0%~25%；無長上影",
+    },
+    {
+        "key": "bbPullbackMacdHold",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "布林中軌回測 + MACD 守多",
+        "description": "強勢股回測布林中軌/MA20 時量縮守住，MACD 仍在多方，偏向波段續漲切入點。",
+        "tags": ["布林中軌", "MACD", "回測"],
+        "criteria": "60日報酬>8%；MACD位於零軸上；回測MA20後收回；量<=20日均量1.15倍；距60日高點>=-10%",
+    },
+    {
+        "key": "bbSqueezeMomentum",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "布林收縮 + MACD 動能",
+        "description": "布林帶寬低於近 60 日均值，代表波動收斂；MACD 綠柱收斂或柱狀體連續轉強，找盤整末端。",
+        "tags": ["布林收縮", "MACD", "起漲"],
+        "criteria": "布林帶寬<=60日均值80%；收盤站MA20；MACD柱狀體連續轉強；20日報酬0%~22%；量能0.75~1.8倍",
+    },
+    {
+        "key": "rsiKdMacdTrendConfirm",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "RSI/KD + MACD 趨勢確認",
+        "description": "MACD 與均線決定趨勢，RSI/KD 只用來過濾動能是否健康，避免過熱或震盪假訊號。",
+        "tags": ["RSI", "KD", "MACD"],
+        "criteria": "收盤>=MA20>=MA60；MACD多方；RSI 50~72；KD K>D且未過熱；20日報酬3%~25%",
     },
     {
         "key": "riskControlList",
