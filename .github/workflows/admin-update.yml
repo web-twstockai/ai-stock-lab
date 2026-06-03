@@ -6,8 +6,6 @@ on:
     - cron: "45 7 * * 1-5"
     # Asia/Taipei 20:25, Monday-Friday. Watch US macro releases.
     - cron: "25 12 * * 1-5"
-    # Asia/Taipei 18:30, Monday-Friday.
-    - cron: "30 10 * * 1-5"
   workflow_dispatch:
     inputs:
       task:
@@ -69,9 +67,6 @@ jobs:
                 ;;
               "25 12 * * 1-5")
                 task="macro-watch-us"
-                ;;
-              "30 10 * * 1-5")
-                task="evening-batch"
                 ;;
               *)
                 echo "Unknown schedule: ${{ github.event.schedule }}" >&2
