@@ -220,15 +220,20 @@ def write_public_auth_script() -> None:
 
   function normalizeProfile(profile, fallbackUser) {
     if (!profile && !fallbackUser) return null;
+    const rawRole = profile?.role || "basic";
+    const expiresAt = profile?.advanced_expires_at || null;
+    const role = rawRole === "advanced" && expiresAt && new Date(expiresAt).getTime() <= Date.now()
+      ? "basic"
+      : rawRole;
     return {
       id: profile?.id || fallbackUser?.id || null,
       account: profile?.account || fallbackUser?.user_metadata?.account || fallbackUser?.email || "",
       nickname: profile?.nickname || fallbackUser?.user_metadata?.nickname || profile?.account || fallbackUser?.email || "",
-      role: profile?.role || "basic",
-      roleLabel: profile?.role === "admin" ? "管理員" : profile?.role === "advanced" ? "進階會員" : "基礎會員",
+      role,
+      roleLabel: role === "admin" ? "管理員" : role === "advanced" ? "進階會員" : "基本會員",
       status: profile?.status || "active",
       advancedApprovedAt: profile?.advanced_approved_at || null,
-      advancedExpiresAt: profile?.advanced_expires_at || null,
+      advancedExpiresAt: expiresAt,
       createdAt: profile?.created_at || fallbackUser?.created_at || null,
     };
   }
@@ -406,6 +411,10 @@ def write_public_auth_script() -> None:
   }
 
   function effectiveRole(user) {
+    if (user?.role === "advanced" && user.advancedExpiresAt) {
+      const expiresAt = new Date(user.advancedExpiresAt).getTime();
+      if (!Number.isNaN(expiresAt) && expiresAt <= Date.now()) return "basic";
+    }
     return user?.role || "basic";
   }
 
@@ -490,15 +499,20 @@ def write_public_dashboard_header_script() -> None:
   }
 
   function normalizeProfile(profile, fallbackUser) {
+    const rawRole = profile?.role || "basic";
+    const expiresAt = profile?.advanced_expires_at || null;
+    const role = rawRole === "advanced" && expiresAt && new Date(expiresAt).getTime() <= Date.now()
+      ? "basic"
+      : rawRole;
     return {
       id: profile?.id || fallbackUser?.id || null,
       account: profile?.account || fallbackUser?.user_metadata?.account || fallbackUser?.email || "",
       nickname: profile?.nickname || fallbackUser?.user_metadata?.nickname || profile?.account || fallbackUser?.email || "",
-      role: profile?.role || "basic",
-      roleLabel: profile?.role === "admin" ? "管理員" : profile?.role === "advanced" ? "進階會員" : "基礎會員",
+      role,
+      roleLabel: role === "admin" ? "管理員" : role === "advanced" ? "進階會員" : "基本會員",
       status: profile?.status || "active",
       advancedApprovedAt: profile?.advanced_approved_at || null,
-      advancedExpiresAt: profile?.advanced_expires_at || null,
+      advancedExpiresAt: expiresAt,
       createdAt: profile?.created_at || fallbackUser?.created_at || null,
     };
   }
@@ -625,7 +639,7 @@ def write_public_dashboard_header_script() -> None:
     }).join("");
     const displayName = user.nickname || user.account || "\u4f7f\u7528\u8005";
     const role = effectiveRole(user);
-    const roleLabel = user.roleLabel || (role === "admin" ? "\u7ba1\u7406\u54e1" : role === "advanced" ? "\u9032\u968e\u6703\u54e1" : "\u57fa\u672c\u6703\u54e1");
+    const roleLabel = (user.role === role ? user.roleLabel : null) || (role === "admin" ? "\u7ba1\u7406\u54e1" : role === "advanced" ? "\u9032\u968e\u6703\u54e1" : "\u57fa\u672c\u6703\u54e1");
     const remainingLabel = remainingDaysLabel(user, role);
     const safeDisplayName = escapeHtml(displayName);
     const safeRoleLabel = escapeHtml(roleLabel);
