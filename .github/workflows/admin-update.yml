@@ -2,9 +2,9 @@ name: Admin Data Update
 
 on:
   schedule:
-    # Asia/Taipei 15:45, Monday-Friday. Watch Europe macro releases.
+    # Asia/Taipei 15:45, Monday-Friday. Check Europe macro releases once.
     - cron: "45 7 * * 1-5"
-    # Asia/Taipei 20:25, Monday-Friday. Watch US macro releases.
+    # Asia/Taipei 20:25, Monday-Friday. Check US macro releases once.
     - cron: "25 12 * * 1-5"
   workflow_dispatch:
     inputs:
@@ -106,10 +106,10 @@ jobs:
               python scripts/macro_auto_updater.py --once --grace-seconds 120
               ;;
             macro-watch-europe)
-              python scripts/macro_auto_updater.py --max-seconds 10800 --poll-seconds 60 --retry-seconds 180 --grace-seconds 10 --commit-after-update
+              python scripts/macro_auto_updater.py --once --grace-seconds 10
               ;;
             macro-watch-us)
-              python scripts/macro_auto_updater.py --max-seconds 21000 --poll-seconds 60 --retry-seconds 180 --grace-seconds 10 --commit-after-update
+              python scripts/macro_auto_updater.py --once --grace-seconds 10
               ;;
             short-margin)
               python scripts/update_short_margin_ratio.py
