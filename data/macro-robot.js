@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/03 15:21",
+  "updatedAt": "2026/06/03 17:25",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "ISM服務業經濟活動",
-      "unit": "倒數 7 小時",
+      "unit": "倒數 5 小時",
       "icon": "filter"
     }
   ],
@@ -2776,7 +2776,7 @@ window.MacroRobotData = {
       "previous": "55.9",
       "forecast": "55.0",
       "actual": null,
-      "status": "倒數 7 小時",
+      "status": "倒數 5 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
@@ -2810,8 +2810,8 @@ window.MacroRobotData = {
       "previous": "38.1",
       "forecast": "38.0",
       "actual": null,
-      "status": "倒數 1 天",
-      "statusLevel": "upcoming",
+      "status": "倒數 23 小時",
+      "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -2844,8 +2844,8 @@ window.MacroRobotData = {
       "previous": "42.1",
       "forecast": "42.0",
       "actual": null,
-      "status": "倒數 1 天",
-      "statusLevel": "upcoming",
+      "status": "倒數 23 小時",
+      "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -2878,8 +2878,8 @@ window.MacroRobotData = {
       "previous": "39.7",
       "forecast": "40.3",
       "actual": null,
-      "status": "倒數 1 天",
-      "statusLevel": "upcoming",
+      "status": "倒數 24 小時",
+      "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
