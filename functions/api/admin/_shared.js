@@ -13,6 +13,12 @@ export const TASKS = {
   "short-margin": "融資融券比率",
 };
 
+export const DEDICATED_WORKFLOWS = {
+  "daily-market": "daily-market-1830.yml",
+  institutional: "institutional-robot-1830.yml",
+  "short-margin": "short-margin-daily.yml",
+};
+
 export function json(payload, status = 200) {
   return new Response(JSON.stringify(payload), {
     status,
@@ -30,6 +36,20 @@ export function githubConfig(env) {
     workflow: env.GITHUB_WORKFLOW || "admin-update.yml",
     ref: env.GITHUB_REF || "main",
   };
+}
+
+export function workflowForTask(env, task) {
+  const config = githubConfig(env);
+  const workflow = DEDICATED_WORKFLOWS[task];
+  return {
+    workflow: workflow || config.workflow,
+    includeTaskInput: !workflow,
+  };
+}
+
+export function workflowsForStatus(env) {
+  const config = githubConfig(env);
+  return [...new Set([config.workflow, ...Object.values(DEDICATED_WORKFLOWS)])];
 }
 
 function bearerToken(request) {
