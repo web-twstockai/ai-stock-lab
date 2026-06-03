@@ -480,6 +480,66 @@ def summarize_symbol(path, market_code, revenue_data):
         and not_overheated
     )
 
+    volume_wash_retest = False
+    wash_attack_date = None
+    wash_attack_high = None
+    wash_attack_return = None
+    wash_attack_volume_ratio = None
+    wash_consolidation_days = None
+    wash_pullback_low = None
+    wash_dry_volume_ratio = None
+    wash_retest_distance = None
+    for idx in range(max(21, len(closes) - 21), len(closes) - 3):
+        prior_avg_volume = avg(volumes[idx - 20:idx])
+        attack_return = pct(closes[idx], closes[idx - 1])
+        attack_volume_ratio = volumes[idx] / prior_avg_volume if prior_avg_volume else 0
+        attack_candle_position = safe_range_position(closes[idx], lows[idx], highs[idx])
+        if not (
+            closes[idx] > opens[idx]
+            and attack_return >= 7
+            and attack_volume_ratio >= 2
+            and attack_candle_position >= 0.6
+        ):
+            continue
+
+        consolidation_highs = highs[idx + 1:-1]
+        consolidation_closes = closes[idx + 1:-1]
+        consolidation_lows = lows[idx + 1:-1]
+        consolidation_volumes = volumes[idx + 1:-1]
+        if len(consolidation_volumes) < 3:
+            continue
+
+        attack_high = highs[idx]
+        attack_mid = (opens[idx] + closes[idx]) / 2
+        dry_volume_ratio = avg(consolidation_volumes) / volumes[idx] if volumes[idx] else 0
+        retest_distance = pct(close, attack_high)
+        candidate = (
+            max(consolidation_highs) <= attack_high * 1.015
+            and max(consolidation_closes) <= attack_high * 1.01
+            and min(consolidation_lows) >= attack_mid * 0.9
+            and dry_volume_ratio <= 0.65
+            and max(consolidation_volumes) <= volumes[idx] * 0.95
+            and volumes[-1] >= avg(consolidation_volumes) * 1.25
+            and volumes[-1] >= avg_volume20 * 0.95
+            and highs[-1] >= attack_high * 0.95
+            and close >= attack_high * 0.9
+            and close <= attack_high * 1.025
+            and close >= ma20 * 0.995
+            and close_position >= 0.4
+            and return20 <= 40
+            and upper_shadow_ratio <= 0.45
+        )
+        if candidate:
+            volume_wash_retest = True
+            wash_attack_date = rows[idx]["date"]
+            wash_attack_high = attack_high
+            wash_attack_return = attack_return
+            wash_attack_volume_ratio = attack_volume_ratio
+            wash_consolidation_days = len(consolidation_volumes)
+            wash_pullback_low = min(consolidation_lows)
+            wash_dry_volume_ratio = dry_volume_ratio
+            wash_retest_distance = retest_distance
+
     high100_window_start = max(0, len(highs) - 100)
     high100_idx = max(range(high100_window_start, len(highs)), key=lambda idx: highs[idx])
     days_since_high100 = len(highs) - 1 - high100_idx
@@ -672,6 +732,14 @@ def summarize_symbol(path, market_code, revenue_data):
         "priorRangePct10": round(prior_range_pct10, 2),
         "avgDailyRange20": round(avg_daily_range20, 2),
         "daysSinceHigh100": days_since_high100,
+        "washAttackDate": wash_attack_date,
+        "washAttackHigh": round(wash_attack_high, 2) if wash_attack_high is not None else None,
+        "washAttackReturn": round(wash_attack_return, 2) if wash_attack_return is not None else None,
+        "washAttackVolumeRatio": round(wash_attack_volume_ratio, 2) if wash_attack_volume_ratio is not None else None,
+        "washConsolidationDays": wash_consolidation_days,
+        "washPullbackLow": round(wash_pullback_low, 2) if wash_pullback_low is not None else None,
+        "washDryVolumeRatio": round(wash_dry_volume_ratio, 2) if wash_dry_volume_ratio is not None else None,
+        "washRetestDistance": round(wash_retest_distance, 2) if wash_retest_distance is not None else None,
         "weeklyMa5": round(weekly_ma5, 2),
         "weeklyMa13": round(weekly_ma13, 2),
         "volatility20": round(volatility20, 2),
@@ -717,6 +785,7 @@ def summarize_symbol(path, market_code, revenue_data):
             "bbSqueezeMomentum": bb_squeeze_momentum,
             "rsiKdMacdTrendConfirm": rsi_kd_macd_trend_confirm,
             "bbUpperBreakoutRevenueGrowth": bb_upper_breakout_revenue_growth,
+            "volumeWashRetest": volume_wash_retest,
         },
         "series": [
             {
@@ -1127,6 +1196,15 @@ STRATEGY_DEFINITIONS = [
         "criteria": "收盤接近布林上軌97%~103%；月營收YoY>20%；收盤>=MA20>=MA60；20日報酬0%~30%；量能0.75~2.3倍",
     },
     {
+        "key": "volumeWashRetest",
+        "tier": "warehouse",
+        "tierLabel": TIER_LABELS["warehouse"],
+        "label": "爆量長紅洗盤再攻",
+        "description": "近一個月先出現漲幅7%以上且爆大量的點火K，後續數日量縮且不突破點火高點，今天再帶量靠近前高，抓洗盤後二次上攻。",
+        "tags": ["爆量長紅", "量縮洗盤", "二次攻擊"],
+        "criteria": "近20日點火K漲幅>=7%且量>=前20日均量2倍；洗盤至少3日且均量<=點火量65%；洗盤收盤未有效突破點火高點；今日量增且高點接近點火高點95%以上",
+    },
+    {
         "key": "riskControlList",
         "tier": "admin",
         "tierLabel": "管理員",
@@ -1174,6 +1252,14 @@ def compact_stock(stock):
         "rangePosition60",
         "closePosition",
         "volumeRatio20",
+        "washAttackDate",
+        "washAttackHigh",
+        "washAttackReturn",
+        "washAttackVolumeRatio",
+        "washConsolidationDays",
+        "washPullbackLow",
+        "washDryVolumeRatio",
+        "washRetestDistance",
         "volatility20",
         "score",
         "rankScore",
@@ -1182,7 +1268,7 @@ def compact_stock(stock):
         "themeHeatScore",
         "themes",
     )
-    return {key: stock[key] for key in fields if key in stock}
+    return {key: stock[key] for key in fields if key in stock and stock[key] is not None}
 
 
 def compact_sector(sector):

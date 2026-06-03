@@ -46,6 +46,8 @@
       "macdSmaTrendSetup",
       "bbUpperBreakoutRevenueGrowth"
     ],
-    "warehouse": []
+    "warehouse": [
+      "volumeWashRetest"
+    ]
   }
 }
