@@ -21,8 +21,9 @@
           <div class="hero-actions" aria-label="量化狀態">
             <span class="sync-chip">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12a7 7 0 0 0-12.1-4.8M5 12a7 7 0 0 0 12.1 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              今日 18:32 已更新
+              <span id="syncLabel">載入量化資料</span>
             </span>
+            <span class="source-chip" id="dataSourceLabel">資料載入中</span>
             <button class="ghost-button" type="button" id="refreshSignalButton">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 4v6h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               更新訊號
@@ -41,25 +42,25 @@
             <span class="metric-icon teal">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5M4 19h17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m7 15 4-4 3 3 6-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <div><p>明日候選股</p><strong id="metricCandidates">12</strong><em>高信心 5 檔</em></div>
+            <div><p>明日候選股</p><strong id="metricCandidates">12</strong><em id="metricHighConfidence">高信心 5 檔</em></div>
           </article>
           <article class="metric-card">
             <span class="metric-icon green">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M17 7.5c-.8-1.4-2.4-2-4.3-2-2.2 0-4 1-4 2.8 0 4.3 8.8 1.8 8.8 6.3 0 1.8-1.8 2.9-4.3 2.9-2.4 0-4.2-.9-5.2-2.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </span>
-            <div><p>未實現損益</p><strong class="positive">+42,800</strong><em>4 檔持倉追蹤中</em></div>
+            <div><p>未實現損益</p><strong class="positive" id="metricUnrealized">等待交易帳本</strong><em>接入交易紀錄後啟用</em></div>
           </article>
           <article class="metric-card">
             <span class="metric-icon amber">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/></svg>
             </span>
-            <div><p>已實現損益</p><strong class="positive">+128,600</strong><em>近 30 筆交易</em></div>
+            <div><p>已實現損益</p><strong class="positive" id="metricRealized">等待交易帳本</strong><em>接入交易紀錄後啟用</em></div>
           </article>
           <article class="metric-card">
             <span class="metric-icon violet">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 19 6v5c0 5.7-3.2 8.8-7 10-3.8-1.2-7-4.3-7-10V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.8 12 2.2 2.2 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            <div><p>總勝率</p><strong>61.4%</strong><em>Profit Factor 1.72</em></div>
+            <div><p>總勝率</p><strong id="metricWinRate">--</strong><em id="metricProfitFactor">Profit Factor --</em></div>
           </article>
         </section>
 
@@ -206,9 +207,9 @@
                   <span class="panel-kicker">RISK CENTER</span>
                   <h2>風控中心</h2>
                 </div>
-                <span class="risk-badge">中等</span>
+                <span class="risk-badge" id="riskLevel">等待交易帳本</span>
               </div>
-              <div class="risk-list">
+              <div class="risk-list" id="riskList">
                 <div><span>總持倉金額</span><strong>1,284,000</strong></div>
                 <div><span>今日可買額度</span><strong>360,000</strong></div>
                 <div><span>單一策略曝險</span><strong>28%</strong></div>
@@ -227,7 +228,7 @@
                   <h2>今日任務</h2>
                 </div>
               </div>
-              <ol class="task-flow">
+              <ol class="task-flow" id="taskFlow">
                 <li class="done"><span></span>收盤資料更新</li>
                 <li class="done"><span></span>策略回測</li>
                 <li class="done"><span></span>參數優化</li>
@@ -247,6 +248,7 @@
             </article>
           </aside>
         </section>
+        <p class="data-note" id="dataNote"></p>
       </main>
     </div>
 

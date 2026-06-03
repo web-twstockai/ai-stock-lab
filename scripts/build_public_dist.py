@@ -54,6 +54,7 @@ DATA_FILES = [
     "macro-robot.js",
     "macro-robot.json",
     "model_library.json",
+    "quant-robots.json",
     "regular-board-volume.js",
     "regular-board-volume.json",
     "shortMarginRatioMockData.js",
@@ -705,7 +706,6 @@ def main() -> None:
         copy_file(ROOT / "data" / file_name, data_dist / file_name)
 
     copy_tree(ROOT / "data" / "history", data_dist / "history")
-    copy_tree(ROOT / "data" / "intraday", data_dist / "intraday")
 
     write_deploy_metadata()
     write_public_auth_script()

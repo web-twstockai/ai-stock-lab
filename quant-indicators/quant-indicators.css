@@ -102,6 +102,7 @@ button {
 }
 
 .sync-chip,
+.source-chip,
 .ghost-button {
   min-height: 42px;
   display: inline-flex;
@@ -118,6 +119,17 @@ button {
 
 .sync-chip {
   padding: 0 13px;
+}
+
+.source-chip {
+  padding: 0 12px;
+  color: var(--quant-amber);
+  background: #fff7ed;
+}
+
+.source-chip.is-real {
+  color: var(--quant-green);
+  background: #ecfdf3;
 }
 
 .sync-chip svg,
@@ -208,6 +220,7 @@ button {
   line-height: 1;
   font-weight: 900;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .metric-card em {
@@ -518,6 +531,12 @@ button {
   font-weight: 750;
 }
 
+.empty-cell {
+  color: var(--quant-muted);
+  text-align: center;
+  white-space: normal;
+}
+
 .stock-cell strong {
   display: block;
   color: var(--quant-ink);
@@ -809,6 +828,26 @@ button {
   color: var(--quant-green);
   font-size: 14px;
   font-weight: 900;
+}
+
+.empty-note,
+.data-note {
+  color: var(--quant-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 750;
+}
+
+.empty-note {
+  padding: 14px;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--quant-radius);
+  background: #f8fbff;
+}
+
+.data-note {
+  margin: 14px 0 0;
+  padding: 0 4px;
 }
 
 @media (max-width: 1380px) {
