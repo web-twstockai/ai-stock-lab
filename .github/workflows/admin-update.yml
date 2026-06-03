@@ -35,8 +35,10 @@ on:
 permissions:
   contents: write
 
+# Queue every data update in one lane. Manual runs never cancel scheduled runs,
+# and scheduled runs still get their own execution when the clock reaches them.
 concurrency:
-  group: admin-data-update-${{ github.event.schedule || github.event.inputs.task || github.run_id }}
+  group: admin-data-update
   cancel-in-progress: false
 
 jobs:
