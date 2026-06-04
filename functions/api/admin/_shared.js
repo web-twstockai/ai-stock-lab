@@ -10,12 +10,14 @@ export const TASKS = {
   "macro-due-check": "總經公布追蹤",
   "macro-watch-europe": "總經即時追蹤：歐洲時段",
   "macro-watch-us": "總經即時追蹤：美國時段",
+  "quant-robots": "量化機器人",
   "short-margin": "融資融券比率",
 };
 
 export const DEDICATED_WORKFLOWS = {
   "daily-market": "daily-market-1830.yml",
   institutional: "institutional-robot-1830.yml",
+  "quant-robots": "quant-robots-1840.yml",
   "short-margin": "short-margin-daily.yml",
 };
 

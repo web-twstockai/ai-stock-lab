@@ -54,6 +54,13 @@
       source: "institutional",
     },
     {
+      task: "quant-robots",
+      title: "量化機器人",
+      detail: "更新策略回測、明日候選股與 AI 紙上交易模擬",
+      command: "python scripts/build_quant_robots.py",
+      source: "quantRobots",
+    },
+    {
       task: "macro",
       title: "總經資料",
       detail: "更新總經事件、總經機器人與自動追蹤紀錄",
@@ -75,6 +82,7 @@
     { label: "模型庫", path: "../data/model_library.json", key: "modelLibrary" },
     { label: "情報中心", path: "../data/intelligence-overview.json", key: "intelligence" },
     { label: "法人機器人", path: "../data/institutional-robot.json", key: "institutional" },
+    { label: "量化機器人", path: "../data/quant-robots.json", key: "quantRobots" },
     { label: "總經機器人", path: "../data/macro-robot.json", key: "macro" },
     { label: "融資融券比率", path: "../data/shortMarginRatioMockData.json", key: "shortMargin" },
     { label: "歷史資料索引", path: "../data/history/manifest.json", key: "history" },
