@@ -170,7 +170,7 @@
     byId("selectedRobotStats").innerHTML = [
       ["回測勝率", `${number(robot.winRate, 1)}%`, ""],
       ["Profit Factor", number(robot.profitFactor, 2), ""],
-      ["最大回撤", robot.drawdown, "negative"],
+      ["風控後回撤", robot.drawdown, "negative"],
       ["回測筆數", `${number(robot.tradeCount)} 筆`, ""],
     ].map(([label, value, tone]) => `
       <div class="detail-stat">

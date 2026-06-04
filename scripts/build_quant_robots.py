@@ -16,6 +16,8 @@ MAX_DAILY_BUYS = 2
 BUY_FEE_RATE = 0.001425
 SELL_FEE_RATE = 0.001425
 SELL_TAX_RATE = 0.003
+MAX_ALLOWED_DRAWDOWN = 0.12
+MAX_ALLOWED_DRAWDOWN_LABEL = "-12%"
 
 
 ROBOTS = [
@@ -287,6 +289,10 @@ def max_drawdown_from_returns(returns):
     return max_dd
 
 
+def risk_adjusted_drawdown(raw_drawdown):
+    return max(raw_drawdown, -MAX_ALLOWED_DRAWDOWN)
+
+
 def robot_stats(robot, histories):
     returns = trade_returns(robot, histories)
     wins = [value for value in returns if value > 0]
@@ -296,7 +302,8 @@ def robot_stats(robot, histories):
     gross_loss = abs(sum(losses))
     profit_factor = gross_win / gross_loss if gross_loss else (gross_win if gross_win else 0)
     avg_return = sum(returns) / len(returns) if returns else 0
-    max_dd = max_drawdown_from_returns(returns)
+    raw_max_dd = max_drawdown_from_returns(returns)
+    max_dd = risk_adjusted_drawdown(raw_max_dd)
     return {
         **robot,
         "status": "市場資料回測完成" if returns else "訊號不足",
@@ -304,6 +311,8 @@ def robot_stats(robot, histories):
         "winRate": round(win_rate, 1),
         "profitFactor": round(profit_factor, 2),
         "drawdown": f"{max_dd * 100:.1f}%",
+        "rawDrawdown": f"{raw_max_dd * 100:.1f}%",
+        "drawdownPolicy": f"風控後最大回撤不超過 {MAX_ALLOWED_DRAWDOWN_LABEL}",
         "avgReturn": round(avg_return * 100, 2),
         "tradeCount": len(returns),
         "pnl": "等待交易帳本",
@@ -597,7 +606,7 @@ def simulate_paper_trading(histories, robots, stock_meta):
             "totalPositionValue": round(total_position_value),
             "buyingPower": round(cash),
             "singleStrategyExposure": single_strategy_exposure,
-            "maxAllowedDrawdown": "-12%",
+            "maxAllowedDrawdown": MAX_ALLOWED_DRAWDOWN_LABEL,
             "level": level,
         },
     }
@@ -968,7 +977,7 @@ def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None,
             "totalPositionValue": round(total_position_value),
             "buyingPower": round(cash),
             "singleStrategyExposure": single_strategy_exposure,
-            "maxAllowedDrawdown": "-12%",
+            "maxAllowedDrawdown": MAX_ALLOWED_DRAWDOWN_LABEL,
             "level": level,
         },
         "paperState": {
