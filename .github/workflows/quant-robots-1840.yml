@@ -2,8 +2,8 @@ name: Daily Quant Robots Update
 
 on:
   schedule:
-    # Asia/Taipei 18:40 every day.
-    - cron: "40 10 * * *"
+    # GitHub Actions uses UTC. Taiwan time is UTC+8.
+    - cron: "40 10 * * *"  # 18:40 Taiwan time, every day.
   workflow_dispatch:
     inputs:
       operator:
