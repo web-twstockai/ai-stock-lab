@@ -508,7 +508,7 @@ button {
 }
 
 .holdings-panel .quant-table {
-  min-width: 610px;
+  min-width: 690px;
 }
 
 .quant-table th,
@@ -549,6 +549,14 @@ button {
   margin-top: 3px;
   color: var(--quant-muted);
   font-size: 12px;
+}
+
+.subtle-cell {
+  display: block;
+  margin-top: 3px;
+  color: var(--quant-muted);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .score-pill,
@@ -821,6 +829,27 @@ button {
   line-height: 1.45;
   font-style: normal;
   font-weight: 750;
+}
+
+.side-pill {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.side-pill.buy {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.side-pill.sell {
+  background: #fee2e2;
+  color: #b91c1c;
 }
 
 .sold-item .pnl {

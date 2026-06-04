@@ -38,6 +38,7 @@
     candidates: [],
     holdings: [],
     closedTrades: [],
+    todayTrades: [],
     risk: {
       totalPositionValue: null,
       buyingPower: null,
@@ -98,6 +99,16 @@
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
+    });
+  }
+
+  function fmtDate(value) {
+    if (!value) return "--";
+    const date = new Date(`${value}T00:00:00`);
+    if (Number.isNaN(date.getTime())) return String(value);
+    return date.toLocaleDateString("zh-TW", {
+      month: "2-digit",
+      day: "2-digit",
     });
   }
 
@@ -209,19 +220,45 @@
     if (!rows) return;
     const holdings = state.data.holdings || [];
     if (!holdings.length) {
-      rows.innerHTML = '<tr><td colspan="6" class="empty-cell">目前 AI 紙上交易沒有持倉。</td></tr>';
+      rows.innerHTML = '<tr><td colspan="7" class="empty-cell">目前 AI 紙上交易沒有持倉。</td></tr>';
       return;
     }
     rows.innerHTML = holdings.map((item) => `
       <tr>
         <td class="stock-cell"><strong>${esc(item.symbol)} ${esc(item.name)}</strong><span>${esc(item.robotName)}</span></td>
         <td>${esc(item.robotName)}</td>
+        <td>${fmtDate(item.buyDate)}<span class="subtle-cell">${number(item.heldDays)} 日</span></td>
         <td>${number(item.lots)}</td>
         <td>${number(item.cost, 2)}</td>
         <td>${number(item.price, 2)}</td>
         <td class="${Number(item.unrealizedPnl) < 0 ? "negative" : "positive"}">${money(item.unrealizedPnl)}</td>
       </tr>
     `).join("");
+  }
+
+  function renderTodayTrades() {
+    const list = byId("todayTradeRows");
+    if (!list) return;
+    const trades = state.data.todayTrades || [];
+    if (!trades.length) {
+      list.innerHTML = '<div class="empty-note">今天沒有新的買進或賣出，原持股會延續監控。</div>';
+      return;
+    }
+    list.innerHTML = trades.map((item) => {
+      const isSell = item.side === "SELL";
+      const amount = isSell ? money(item.realizedPnl) : `${number(item.buyPrice, 2)} / ${number(item.lots)} 張`;
+      const dateLine = isSell ? `${fmtDate(item.buyDate)} → ${fmtDate(item.sellDate)}` : `${fmtDate(item.buyDate)} 買進`;
+      return `
+        <div class="sold-item">
+          <div>
+            <strong>${esc(item.symbol)} ${esc(item.name || "")}</strong>
+            <span><b class="side-pill ${isSell ? "sell" : "buy"}">${isSell ? "賣出" : "買進"}</b>${esc(item.robotName || "")}</span>
+            <em>${esc(dateLine)} · ${esc(item.reason || "")}</em>
+          </div>
+          <span class="pnl ${isSell && Number(item.realizedPnl) < 0 ? "negative" : "positive"}">${amount}</span>
+        </div>
+      `;
+    }).join("");
   }
 
   function renderClosedTrades() {
@@ -237,7 +274,7 @@
         <div>
           <strong>${esc(item.symbol)} ${esc(item.name || "")}</strong>
           <span>${esc(item.robotName)}</span>
-          <em>${esc(item.reason)}</em>
+          <em>${fmtDate(item.buyDate)} → ${fmtDate(item.sellDate)} · ${esc(item.reason)}</em>
         </div>
         <span class="pnl ${Number(item.realizedPnl) < 0 ? "negative" : "positive"}">${money(item.realizedPnl)}</span>
       </div>
@@ -279,6 +316,7 @@
     renderSelectedRobot();
     renderCandidates();
     renderHoldings();
+    renderTodayTrades();
     renderClosedTrades();
     renderRisk();
     renderTaskFlow();

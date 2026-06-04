@@ -90,6 +90,15 @@ def load_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def load_previous_payload():
+    if not OUT.exists():
+        return {}
+    try:
+        return load_json(OUT)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
 def safe_float(value, default=0.0):
     try:
         number = float(value)
@@ -105,6 +114,15 @@ def safe_int(value, default=0):
         return int(float(value))
     except (TypeError, ValueError):
         return default
+
+
+def trade_date_index(dates, value):
+    if not value:
+        return None
+    try:
+        return dates.index(value)
+    except ValueError:
+        return None
 
 
 def moving_average(values, window, index):
@@ -585,10 +603,392 @@ def simulate_paper_trading(histories, robots, stock_meta):
     }
 
 
+def previous_open_symbols(previous_payload):
+    state = previous_payload.get("paperState") if isinstance(previous_payload, dict) else None
+    positions = state.get("openPositions", []) if isinstance(state, dict) else previous_payload.get("holdings", [])
+    return [str(item.get("symbol")) for item in positions if item.get("symbol")]
+
+
+def normalize_position(item, robots_by_id, dates):
+    symbol = str(item.get("symbol") or "")
+    if not symbol:
+        return None
+    robot_id = item.get("robotId") or "ma-breakout"
+    robot = robots_by_id.get(robot_id, {})
+    lots = max(1, safe_int(item.get("lots"), 1))
+    entry = safe_float(item.get("entry"), safe_float(item.get("cost")))
+    if entry <= 0:
+        entry = safe_float(item.get("buyPrice"), safe_float(item.get("price")))
+    if entry <= 0:
+        return None
+    cost_amount = safe_float(item.get("costAmount"), trade_cost(entry, lots) + buy_fee(entry, lots))
+    buy_date = item.get("buyDate") or item.get("tradeDate") or ""
+    buy_index = trade_date_index(dates, buy_date)
+    last_seen_index = trade_date_index(dates, item.get("lastSeenDate"))
+    held_days = safe_int(item.get("heldDays"), 0)
+    if buy_index is not None and last_seen_index is not None:
+        held_days = max(held_days, last_seen_index - buy_index)
+    return {
+        "symbol": symbol,
+        "robotId": robot_id,
+        "buyDate": buy_date,
+        "entry": entry,
+        "lots": lots,
+        "costAmount": cost_amount,
+        "stopLoss": safe_float(item.get("stopLoss"), entry * 0.94),
+        "takeProfit": safe_float(item.get("takeProfit"), entry * 1.12),
+        "holdDays": safe_int(item.get("holdDays"), robot.get("holdDays", 5)),
+        "heldDays": held_days,
+        "signalScore": safe_int(item.get("signalScore"), 70),
+        "lastSeenDate": item.get("lastSeenDate") or buy_date,
+    }
+
+
+def seed_paper_state(previous_payload, robots_by_id, dates):
+    state = previous_payload.get("paperState") if isinstance(previous_payload, dict) else None
+    if isinstance(state, dict):
+        positions = state.get("openPositions", [])
+        closed_trades = state.get("closedTrades", [])
+        transactions = state.get("transactions", [])
+        cash = safe_float(state.get("cash"), VIRTUAL_INITIAL_CASH)
+        last_processed_date = state.get("lastProcessedDate") or previous_payload.get("meta", {}).get("marketDate")
+    else:
+        positions = previous_payload.get("holdings", []) if isinstance(previous_payload, dict) else []
+        closed_trades = previous_payload.get("closedTrades", []) if isinstance(previous_payload, dict) else []
+        transactions = previous_payload.get("todayTrades", []) if isinstance(previous_payload, dict) else []
+        summary = previous_payload.get("summary", {}) if isinstance(previous_payload, dict) else {}
+        risk = previous_payload.get("risk", {}) if isinstance(previous_payload, dict) else {}
+        cash = safe_float(summary.get("virtualCash"), safe_float(risk.get("buyingPower"), VIRTUAL_INITIAL_CASH))
+        last_processed_date = previous_payload.get("meta", {}).get("marketDate") if isinstance(previous_payload, dict) else None
+
+    holdings = {}
+    for item in positions:
+        position = normalize_position(item, robots_by_id, dates)
+        if position:
+            holdings[position["symbol"]] = position
+
+    return {
+        "cash": cash,
+        "holdings": holdings,
+        "closedTrades": list(closed_trades or []),
+        "transactions": list(transactions or []),
+        "lastProcessedDate": last_processed_date,
+    }
+
+
+def transaction_for(side, trade_date, trade):
+    payload = {
+        "side": side,
+        "tradeDate": trade_date,
+        "symbol": trade.get("symbol"),
+        "name": trade.get("name"),
+        "robotId": trade.get("robotId"),
+        "robotName": trade.get("robotName"),
+        "lots": trade.get("lots"),
+        "reason": trade.get("reason"),
+    }
+    if side == "BUY":
+        payload.update(
+            {
+                "buyDate": trade.get("buyDate") or trade_date,
+                "buyPrice": trade.get("buyPrice"),
+                "signalScore": trade.get("signalScore"),
+            }
+        )
+    else:
+        payload.update(
+            {
+                "buyDate": trade.get("buyDate"),
+                "sellDate": trade.get("sellDate") or trade_date,
+                "buyPrice": trade.get("buyPrice"),
+                "sellPrice": trade.get("sellPrice"),
+                "realizedPnl": trade.get("realizedPnl"),
+            }
+        )
+    return payload
+
+
+def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None, target_market_date=None):
+    robots_by_id = {robot["id"]: robot for robot in robots}
+    date_index = build_date_index(histories)
+    dates = sorted(date_index)
+    if not dates:
+        return {
+            "cash": VIRTUAL_INITIAL_CASH,
+            "holdings": [],
+            "closedTrades": [],
+            "todayTrades": [],
+            "summary": {"unrealizedPnl": 0, "realizedPnl": 0, "portfolioValue": VIRTUAL_INITIAL_CASH},
+            "risk": {},
+            "paperState": {
+                "cash": VIRTUAL_INITIAL_CASH,
+                "openPositions": [],
+                "closedTrades": [],
+                "transactions": [],
+                "lastProcessedDate": None,
+            },
+        }
+
+    previous_payload = previous_payload or {}
+    target_date = target_market_date if target_market_date in date_index else dates[-1]
+    target_index = trade_date_index(dates, target_date)
+    target_index = target_index if target_index is not None else len(dates) - 1
+    state = seed_paper_state(previous_payload, robots_by_id, dates)
+    cash = float(state["cash"])
+    holdings = state["holdings"]
+    closed_trades = state["closedTrades"]
+    transactions = state["transactions"]
+    last_processed_date = state["lastProcessedDate"]
+    last_processed_index = trade_date_index(dates, last_processed_date)
+
+    if last_processed_index is None:
+        simulation_dates = dates[max(0, target_index - 69) : target_index + 1]
+    else:
+        simulation_dates = dates[last_processed_index + 1 : target_index + 1]
+
+    today_trades = [
+        item
+        for item in previous_payload.get("todayTrades", [])
+        if item.get("tradeDate") == target_date or item.get("sellDate") == target_date or item.get("buyDate") == target_date
+    ]
+    if not today_trades and not simulation_dates:
+        for holding in holdings.values():
+            if holding.get("buyDate") != target_date:
+                continue
+            symbol = holding["symbol"]
+            meta = stock_meta.get(symbol, {})
+            today_trades.append(
+                transaction_for(
+                    "BUY",
+                    target_date,
+                    {
+                        "symbol": symbol,
+                        "name": meta.get("name") or symbol,
+                        "robotId": holding["robotId"],
+                        "robotName": robots_by_id.get(holding["robotId"], {}).get("name", holding["robotId"]),
+                        "buyDate": holding["buyDate"],
+                        "lots": holding["lots"],
+                        "buyPrice": round(holding["entry"], 2),
+                        "signalScore": holding.get("signalScore"),
+                        "reason": "舊帳本升級回填今日買進",
+                    },
+                )
+            )
+        for trade in closed_trades:
+            if trade.get("sellDate") == target_date:
+                today_trades.append(transaction_for("SELL", target_date, trade))
+
+    for trade_date in simulation_dates:
+        today_trades = []
+        symbols_today = date_index.get(trade_date, {})
+
+        for symbol, holding in list(holdings.items()):
+            index = symbols_today.get(symbol)
+            if index is None:
+                continue
+            row = histories[symbol][index]
+            exit_price = None
+            reason = None
+            if row["low"] <= holding["stopLoss"]:
+                exit_price = holding["stopLoss"]
+                reason = "觸發停損"
+            elif row["high"] >= holding["takeProfit"]:
+                exit_price = holding["takeProfit"]
+                reason = "觸發停利"
+            elif holding["heldDays"] >= holding["holdDays"]:
+                exit_price = row["close"]
+                reason = "達策略持有天數"
+
+            holding["heldDays"] += 1
+            holding["lastSeenDate"] = trade_date
+            if exit_price is None:
+                continue
+
+            lots = holding["lots"]
+            proceeds = trade_cost(exit_price, lots) - sell_costs(exit_price, lots)
+            realized = proceeds - holding["costAmount"]
+            cash += proceeds
+            meta = stock_meta.get(symbol, {})
+            closed_trade = {
+                "symbol": symbol,
+                "name": meta.get("name") or symbol,
+                "robotId": holding["robotId"],
+                "robotName": robots_by_id.get(holding["robotId"], {}).get("name", holding["robotId"]),
+                "buyDate": holding["buyDate"],
+                "sellDate": trade_date,
+                "lots": lots,
+                "buyPrice": round(holding["entry"], 2),
+                "sellPrice": round(exit_price, 2),
+                "realizedPnl": round(realized),
+                "reason": reason,
+            }
+            closed_trades.append(closed_trade)
+            today_trades.append(transaction_for("SELL", trade_date, closed_trade))
+            transactions.append(today_trades[-1])
+            del holdings[symbol]
+
+        if len(holdings) < MAX_POSITIONS:
+            signals = []
+            for symbol, index in symbols_today.items():
+                if symbol in holdings:
+                    continue
+                rows = histories[symbol]
+                if index < 61:
+                    continue
+                for robot in robots:
+                    robot_id = robot["id"]
+                    if robot_id == "chip-follow":
+                        continue
+                    if signal_for(robot_id, rows, index):
+                        score = robot_signal_score(robot_id, rows, index)
+                        signals.append((score, symbol, robot_id, index))
+                        break
+
+            signals.sort(reverse=True)
+            bought_today = 0
+            for score, symbol, robot_id, index in signals:
+                if bought_today >= MAX_DAILY_BUYS or len(holdings) >= MAX_POSITIONS:
+                    break
+                row = histories[symbol][index]
+                entry = row["close"]
+                volatility = recent_volatility_pct(histories[symbol], index)
+                stop_pct = max(0.03, min(0.08, volatility / 100 * 0.85))
+                target_pct = stop_pct * 1.8
+                lots = 1
+                required_cash = trade_cost(entry, lots) + buy_fee(entry, lots)
+                if required_cash > cash:
+                    continue
+                cash -= required_cash
+                signal_score = round(min(99, max(50, score)))
+                holdings[symbol] = {
+                    "symbol": symbol,
+                    "robotId": robot_id,
+                    "buyDate": trade_date,
+                    "entry": entry,
+                    "lots": lots,
+                    "costAmount": required_cash,
+                    "stopLoss": entry * (1 - stop_pct),
+                    "takeProfit": entry * (1 + target_pct),
+                    "holdDays": robots_by_id[robot_id]["holdDays"],
+                    "heldDays": 0,
+                    "signalScore": signal_score,
+                    "lastSeenDate": trade_date,
+                }
+                meta = stock_meta.get(symbol, {})
+                buy_trade = {
+                    "symbol": symbol,
+                    "name": meta.get("name") or symbol,
+                    "robotId": robot_id,
+                    "robotName": robots_by_id.get(robot_id, {}).get("name", robot_id),
+                    "buyDate": trade_date,
+                    "lots": lots,
+                    "buyPrice": round(entry, 2),
+                    "signalScore": signal_score,
+                    "reason": "策略訊號買進",
+                }
+                today_trades.append(transaction_for("BUY", trade_date, buy_trade))
+                transactions.append(today_trades[-1])
+                bought_today += 1
+
+        last_processed_date = trade_date
+
+    last_date = target_date
+    holding_rows = []
+    open_positions = []
+    total_position_value = 0.0
+    unrealized_pnl = 0.0
+    exposure_by_robot = {}
+
+    for symbol, holding in holdings.items():
+        if symbol not in histories:
+            continue
+        index = date_index.get(last_date, {}).get(symbol)
+        if index is None:
+            index = len(histories[symbol]) - 1
+        row = histories[symbol][index]
+        meta = stock_meta.get(symbol, {})
+        current_value = trade_cost(row["close"], holding["lots"])
+        unrealized = current_value - holding["costAmount"]
+        total_position_value += current_value
+        unrealized_pnl += unrealized
+        exposure_by_robot[holding["robotId"]] = exposure_by_robot.get(holding["robotId"], 0) + current_value
+        buy_index = trade_date_index(dates, holding.get("buyDate"))
+        current_index = trade_date_index(dates, last_date)
+        display_held_days = holding.get("heldDays", 0)
+        if buy_index is not None and current_index is not None:
+            display_held_days = max(display_held_days, current_index - buy_index)
+        open_position = {
+            **holding,
+            "entry": round(holding["entry"], 4),
+            "costAmount": round(holding["costAmount"], 2),
+            "stopLoss": round(holding["stopLoss"], 4),
+            "takeProfit": round(holding["takeProfit"], 4),
+            "heldDays": display_held_days,
+            "lastSeenDate": last_date,
+        }
+        open_positions.append(open_position)
+        holding_rows.append(
+            {
+                "symbol": symbol,
+                "name": meta.get("name") or symbol,
+                "robotId": holding["robotId"],
+                "robotName": robots_by_id.get(holding["robotId"], {}).get("name", holding["robotId"]),
+                "buyDate": holding["buyDate"],
+                "heldDays": display_held_days,
+                "lots": holding["lots"],
+                "cost": round(holding["entry"], 2),
+                "price": round(row["close"], 2),
+                "stopLoss": round(holding["stopLoss"], 2),
+                "takeProfit": round(holding["takeProfit"], 2),
+                "unrealizedPnl": round(unrealized),
+            }
+        )
+
+    realized_pnl = sum(safe_float(trade.get("realizedPnl")) for trade in closed_trades)
+    portfolio_value = cash + total_position_value
+    max_exposure = max(exposure_by_robot.values(), default=0)
+    single_strategy_exposure = f"{(max_exposure / portfolio_value * 100):.1f}%" if portfolio_value else "0%"
+    level = "模擬中"
+    if portfolio_value and total_position_value / portfolio_value > 0.85:
+        level = "偏高"
+    elif total_position_value == 0:
+        level = "低"
+
+    return {
+        "cash": round(cash),
+        "holdings": sorted(holding_rows, key=lambda item: item["unrealizedPnl"], reverse=True),
+        "closedTrades": list(reversed(closed_trades[-12:])),
+        "todayTrades": today_trades,
+        "summary": {
+            "unrealizedPnl": round(unrealized_pnl),
+            "realizedPnl": round(realized_pnl),
+            "portfolioValue": round(portfolio_value),
+        },
+        "risk": {
+            "totalPositionValue": round(total_position_value),
+            "buyingPower": round(cash),
+            "singleStrategyExposure": single_strategy_exposure,
+            "maxAllowedDrawdown": "-12%",
+            "level": level,
+        },
+        "paperState": {
+            "cash": round(cash, 2),
+            "openPositions": sorted(open_positions, key=lambda item: item["buyDate"]),
+            "closedTrades": closed_trades[-120:],
+            "transactions": transactions[-240:],
+            "lastProcessedDate": last_processed_date or target_date,
+        },
+    }
+
+
 def main():
     candidate_data = load_json(CANDIDATES)
+    previous_payload = load_previous_payload()
     stocks = candidate_data.get("stocks", [])
     top_symbols = [str(stock.get("symbol")) for stock in stocks[:120] if stock.get("symbol")]
+    for symbol in previous_open_symbols(previous_payload):
+        if symbol not in top_symbols:
+            top_symbols.append(symbol)
     histories = {}
     for symbol in top_symbols:
         rows = enrich_history(load_history(symbol))
@@ -599,7 +999,7 @@ def main():
     robots_by_id = {robot["id"]: robot for robot in robots}
     candidates = candidate_rows(stocks[:160], robots_by_id)
     stock_meta = {str(stock.get("symbol")): stock for stock in stocks if stock.get("symbol")}
-    paper = simulate_paper_trading(histories, robots, stock_meta)
+    paper = simulate_paper_trading(histories, robots, stock_meta, previous_payload, candidate_data.get("meta", {}).get("marketDate"))
 
     for robot in robots:
         robot["candidates"] = sum(1 for item in candidates if item["robotId"] == robot["id"])
@@ -617,7 +1017,8 @@ def main():
                 "lotSize": LOT_SIZE,
                 "maxPositions": MAX_POSITIONS,
                 "maxDailyBuys": MAX_DAILY_BUYS,
-                "description": "AI 機器人以虛擬資金自動買賣，不連接真實券商帳戶。",
+                "description": "AI 機器人以虛擬資金延續持倉、自動買賣，不連接真實券商帳戶。",
+                "lastProcessedDate": paper["paperState"]["lastProcessedDate"],
             },
             "notes": [
                 "候選股與策略統計由真實市場資料推導。",
@@ -640,7 +1041,9 @@ def main():
         "candidates": candidates,
         "holdings": paper["holdings"],
         "closedTrades": paper["closedTrades"],
+        "todayTrades": paper["todayTrades"],
         "risk": paper["risk"],
+        "paperState": paper["paperState"],
         "taskFlow": [
             {"label": "市場資料更新", "state": "done"},
             {"label": "策略回測", "state": "done"},
