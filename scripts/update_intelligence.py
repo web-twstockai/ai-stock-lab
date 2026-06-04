@@ -150,7 +150,11 @@ def strip_tags(fragment):
 def load_json(path, default):
     if not path.exists():
         return default
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        print(f"Warning: could not parse {path}: {exc}")
+        return default
 
 
 def write_json_and_js(json_path, js_path, global_name, payload):

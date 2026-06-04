@@ -908,8 +908,8 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  flex-wrap: nowrap;
+  gap: 12px;
+  flex-wrap: wrap;
   padding-top: 14px;
   color: var(--intel-text);
   font-size: 14px;
@@ -931,7 +931,11 @@ select {
 .page-controls {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: flex-end;
+  gap: 8px;
+  flex: 1 1 360px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .page-controls button {
@@ -949,6 +953,20 @@ select {
   color: #fff;
   border-color: var(--intel-blue);
   background: var(--intel-blue);
+}
+
+.page-controls button:disabled {
+  color: #93a4bd;
+  border-color: #dbe7f6;
+  background: #f8fbff;
+  cursor: not-allowed;
+}
+
+.page-ellipsis {
+  min-width: 18px;
+  line-height: 34px;
+  text-align: center;
+  color: #6b7c93;
 }
 
 .side-stack,

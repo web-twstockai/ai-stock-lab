@@ -171,16 +171,40 @@
     return "blue";
   }
 
+  function sortEventsForFilter(events) {
+    const now = Date.now();
+    const timeValue = (event) => eventTime(event)?.getTime() || 0;
+    return [...events].sort((a, b) => {
+      const aTime = timeValue(a);
+      const bTime = timeValue(b);
+      if (state.filter === "published") return bTime - aTime;
+
+      const aFuture = aTime >= now;
+      const bFuture = bTime >= now;
+      if (aFuture !== bFuture) return aFuture ? -1 : 1;
+      return aFuture ? aTime - bTime : bTime - aTime;
+    });
+  }
+
   function filteredEvents() {
     const keyword = state.keyword.trim().toLowerCase();
-    return data.events.filter((event) => {
+    const now = Date.now();
+    const countryMatches = (event) => {
+      if (state.filter === "歐洲") return ["歐元區", "德國", "法國", "英國"].includes(event.country);
+      return event.country === state.filter;
+    };
+    const list = data.events.filter((event) => {
       const published = hasActualValue(event);
+      const publishAt = eventTime(event);
+      const upcoming = !published && publishAt && publishAt.getTime() >= now;
+      const visibleInMainList =
+        state.filter === "published" ? published : !published;
       const filterOk =
-        state.filter === "all" ||
-        (state.filter === "upcoming" && !published) ||
+        (state.filter === "all" && visibleInMainList) ||
+        (state.filter === "upcoming" && upcoming) ||
         (state.filter === "published" && published) ||
-        (state.filter === "high" && event.importance === "高") ||
-        event.country === state.filter;
+        (state.filter === "high" && !published && event.importance === "高") ||
+        (!published && countryMatches(event));
       const keywordOk =
         !keyword ||
         event.eventName.toLowerCase().includes(keyword) ||
@@ -189,11 +213,12 @@
       const day = dateOnly(event.publishTime);
       return filterOk && keywordOk && (!state.start || day >= state.start) && (!state.end || day <= state.end);
     });
+    return sortEventsForFilter(list);
   }
 
   function selectedEvent() {
     const list = filteredEvents();
-    return data.events.find((event) => event.id === state.selectedId) || list[0] || data.events[0];
+    return list.find((event) => event.id === state.selectedId) || list[0] || data.events[0];
   }
 
   function summaryCards() {
@@ -229,6 +254,29 @@
     }).join("");
   }
 
+  function paginationItems(currentPage, maxPage) {
+    if (maxPage <= 7) return Array.from({ length: maxPage }, (_, index) => index + 1);
+
+    const pages = new Set([1, maxPage, currentPage - 1, currentPage, currentPage + 1]);
+    if (currentPage <= 3) {
+      pages.add(2);
+      pages.add(3);
+      pages.add(4);
+    }
+    if (currentPage >= maxPage - 2) {
+      pages.add(maxPage - 3);
+      pages.add(maxPage - 2);
+      pages.add(maxPage - 1);
+    }
+
+    const sorted = [...pages].filter((page) => page >= 1 && page <= maxPage).sort((a, b) => a - b);
+    return sorted.reduce((items, page, index) => {
+      if (index > 0 && page - sorted[index - 1] > 1) items.push("ellipsis");
+      items.push(page);
+      return items;
+    }, []);
+  }
+
   function renderTable() {
     const list = filteredEvents();
     const maxPage = Math.max(1, Math.ceil(list.length / state.pageSize));
@@ -253,9 +301,13 @@
     `).join("");
     $("[data-total-text]").textContent = `共 ${list.length} 筆`;
     $("[data-pagination]").innerHTML = `
-      <button type="button" data-page-prev>‹</button>
-      ${Array.from({ length: maxPage }, (_, index) => `<button class="${index + 1 === state.page ? "is-active" : ""}" type="button" data-page="${index + 1}">${index + 1}</button>`).join("")}
-      <button type="button" data-page-next>›</button>
+      <button type="button" data-page-prev ${state.page === 1 ? "disabled" : ""}>‹</button>
+      ${paginationItems(state.page, maxPage).map((item) => (
+        item === "ellipsis"
+          ? '<span class="page-ellipsis">…</span>'
+          : `<button class="${item === state.page ? "is-active" : ""}" type="button" data-page="${item}">${item}</button>`
+      )).join("")}
+      <button type="button" data-page-next ${state.page === maxPage ? "disabled" : ""}>›</button>
     `;
     document.querySelectorAll("[data-event-id]").forEach((row) => {
       row.addEventListener("click", () => {
