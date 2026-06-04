@@ -212,6 +212,7 @@
       });
       renderWatchlistSelect();
       if (search?.value.trim()) renderSearchResults(search.value.trim());
+      if (state.rows.length) updateDerivedPanels(state.symbol, state.rows);
     } catch (error) {
       console.warn("[stock-analysis] company universe unavailable", error);
     }
@@ -224,6 +225,7 @@
         if (stock?.symbol) state.revenueUniverse.set(stock.symbol, stock);
       });
       updateRevenueCard(state.symbol);
+      if (state.rows.length) updateDerivedPanels(state.symbol, state.rows);
     } catch (error) {
       console.warn("[stock-analysis] revenue universe unavailable", error);
     }
@@ -645,6 +647,12 @@
       state.displayRows = aggregateRows(state.rows, state.timeframe);
       updateSummaryFromRows(state.symbol, volumeRows);
       updateRevenueCard(state.symbol);
+      updateDerivedPanels(state.symbol, state.rows);
+      [300, 1200].forEach((delay) => {
+        window.setTimeout(() => {
+          if (state.symbol === symbol) updateDerivedPanels(state.symbol, state.rows);
+        }, delay);
+      });
       normalizeSummaryVolume(volumeRows.at(-1)?.volume);
       resetView(false);
       updateChartMeta();
@@ -656,6 +664,142 @@
       resetView(false);
       setStatus("使用示範資料");
       draw();
+    }
+  }
+
+  function updateDerivedPanels(symbol, rows) {
+    const stats = buildStockStats(symbol, rows);
+    if (!stats) return;
+    updateScoreCards(stats);
+    updateAnalysisCards(stats);
+    updateRevenueCard(symbol);
+    normalizeSummaryVolume(rows.at(-1)?.volume);
+  }
+
+  function buildStockStats(symbol, rows) {
+    if (!rows?.length) return null;
+    const latest = rows.at(-1);
+    const previous = rows.at(-2) || latest;
+    const stock = resolvedStockInfo(symbol);
+    const last20 = rows.slice(-20);
+    const last60 = rows.slice(-60);
+    const previous20 = rows.at(-21);
+    const previous60 = rows.at(-61);
+    const avgVolume20 = average(last20.map((row) => row.volume));
+    const avgTurnover20 = average(last20.map((row) => row.close * row.volume));
+    const volumeRatio = avgVolume20 ? latest.volume / avgVolume20 : 0;
+    const return1 = previous?.close ? ((latest.close - previous.close) / previous.close) * 100 : 0;
+    const return20 = previous20?.close ? ((latest.close - previous20.close) / previous20.close) * 100 : 0;
+    const return60 = previous60?.close ? ((latest.close - previous60.close) / previous60.close) * 100 : 0;
+    const high20 = Math.max(...last20.map((row) => row.high));
+    const low20 = Math.min(...last20.map((row) => row.low));
+    const high60 = Math.max(...last60.map((row) => row.high));
+    const volatility = annualizedVolatility(last20);
+    const distanceHigh60 = high60 ? ((latest.close - high60) / high60) * 100 : 0;
+    const ma20 = latest.ma20;
+    const ma60 = latest.ma60;
+    const trendScore = (latest.close >= ma20 ? 14 : -10) + (ma20 >= ma60 ? 10 : -6) + clamp(return20, -20, 30) * 0.55;
+    const volumeScore = clamp((volumeRatio - 1) * 10, -8, 14);
+    const riskPenalty = clamp(volatility - 35, 0, 40) * 0.18;
+    const score = Math.round(clamp(55 + trendScore + volumeScore - riskPenalty, 1, 99));
+    const heat = Math.round(clamp(45 + Math.abs(return20) * 0.45 + volumeRatio * 8, 1, 99));
+    const trend = latest.close >= ma20 && ma20 >= ma60 ? "多頭排列" : latest.close >= ma20 ? "偏多" : "整理";
+    const volumeStatus = volumeRatio >= 1.25 ? "放量" : volumeRatio <= 0.75 ? "量縮" : "正常";
+    const risk = volatility >= 55 ? "高" : volatility >= 35 ? "中" : "低";
+    return {
+      symbol,
+      stock,
+      latest,
+      return1,
+      return20,
+      return60,
+      avgTurnover20,
+      volumeRatio,
+      turnover: latest.close * latest.volume,
+      ma20,
+      ma60,
+      high20,
+      low20,
+      high60,
+      distanceHigh60,
+      volatility,
+      score,
+      heat,
+      trend,
+      volumeStatus,
+      risk,
+      themes: themesFor(stock.sector),
+    };
+  }
+
+  function resolvedStockInfo(symbol) {
+    const stock = { ...stockInfo(symbol) };
+    const metaText = document.querySelector("#stockMeta")?.textContent?.trim() || "";
+    const [sector, market] = metaText.split("/").map((part) => part.trim()).filter(Boolean);
+    if ((!stock.sector || stock.sector === "股票資料") && sector && sector !== "股票資料") stock.sector = sector;
+    if ((!stock.market || stock.market === "股票資料") && market && market !== "股票資料") stock.market = market;
+    state.stockUniverse.set(symbol, stock);
+    return stock;
+  }
+
+  function updateScoreCards(stats) {
+    const cards = Array.from(document.querySelectorAll(".score-card"));
+    const data = [
+      ["AI綜合評分", stats.score, `20日 ${signed(stats.return20)} / 60日 ${signed(stats.return60)}`],
+      ["題材熱度", stats.heat, `題材：${stats.themes}`],
+      ["技術狀態", stats.trend, `MA20 ${formatPrice(stats.ma20)}`],
+      ["籌碼狀態", stats.volumeStatus, `量能 ${formatRatio(stats.volumeRatio)} 倍`],
+      ["風險等級", stats.risk, `波動 ${formatPercent(stats.volatility)}`],
+    ];
+    cards.forEach((card, index) => {
+      const item = data[index];
+      if (!item) return;
+      const title = card.querySelector("h2");
+      const value = card.querySelector("strong");
+      const note = card.querySelector("p");
+      if (title) title.textContent = item[0];
+      if (value) value.textContent = item[1];
+      if (note) note.textContent = item[2];
+    });
+  }
+
+  function updateAnalysisCards(stats) {
+    const cards = Array.from(document.querySelectorAll(".analysis-card"));
+    renderDl(cards[0], "A. 產業與題材", [
+      ["所屬產業", stats.stock.sector || "股票資料"],
+      ["上市櫃別", stats.stock.market || "股票資料"],
+      ["相關題材", stats.themes],
+      ["主要風險", `波動 ${formatPercent(stats.volatility)}，距60日高點 ${formatPercent(stats.distanceHigh60)}`],
+    ]);
+    renderDl(cards[1], "B. 技術分析", [
+      ["趨勢", stats.trend],
+      ["均線", `${formatPrice(stats.ma20)} / ${formatPrice(stats.ma60)}`],
+      ["20日報酬", signed(stats.return20)],
+      ["60日報酬", signed(stats.return60)],
+      ["支撐 / 壓力", `${formatPrice(stats.low20)} / ${formatPrice(stats.high20)}`],
+    ]);
+    renderDl(cards[2], "C. 量能分析", [
+      ["成交量", formatVolumeLotsExact(stats.latest.volume)],
+      ["成交金額", formatTurnover(stats.turnover)],
+      ["20日均額", formatTurnover(stats.avgTurnover20)],
+      ["量能倍率", `${formatRatio(stats.volumeRatio)} 倍`],
+    ]);
+  }
+
+  function renderDl(card, titleText, rows) {
+    if (!card) return;
+    const heading = card.querySelector("h2");
+    const dl = card.querySelector("dl");
+    if (heading) {
+      const icon = heading.querySelector("svg");
+      heading.textContent = "";
+      if (icon) heading.appendChild(icon);
+      heading.append(titleText);
+    }
+    if (dl) {
+      dl.innerHTML = rows.map(([label, value]) => `
+        <div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>
+      `).join("");
     }
   }
 
@@ -1178,6 +1322,39 @@
     chartHeadMeta.textContent = `${labels[state.timeframe]} | ${first.date} 至 ${last.date}`;
   }
 
+  function average(values) {
+    const numbers = values.filter((value) => Number.isFinite(value));
+    if (!numbers.length) return 0;
+    return numbers.reduce((total, value) => total + value, 0) / numbers.length;
+  }
+
+  function annualizedVolatility(rows) {
+    const returns = [];
+    for (let index = 1; index < rows.length; index += 1) {
+      const previous = rows[index - 1]?.close;
+      const current = rows[index]?.close;
+      if (previous > 0 && current > 0) returns.push(((current - previous) / previous) * 100);
+    }
+    if (returns.length < 2) return 0;
+    const mean = average(returns);
+    const variance = average(returns.map((value) => (value - mean) ** 2));
+    return Math.sqrt(variance) * Math.sqrt(252);
+  }
+
+  function themesFor(sector) {
+    const text = String(sector || "");
+    const map = [
+      [/電子|零組件|半導體|光電|電腦|通信|資訊/, "電子供應鏈 / AI / PCB"],
+      [/塑膠|化學|橡膠/, "塑化原料 / 景氣循環"],
+      [/金融|保險|銀行|證券/, "金融股 / 利率 / 股利"],
+      [/航運|運輸|觀光/, "運輸觀光 / 景氣循環"],
+      [/鋼鐵|水泥|建材|營建/, "原物料 / 建設需求"],
+      [/生技|醫療/, "生技醫療 / 新藥題材"],
+    ];
+    const match = map.find(([pattern]) => pattern.test(text));
+    return match ? match[1] : "台股題材 / 價量動能";
+  }
+
   function setStatus(text) {
     if (statusText) statusText.textContent = text;
   }
@@ -1198,7 +1375,9 @@
   }
 
   function formatPrice(value) {
-    return Number(value).toFixed(value >= 100 ? 1 : 2).replace(/\.0$/, "");
+    const number = Number(value);
+    if (!Number.isFinite(number)) return "--";
+    return number.toFixed(number >= 100 ? 1 : 2).replace(/\.0$/, "");
   }
 
   function formatVolume(value) {
@@ -1228,6 +1407,23 @@
 
   function formatVolumeLotsExact(value) {
     return `${Math.floor(Number(value || 0) / 1000).toLocaleString("zh-TW")} 張`;
+  }
+
+  function formatTurnover(value) {
+    const number = Number(value || 0);
+    if (number >= 100000000) return `${(number / 100000000).toLocaleString("zh-TW", { maximumFractionDigits: 1 })} 億`;
+    if (number >= 10000) return `${Math.floor(number / 10000).toLocaleString("zh-TW")} 萬`;
+    return number.toLocaleString("zh-TW", { maximumFractionDigits: 0 });
+  }
+
+  function formatRatio(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number.toFixed(2) : "--";
+  }
+
+  function formatPercent(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? `${number.toFixed(1)}%` : "--";
   }
 
   function floorTo(value, digits) {
