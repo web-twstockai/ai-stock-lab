@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/04 10:51",
+  "updatedAt": "2026/06/04 15:53",
   "status": "運作中",
   "summary": [
     {
@@ -10,13 +10,13 @@ window.MacroRobotData = {
     },
     {
       "label": "即將公布",
-      "value": 98,
+      "value": 95,
       "unit": "個",
       "icon": "file"
     },
     {
       "label": "待補實際值",
-      "value": 8,
+      "value": 10,
       "unit": "個",
       "icon": "target"
     },
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "PMI 採購經理人指數",
-      "unit": "倒數 5 小時",
+      "unit": "倒數 1 小時",
       "icon": "filter"
     }
   ],
@@ -2267,7 +2267,7 @@ window.MacroRobotData = {
       "tags": [
         "美國",
         "綜合",
-        "偏空"
+        "中性"
       ],
       "summary": "綜合 PMI 將於 2026/06/03 21:45 公布，市場關注前值 51.7、預期 51.7。",
       "event": "美國 綜合 PMI，前值 51.7、預期 51.7、實際 51.5。",
@@ -2290,7 +2290,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/06/03 21:45 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/06/03 21:45",
-      "previous": "51",
+      "previous": "51.0",
       "forecast": "50.9",
       "actual": "50.7",
       "status": "已公布",
@@ -2302,10 +2302,10 @@ window.MacroRobotData = {
       "tags": [
         "美國",
         "服務業",
-        "偏空"
+        "中性"
       ],
-      "summary": "服務業 PMI 將於 2026/06/03 21:45 公布，市場關注前值 51、預期 50.9。",
-      "event": "美國 服務業 PMI，前值 51、預期 50.9、實際 50.7。",
+      "summary": "服務業 PMI 將於 2026/06/03 21:45 公布，市場關注前值 51.0、預期 50.9。",
+      "event": "美國 服務業 PMI，前值 51.0、預期 50.9、實際 50.7。",
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2536,8 +2536,8 @@ window.MacroRobotData = {
       "previous": "38.1",
       "forecast": "38.0",
       "actual": null,
-      "status": "倒數 5 小時",
-      "statusLevel": "soon",
+      "status": "倒數 0 天",
+      "statusLevel": "upcoming",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -2570,8 +2570,8 @@ window.MacroRobotData = {
       "previous": "42.1",
       "forecast": "42.0",
       "actual": null,
-      "status": "倒數 5 小時",
-      "statusLevel": "soon",
+      "status": "倒數 0 天",
+      "statusLevel": "upcoming",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -2604,7 +2604,7 @@ window.MacroRobotData = {
       "previous": "39.7",
       "forecast": "40.3",
       "actual": null,
-      "status": "倒數 6 小時",
+      "status": "倒數 1 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -2635,23 +2635,23 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/06/04 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/06/04 20:30",
-      "previous": "215",
+      "previous": "212",
       "forecast": "213",
-      "actual": null,
-      "status": "倒數 10 小時",
-      "statusLevel": "soon",
-      "direction": "中性",
+      "actual": "225",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "importance": "中高",
       "timestamp": "2026/06/04 20:30",
       "tags": [
         "美國",
         "初領失業救濟金人數",
-        "中性"
+        "偏多"
       ],
-      "summary": "初領失業救濟金人數 將於 2026/06/04 20:30 公布，市場關注前值 215、預期 213。",
-      "event": "美國 初領失業救濟金人數，前值 215、預期 213、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "初領失業救濟金人數 將於 2026/06/04 20:30 公布，市場關注前值 212、預期 213。",
+      "event": "美國 初領失業救濟金人數，前值 212、預期 213、實際 225。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
@@ -2976,7 +2976,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/06/11 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/06/11 20:30",
-      "previous": "—",
+      "previous": "225",
       "forecast": "—",
       "actual": null,
       "status": "倒數 7 天",
@@ -2990,8 +2990,8 @@ window.MacroRobotData = {
         "初領失業救濟金人數",
         "中性"
       ],
-      "summary": "初領失業救濟金人數 將於 2026/06/11 20:30 公布，市場關注前值 —、預期 —。",
-      "event": "美國 初領失業救濟金人數，前值 —、預期 —、實際 尚未公布。",
+      "summary": "初領失業救濟金人數 將於 2026/06/11 20:30 公布，市場關注前值 225、預期 —。",
+      "event": "美國 初領失業救濟金人數，前值 225、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -3148,7 +3148,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/06/12 19:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/06/12 19:00",
-      "previous": "—",
+      "previous": "0.8",
       "forecast": "0.7",
       "actual": null,
       "status": "倒數 8 天",
@@ -3162,8 +3162,8 @@ window.MacroRobotData = {
         "GDP",
         "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/06/12 19:00 公布，市場關注前值 —、預期 —。",
-      "event": "英國 GDP 經濟成長率，前值 —、預期 —、實際 尚未公布。",
+      "summary": "GDP 經濟成長率 將於 2026/06/12 19:00 公布，市場關注前值 0.8、預期 —。",
+      "event": "英國 GDP 經濟成長率，前值 0.8、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
