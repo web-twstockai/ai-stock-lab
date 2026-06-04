@@ -3,13 +3,12 @@ const DEFAULT_REPO = "ai-stock-lab";
 const DEFAULT_REF = "main";
 
 const CRON_DISPATCHES = {
-  // Asia/Taipei 18:30 every day. Run both after-market jobs independently.
-  "30 10 * * *": [
+  // Cloudflare Cron uses UTC. Taiwan time is UTC+8.
+  "30 10 * * *": [ // 18:30 Taiwan time, every day. Run both after-market jobs independently.
     { workflow: "daily-market-1830.yml", inputs: {} },
     { workflow: "institutional-robot-1830.yml", inputs: {} },
   ],
-  // Asia/Taipei 22:40 every day.
-  "40 14 * * *": [
+  "40 14 * * *": [ // 22:40 Taiwan time, every day.
     { workflow: "short-margin-daily.yml", inputs: {} },
   ],
 };
