@@ -2,10 +2,9 @@ name: Admin Data Update
 
 on:
   schedule:
-    # Asia/Taipei 15:45, Monday-Friday. Check Europe macro releases once.
-    - cron: "45 7 * * 1-5"
-    # Asia/Taipei 20:25, Monday-Friday. Check US macro releases once.
-    - cron: "25 12 * * 1-5"
+    # GitHub Actions uses UTC. Taiwan time is UTC+8.
+    - cron: "45 7 * * 1-5"   # 15:45 Taiwan time, Monday-Friday. Check Europe macro releases once.
+    - cron: "25 12 * * 1-5"  # 20:25 Taiwan time, Monday-Friday. Check US macro releases once.
   workflow_dispatch:
     inputs:
       task:
