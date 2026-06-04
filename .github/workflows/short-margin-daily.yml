@@ -2,8 +2,8 @@ name: Daily Short Margin Update
 
 on:
   schedule:
-    # Asia/Taipei 22:40 every day.
-    - cron: "40 14 * * *"
+    # GitHub Actions uses UTC. Taiwan time is UTC+8.
+    - cron: "40 14 * * *"  # 22:40 Taiwan time, every day.
   workflow_dispatch:
     inputs:
       operator:
