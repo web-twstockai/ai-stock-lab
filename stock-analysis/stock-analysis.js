@@ -219,16 +219,48 @@
   }
 
   async function loadRevenueUniverse() {
-    try {
-      const data = await fetchJson("../data/candidates.json");
-      (data?.stocks || []).forEach((stock) => {
-        if (stock?.symbol) state.revenueUniverse.set(stock.symbol, stock);
+    const sources = await Promise.allSettled([
+      fetchJson("../data/candidates.json"),
+      fetchJson("../data/site-data.json"),
+    ]);
+    sources.forEach((result) => {
+      if (result.status === "fulfilled") ingestRevenueData(result.value);
+      else console.warn("[stock-analysis] revenue source unavailable", result.reason);
+    });
+    updateRevenueCard(state.symbol);
+    if (state.rows.length) updateDerivedPanels(state.symbol, state.rows);
+  }
+
+  function ingestRevenueData(data) {
+    const visit = (value) => {
+      if (Array.isArray(value)) {
+        value.forEach(visit);
+        return;
+      }
+      if (!value || typeof value !== "object") return;
+      addRevenueStock(value);
+      Object.entries(value).forEach(([key, child]) => {
+        if (key === "series" || key === "history" || key === "price") return;
+        visit(child);
       });
-      updateRevenueCard(state.symbol);
-      if (state.rows.length) updateDerivedPanels(state.symbol, state.rows);
-    } catch (error) {
-      console.warn("[stock-analysis] revenue universe unavailable", error);
-    }
+    };
+    visit(data);
+  }
+
+  function addRevenueStock(stock) {
+    const symbol = String(stock?.symbol || stock?.code || "").trim();
+    if (!symbol || !Number.isFinite(Number(stock.revenue))) return;
+    const current = state.revenueUniverse.get(symbol);
+    if (current && String(current.revenueMonth || "") >= String(stock.revenueMonth || "")) return;
+    state.revenueUniverse.set(symbol, {
+      symbol,
+      name: stock.name || "",
+      revenue: Number(stock.revenue),
+      revenueYoy: Number(stock.revenueYoy),
+      revenueMom: Number(stock.revenueMom),
+      revenueMonth: stock.revenueMonth,
+      revenueSector: stock.revenueSector,
+    });
   }
 
   async function loadRegularBoardVolume() {
