@@ -1,17 +1,30 @@
-const WORKFLOW_FILE = "admin-update.yml";
 const DEFAULT_OWNER = "web-twstockai";
 const DEFAULT_REPO = "ai-stock-lab";
+const DEFAULT_REF = "main";
 
-const CRON_TASKS = {
-  // Asia/Taipei 18:30, Monday-Friday.
-  "30 10 * * 1-5": "evening-batch",
-  // Asia/Taipei 22:40, Monday-Friday.
-  "40 14 * * 1-5": "short-margin",
+const CRON_DISPATCHES = {
+  // Asia/Taipei 18:30 every day. Run both after-market jobs independently.
+  "30 10 * * *": [
+    { workflow: "daily-market-1830.yml", inputs: {} },
+    { workflow: "institutional-robot-1830.yml", inputs: {} },
+  ],
+  // Asia/Taipei 22:40 every day.
+  "40 14 * * *": [
+    { workflow: "short-margin-daily.yml", inputs: {} },
+  ],
+};
+
+const TEST_TASKS = {
+  "daily-market": { workflow: "daily-market-1830.yml", inputs: {} },
+  institutional: { workflow: "institutional-robot-1830.yml", inputs: {} },
+  "short-margin": { workflow: "short-margin-daily.yml", inputs: {} },
+  intelligence: { workflow: "admin-update.yml", inputs: { task: "intelligence" } },
+  macro: { workflow: "admin-update.yml", inputs: { task: "macro" } },
 };
 
 export default {
   async scheduled(controller, env, ctx) {
-    ctx.waitUntil(dispatchScheduledTask(controller.cron, env));
+    ctx.waitUntil(dispatchScheduledCron(controller.cron, env));
   },
 
   async fetch(request, env) {
@@ -23,35 +36,36 @@ export default {
       return new Response("Not found", { status: 404 });
     }
 
-    if (!task) {
-      return new Response("Missing task", { status: 400 });
+    const dispatch = TEST_TASKS[task];
+    if (!dispatch) {
+      return new Response("Unknown task", { status: 400 });
     }
 
-    await dispatchWorkflow(task, env, "cloudflare-cron-test");
+    await dispatchWorkflow(dispatch, env, "cloudflare-cron-test");
     return new Response(`Dispatched ${task}`, { status: 200 });
   },
 };
 
-async function dispatchScheduledTask(cron, env) {
-  const task = CRON_TASKS[cron];
-  if (!task) {
-    throw new Error(`No task mapped for cron: ${cron}`);
+async function dispatchScheduledCron(cron, env) {
+  const dispatches = CRON_DISPATCHES[cron];
+  if (!dispatches?.length) {
+    throw new Error(`No dispatch mapped for cron: ${cron}`);
   }
 
-  await dispatchWorkflow(task, env, `cloudflare-cron:${cron}`);
+  await Promise.all(dispatches.map((dispatch) => dispatchWorkflow(dispatch, env, `cloudflare-cron:${cron}`)));
 }
 
-async function dispatchWorkflow(task, env, operator) {
+async function dispatchWorkflow(dispatch, env, operator) {
   const owner = env.GITHUB_OWNER || DEFAULT_OWNER;
   const repo = env.GITHUB_REPO || DEFAULT_REPO;
-  const workflow = env.GITHUB_WORKFLOW || WORKFLOW_FILE;
+  const ref = env.GITHUB_REF || DEFAULT_REF;
 
   if (!env.GITHUB_DISPATCH_TOKEN) {
     throw new Error("Missing GITHUB_DISPATCH_TOKEN secret");
   }
 
   const response = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow}/dispatches`,
+    `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${dispatch.workflow}/dispatches`,
     {
       method: "POST",
       headers: {
@@ -62,9 +76,9 @@ async function dispatchWorkflow(task, env, operator) {
         "X-GitHub-Api-Version": "2022-11-28",
       },
       body: JSON.stringify({
-        ref: "main",
+        ref,
         inputs: {
-          task,
+          ...dispatch.inputs,
           operator,
         },
       }),
@@ -73,6 +87,6 @@ async function dispatchWorkflow(task, env, operator) {
 
   if (!response.ok) {
     const detail = await response.text();
-    throw new Error(`GitHub dispatch failed: HTTP ${response.status} ${detail}`);
+    throw new Error(`GitHub dispatch failed for ${dispatch.workflow}: HTTP ${response.status} ${detail}`);
   }
 }
