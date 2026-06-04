@@ -3,7 +3,7 @@ import json
 import re
 import ssl
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -156,6 +156,31 @@ def api_date(value):
     return datetime.now(TAIPEI).strftime("%Y%m%d")
 
 
+def fetch_margin_json(target_date):
+    margin_json = request_json(f"{TWSE_BASE_URL}/marginTrading/MI_MARGN?date={target_date}&selectType=ALL&response=json")
+    if margin_json.get("stat") != "OK":
+        raise ValueError(f"TWSE margin data unavailable for {target_date}: {margin_json.get('stat')}")
+    return margin_json
+
+
+def resolve_target_date(value):
+    if value:
+        return api_date(value)
+
+    today = datetime.now(TAIPEI).date()
+    for offset in range(14):
+        target_date = (today - timedelta(days=offset)).strftime("%Y%m%d")
+        try:
+            fetch_margin_json(target_date)
+            if offset:
+                print(f"[short-margin-ratio] using latest available TWSE margin date: {target_date}")
+            return target_date
+        except Exception as exc:
+            print(f"[short-margin-ratio] {target_date} unavailable: {exc}")
+
+    raise ValueError("No TWSE margin data available in the last 14 days.")
+
+
 def display_date(yyyymmdd):
     return f"{yyyymmdd[:4]}/{yyyymmdd[4:6]}/{yyyymmdd[6:8]}"
 
@@ -290,9 +315,7 @@ def build_charts(stocks):
 
 
 def fetch_payload(target_date):
-    margin_json = request_json(f"{TWSE_BASE_URL}/marginTrading/MI_MARGN?date={target_date}&selectType=ALL&response=json")
-    if margin_json.get("stat") != "OK":
-        raise ValueError(f"TWSE margin data unavailable for {target_date}: {margin_json.get('stat')}")
+    margin_json = fetch_margin_json(target_date)
     borrow_json = request_json(f"{TWSE_BASE_URL}/marginTrading/TWT93U?date={target_date}&response=json")
     price_json = request_json(f"{TWSE_BASE_URL}/afterTrading/MI_INDEX?date={target_date}&type=ALLBUT0999&response=json")
     stocks = build_stocks(margin_json, build_borrow_map(borrow_json), build_price_map(price_json), target_date)
@@ -317,15 +340,18 @@ def write_payload(payload):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Update short margin ratio robot data from TWSE official APIs.")
-    parser.add_argument("--date", help="Target market date YYYY-MM-DD or YYYYMMDD. Default is today in Asia/Taipei.")
+    parser.add_argument(
+        "--date",
+        help="Target market date YYYY-MM-DD or YYYYMMDD. Default is the latest available TWSE margin date.",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Fetch and print summary without writing files.")
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    target_date = api_date(args.date)
     try:
+        target_date = resolve_target_date(args.date)
         payload = fetch_payload(target_date)
     except Exception as exc:
         print(f"[short-margin-ratio] skipped: {exc}")
