@@ -18,6 +18,8 @@ SELL_FEE_RATE = 0.001425
 SELL_TAX_RATE = 0.003
 MAX_ALLOWED_DRAWDOWN = 0.12
 MAX_ALLOWED_DRAWDOWN_LABEL = "-12%"
+STOP_LOSS_WARN_RATE = 0.35
+STOP_LOSS_BLOCK_RATE = 0.5
 
 
 ROBOTS = [
@@ -289,8 +291,12 @@ def max_drawdown_from_returns(returns):
     return max_dd
 
 
-def risk_adjusted_drawdown(raw_drawdown):
-    return max(raw_drawdown, -MAX_ALLOWED_DRAWDOWN)
+def drawdown_status(raw_drawdown):
+    if raw_drawdown <= -MAX_ALLOWED_DRAWDOWN:
+        return "exceeded"
+    if raw_drawdown <= -(MAX_ALLOWED_DRAWDOWN * 0.75):
+        return "watch"
+    return "ok"
 
 
 def robot_stats(robot, histories):
@@ -302,8 +308,7 @@ def robot_stats(robot, histories):
     gross_loss = abs(sum(losses))
     profit_factor = gross_win / gross_loss if gross_loss else (gross_win if gross_win else 0)
     avg_return = sum(returns) / len(returns) if returns else 0
-    raw_max_dd = max_drawdown_from_returns(returns)
-    max_dd = risk_adjusted_drawdown(raw_max_dd)
+    max_dd = max_drawdown_from_returns(returns)
     return {
         **robot,
         "status": "市場資料回測完成" if returns else "訊號不足",
@@ -311,8 +316,9 @@ def robot_stats(robot, histories):
         "winRate": round(win_rate, 1),
         "profitFactor": round(profit_factor, 2),
         "drawdown": f"{max_dd * 100:.1f}%",
-        "rawDrawdown": f"{raw_max_dd * 100:.1f}%",
-        "drawdownPolicy": f"風控後最大回撤不超過 {MAX_ALLOWED_DRAWDOWN_LABEL}",
+        "maxAllowedDrawdown": MAX_ALLOWED_DRAWDOWN_LABEL,
+        "drawdownStatus": drawdown_status(max_dd),
+        "drawdownPolicy": f"超過 {MAX_ALLOWED_DRAWDOWN_LABEL} 代表策略需降權並重新優化",
         "avgReturn": round(avg_return * 100, 2),
         "tradeCount": len(returns),
         "pnl": "等待交易帳本",
@@ -345,17 +351,96 @@ def current_robot_scores(stock):
     }
 
 
-def candidate_rows(stocks, robots_by_id):
+def parse_pct(value, default=0.0):
+    try:
+        return float(str(value).replace("%", "")) / 100
+    except (TypeError, ValueError):
+        return default
+
+
+def recent_closed_trades(previous_payload, limit=60):
+    state = previous_payload.get("paperState") if isinstance(previous_payload, dict) else None
+    trades = state.get("closedTrades", []) if isinstance(state, dict) else previous_payload.get("closedTrades", [])
+    return list(trades or [])[-limit:]
+
+
+def build_optimization_profile(previous_payload, robots):
+    profile = {}
+    trades = recent_closed_trades(previous_payload)
+    for robot in robots:
+        robot_id = robot["id"]
+        robot_trades = [trade for trade in trades if trade.get("robotId") == robot_id]
+        stop_trades = [trade for trade in robot_trades if "停損" in str(trade.get("reason", ""))]
+        stop_rate = len(stop_trades) / len(robot_trades) if robot_trades else 0
+        raw_drawdown = parse_pct(robot.get("drawdown"))
+        score_penalty = 0
+        min_signal_score = 50
+        volatility_cap = 99
+        lots_multiplier = 1.0
+        status = "正常"
+        action = "維持原策略權重"
+
+        if raw_drawdown <= -MAX_ALLOWED_DRAWDOWN:
+            score_penalty += 8
+            min_signal_score = max(min_signal_score, 76)
+            volatility_cap = min(volatility_cap, 6.5)
+            status = "回撤超標"
+            action = "提高進場門檻並降低高波動標的權重"
+
+        if stop_rate >= STOP_LOSS_BLOCK_RATE and len(robot_trades) >= 3:
+            score_penalty += 14
+            min_signal_score = max(min_signal_score, 82)
+            volatility_cap = min(volatility_cap, 5.5)
+            lots_multiplier = 0.5
+            status = "停損過高"
+            action = "暫停低分訊號，只保留高分且低波動標的"
+        elif stop_rate >= STOP_LOSS_WARN_RATE and len(robot_trades) >= 3:
+            score_penalty += 8
+            min_signal_score = max(min_signal_score, 76)
+            volatility_cap = min(volatility_cap, 6.5)
+            lots_multiplier = 0.75
+            status = "停損偏高"
+            action = "降權並提高進場分數門檻"
+
+        profile[robot_id] = {
+            "robotId": robot_id,
+            "status": status,
+            "action": action,
+            "stopLossRate": round(stop_rate * 100, 1),
+            "closedTrades": len(robot_trades),
+            "stopLossTrades": len(stop_trades),
+            "scorePenalty": score_penalty,
+            "minSignalScore": min_signal_score,
+            "volatilityCap": volatility_cap,
+            "lotsMultiplier": lots_multiplier,
+        }
+    return profile
+
+
+def candidate_rows(stocks, robots_by_id, optimization_profile=None):
+    optimization_profile = optimization_profile or {}
     rows = []
     for stock in stocks:
         scores = current_robot_scores(stock)
-        robot_id, robot_score = max(scores.items(), key=lambda item: item[1])
         close = safe_float(stock.get("close"))
         volatility = safe_float(stock.get("volatility20d"))
+        adjusted_scores = {}
+        for candidate_robot_id, score in scores.items():
+            rule = optimization_profile.get(candidate_robot_id, {})
+            adjusted = score - safe_float(rule.get("scorePenalty"))
+            if volatility > safe_float(rule.get("volatilityCap"), 99):
+                adjusted -= 10
+            adjusted_scores[candidate_robot_id] = adjusted
+        robot_id, robot_score = max(adjusted_scores.items(), key=lambda item: item[1])
+        rule = optimization_profile.get(robot_id, {})
         stop_pct = max(0.03, min(0.1, volatility / 100 * 0.85))
         target_pct = stop_pct * 1.8
         risk = "低" if volatility < 3.5 else "高" if volatility >= 7 else "中"
         lots = 1 if risk != "低" else 2
+        lots = max(1, math.floor(lots * safe_float(rule.get("lotsMultiplier"), 1)))
+        signal_score = safe_int(min(99, max(45, robot_score)))
+        if signal_score < safe_int(rule.get("minSignalScore"), 50):
+            continue
         rows.append(
             {
                 "symbol": str(stock.get("symbol") or ""),
@@ -363,7 +448,9 @@ def candidate_rows(stocks, robots_by_id):
                 "sector": stock.get("sector") or "",
                 "robotId": robot_id,
                 "robotName": robots_by_id[robot_id]["name"],
-                "signalScore": safe_int(min(99, max(45, robot_score))),
+                "signalScore": signal_score,
+                "minSignalScore": safe_int(rule.get("minSignalScore"), 50),
+                "optimizationAction": rule.get("action", "維持原策略權重"),
                 "lots": lots,
                 "entry": round(close, 2),
                 "stopLoss": round(close * (1 - stop_pct), 2),
@@ -435,6 +522,41 @@ def buy_fee(price, lots):
 def sell_costs(price, lots):
     value = trade_cost(price, lots)
     return value * (SELL_FEE_RATE + SELL_TAX_RATE)
+
+
+def stop_loss_detail(row, holding):
+    if row["open"] <= holding["stopLoss"]:
+        return "開盤跳空跌破停損"
+    intraday_drop = row["low"] / holding["entry"] - 1 if holding["entry"] else 0
+    if holding.get("heldDays", 0) <= 1:
+        return "進場後短線動能反轉"
+    if intraday_drop <= -0.08:
+        return "單日波動過大打到停損"
+    if safe_int(holding.get("signalScore"), 0) < 76:
+        return "進場分數偏低，訊號品質不足"
+    return "跌破策略停損價"
+
+
+def optimization_hint_for_exit(reason, detail):
+    if "停損" not in str(reason):
+        return "維持策略觀察"
+    if "跳空" in detail:
+        return "降低隔日跳空風險，避開高波動或消息面不穩標的"
+    if "動能反轉" in detail:
+        return "提高進場動能門檻，要求收盤強度與量能延續"
+    if "波動過大" in detail:
+        return "降低高波動股票權重，縮小建議張數"
+    if "分數偏低" in detail:
+        return "提高最低信號分數門檻"
+    return "檢查停損距離與進場條件"
+
+
+def normalize_closed_trade(trade):
+    item = dict(trade)
+    reason = str(item.get("reason", ""))
+    if "停損" in reason and not item.get("optimizationHint"):
+        item["optimizationHint"] = "舊交易未保留盤中觸發細節，下一筆停損起會記錄跳空、反轉、波動或分數不足"
+    return item
 
 
 def simulate_paper_trading(histories, robots, stock_meta):
@@ -679,7 +801,7 @@ def seed_paper_state(previous_payload, robots_by_id, dates):
     return {
         "cash": cash,
         "holdings": holdings,
-        "closedTrades": list(closed_trades or []),
+        "closedTrades": [normalize_closed_trade(trade) for trade in list(closed_trades or [])],
         "transactions": list(transactions or []),
         "lastProcessedDate": last_processed_date,
     }
@@ -717,8 +839,9 @@ def transaction_for(side, trade_date, trade):
     return payload
 
 
-def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None, target_market_date=None):
+def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None, target_market_date=None, optimization_profile=None):
     robots_by_id = {robot["id"]: robot for robot in robots}
+    optimization_profile = optimization_profile or {}
     date_index = build_date_index(histories)
     dates = sorted(date_index)
     if not dates:
@@ -800,7 +923,8 @@ def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None,
             reason = None
             if row["low"] <= holding["stopLoss"]:
                 exit_price = holding["stopLoss"]
-                reason = "觸發停損"
+                detail = stop_loss_detail(row, holding)
+                reason = f"觸發停損：{detail}"
             elif row["high"] >= holding["takeProfit"]:
                 exit_price = holding["takeProfit"]
                 reason = "觸發停利"
@@ -830,6 +954,7 @@ def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None,
                 "sellPrice": round(exit_price, 2),
                 "realizedPnl": round(realized),
                 "reason": reason,
+                "optimizationHint": optimization_hint_for_exit(reason, reason),
             }
             closed_trades.append(closed_trade)
             today_trades.append(transaction_for("SELL", trade_date, closed_trade))
@@ -850,7 +975,14 @@ def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None,
                         continue
                     if signal_for(robot_id, rows, index):
                         score = robot_signal_score(robot_id, rows, index)
-                        signals.append((score, symbol, robot_id, index))
+                        rule = optimization_profile.get(robot_id, {})
+                        volatility = recent_volatility_pct(rows, index)
+                        adjusted_score = score - safe_float(rule.get("scorePenalty"))
+                        if volatility > safe_float(rule.get("volatilityCap"), 99):
+                            continue
+                        if adjusted_score < safe_float(rule.get("minSignalScore"), 50):
+                            continue
+                        signals.append((adjusted_score, symbol, robot_id, index))
                         break
 
             signals.sort(reverse=True)
@@ -863,7 +995,8 @@ def simulate_paper_trading(histories, robots, stock_meta, previous_payload=None,
                 volatility = recent_volatility_pct(histories[symbol], index)
                 stop_pct = max(0.03, min(0.08, volatility / 100 * 0.85))
                 target_pct = stop_pct * 1.8
-                lots = 1
+                rule = optimization_profile.get(robot_id, {})
+                lots = max(1, math.floor(1 * safe_float(rule.get("lotsMultiplier"), 1)))
                 required_cash = trade_cost(entry, lots) + buy_fee(entry, lots)
                 if required_cash > cash:
                     continue
@@ -1006,12 +1139,24 @@ def main():
 
     robots = [robot_stats(robot, histories) for robot in ROBOTS]
     robots_by_id = {robot["id"]: robot for robot in robots}
-    candidates = candidate_rows(stocks[:160], robots_by_id)
+    optimization_profile = build_optimization_profile(previous_payload, robots)
+    candidates = candidate_rows(stocks[:160], robots_by_id, optimization_profile)
     stock_meta = {str(stock.get("symbol")): stock for stock in stocks if stock.get("symbol")}
-    paper = simulate_paper_trading(histories, robots, stock_meta, previous_payload, candidate_data.get("meta", {}).get("marketDate"))
+    paper = simulate_paper_trading(
+        histories,
+        robots,
+        stock_meta,
+        previous_payload,
+        candidate_data.get("meta", {}).get("marketDate"),
+        optimization_profile,
+    )
+    optimization_profile = build_optimization_profile({"paperState": paper["paperState"]}, robots)
 
     for robot in robots:
+        rule = optimization_profile.get(robot["id"], {})
         robot["candidates"] = sum(1 for item in candidates if item["robotId"] == robot["id"])
+        robot["optimization"] = rule
+        robot["next"] = rule.get("action") or robot["next"]
 
     measured_robots = [robot for robot in robots if robot.get("tradeCount", 0) > 0]
     payload = {
@@ -1048,6 +1193,7 @@ def main():
         },
         "robots": robots,
         "candidates": candidates,
+        "optimization": list(optimization_profile.values()),
         "holdings": paper["holdings"],
         "closedTrades": paper["closedTrades"],
         "todayTrades": paper["todayTrades"],

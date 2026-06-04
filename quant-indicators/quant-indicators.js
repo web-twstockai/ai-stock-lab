@@ -162,15 +162,18 @@
 
   function renderSelectedRobot() {
     const robot = robotById(state.selectedRobotId);
+    const optimization = robot.optimization || {};
     setText("selectedRobotName", robot.name);
     setText("selectedRobotDesc", robot.desc);
     setText("selectedVersion", robot.version);
     setText("selectedParams", robot.params);
-    setText("selectedNext", robot.next);
+    setText("selectedNext", optimization.action || robot.next);
     byId("selectedRobotStats").innerHTML = [
       ["回測勝率", `${number(robot.winRate, 1)}%`, ""],
       ["Profit Factor", number(robot.profitFactor, 2), ""],
-      ["風控後回撤", robot.drawdown, "negative"],
+      ["最大回撤", robot.drawdown, robot.drawdownStatus === "ok" ? "" : "negative"],
+      ["近期停損率", `${number(optimization.stopLossRate ?? 0, 1)}%`, (optimization.stopLossRate ?? 0) >= 35 ? "negative" : ""],
+      ["進場門檻", `${number(optimization.minSignalScore ?? 50)} 分`, ""],
       ["回測筆數", `${number(robot.tradeCount)} 筆`, ""],
     ].map(([label, value, tone]) => `
       <div class="detail-stat">
@@ -248,12 +251,13 @@
       const isSell = item.side === "SELL";
       const amount = isSell ? money(item.realizedPnl) : `${number(item.buyPrice, 2)} / ${number(item.lots)} 張`;
       const dateLine = isSell ? `${fmtDate(item.buyDate)} → ${fmtDate(item.sellDate)}` : `${fmtDate(item.buyDate)} 買進`;
+      const hint = item.optimizationHint ? ` · ${item.optimizationHint}` : "";
       return `
         <div class="sold-item">
           <div>
             <strong>${esc(item.symbol)} ${esc(item.name || "")}</strong>
             <span><b class="side-pill ${isSell ? "sell" : "buy"}">${isSell ? "賣出" : "買進"}</b>${esc(item.robotName || "")}</span>
-            <em>${esc(dateLine)} · ${esc(item.reason || "")}</em>
+            <em>${esc(dateLine)} · ${esc(item.reason || "")}${esc(hint)}</em>
           </div>
           <span class="pnl ${isSell && Number(item.realizedPnl) < 0 ? "negative" : "positive"}">${amount}</span>
         </div>
@@ -274,7 +278,7 @@
         <div>
           <strong>${esc(item.symbol)} ${esc(item.name || "")}</strong>
           <span>${esc(item.robotName)}</span>
-          <em>${fmtDate(item.buyDate)} → ${fmtDate(item.sellDate)} · ${esc(item.reason)}</em>
+          <em>${fmtDate(item.buyDate)} → ${fmtDate(item.sellDate)} · ${esc(item.reason)}${item.optimizationHint ? ` · ${esc(item.optimizationHint)}` : ""}</em>
         </div>
         <span class="pnl ${Number(item.realizedPnl) < 0 ? "negative" : "positive"}">${money(item.realizedPnl)}</span>
       </div>
