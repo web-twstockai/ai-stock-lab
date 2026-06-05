@@ -1,9 +1,6 @@
 name: Daily Market Update
 
 on:
-  schedule:
-    # GitHub Actions uses UTC. Taiwan time is UTC+8.
-    - cron: "30 10 * * *"  # 18:30 Taiwan time, every day.
   workflow_dispatch:
     inputs:
       operator:
