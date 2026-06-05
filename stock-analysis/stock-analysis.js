@@ -13,6 +13,7 @@
     symbol: initialSymbol,
     stockUniverse: new Map(),
     revenueUniverse: new Map(),
+    themeUniverse: new Map(),
     regularBoardVolume: new Map(),
     timeframe: "day",
     rows: [],
@@ -52,8 +53,8 @@
   const colors = {
     grid: "#e4edf8",
     text: "#52657f",
-    up: "#00a878",
-    down: "#ef5350",
+    up: "#ef5350",
+    down: "#00a878",
     ma5: "#2f80ed",
     ma10: "#f5a623",
     ma20: "#8b5cf6",
@@ -224,7 +225,10 @@
       fetchJson("../data/site-data.json"),
     ]);
     sources.forEach((result) => {
-      if (result.status === "fulfilled") ingestRevenueData(result.value);
+      if (result.status === "fulfilled") {
+        ingestRevenueData(result.value);
+        ingestThemeData(result.value);
+      }
       else console.warn("[stock-analysis] revenue source unavailable", result.reason);
     });
     updateRevenueCard(state.symbol);
@@ -239,12 +243,19 @@
       }
       if (!value || typeof value !== "object") return;
       addRevenueStock(value);
+      addThemeStock(value);
       Object.entries(value).forEach(([key, child]) => {
         if (key === "series" || key === "history" || key === "price") return;
         visit(child);
       });
     };
     visit(data);
+  }
+
+  function ingestThemeData(data) {
+    Object.entries(data?.themeHeat || {}).forEach(([theme, item]) => {
+      (item?.leaders || []).forEach((stock) => addThemeStock(stock, theme));
+    });
   }
 
   function addRevenueStock(stock) {
@@ -255,12 +266,29 @@
     state.revenueUniverse.set(symbol, {
       symbol,
       name: stock.name || "",
+      sector: stock.sector || stock.revenueSector || "",
+      market: stock.market || "",
       revenue: Number(stock.revenue),
       revenueYoy: Number(stock.revenueYoy),
       revenueMom: Number(stock.revenueMom),
       revenueMonth: stock.revenueMonth,
       revenueSector: stock.revenueSector,
     });
+  }
+
+  function addThemeStock(stock, themeName) {
+    const symbol = String(stock?.symbol || stock?.code || "").trim();
+    if (!symbol) return;
+    const themes = [
+      ...(Array.isArray(stock.themes) ? stock.themes : []),
+      themeName,
+    ].filter(Boolean).map((theme) => String(theme).trim()).filter(Boolean);
+    if (!themes.length) return;
+    const current = state.themeUniverse.get(symbol) || [];
+    themes.forEach((theme) => {
+      if (!current.includes(theme)) current.push(theme);
+    });
+    state.themeUniverse.set(symbol, current.slice(0, 8));
   }
 
   async function loadRegularBoardVolume() {
@@ -702,6 +730,7 @@
   function updateDerivedPanels(symbol, rows) {
     const stats = buildStockStats(symbol, rows);
     if (!stats) return;
+    syncSummaryIdentity(stats);
     updateScoreCards(stats);
     updateAnalysisCards(stats);
     updateRevenueCard(symbol);
@@ -760,18 +789,31 @@
       trend,
       volumeStatus,
       risk,
-      themes: themesFor(stock.sector),
+      themes: themesForStock(symbol, stock.sector),
     };
   }
 
   function resolvedStockInfo(symbol) {
     const stock = { ...stockInfo(symbol) };
+    const revenue = state.revenueUniverse.get(symbol);
     const metaText = document.querySelector("#stockMeta")?.textContent?.trim() || "";
     const [sector, market] = metaText.split("/").map((part) => part.trim()).filter(Boolean);
+    const staleName = !stock.name || stock.name === symbol || /^\d{4}\s+/.test(stock.name);
+    if ((staleName || revenue?.name) && revenue?.name) stock.name = revenue.name;
+    if ((!stock.sector || stock.sector === "股票資料") && revenue?.sector) stock.sector = revenue.sector;
+    if ((!stock.market || stock.market === "股票資料") && revenue?.market) stock.market = revenue.market;
     if ((!stock.sector || stock.sector === "股票資料") && sector && sector !== "股票資料") stock.sector = sector;
     if ((!stock.market || stock.market === "股票資料") && market && market !== "股票資料") stock.market = market;
+    stock.label = stock.name ? `${symbol} ${stock.name}` : symbol;
     state.stockUniverse.set(symbol, stock);
     return stock;
+  }
+
+  function syncSummaryIdentity(stats) {
+    const title = document.querySelector("#stockTitle");
+    const meta = document.querySelector("#stockMeta");
+    if (title) title.textContent = stats.stock.label;
+    if (meta) meta.textContent = [stats.stock.sector, stats.stock.market].filter(Boolean).join(" / ") || "股票資料";
   }
 
   function updateScoreCards(stats) {
@@ -1196,7 +1238,7 @@
     rows.forEach((row, index) => {
       const barHeight = (row.volume / volumeMax) * (area.height - 18);
       const x = xFor(area, rows, index) - candleStep * 0.34;
-      ctx.fillStyle = row.close >= row.open ? "rgba(0, 168, 120, .45)" : "rgba(239, 83, 80, .45)";
+      ctx.fillStyle = row.close >= row.open ? "rgba(239, 83, 80, .45)" : "rgba(0, 168, 120, .45)";
       ctx.fillRect(x, yBase - barHeight, Math.max(2, candleStep * 0.68), barHeight);
     });
     ctx.fillStyle = colors.text;
@@ -1272,7 +1314,7 @@
     rows.forEach((row, index) => {
       const x = xFor(area, rows, index);
       const y = yFor(area, range, row.histogram);
-      ctx.fillStyle = row.histogram >= 0 ? "rgba(0, 168, 120, .7)" : "rgba(239, 83, 80, .7)";
+      ctx.fillStyle = row.histogram >= 0 ? "rgba(239, 83, 80, .7)" : "rgba(0, 168, 120, .7)";
       ctx.fillRect(x - step * 0.28, Math.min(y, zeroY), Math.max(2, step * 0.56), Math.abs(zeroY - y));
     });
     drawSeriesLine(rows, area, range, "macd", colors.macd, 1.4);
@@ -1385,6 +1427,12 @@
     ];
     const match = map.find(([pattern]) => pattern.test(text));
     return match ? match[1] : "台股題材 / 價量動能";
+  }
+
+  function themesForStock(symbol, sector) {
+    const themes = state.themeUniverse.get(symbol) || [];
+    if (themes.length) return themes.slice(0, 6).join(" / ");
+    return themesFor(sector);
   }
 
   function setStatus(text) {
