@@ -4,9 +4,18 @@ const DEFAULT_REF = "main";
 
 const CRON_DISPATCHES = {
   // Cloudflare Cron uses UTC. Taiwan time is UTC+8.
+  "45 7 * * 1-5": [ // 15:45 Taiwan time, Monday-Friday. Check Europe macro releases once.
+    { workflow: "admin-update.yml", inputs: { task: "macro-watch-europe" } },
+  ],
   "30 10 * * *": [ // 18:30 Taiwan time, every day. Run both after-market jobs independently.
     { workflow: "daily-market-1830.yml", inputs: {} },
     { workflow: "institutional-robot-1830.yml", inputs: {} },
+  ],
+  "40 10 * * *": [ // 18:40 Taiwan time, every day.
+    { workflow: "quant-robots-1840.yml", inputs: {} },
+  ],
+  "25 12 * * 1-5": [ // 20:25 Taiwan time, Monday-Friday. Check US macro releases once.
+    { workflow: "admin-update.yml", inputs: { task: "macro-watch-us" } },
   ],
   "40 14 * * *": [ // 22:40 Taiwan time, every day.
     { workflow: "short-margin-daily.yml", inputs: {} },
@@ -17,8 +26,11 @@ const TEST_TASKS = {
   "daily-market": { workflow: "daily-market-1830.yml", inputs: {} },
   institutional: { workflow: "institutional-robot-1830.yml", inputs: {} },
   "short-margin": { workflow: "short-margin-daily.yml", inputs: {} },
+  quant: { workflow: "quant-robots-1840.yml", inputs: {} },
   intelligence: { workflow: "admin-update.yml", inputs: { task: "intelligence" } },
   macro: { workflow: "admin-update.yml", inputs: { task: "macro" } },
+  "macro-europe": { workflow: "admin-update.yml", inputs: { task: "macro-watch-europe" } },
+  "macro-us": { workflow: "admin-update.yml", inputs: { task: "macro-watch-us" } },
 };
 
 export default {

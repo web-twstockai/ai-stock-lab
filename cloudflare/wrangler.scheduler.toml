@@ -1,0 +1,18 @@
+name = "ai-stock-lab-scheduler"
+main = "scheduler-worker.js"
+compatibility_date = "2026-06-05"
+
+[vars]
+GITHUB_OWNER = "web-twstockai"
+GITHUB_REPO = "ai-stock-lab"
+GITHUB_REF = "main"
+
+[triggers]
+crons = [
+  # Cloudflare Cron uses UTC. Taiwan time is UTC+8.
+  "45 7 * * 1-5",  # 15:45 Taiwan time, Monday-Friday. Macro Europe check.
+  "30 10 * * *",   # 18:30 Taiwan time, every day. Daily market and institutional robots.
+  "40 10 * * *",   # 18:40 Taiwan time, every day. Quant robots.
+  "25 12 * * 1-5", # 20:25 Taiwan time, Monday-Friday. Macro US check.
+  "40 14 * * *",   # 22:40 Taiwan time, every day. Short margin robot.
+]
