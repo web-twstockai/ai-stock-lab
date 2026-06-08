@@ -294,6 +294,7 @@
     const detectedCount = stats[0]?.value ?? stocks.length;
     const highRatioCount = stats[1]?.value ?? stocks.filter((stock) => Number(stock.ratio) >= 100).length;
     const borrowIncreaseCount = stats[3]?.value ?? stocks.filter((stock) => Number(stock.borrowSellChange) > 0).length;
+    const shortMarginUpdatedAt = shortMargin.updatedAt || raw.updatedAt;
     const institutionalCount = Number(String((overview.robots || [])[1]?.stats?.[0]?.[1] || "").replace(/[^\d.-]/g, "")) || 0;
     const macroCount = Number(String((overview.robots || [])[2]?.stats?.[0]?.[1] || "").replace(/[^\d.-]/g, "")) || 0;
     const baseHighCount = Number(overview.cards?.[1]?.value) || 0;
@@ -309,6 +310,7 @@
         ...robot,
         title: "雙券資比偵測機器人",
         href: "company-insider-robot/",
+        updatedAt: shortMarginUpdatedAt,
         stats: [
           ["偵測", `${detectedCount} 檔`],
           ["雙券資比 > 100%", `${highRatioCount} 檔`],
@@ -320,6 +322,7 @@
 
     return {
       ...overview,
+      updatedAt: [overview.updatedAt, shortMarginUpdatedAt].filter(Boolean).sort().at(-1) || overview.updatedAt,
       cards,
       robots,
     };

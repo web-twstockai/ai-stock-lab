@@ -86,6 +86,7 @@
         <span class="circle-icon">${icon("file")}</span>
         <div class="robot-copy">
           <h2>${esc(robot.title)}</h2>
+          ${robot.updatedAt ? `<p class="robot-updated">更新 ${esc(robot.updatedAt)}</p>` : ""}
           <div class="robot-stats">
             ${robot.stats.map(([label, value]) => `<span>${esc(label)}<strong>${esc(value)}</strong></span>`).join("")}
           </div>
