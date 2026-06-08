@@ -281,7 +281,7 @@ def build_stats(stocks):
         {"title": "空方重壓", "value": sum(1 for stock in stocks if (stock.get("ratio") or 0) >= 100), "unit": "筆", "icon": "alert", "tone": "red"},
         {"title": "軋空觀察", "value": sum(1 for stock in stocks if "軋空" in stock.get("status", "")), "unit": "筆", "icon": "rocket", "tone": "purple"},
         {"title": "借券增加", "value": sum(1 for stock in stocks if stock.get("borrowSellChange", 0) > 0), "unit": "筆", "icon": "trend", "tone": "orange"},
-        {"title": "融資追價", "value": sum(1 for stock in stocks if stock.get("marginChange", 0) > 0 and (stock.get("changePercent") or 0) > 0), "unit": "筆", "icon": "users", "tone": "green"},
+        {"title": "融資追價", "value": sum(1 for stock in stocks if stock.get("marginChange", 0) > 0 and (stock.get("changePercent") or 0) >= 0), "unit": "筆", "icon": "users", "tone": "green"},
     ]
 
 

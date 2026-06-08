@@ -59,13 +59,29 @@
     return "risk-squeeze";
   }
 
+  function matchesNamedFilter(filter, stock) {
+    const status = String(stock.status || "");
+    if (filter === "全部") return true;
+    if (filter === "空方重壓") return status.includes("極端") || status.includes("重壓") || Number(stock.ratio) >= 100;
+    if (filter === "軋空觀察") return status.includes("軋空");
+    if (filter === "借券增加") return Number(stock.borrowSellChange) > 0;
+    if (filter === "融資追價") return Number(stock.marginChange) > 0 && Number(stock.changePercent) >= 0;
+    if (filter === "回補轉強") return Number(stock.shortChange) < 0 && Number(stock.borrowSellChange) < 0;
+    return status === filter;
+  }
+
   function matchesFilter(stock) {
-    if (state.filter === "全部") return true;
-    if (state.filter === "空方重壓") return stock.status.includes("極端") || stock.status.includes("重壓") || stock.ratio >= 100;
-    if (state.filter === "借券增加") return Number(stock.borrowSellChange) > 0;
-    if (state.filter === "融資追價") return Number(stock.marginChange) > 0 && Number(stock.changePercent) >= 0;
-    if (state.filter === "回補轉強") return Number(stock.shortChange) < 0 && Number(stock.borrowSellChange) < 0;
-    return stock.status === state.filter;
+    return matchesNamedFilter(state.filter, stock);
+  }
+
+  function statItems() {
+    return [
+      { title: "今日偵測", value: data.stocks.length, unit: "筆", icon: "file", tone: "blue" },
+      { title: "空方重壓", value: data.stocks.filter((stock) => matchesNamedFilter("空方重壓", stock)).length, unit: "筆", icon: "alert", tone: "red" },
+      { title: "軋空觀察", value: data.stocks.filter((stock) => matchesNamedFilter("軋空觀察", stock)).length, unit: "筆", icon: "rocket", tone: "purple" },
+      { title: "借券增加", value: data.stocks.filter((stock) => matchesNamedFilter("借券增加", stock)).length, unit: "筆", icon: "trend", tone: "orange" },
+      { title: "融資追價", value: data.stocks.filter((stock) => matchesNamedFilter("融資追價", stock)).length, unit: "筆", icon: "users", tone: "green" },
+    ];
   }
 
   function filteredStocks() {
@@ -86,7 +102,7 @@
     if ($("[data-date]") && data.date && !$("[data-date]").value) {
       $("[data-date]").value = data.date.replace(/\//g, "-");
     }
-    $("[data-stat-grid]").innerHTML = data.stats.map((item) => `
+    $("[data-stat-grid]").innerHTML = statItems().map((item) => `
       <article class="short-ratio-stat">
         <span class="short-ratio-stat-icon ${esc(item.tone)}">${icon(item.icon)}</span>
         <div>
