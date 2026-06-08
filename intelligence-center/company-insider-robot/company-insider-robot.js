@@ -63,7 +63,7 @@
     const status = String(stock.status || "");
     if (filter === "全部") return true;
     if (filter === "空方重壓") return status.includes("極端") || status.includes("重壓") || Number(stock.ratio) >= 100;
-    if (filter === "軋空觀察") return status.includes("軋空");
+    if (filter === "軋空觀察") return status === "軋空觀察";
     if (filter === "借券增加") return Number(stock.borrowSellChange) > 0;
     if (filter === "融資追價") return Number(stock.marginChange) > 0 && Number(stock.changePercent) >= 0;
     if (filter === "回補轉強") return Number(stock.shortChange) < 0 && Number(stock.borrowSellChange) < 0;

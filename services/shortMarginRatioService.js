@@ -223,7 +223,7 @@
     return [
       { title: "今日偵測", value: stocks.length, unit: "筆", icon: "file", tone: "blue" },
       { title: "空方重壓", value: stocks.filter((stock) => (stock.ratio || 0) >= 100).length, unit: "筆", icon: "alert", tone: "red" },
-      { title: "軋空觀察", value: stocks.filter((stock) => stock.status.includes("軋空")).length, unit: "筆", icon: "rocket", tone: "purple" },
+      { title: "軋空觀察", value: stocks.filter((stock) => stock.status === "軋空觀察").length, unit: "筆", icon: "rocket", tone: "purple" },
       { title: "借券增加", value: stocks.filter((stock) => stock.borrowSellChange > 0).length, unit: "筆", icon: "trend", tone: "orange" },
       { title: "融資追價", value: stocks.filter((stock) => stock.marginChange > 0 && Number(stock.changePercent) >= 0).length, unit: "筆", icon: "users", tone: "green" },
     ];
