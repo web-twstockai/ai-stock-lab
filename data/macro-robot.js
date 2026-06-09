@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/09 07:46",
+  "updatedAt": "2026/06/09 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@ window.MacroRobotData = {
     },
     {
       "label": "即將公布",
-      "value": 100,
+      "value": 99,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@ window.MacroRobotData = {
     },
     {
       "label": "下一個事件",
-      "value": "ADP 就業人數",
-      "unit": "倒數 13 小時",
+      "value": "核心通膨率",
+      "unit": "倒數 1 天",
       "icon": "filter"
     }
   ],
@@ -1957,9 +1957,9 @@ window.MacroRobotData = {
       "publishTime": "2026/06/09 20:15",
       "previous": "35.75",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 13 小時",
-      "statusLevel": "soon",
+      "actual": "29",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -1970,7 +1970,7 @@ window.MacroRobotData = {
         "中性"
       ],
       "summary": "ADP 就業人數 將於 2026/06/09 20:15 公布，市場關注前值 35.75、預期 —。",
-      "event": "美國 ADP 就業人數，前值 35.75、預期 —、實際 尚未公布。",
+      "event": "美國 ADP 就業人數，前值 35.75、預期 —、實際 29。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
