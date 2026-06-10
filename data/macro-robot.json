@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/06/10 07:46",
+  "updatedAt": "2026/06/10 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@
     {
       "label": "下一個事件",
       "value": "核心通膨率",
-      "unit": "倒數 13 小時",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -2116,7 +2116,7 @@
       "previous": "0.4",
       "forecast": "0.3",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2150,7 +2150,7 @@
       "previous": "0.6",
       "forecast": "0.5",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2184,7 +2184,7 @@
       "previous": "333.02",
       "forecast": "335.11",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
