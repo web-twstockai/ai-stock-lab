@@ -1,10 +1,10 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/06/09 18:30",
+  "updatedAt": "2026/06/10 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 256,
+      "value": 261,
       "unit": "筆",
       "icon": "file"
     },
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "12 個"
+          "17 個"
         ],
         [
           "下一事件",
@@ -314,6 +314,40 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
+      "id": "macro-richmond-fed-manufacturing-shipments-index-may-20260527",
+      "type": "macro",
+      "title": "Richmond Fed Manufacturing Shipments Index (May)",
+      "eventName": "Richmond Fed Manufacturing Shipments Index (May)",
+      "originalEventName": "Richmond Fed Manufacturing Shipments Index (May)",
+      "sourcePublishTime": "2026/05/27 22:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/05/27 22:00",
+      "previous": "-2",
+      "forecast": "—",
+      "actual": "16",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/05/27 22:00",
+      "tags": [
+        "美國",
+        "Richmond",
+        "中性"
+      ],
+      "summary": "Richmond Fed Manufacturing Shipments Index (May) 將於 2026/05/27 22:00 公布，市場關注前值 -2、預期 —。",
+      "event": "美國 Richmond Fed Manufacturing Shipments Index (May)，前值 -2、預期 —、實際 16。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.richmondfed.org",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-adp-employment-change-weekly-20260527",
       "type": "macro",
       "title": "ADP 就業人數",
@@ -381,77 +415,9 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar"
       ]
-    },
-    {
-      "id": "macro-dallas-fed-manufacturing-index-may-20260526",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (May)",
-      "eventName": "Dallas Fed Manufacturing Index (May)",
-      "originalEventName": "Dallas Fed Manufacturing Index (May)",
-      "sourcePublishTime": "2026/05/26 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/05/26 22:30",
-      "previous": "-2.3",
-      "forecast": "—",
-      "actual": "0.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/05/26 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (May) 將於 2026/05/26 22:30 公布，市場關注前值 -2.3、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (May)，前值 -2.3、預期 —、實際 0.4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-dallas-fed-manufacturing-index-may-20260526",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (May)",
-      "eventName": "Dallas Fed Manufacturing Index (May)",
-      "originalEventName": "Dallas Fed Manufacturing Index (May)",
-      "sourcePublishTime": "2026/05/26 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/05/26 22:30",
-      "previous": "-2.3",
-      "forecast": "—",
-      "actual": "0.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/05/26 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (May) 將於 2026/05/26 22:30 公布，市場關注前值 -2.3、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (May)，前值 -2.3、預期 —、實際 0.4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-ecb-financial-stability-review-20260527",
       "type": "macro",
@@ -688,6 +654,40 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.ecb.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-continuing-jobless-claims-may-16-20260528",
+      "type": "macro",
+      "title": "初領失業救濟金人數",
+      "eventName": "初領失業救濟金人數",
+      "originalEventName": "Continuing Jobless Claims (May/16)",
+      "sourcePublishTime": "2026/05/28 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/05/28 20:30",
+      "previous": "1771",
+      "forecast": "1780",
+      "actual": "1786",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "importance": "中高",
+      "timestamp": "2026/05/28 20:30",
+      "tags": [
+        "美國",
+        "初領失業救濟金人數",
+        "偏多"
+      ],
+      "summary": "初領失業救濟金人數 將於 2026/05/28 20:30 公布，市場關注前值 1771、預期 1780。",
+      "event": "美國 初領失業救濟金人數，前值 1771、預期 1780、實際 1786。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.dol.gov",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
