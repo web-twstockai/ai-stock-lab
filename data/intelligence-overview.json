@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026/06/10 18:30",
+  "updatedAt": "2026/06/11 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 261,
+      "value": 257,
       "unit": "筆",
       "icon": "file"
     },
@@ -23,7 +23,7 @@
     },
     {
       "label": "下一個總經事件",
-      "value": "ECB Financial Stability Review",
+      "value": "ECB Monetary Policy Meeting Accounts",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@
       "stats": [
         [
           "本週事件",
-          "17 個"
+          "20 個"
         ],
         [
           "下一事件",
-          "ECB Financial Stability Review"
+          "ECB Monetary Policy Meeting Accounts"
         ],
         [
           "狀態",
@@ -280,117 +280,48 @@
       }
     },
     {
-      "id": "macro-richmond-fed-manufacturing-index-may-20260527",
+      "id": "macro-continuing-jobless-claims-may-16-20260528",
       "type": "macro",
-      "title": "Richmond Fed Manufacturing Index (May)",
-      "eventName": "Richmond Fed Manufacturing Index (May)",
-      "originalEventName": "Richmond Fed Manufacturing Index (May)",
-      "sourcePublishTime": "2026/05/27 22:00 Asia/Taipei",
+      "title": "初領失業救濟金人數",
+      "eventName": "初領失業救濟金人數",
+      "originalEventName": "Continuing Jobless Claims (May/16)",
+      "sourcePublishTime": "2026/05/28 20:30 Asia/Taipei",
       "country": "美國",
-      "publishTime": "2026/05/27 22:00",
-      "previous": "3",
-      "forecast": "4",
-      "actual": "13",
+      "publishTime": "2026/05/28 20:30",
+      "previous": "1771",
+      "forecast": "1780",
+      "actual": "1786",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "importance": "中高",
-      "timestamp": "2026/05/27 22:00",
+      "timestamp": "2026/05/28 20:30",
       "tags": [
         "美國",
-        "Richmond",
+        "初領失業救濟金人數",
         "偏多"
       ],
-      "summary": "Richmond Fed Manufacturing Index (May) 將於 2026/05/27 22:00 公布，市場關注前值 3、預期 4。",
-      "event": "美國 Richmond Fed Manufacturing Index (May)，前值 3、預期 4、實際 13。",
+      "summary": "初領失業救濟金人數 將於 2026/05/28 20:30 公布，市場關注前值 1771、預期 1780。",
+      "event": "美國 初領失業救濟金人數，前值 1771、預期 1780、實際 1786。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
+      "sourceUrl": "http://www.dol.gov",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
     },
     {
-      "id": "macro-richmond-fed-manufacturing-shipments-index-may-20260527",
+      "id": "macro-ecb-monetary-policy-meeting-accounts-20260528",
       "type": "macro",
-      "title": "Richmond Fed Manufacturing Shipments Index (May)",
-      "eventName": "Richmond Fed Manufacturing Shipments Index (May)",
-      "originalEventName": "Richmond Fed Manufacturing Shipments Index (May)",
-      "sourcePublishTime": "2026/05/27 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/05/27 22:00",
-      "previous": "-2",
-      "forecast": "—",
-      "actual": "16",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/05/27 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Manufacturing Shipments Index (May) 將於 2026/05/27 22:00 公布，市場關注前值 -2、預期 —。",
-      "event": "美國 Richmond Fed Manufacturing Shipments Index (May)，前值 -2、預期 —、實際 16。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-adp-employment-change-weekly-20260527",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/05/27 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/05/27 20:15",
-      "previous": "40.75",
-      "forecast": "—",
-      "actual": "35.75",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/05/27 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/05/27 20:15 公布，市場關注前值 40.75、預期 —。",
-      "event": "美國 ADP 就業人數，前值 40.75、預期 —、實際 35.75。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-ecb-financial-stability-review-20260527",
-      "type": "macro",
-      "title": "ECB Financial Stability Review",
-      "eventName": "ECB Financial Stability Review",
-      "originalEventName": "ECB Financial Stability Review",
-      "sourcePublishTime": "2026/05/27 16:00 Asia/Taipei",
+      "title": "ECB Monetary Policy Meeting Accounts",
+      "eventName": "ECB Monetary Policy Meeting Accounts",
+      "originalEventName": "ECB Monetary Policy Meeting Accounts",
+      "sourcePublishTime": "2026/05/28 19:30 Asia/Taipei",
       "country": "歐元區",
-      "publishTime": "2026/05/27 16:00",
+      "publishTime": "2026/05/28 19:30",
       "previous": "—",
       "forecast": "—",
       "actual": null,
@@ -399,14 +330,14 @@
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
-      "timestamp": "2026/05/27 16:00",
+      "timestamp": "2026/05/28 19:30",
       "tags": [
         "歐元區",
         "ECB",
         "中性"
       ],
-      "summary": "ECB Financial Stability Review 將於 2026/05/27 16:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 ECB Financial Stability Review，前值 —、預期 —、實際 尚未公布。",
+      "summary": "ECB Monetary Policy Meeting Accounts 將於 2026/05/28 19:30 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 ECB Monetary Policy Meeting Accounts，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -414,147 +345,79 @@
       "sourceUrl": "https://www.ecb.europa.eu",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-services-sentiment-may-20260528",
+      "type": "macro",
+      "title": "Services Sentiment (May)",
+      "eventName": "Services Sentiment (May)",
+      "originalEventName": "Services Sentiment (May)",
+      "sourcePublishTime": "2026/05/28 17:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/05/28 17:00",
+      "previous": "1.4",
+      "forecast": "0.2",
+      "actual": "2.2",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/05/28 17:00",
+      "tags": [
+        "歐元區",
+        "Services",
+        "偏多"
+      ],
+      "summary": "Services Sentiment (May) 將於 2026/05/28 17:00 公布，市場關注前值 1.4、預期 0.2。",
+      "event": "歐元區 Services Sentiment (May)，前值 1.4、預期 0.2、實際 2.2。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://ec.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ppi-mom-apr-20260528",
+      "type": "macro",
+      "title": "生產者物價指數 PPI",
+      "eventName": "生產者物價指數 PPI",
+      "originalEventName": "PPI MoM (Apr)",
+      "sourcePublishTime": "2026/05/28 14:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/05/28 14:45",
+      "previous": "1.9",
+      "forecast": "1.1",
+      "actual": "-2.1",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/05/28 14:45",
+      "tags": [
+        "法國",
+        "生產者物價指數",
+        "中性"
+      ],
+      "summary": "生產者物價指數 PPI 將於 2026/05/28 14:45 公布，市場關注前值 1.9、預期 —。",
+      "event": "法國 生產者物價指數 PPI，前值 1.9、預期 —、實際 -2.1。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-ecb-financial-stability-review-20260527",
-      "type": "macro",
-      "title": "ECB Financial Stability Review",
-      "eventName": "ECB Financial Stability Review",
-      "originalEventName": "ECB Financial Stability Review",
-      "sourcePublishTime": "2026/05/27 16:00 Asia/Taipei",
-      "country": "歐元區",
-      "publishTime": "2026/05/27 16:00",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "等待公布",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/05/27 16:00",
-      "tags": [
-        "歐元區",
-        "ECB",
-        "中性"
-      ],
-      "summary": "ECB Financial Stability Review 將於 2026/05/27 16:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 ECB Financial Stability Review，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.ecb.europa.eu",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-adp-employment-change-weekly-20260527",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/05/27 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/05/27 20:15",
-      "previous": "40.75",
-      "forecast": "—",
-      "actual": "35.75",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/05/27 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/05/27 20:15 公布，市場關注前值 40.75、預期 —。",
-      "event": "美國 ADP 就業人數，前值 40.75、預期 —、實際 35.75。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-manufacturing-index-may-20260527",
-      "type": "macro",
-      "title": "Richmond Fed Manufacturing Index (May)",
-      "eventName": "Richmond Fed Manufacturing Index (May)",
-      "originalEventName": "Richmond Fed Manufacturing Index (May)",
-      "sourcePublishTime": "2026/05/27 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/05/27 22:00",
-      "previous": "3",
-      "forecast": "4",
-      "actual": "13",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/05/27 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "偏多"
-      ],
-      "summary": "Richmond Fed Manufacturing Index (May) 將於 2026/05/27 22:00 公布，市場關注前值 3、預期 4。",
-      "event": "美國 Richmond Fed Manufacturing Index (May)，前值 3、預期 4、實際 13。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-manufacturing-shipments-index-may-20260527",
-      "type": "macro",
-      "title": "Richmond Fed Manufacturing Shipments Index (May)",
-      "eventName": "Richmond Fed Manufacturing Shipments Index (May)",
-      "originalEventName": "Richmond Fed Manufacturing Shipments Index (May)",
-      "sourcePublishTime": "2026/05/27 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/05/27 22:00",
-      "previous": "-2",
-      "forecast": "—",
-      "actual": "16",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/05/27 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Manufacturing Shipments Index (May) 將於 2026/05/27 22:00 公布，市場關注前值 -2、預期 —。",
-      "event": "美國 Richmond Fed Manufacturing Shipments Index (May)，前值 -2、預期 —、實際 16。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-ppi-mom-apr-20260528",
       "type": "macro",
@@ -688,6 +551,145 @@
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.dol.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-gdp-price-index-qoq-2nd-est-q1-20260528",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP Price Index QoQ 2nd Est (Q1)",
+      "sourcePublishTime": "2026/05/28 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/05/28 20:30",
+      "previous": "3.6",
+      "forecast": "4.5",
+      "actual": "3.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/05/28 20:30",
+      "tags": [
+        "美國",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/05/28 20:30 公布，市場關注前值 3.6、預期 4.5。",
+      "event": "美國 GDP 經濟成長率，前值 3.6、預期 4.5、實際 3.5。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-core-pce-prices-qoq-2nd-est-q1-20260528",
+      "type": "macro",
+      "title": "核心 PCE 物價指數",
+      "eventName": "核心 PCE 物價指數",
+      "originalEventName": "Core PCE Prices QoQ 2nd Est (Q1)",
+      "sourcePublishTime": "2026/05/28 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/05/28 20:30",
+      "previous": "2.7",
+      "forecast": "4.3",
+      "actual": "4.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/05/28 20:30",
+      "tags": [
+        "美國",
+        "核心",
+        "偏空"
+      ],
+      "summary": "核心 PCE 物價指數 將於 2026/05/28 20:30 公布，市場關注前值 2.7、預期 4.3。",
+      "event": "美國 核心 PCE 物價指數，前值 2.7、預期 4.3、實際 4.4。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-pce-price-index-mom-apr-20260528",
+      "type": "macro",
+      "title": "PCE 物價指數",
+      "eventName": "PCE 物價指數",
+      "originalEventName": "PCE Price Index MoM (Apr)",
+      "sourcePublishTime": "2026/05/28 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/05/28 20:30",
+      "previous": "0.7",
+      "forecast": "0.5",
+      "actual": "0.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/05/28 20:30",
+      "tags": [
+        "美國",
+        "PCE",
+        "偏多"
+      ],
+      "summary": "PCE 物價指數 將於 2026/05/28 20:30 公布，市場關注前值 0.7、預期 0.5。",
+      "event": "美國 PCE 物價指數，前值 0.7、預期 0.5、實際 0.4。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-harmonised-inflation-rate-yoy-prel-may-20260529",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Harmonised Inflation Rate YoY Prel (May)",
+      "sourcePublishTime": "2026/05/29 14:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/05/29 14:45",
+      "previous": "2.5",
+      "forecast": "2.9",
+      "actual": "2.8",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/05/29 14:45",
+      "tags": [
+        "法國",
+        "通膨率",
+        "偏多"
+      ],
+      "summary": "通膨率 將於 2026/05/29 14:45 公布，市場關注前值 2.5、預期 2.9。",
+      "event": "法國 通膨率，前值 2.5、預期 2.9、實際 2.8。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
