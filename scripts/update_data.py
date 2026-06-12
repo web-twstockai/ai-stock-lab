@@ -17,6 +17,7 @@ from data_backup import backup_file
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "candidates.json"
 MODEL_LIBRARY = ROOT / "data" / "model_library.json"
+HISTORY_MANIFEST = ROOT / "data" / "history" / "manifest.json"
 
 URLS = {
     "twse_company": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
@@ -80,7 +81,12 @@ def http_json(url):
         request = urllib.request.Request(url, headers=headers)
         try:
             with urllib.request.urlopen(request, timeout=35, context=context) as response:
-                return json.loads(response.read().decode("utf-8-sig"))
+                body = response.read().decode("utf-8-sig")
+                try:
+                    return json.loads(body)
+                except json.JSONDecodeError as exc:
+                    preview = body[:180].replace("\n", " ").replace("\r", " ").strip()
+                    last_error = ValueError(f"Non-JSON response from {url}: {preview or '<empty>'}")
         except urllib.error.HTTPError as exc:
             last_error = exc
             if exc.code < 500 and exc.code != 429:
@@ -90,6 +96,44 @@ def http_json(url):
         if attempt < 3:
             time.sleep(2 * (attempt + 1))
     raise last_error
+
+
+def warn(message):
+    print(f"[update-data] WARNING: {message}", flush=True)
+
+
+def safe_http_json(url, label):
+    try:
+        return http_json(url)
+    except Exception as exc:
+        warn(f"{label} unavailable: {exc}")
+        return []
+
+
+def load_manifest_universe():
+    try:
+        manifest = json.loads(HISTORY_MANIFEST.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError) as exc:
+        warn(f"history manifest unavailable for universe fallback: {exc}")
+        return {}
+
+    universe = {}
+    for item in manifest.get("symbols", []):
+        symbol = str(item.get("symbol") or "").strip()
+        if not symbol.isdigit() or len(symbol) != 4:
+            continue
+        yahoo_symbol = str(item.get("yahooSymbol") or item.get("yahoo_symbol") or "").upper()
+        suffix = yahoo_symbol.split(".", 1)[1] if "." in yahoo_symbol else "TW"
+        market = "TPEX" if suffix == "TWO" else "TWSE"
+        market_name = item.get("market") or ("上櫃" if market == "TPEX" else "上市")
+        universe[(market, symbol)] = {
+            "market": market_name,
+            "suffix": suffix,
+            "symbol": symbol,
+            "name": item.get("name") or symbol,
+            "sector": item.get("sector") or "未分類",
+        }
+    return universe
 
 
 def to_float(value, default=None):
@@ -286,7 +330,7 @@ def merge_institutional(target, market, daily):
 
 def build_universe():
     universe = {}
-    twse_companies = http_json(URLS["twse_company"])
+    twse_companies = safe_http_json(URLS["twse_company"], "TWSE company universe")
     for item in twse_companies:
         symbol = item.get("公司代號", "")
         if symbol.isdigit() and len(symbol) == 4:
@@ -298,7 +342,7 @@ def build_universe():
                 "sector": SECTOR_MAP.get(item.get("產業別"), "未分類"),
             }
 
-    tpex_companies = http_json(URLS["tpex_company"])
+    tpex_companies = safe_http_json(URLS["tpex_company"], "TPEX company universe")
     for item in tpex_companies:
         symbol = item.get("SecuritiesCompanyCode", "")
         if symbol.isdigit() and len(symbol) == 4:
@@ -309,13 +353,24 @@ def build_universe():
                 "name": item.get("CompanyAbbreviation") or item.get("CompanyName") or symbol,
                 "sector": SECTOR_MAP.get(item.get("SecuritiesIndustryCode"), "未分類"),
             }
+
+    fallback = load_manifest_universe()
+    missing = 0
+    for key, item in fallback.items():
+        if key not in universe:
+            universe[key] = item
+            missing += 1
+    if missing:
+        warn(f"filled {missing} universe symbols from history manifest fallback")
+    if not universe:
+        raise ValueError("No stock universe available from TWSE/TPEX APIs or history manifest.")
     return universe
 
 
 def build_revenue_map():
     revenue = {}
     for market, url in [("TWSE", URLS["twse_revenue"]), ("TPEX", URLS["tpex_revenue"])]:
-        for item in http_json(url):
+        for item in safe_http_json(url, f"{market} revenue"):
             symbol = item.get("公司代號")
             if not symbol:
                 continue
@@ -331,7 +386,7 @@ def build_revenue_map():
 
 def build_valuation_map():
     valuation = {}
-    for item in http_json(URLS["twse_valuation"]):
+    for item in safe_http_json(URLS["twse_valuation"], "TWSE valuation"):
         symbol = item.get("Code")
         if symbol:
             valuation[("TWSE", symbol)] = {
@@ -339,7 +394,7 @@ def build_valuation_map():
                 "pb": to_float(item.get("PBratio")),
                 "dividendYield": to_float(item.get("DividendYield"), 0) or 0,
             }
-    for item in http_json(URLS["tpex_valuation"]):
+    for item in safe_http_json(URLS["tpex_valuation"], "TPEX valuation"):
         symbol = item.get("SecuritiesCompanyCode")
         if symbol:
             valuation[("TPEX", symbol)] = {
