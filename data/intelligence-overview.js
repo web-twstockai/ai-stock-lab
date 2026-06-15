@@ -4,7 +4,7 @@ window.IntelligenceOverviewData = {
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 247,
+      "value": 250,
       "unit": "筆",
       "icon": "file"
     },
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "14 個"
+          "17 個"
         ],
         [
           "下一事件",

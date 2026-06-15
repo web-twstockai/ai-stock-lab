@@ -1,16 +1,16 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/15 07:46",
+  "updatedAt": "2026/06/15 12:26",
   "status": "運作中",
   "summary": [
     {
       "label": "本週事件",
-      "value": 14,
+      "value": 17,
       "unit": "個",
       "icon": "calendar"
     },
     {
       "label": "即將公布",
-      "value": 96,
+      "value": 99,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@ window.MacroRobotData = {
     },
     {
       "label": "下一個事件",
-      "value": "ADP 就業人數",
-      "unit": "倒數 1 天",
+      "value": "ECB Survey of Monetary Analysts",
+      "unit": "倒數 4 小時",
       "icon": "filter"
     }
   ],
@@ -1794,6 +1794,74 @@ window.MacroRobotData = {
       ]
     },
     {
+      "id": "macro-ecb-survey-of-monetary-analysts-20260615",
+      "type": "macro",
+      "title": "ECB Survey of Monetary Analysts",
+      "eventName": "ECB Survey of Monetary Analysts",
+      "originalEventName": "ECB Survey of Monetary Analysts",
+      "sourcePublishTime": "2026/06/15 16:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/06/15 16:00",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 4 小時",
+      "statusLevel": "soon",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/06/15 16:00",
+      "tags": [
+        "歐元區",
+        "ECB",
+        "中性"
+      ],
+      "summary": "ECB Survey of Monetary Analysts 將於 2026/06/15 16:00 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 ECB Survey of Monetary Analysts，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.ecb.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ecb-machado-analysts-20260616",
+      "type": "macro",
+      "title": "ECB Machado Analysts",
+      "eventName": "ECB Machado Analysts",
+      "originalEventName": "ECB Machado Analysts",
+      "sourcePublishTime": "2026/06/16 15:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/06/16 15:00",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 1 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/06/16 15:00",
+      "tags": [
+        "歐元區",
+        "ECB",
+        "中性"
+      ],
+      "summary": "ECB Machado Analysts 將於 2026/06/16 15:00 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 ECB Machado Analysts，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.ecb.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-adp-employment-change-weekly-20260616",
       "type": "macro",
       "title": "ADP 就業人數",
@@ -1826,6 +1894,40 @@ window.MacroRobotData = {
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-ecb-lane-analysts-20260616",
+      "type": "macro",
+      "title": "ECB Lane Analysts",
+      "eventName": "ECB Lane Analysts",
+      "originalEventName": "ECB Lane Analysts",
+      "sourcePublishTime": "2026/06/16 21:10 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/06/16 21:10",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 1 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/06/16 21:10",
+      "tags": [
+        "歐元區",
+        "ECB",
+        "中性"
+      ],
+      "summary": "ECB Lane Analysts 將於 2026/06/16 21:10 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 ECB Lane Analysts，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.ecb.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -5172,6 +5274,6 @@ window.MacroRobotData = {
     "horizonDays": 62,
     "calendarWindow": "2026-06-01~2026-08-16",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 147
+    "fetchedEvents": 150
   }
 };
