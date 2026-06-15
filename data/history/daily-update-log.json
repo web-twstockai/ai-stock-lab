@@ -129,5 +129,14 @@
     "newRows": 1952,
     "errors": 0,
     "rebuildFailures": []
+  },
+  {
+    "ranAt": "2026-06-15T11:21:28.353658+00:00",
+    "targetDate": "2026-06-15",
+    "symbols": 1972,
+    "updatedSymbols": 1967,
+    "newRows": 1976,
+    "errors": 0,
+    "rebuildFailures": []
   }
 ]
