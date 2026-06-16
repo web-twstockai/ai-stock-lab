@@ -4,13 +4,13 @@
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 141,
+      "value": 148,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 19,
+      "value": 24,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@
       "stats": [
         [
           "本週事件",
-          "32 個"
+          "34 個"
         ],
         [
           "下一事件",

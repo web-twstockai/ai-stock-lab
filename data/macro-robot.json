@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026/06/16 07:46",
+  "updatedAt": "2026/06/16 12:26",
   "status": "運作中",
   "summary": [
     {
       "label": "本週事件",
-      "value": 32,
+      "value": 34,
       "unit": "個",
       "icon": "calendar"
     },
     {
       "label": "即將公布",
-      "value": 99,
+      "value": 102,
       "unit": "個",
       "icon": "file"
     },
@@ -22,15 +22,15 @@
     },
     {
       "label": "高影響事件",
-      "value": 19,
+      "value": 24,
       "unit": "個",
       "icon": "alert",
       "accent": "orange"
     },
     {
       "label": "下一個事件",
-      "value": "ADP 就業人數",
-      "unit": "倒數 13 小時",
+      "value": "生產者物價指數 PPI",
+      "unit": "倒數 1 天",
       "icon": "filter"
     }
   ],
@@ -528,7 +528,7 @@
       "sourcePublishTime": "2026/06/03 21:45 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/06/03 21:45",
-      "previous": "51.0",
+      "previous": "50.9",
       "forecast": "50.9",
       "actual": "50.7",
       "status": "已公布",
@@ -542,15 +542,16 @@
         "服務業",
         "中性"
       ],
-      "summary": "服務業 PMI 將於 2026/06/03 21:45 公布，市場關注前值 51.0、預期 50.9。",
-      "event": "美國 服務業 PMI，前值 51.0、預期 50.9、實際 50.7。",
+      "summary": "服務業 PMI 將於 2026/06/03 21:45 公布，市場關注前值 50.9、預期 50.9。",
+      "event": "美國 服務業 PMI，前值 50.9、預期 50.9、實際 50.7。",
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -726,6 +727,40 @@
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-ism-pmi-5-20260603",
+      "type": "macro",
+      "title": "ISM 製造業指數",
+      "eventName": "ISM 製造業指數",
+      "originalEventName": "ISM非製造業PMI (5月)",
+      "sourcePublishTime": "2026/06/03 22:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/06/03 22:00",
+      "previous": "53.6",
+      "forecast": "53.7",
+      "actual": "54.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "中高",
+      "timestamp": "2026/06/03 22:00",
+      "tags": [
+        "美國",
+        "ISM",
+        "偏多"
+      ],
+      "summary": "ISM 製造業指數 將於 2026/06/03 22:00 公布，市場關注前值 53.6、預期 53.7。",
+      "event": "美國 ISM 製造業指數，前值 53.6、預期 53.7、實際 54.5。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/548474",
+      "sourceList": [
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -1165,10 +1200,45 @@
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "http://www.bls.gov",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-cpi-5-20260610",
+      "type": "macro",
+      "title": "核心 CPI",
+      "eventName": "核心 CPI",
+      "originalEventName": "核心消費價格指數(CPI) (月環比) (5月)",
+      "sourcePublishTime": "2026/06/10 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/06/10 20:30",
+      "previous": "0.4%",
+      "forecast": "0.3%",
+      "actual": "0.2%",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/06/10 20:30",
+      "tags": [
+        "美國",
+        "核心",
+        "偏多"
+      ],
+      "summary": "核心 CPI 將於 2026/06/10 20:30 公布，市場關注前值 0.4%、預期 0.3%。",
+      "event": "美國 核心 CPI，前值 0.4%、預期 0.3%、實際 0.2%。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/549987",
+      "sourceList": [
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -1267,10 +1337,11 @@
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.bls.gov",
       "sourceList": [
         "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -1302,10 +1373,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -1341,6 +1413,40 @@
       "sourceUrl": "https://www.destatis.de",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-cpi-5-20260612",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "德國居民消費價格指數(CPI) (月環比) (5月)",
+      "sourcePublishTime": "2026/06/12 14:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/06/12 14:00",
+      "previous": "0.6%",
+      "forecast": "-0.2%",
+      "actual": "-0.2%",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/06/12 14:00",
+      "tags": [
+        "德國",
+        "消費者物價指數",
+        "中性"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/06/12 14:00 公布，市場關注前值 0.6%、預期 -0.2%。",
+      "event": "德國 消費者物價指數 CPI，前值 0.6%、預期 -0.2%、實際 -0.2%。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/550129",
+      "sourceList": [
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -1490,9 +1596,9 @@
       "publishTime": "2026/06/16 20:15",
       "previous": "29",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 13 小時",
-      "statusLevel": "soon",
+      "actual": "25.5",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -1503,7 +1609,7 @@
         "中性"
       ],
       "summary": "ADP 就業人數 將於 2026/06/16 20:15 公布，市場關注前值 29、預期 —。",
-      "event": "美國 ADP 就業人數，前值 29、預期 —、實際 尚未公布。",
+      "event": "美國 ADP 就業人數，前值 29、預期 —、實際 25.5。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -1524,7 +1630,7 @@
       "country": "英國",
       "publishTime": "2026/06/17 14:00",
       "previous": "0.7",
-      "forecast": "0.5",
+      "forecast": "0.4",
       "actual": null,
       "status": "倒數 1 天",
       "statusLevel": "upcoming",
@@ -1537,8 +1643,8 @@
         "生產者物價指數",
         "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/06/17 14:00 公布，市場關注前值 0.7、預期 —。",
-      "event": "英國 生產者物價指數 PPI，前值 0.7、預期 —、實際 尚未公布。",
+      "summary": "生產者物價指數 PPI 將於 2026/06/17 14:00 公布，市場關注前值 0.7、預期 0.4。",
+      "event": "英國 生產者物價指數 PPI，前值 0.7、預期 0.4、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -1615,6 +1721,40 @@
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-cpi-5-20260617",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "居民消費價格指數(CPI) (同比) (5月)",
+      "sourcePublishTime": "2026/06/17 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/06/17 14:00",
+      "previous": "2.8%",
+      "forecast": "3.0%",
+      "actual": null,
+      "status": "倒數 1 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/06/17 14:00",
+      "tags": [
+        "英國",
+        "消費者物價指數",
+        "中性"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/06/17 14:00 公布，市場關注前值 2.8%、預期 3.0%。",
+      "event": "英國 消費者物價指數 CPI，前值 2.8%、預期 3.0%、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/550356",
+      "sourceList": [
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -1747,10 +1887,45 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "http://www.federalreserve.gov/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-fomc-20260618",
+      "type": "macro",
+      "title": "FOMC 利率決議",
+      "eventName": "FOMC 利率決議",
+      "originalEventName": "美聯儲(FOMC)新聞發布會",
+      "sourcePublishTime": "2026/06/18 02:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/06/18 02:30",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 2 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "高",
+      "timestamp": "2026/06/18 02:30",
+      "tags": [
+        "美國",
+        "FOMC",
+        "中性"
+      ],
+      "summary": "FOMC 利率決議 將於 2026/06/18 02:30 公布，市場關注前值 —、預期 —。",
+      "event": "美國 FOMC 利率決議，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/551455",
+      "sourceList": [
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -1831,7 +2006,7 @@
       "country": "英國",
       "publishTime": "2026/06/18 14:00",
       "previous": "148",
-      "forecast": "80",
+      "forecast": "75",
       "actual": null,
       "status": "倒數 2 天",
       "statusLevel": "upcoming",
@@ -1844,8 +2019,8 @@
         "就業人數變化",
         "中性"
       ],
-      "summary": "就業人數變化 將於 2026/06/18 14:00 公布，市場關注前值 148、預期 80。",
-      "event": "英國 就業人數變化，前值 148、預期 80、實際 尚未公布。",
+      "summary": "就業人數變化 將於 2026/06/18 14:00 公布，市場關注前值 148、預期 75。",
+      "event": "英國 就業人數變化，前值 148、預期 75、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2384,7 +2559,7 @@
       "sourcePublishTime": "2026/06/23 20:15 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/06/23 20:15",
-      "previous": "—",
+      "previous": "25.5",
       "forecast": "—",
       "actual": null,
       "status": "倒數 7 天",
@@ -2398,8 +2573,8 @@
         "ADP",
         "中性"
       ],
-      "summary": "ADP 就業人數 將於 2026/06/23 20:15 公布，市場關注前值 —、預期 —。",
-      "event": "美國 ADP 就業人數，前值 —、預期 —、實際 尚未公布。",
+      "summary": "ADP 就業人數 將於 2026/06/23 20:15 公布，市場關注前值 25.5、預期 —。",
+      "event": "美國 ADP 就業人數，前值 25.5、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2438,10 +2613,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -2508,10 +2684,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -2714,10 +2891,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov",
       "sourceList": [
         "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -2749,10 +2927,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov/",
       "sourceList": [
         "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -3056,10 +3235,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -3264,6 +3444,40 @@
       "sourceUrl": "https://www.destatis.de",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-cpi-6-20260630",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "德國居民消費價格指數(CPI) (月環比) (6月)",
+      "sourcePublishTime": "2026/06/30 20:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/06/30 20:00",
+      "previous": "-0.2%",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 14 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/06/30 20:00",
+      "tags": [
+        "德國",
+        "消費者物價指數",
+        "中性"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/06/30 20:00 公布，市場關注前值 -0.2%、預期 —。",
+      "event": "德國 消費者物價指數 CPI，前值 -0.2%、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/551254",
+      "sourceList": [
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -3634,10 +3848,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -3702,10 +3917,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "https://www.ismworld.org",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -4246,10 +4462,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -4454,6 +4671,40 @@
       "sourceUrl": "https://www.ismworld.org",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ism-pmi-6-20260706",
+      "type": "macro",
+      "title": "ISM 製造業指數",
+      "eventName": "ISM 製造業指數",
+      "originalEventName": "ISM非製造業PMI (6月)",
+      "sourcePublishTime": "2026/07/06 22:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/07/06 22:00",
+      "previous": "54.5",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 20 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "中高",
+      "timestamp": "2026/07/06 22:00",
+      "tags": [
+        "美國",
+        "ISM",
+        "中性"
+      ],
+      "summary": "ISM 製造業指數 將於 2026/07/06 22:00 公布，市場關注前值 54.5、預期 —。",
+      "event": "美國 ISM 製造業指數，前值 54.5、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/551651",
+      "sourceList": [
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -4960,6 +5211,6 @@
     "horizonDays": 62,
     "calendarWindow": "2026-06-02~2026-08-17",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 141
+    "fetchedEvents": 148
   }
 }
