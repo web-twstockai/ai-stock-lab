@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/06/18 07:46",
+  "updatedAt": "2026/06/18 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@ window.MacroRobotData = {
     },
     {
       "label": "即將公布",
-      "value": 91,
+      "value": 90,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@ window.MacroRobotData = {
     },
     {
       "label": "下一個事件",
-      "value": "英國央行利率決議",
-      "unit": "倒數 12 小時",
+      "value": "初領失業救濟金人數",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -1139,9 +1139,9 @@ window.MacroRobotData = {
       "publishTime": "2026/06/18 19:00",
       "previous": "3.75",
       "forecast": "3.75",
-      "actual": null,
-      "status": "倒數 12 小時",
-      "statusLevel": "soon",
+      "actual": "3.75",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
       "importance": "中高",
@@ -1152,7 +1152,7 @@ window.MacroRobotData = {
         "中性"
       ],
       "summary": "英國央行利率決議 將於 2026/06/18 19:00 公布，市場關注前值 3.75、預期 3.75。",
-      "event": "英國 英國央行利率決議，前值 3.75、預期 3.75、實際 尚未公布。",
+      "event": "英國 英國央行利率決議，前值 3.75、預期 3.75、實際 3.75。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -1174,7 +1174,7 @@ window.MacroRobotData = {
       "previous": "1795",
       "forecast": "1800",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
