@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/06/22 18:30",
+  "updatedAt": "2026/06/23 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 230,
+      "value": 226,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 101,
+      "value": 95,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "29 個"
+          "40 個"
         ],
         [
           "下一事件",
@@ -307,11 +307,10 @@ window.IntelligenceOverviewData = {
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.bls.gov",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -550,45 +549,10 @@ window.IntelligenceOverviewData = {
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.bls.gov",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-cpi-5-20260610",
-      "type": "macro",
-      "title": "核心 CPI",
-      "eventName": "核心 CPI",
-      "originalEventName": "核心消費價格指數(CPI) (月環比) (5月)",
-      "sourcePublishTime": "2026/06/10 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/06/10 20:30",
-      "previous": "0.4%",
-      "forecast": "0.3%",
-      "actual": "0.2%",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/06/10 20:30",
-      "tags": [
-        "美國",
-        "核心",
-        "偏多"
-      ],
-      "summary": "核心 CPI 將於 2026/06/10 20:30 公布，市場關注前值 0.4%、預期 0.3%。",
-      "event": "美國 核心 CPI，前值 0.4%、預期 0.3%、實際 0.2%。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/549987",
-      "sourceList": [
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -687,11 +651,45 @@ window.IntelligenceOverviewData = {
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.bls.gov",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-gdp-3-month-avg-apr-20260612",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP 3-Month Avg (Apr)",
+      "sourcePublishTime": "2026/06/12 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/06/12 14:00",
+      "previous": "0.6",
+      "forecast": "0.7",
+      "actual": "0.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/06/12 14:00",
+      "tags": [
+        "英國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/06/12 14:00 公布，市場關注前值 0.6、預期 0.7。",
+      "event": "英國 GDP 經濟成長率，前值 0.6、預期 0.7、實際 0.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     }
