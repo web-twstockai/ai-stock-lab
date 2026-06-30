@@ -228,5 +228,14 @@
     "newRows": 1968,
     "errors": 0,
     "rebuildFailures": []
+  },
+  {
+    "ranAt": "2026-06-30T10:36:10.242813+00:00",
+    "targetDate": "2026-06-30",
+    "symbols": 1972,
+    "updatedSymbols": 1958,
+    "newRows": 1975,
+    "errors": 0,
+    "rebuildFailures": []
   }
 ]
