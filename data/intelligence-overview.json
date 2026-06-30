@@ -4,13 +4,13 @@
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 266,
+      "value": 259,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 80,
+      "value": 79,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
