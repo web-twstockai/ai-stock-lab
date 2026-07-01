@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026/06/30 18:30",
+  "updatedAt": "2026/07/01 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 259,
+      "value": 268,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 79,
+      "value": 82,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@
       "stats": [
         [
           "本週事件",
-          "51 個"
+          "40 個"
         ],
         [
           "下一事件",
@@ -280,6 +280,40 @@
       }
     },
     {
+      "id": "macro-cpi-5-20260617",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "居民消費價格指數(CPI) (同比) (5月)",
+      "sourcePublishTime": "2026/06/17 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/06/17 14:00",
+      "previous": "2.8%",
+      "forecast": "3.0%",
+      "actual": "2.8%",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/06/17 14:00",
+      "tags": [
+        "英國",
+        "消費者物價指數",
+        "偏多"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/06/17 14:00 公布，市場關注前值 2.8%、預期 3.0%。",
+      "event": "英國 消費者物價指數 CPI，前值 2.8%、預期 3.0%、實際 2.8%。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/550356",
+      "sourceList": [
+        "Investing.com Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-ppi-core-output-mom-may-20260617",
       "type": "macro",
       "title": "生產者物價指數 PPI",
@@ -381,79 +415,9 @@
       "sourceList": [
         "TradingView Economic Calendar"
       ]
-    },
-    {
-      "id": "macro-adp-employment-change-weekly-20260616",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/06/16 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/06/16 20:15",
-      "previous": "29",
-      "forecast": "—",
-      "actual": "25.5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/06/16 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/06/16 20:15 公布，市場關注前值 29、預期 —。",
-      "event": "美國 ADP 就業人數，前值 29、預期 —、實際 25.5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-adp-employment-change-weekly-20260616",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/06/16 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/06/16 20:15",
-      "previous": "29",
-      "forecast": "—",
-      "actual": "25.5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/06/16 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/06/16 20:15 公布，市場關注前值 29、預期 —。",
-      "event": "美國 ADP 就業人數，前值 29、預期 —、實際 25.5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
     {
       "id": "macro-ppi-core-output-mom-may-20260617",
       "type": "macro",
@@ -691,6 +655,41 @@
       "sourceUrl": "https://ec.europa.eu/eurostat/",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-fed-interest-rate-decision-20260618",
+      "type": "macro",
+      "title": "FOMC 利率決議",
+      "eventName": "FOMC 利率決議",
+      "originalEventName": "Fed Interest Rate Decision",
+      "sourcePublishTime": "2026/06/18 02:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/06/18 02:00",
+      "previous": "3.75",
+      "forecast": "3.75",
+      "actual": "3.75",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/06/18 02:00",
+      "tags": [
+        "美國",
+        "FOMC",
+        "中性"
+      ],
+      "summary": "FOMC 利率決議 將於 2026/06/18 02:00 公布，市場關注前值 3.75、預期 3.75。",
+      "event": "美國 FOMC 利率決議，前值 3.75、預期 3.75、實際 3.75。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "sourceUrl": "http://www.federalreserve.gov/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
       ]
     }
   ]
