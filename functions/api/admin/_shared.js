@@ -1,5 +1,5 @@
-const DEFAULT_SUPABASE_URL = "https://xtimhfolzbeczngvzlxi.supabase.co";
-const DEFAULT_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0aW1oZm9semJlY3puZ3Z6bHhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNjY5NzEsImV4cCI6MjA5NTk0Mjk3MX0.ioz4NIVRJ8evKG3u0U-cOjzfnsY0HaotQUfSHCan4oI";
+const ADMIN_SESSION_COOKIE = "ai_stock_lab_admin_session";
+const SESSION_TTL_SECONDS = 60 * 60 * 24 * 14;
 
 export const TASKS = {
   "daily-market": "每日行情資料",
@@ -31,6 +31,128 @@ export function json(payload, status = 200) {
   });
 }
 
+function textEncoder() {
+  return new TextEncoder();
+}
+
+function base64UrlEncode(value) {
+  const bytes = value instanceof Uint8Array ? value : textEncoder().encode(String(value));
+  let binary = "";
+  bytes.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+function base64UrlDecode(value) {
+  const normalized = String(value || "").replace(/-/g, "+").replace(/_/g, "/");
+  const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+  const binary = atob(padded);
+  const bytes = new Uint8Array(binary.length);
+  for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+  return bytes;
+}
+
+async function hmacKey(secret) {
+  return crypto.subtle.importKey(
+    "raw",
+    textEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign", "verify"],
+  );
+}
+
+async function signPayload(payload, secret) {
+  const key = await hmacKey(secret);
+  return new Uint8Array(await crypto.subtle.sign("HMAC", key, textEncoder().encode(payload)));
+}
+
+function timingSafeEqual(a, b) {
+  const left = textEncoder().encode(String(a || ""));
+  const right = textEncoder().encode(String(b || ""));
+  if (left.length !== right.length) return false;
+  let diff = 0;
+  for (let index = 0; index < left.length; index += 1) diff |= left[index] ^ right[index];
+  return diff === 0;
+}
+
+function cookieValue(request, name) {
+  const cookie = request.headers.get("Cookie") || "";
+  const match = cookie.match(new RegExp(`(?:^|;\\s*)${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : "";
+}
+
+export function adminProfile(env) {
+  const account = env.ADMIN_ACCOUNT || "admin";
+  return {
+    id: "local-admin",
+    account,
+    nickname: env.ADMIN_NICKNAME || "系統管理員",
+    role: "admin",
+    status: "active",
+  };
+}
+
+export function adminPasswordConfigured(env) {
+  return !!env.ADMIN_PASSWORD;
+}
+
+function sessionSecret(env) {
+  return env.ADMIN_SESSION_SECRET || env.ADMIN_PASSWORD || env.GITHUB_DISPATCH_TOKEN || "";
+}
+
+export function sessionCookieHeader(value, maxAge = SESSION_TTL_SECONDS) {
+  const secure = "Secure";
+  return `${ADMIN_SESSION_COOKIE}=${encodeURIComponent(value)}; Path=/; HttpOnly; ${secure}; SameSite=Lax; Max-Age=${maxAge}`;
+}
+
+export function clearSessionCookieHeader() {
+  return sessionCookieHeader("", 0);
+}
+
+export async function createAdminSession(env) {
+  const profile = adminProfile(env);
+  const payload = {
+    account: profile.account,
+    nickname: profile.nickname,
+    role: profile.role,
+    exp: Math.floor(Date.now() / 1000) + SESSION_TTL_SECONDS,
+  };
+  const encodedPayload = base64UrlEncode(JSON.stringify(payload));
+  const signature = base64UrlEncode(await signPayload(encodedPayload, sessionSecret(env)));
+  return `${encodedPayload}.${signature}`;
+}
+
+export async function readAdminSession(request, env) {
+  const secret = sessionSecret(env);
+  if (!secret) return null;
+  const token = cookieValue(request, ADMIN_SESSION_COOKIE);
+  const [encodedPayload, signature] = token.split(".");
+  if (!encodedPayload || !signature) return null;
+  const expected = base64UrlEncode(await signPayload(encodedPayload, secret));
+  if (!timingSafeEqual(signature, expected)) return null;
+  try {
+    const payload = JSON.parse(new TextDecoder().decode(base64UrlDecode(encodedPayload)));
+    if (!payload?.exp || payload.exp <= Math.floor(Date.now() / 1000)) return null;
+    if (payload.role !== "admin") return null;
+    const profile = adminProfile(env);
+    if (payload.account !== profile.account) return null;
+    return { token, profile: { ...profile, nickname: payload.nickname || profile.nickname } };
+  } catch (_) {
+    return null;
+  }
+}
+
+export function verifyAdminPassword(env, account, password) {
+  const expectedAccount = env.ADMIN_ACCOUNT || "admin";
+  if (!adminPasswordConfigured(env)) return { ok: false, error: "Missing ADMIN_PASSWORD in Cloudflare Pages environment variables." };
+  if (!timingSafeEqual(account, expectedAccount) || !timingSafeEqual(password, env.ADMIN_PASSWORD)) {
+    return { ok: false, error: "帳號或密碼錯誤。" };
+  }
+  return { ok: true };
+}
+
 export function githubConfig(env) {
   return {
     token: env.GITHUB_DISPATCH_TOKEN || env.GITHUB_TOKEN || "",
@@ -54,56 +176,13 @@ export function workflowsForStatus(env) {
   return [...new Set([config.workflow, ...Object.values(DEDICATED_WORKFLOWS)])];
 }
 
-function bearerToken(request) {
-  const header = request.headers.get("Authorization") || "";
-  const match = header.match(/^Bearer\s+(.+)$/i);
-  return match ? match[1] : "";
-}
-
-async function fetchSupabaseUser(env, token) {
-  const supabaseUrl = env.SUPABASE_URL || DEFAULT_SUPABASE_URL;
-  const anonKey = env.SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
-  const response = await fetch(`${supabaseUrl}/auth/v1/user`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      apikey: anonKey,
-    },
-  });
-  if (!response.ok) return null;
-  return response.json();
-}
-
-async function fetchProfile(env, token, userId) {
-  const supabaseUrl = env.SUPABASE_URL || DEFAULT_SUPABASE_URL;
-  const anonKey = env.SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
-  const url = new URL(`${supabaseUrl}/rest/v1/profiles`);
-  url.searchParams.set("id", `eq.${userId}`);
-  url.searchParams.set("select", "id,account,nickname,role,status");
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      apikey: anonKey,
-      Accept: "application/json",
-    },
-  });
-  if (!response.ok) return null;
-  const rows = await response.json();
-  return Array.isArray(rows) ? rows[0] || null : null;
-}
-
 export async function requireAdmin(request, env) {
-  const token = bearerToken(request);
-  if (!token) return { error: json({ ok: false, error: "Missing admin session." }, 401) };
-
-  const user = await fetchSupabaseUser(env, token);
-  if (!user?.id) return { error: json({ ok: false, error: "Invalid admin session." }, 401) };
-
-  const profile = await fetchProfile(env, token, user.id);
-  if (!profile || profile.status !== "active" || profile.role !== "admin") {
-    return { error: json({ ok: false, error: "Admin role required." }, 403) };
+  if (!adminPasswordConfigured(env)) {
+    return { error: json({ ok: false, error: "Missing ADMIN_PASSWORD in Cloudflare Pages environment variables." }, 503) };
   }
-
-  return { token, user, profile };
+  const session = await readAdminSession(request, env);
+  if (!session) return { error: json({ ok: false, error: "Missing or invalid admin session." }, 401) };
+  return { token: session.token, user: session.profile, profile: session.profile };
 }
 
 export async function githubFetch(env, path, options = {}) {

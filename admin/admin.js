@@ -14,9 +14,6 @@
   const API_SCREENING_STRATEGIES_URL = "../api/admin/screening-strategies";
   const SCREENING_STRATEGIES_DATA_URL = "../data/daily-screening-strategies.json";
   const SITE_DATA_URL = "../data/site-data.json";
-  const SUPABASE_URL = "https://xtimhfolzbeczngvzlxi.supabase.co";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0aW1oZm9semJlY3puZ3Z6bHhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNjY5NzEsImV4cCI6MjA5NTk0Mjk3MX0.ioz4NIVRJ8evKG3u0U-cOjzfnsY0HaotQUfSHCan4oI";
-  const SUPABASE_SDK = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
   const roleLabels = {
     basic: "基本會員",
@@ -111,7 +108,6 @@
     results: {},
     logs: { normal: { text: "" }, error: { text: "" } },
   };
-  let clientPromise = null;
 
   const $ = (selector) => document.querySelector(selector);
   const fmt = (value) => Number(value || 0).toLocaleString("zh-TW");
@@ -156,22 +152,11 @@
   }
 
   async function supabaseClient() {
-    if (window.AIStockSupabase?.client) return window.AIStockSupabase.client();
-    if (!clientPromise) {
-      clientPromise = import(SUPABASE_SDK).then(({ createClient }) =>
-        createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
-        })
-      );
-    }
-    return clientPromise;
+    return null;
   }
 
   async function adminAuthHeaders() {
-    const supabase = await supabaseClient();
-    const { data } = await supabase.auth.getSession();
-    const token = data?.session?.access_token;
-    return token ? { Authorization: `Bearer ${token}` } : {};
+    return {};
   }
 
   function profileToUser(profile) {
@@ -190,28 +175,11 @@
   }
 
   async function loadSupabaseUsers() {
-    try {
-      const supabase = await supabaseClient();
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("id, account, nickname, role, status, advanced_approved_at, advanced_expires_at, created_at, updated_at, last_login_at")
-        .order("created_at", { ascending: false });
-      if (error) throw error;
-      state.supabaseUsers = data || [];
-    } catch (error) {
-      state.supabaseUsers = null;
-      console.warn("[AI Stock Lab] Supabase users unavailable", error);
-    }
+    state.supabaseUsers = null;
   }
 
   async function updateSupabaseUserRole(user, role, extra = {}) {
-    if (!user?.id) return false;
-    const supabase = await supabaseClient();
-    const patch = { role, ...extra };
-    const { error } = await supabase.from("profiles").update(patch).eq("id", user.id);
-    if (error) throw error;
-    await loadSupabaseUsers();
-    return true;
+    return false;
   }
 
   function applicationToRequest(application) {
@@ -231,19 +199,7 @@
   }
 
   async function loadSupabaseAdvancedRequests() {
-    try {
-      const supabase = await supabaseClient();
-      const { data, error } = await supabase
-        .from("advanced_applications")
-        .select("id, user_id, account, nickname, current_member_role, status, requested_at, approved_days, expires_at, reviewed_at, reviewed_by")
-        .eq("status", "pending")
-        .order("requested_at", { ascending: false });
-      if (error) throw error;
-      state.advancedRequests = (data || []).map(applicationToRequest);
-    } catch (error) {
-      state.advancedRequests = null;
-      console.warn("[AI Stock Lab] Supabase advanced applications unavailable", error);
-    }
+    state.advancedRequests = null;
   }
 
   function readAdvancedRequests() {
@@ -260,13 +216,7 @@
   }
 
   async function updateSupabaseAdvancedRequest(requestId, patch) {
-    const supabase = await supabaseClient();
-    const { data: userData } = await supabase.auth.getUser();
-    const payload = { ...patch, reviewed_by: userData?.user?.id || null };
-    const { error } = await supabase.from("advanced_applications").update(payload).eq("id", requestId);
-    if (error) throw error;
-    await loadSupabaseAdvancedRequests();
-    return true;
+    return false;
   }
 
   function isAdvancedExpired(user) {
@@ -517,7 +467,7 @@
   async function loadApiAuth() {
     try {
       const response = await fetch(API_AUTH_ME_URL, { cache: "no-store" });
-      if (response.status === 401 || response.status === 403) {
+      if (response.status === 401 || response.status === 403 || response.status === 503) {
         state.apiUser = null;
         state.apiAuthRequired = true;
         return;
@@ -588,15 +538,15 @@
     const message = $("[data-api-auth-message]");
 
     if (state.apiUser) {
-      message.textContent = `Admin API 已登入：${state.apiUser.nickname || state.apiUser.account || "admin"}。更新與策略權限調整可寫入後端。`;
+      message.textContent = `Admin API 已登入：${state.apiUser.nickname || state.apiUser.account || "admin"}。密碼由 Cloudflare 的 ADMIN_PASSWORD 環境變數管理。`;
       form.hidden = true;
-      passwordForm.hidden = false;
+      passwordForm.hidden = true;
       logoutButton.hidden = false;
       return;
     }
 
     if (state.apiAuthRequired) {
-      message.textContent = "Admin API 需要登入。請輸入管理員帳號與密碼，登入後即可執行更新與調整策略權限。";
+      message.textContent = "Admin API 需要登入。請輸入 Cloudflare Pages 環境變數設定的 ADMIN_ACCOUNT 與 ADMIN_PASSWORD。";
       form.hidden = false;
       passwordForm.hidden = true;
       logoutButton.hidden = true;

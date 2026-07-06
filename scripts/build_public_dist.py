@@ -169,6 +169,8 @@ def sanitize_public_text() -> None:
 
 
 def write_public_auth_script() -> None:
+    copy_file(ROOT / "site-auth.js", DIST / "site-auth.js")
+    return
     script = r"""(function () {
   const SUPABASE_URL = "__SUPABASE_URL__";
   const SUPABASE_ANON_KEY = "__SUPABASE_ANON_KEY__";
@@ -460,6 +462,8 @@ def write_public_auth_script() -> None:
 
 
 def write_public_dashboard_header_script() -> None:
+    copy_file(ROOT / "dashboard-header.js", DIST / "dashboard-header.js")
+    return
     script = r"""(function () {
   const SUPABASE_URL = "__SUPABASE_URL__";
   const SUPABASE_ANON_KEY = "__SUPABASE_ANON_KEY__";
