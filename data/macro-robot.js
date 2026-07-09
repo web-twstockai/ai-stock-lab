@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/07/09 07:46",
+  "updatedAt": "2026/07/09 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "ECB Monetary Policy Meeting Accounts",
-      "unit": "倒數 12 小時",
+      "unit": "倒數 8 小時",
       "icon": "filter"
     }
   ],
@@ -2149,7 +2149,7 @@ window.MacroRobotData = {
       "previous": "—",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 12 小時",
+      "status": "倒數 8 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -2183,7 +2183,7 @@ window.MacroRobotData = {
       "previous": "215",
       "forecast": "218",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
