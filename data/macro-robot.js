@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/07/13 07:47",
+  "updatedAt": "2026/07/13 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -2111,7 +2111,7 @@ window.MacroRobotData = {
       "country": "美國",
       "publishTime": "2026/07/15 20:30",
       "previous": "1.1",
-      "forecast": "0.2",
+      "forecast": "-0.1",
       "actual": null,
       "status": "倒數 2 天",
       "statusLevel": "upcoming",
@@ -2124,8 +2124,8 @@ window.MacroRobotData = {
         "生產者物價指數",
         "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/07/15 20:30 公布，市場關注前值 1.1、預期 0.2。",
-      "event": "美國 生產者物價指數 PPI，前值 1.1、預期 0.2、實際 尚未公布。",
+      "summary": "生產者物價指數 PPI 將於 2026/07/15 20:30 公布，市場關注前值 1.1、預期 -0.1。",
+      "event": "美國 生產者物價指數 PPI，前值 1.1、預期 -0.1、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2146,7 +2146,7 @@ window.MacroRobotData = {
       "country": "英國",
       "publishTime": "2026/07/16 14:00",
       "previous": "1.2",
-      "forecast": "0.6",
+      "forecast": "1.4",
       "actual": null,
       "status": "倒數 3 天",
       "statusLevel": "upcoming",
@@ -2159,8 +2159,8 @@ window.MacroRobotData = {
         "GDP",
         "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/07/16 14:00 公布，市場關注前值 1.2、預期 —。",
-      "event": "英國 GDP 經濟成長率，前值 1.2、預期 —、實際 尚未公布。",
+      "summary": "GDP 經濟成長率 將於 2026/07/16 14:00 公布，市場關注前值 1.2、預期 1.4。",
+      "event": "英國 GDP 經濟成長率，前值 1.2、預期 1.4、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
