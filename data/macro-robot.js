@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/07/15 07:46",
+  "updatedAt": "2026/07/15 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "生產者物價指數 PPI",
-      "unit": "倒數 13 小時",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -1668,7 +1668,7 @@ window.MacroRobotData = {
       "previous": "1.1",
       "forecast": "6.2",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
