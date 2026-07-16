@@ -1,10 +1,10 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/07/16 07:46",
+  "updatedAt": "2026/07/16 12:26",
   "status": "運作中",
   "summary": [
     {
       "label": "本週事件",
-      "value": 16,
+      "value": 17,
       "unit": "個",
       "icon": "calendar"
     },
@@ -22,7 +22,7 @@ window.MacroRobotData = {
     },
     {
       "label": "高影響事件",
-      "value": 20,
+      "value": 21,
       "unit": "個",
       "icon": "alert",
       "accent": "orange"
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "GDP 經濟成長率",
-      "unit": "倒數 12 小時",
+      "unit": "倒數 7 小時",
       "icon": "filter"
     }
   ],
@@ -1242,18 +1242,18 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-niesr-monthly-gdp-tracker-jun-20260716",
+      "id": "macro-niesr-gdp-20260716",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "NIESR Monthly GDP Tracker (Jun)",
+      "originalEventName": "NIESR每月GDP追蹤",
       "sourcePublishTime": "2026/07/16 19:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/07/16 19:00",
       "previous": "0.5",
       "forecast": "0.2",
       "actual": null,
-      "status": "倒數 12 小時",
+      "status": "倒數 7 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
@@ -1264,16 +1264,49 @@ window.MacroRobotData = {
         "GDP",
         "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/07/16 19:00 公布，市場關注前值 0.5、預期 —。",
-      "event": "英國 GDP 經濟成長率，前值 0.5、預期 —、實際 尚未公布。",
+      "summary": "GDP 經濟成長率 將於 2026/07/16 19:00 公布，市場關注前值 0.5、預期 0.2。",
+      "event": "英國 GDP 經濟成長率，前值 0.5、預期 0.2、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "sourceList": [
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-niesr-monthly-gdp-tracker-jun-20260716",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "NIESR Monthly GDP Tracker (Jun)",
+      "sourcePublishTime": "2026/07/16 20:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/07/16 20:00",
+      "previous": "0.7",
+      "forecast": "—",
+      "actual": "0.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/07/16 20:00",
+      "tags": [
+        "英國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/07/16 20:00 公布，市場關注前值 0.7、預期 —。",
+      "event": "英國 GDP 經濟成長率，前值 0.7、預期 —、實際 0.4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -1288,7 +1321,7 @@ window.MacroRobotData = {
       "previous": "215",
       "forecast": "217",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -1697,7 +1730,7 @@ window.MacroRobotData = {
       "country": "歐元區",
       "publishTime": "2026/07/23 20:15",
       "previous": "2.4",
-      "forecast": "—",
+      "forecast": "2.4",
       "actual": null,
       "status": "倒數 7 天",
       "statusLevel": "upcoming",
@@ -1710,8 +1743,8 @@ window.MacroRobotData = {
         "ECB",
         "中性"
       ],
-      "summary": "ECB 利率決議 將於 2026/07/23 20:15 公布，市場關注前值 2.4、預期 —。",
-      "event": "歐元區 ECB 利率決議，前值 2.4、預期 —、實際 尚未公布。",
+      "summary": "ECB 利率決議 將於 2026/07/23 20:15 公布，市場關注前值 2.4、預期 2.4。",
+      "event": "歐元區 ECB 利率決議，前值 2.4、預期 2.4、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -4829,6 +4862,6 @@ window.MacroRobotData = {
     "horizonDays": 62,
     "calendarWindow": "2026-07-02~2026-09-16",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 137
+    "fetchedEvents": 138
   }
 };
