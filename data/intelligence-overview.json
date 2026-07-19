@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026/07/19 07:46",
+  "updatedAt": "2026/07/19 12:26",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 230,
+      "value": 253,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 59,
+      "value": 60,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
