@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/07/21 07:46",
+  "updatedAt": "2026/07/21 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -22,7 +22,7 @@
     },
     {
       "label": "高影響事件",
-      "value": 21,
+      "value": 22,
       "unit": "個",
       "icon": "alert",
       "accent": "orange"
@@ -30,7 +30,7 @@
     {
       "label": "下一個事件",
       "value": "ECB Bank Lending Survey",
-      "unit": "倒數 9 小時",
+      "unit": "倒數 4 小時",
       "icon": "filter"
     }
   ],
@@ -733,7 +733,7 @@
       "previous": "—",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 9 小時",
+      "status": "倒數 4 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -766,9 +766,9 @@
       "publishTime": "2026/07/21 20:15",
       "previous": "19.75",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 13 小時",
-      "statusLevel": "soon",
+      "actual": "16.5",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -779,7 +779,7 @@
         "中性"
       ],
       "summary": "ADP 就業人數 將於 2026/07/21 20:15 公布，市場關注前值 19.75、預期 —。",
-      "event": "美國 ADP 就業人數，前值 19.75、預期 —、實際 尚未公布。",
+      "event": "美國 ADP 就業人數，前值 19.75、預期 —、實際 16.5。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -4856,6 +4856,40 @@
       "sourceList": [
         "TradingView Economic Calendar"
       ]
+    },
+    {
+      "id": "macro-gdp-growth-rate-yoy-final-q2-20260825",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP Growth Rate YoY Final (Q2)",
+      "sourcePublishTime": "2026/08/25 14:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/08/25 14:00",
+      "previous": "0.4",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 35 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "高",
+      "timestamp": "2026/08/25 14:00",
+      "tags": [
+        "德國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/08/25 14:00 公布，市場關注前值 0.4、預期 —。",
+      "event": "德國 GDP 經濟成長率，前值 0.4、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.destatis.de",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
     }
   ],
   "impactGrid": [
@@ -4953,6 +4987,6 @@
     "horizonDays": 62,
     "calendarWindow": "2026-07-07~2026-09-21",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 141
+    "fetchedEvents": 142
   }
 }

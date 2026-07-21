@@ -4,13 +4,13 @@ window.IntelligenceOverviewData = {
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 241,
+      "value": 242,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 77,
+      "value": 78,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
