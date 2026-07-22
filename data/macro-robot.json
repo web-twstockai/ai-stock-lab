@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/07/22 07:46",
+  "updatedAt": "2026/07/22 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -199,10 +199,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://adpemploymentreport.com/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -335,10 +336,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.bls.gov",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -369,10 +371,11 @@
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -385,7 +388,7 @@
       "country": "英國",
       "publishTime": "2026/07/16 20:00",
       "previous": "0.7",
-      "forecast": "—",
+      "forecast": "0.2",
       "actual": "0.4",
       "status": "已公布",
       "statusLevel": "published",
@@ -403,10 +406,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -573,10 +577,11 @@
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.destatis.de",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -743,10 +748,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://adpemploymentreport.com/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -777,10 +783,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.ons.gov.uk/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -947,10 +954,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -963,7 +971,7 @@
       "country": "法國",
       "publishTime": "2026/07/24 15:15",
       "previous": "47.2",
-      "forecast": "—",
+      "forecast": "48.4",
       "actual": null,
       "status": "倒數 2 天",
       "statusLevel": "upcoming",
@@ -981,10 +989,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1015,10 +1024,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1049,10 +1059,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1083,10 +1094,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1117,10 +1129,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1253,10 +1266,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1287,10 +1301,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1321,10 +1336,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1355,10 +1371,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1389,10 +1406,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1405,7 +1423,7 @@
       "country": "美國",
       "publishTime": "2026/07/24 21:45",
       "previous": "51.9",
-      "forecast": "—",
+      "forecast": "52.3",
       "actual": null,
       "status": "倒數 2 天",
       "statusLevel": "upcoming",
@@ -1423,10 +1441,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1627,10 +1646,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://adpemploymentreport.com/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1745,7 +1765,7 @@
       "country": "法國",
       "publishTime": "2026/07/30 13:30",
       "previous": "0.9",
-      "forecast": "—",
+      "forecast": "0.3",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
@@ -1763,10 +1783,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.insee.fr",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -1813,7 +1834,7 @@
       "country": "德國",
       "publishTime": "2026/07/30 16:00",
       "previous": "0.3",
-      "forecast": "—",
+      "forecast": "-0.2",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
@@ -1831,10 +1852,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.destatis.de",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -2051,7 +2073,7 @@
       "country": "美國",
       "publishTime": "2026/07/30 20:30",
       "previous": "3.4",
-      "forecast": "—",
+      "forecast": "3.2",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
@@ -2069,10 +2091,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -2085,7 +2108,7 @@
       "country": "美國",
       "publishTime": "2026/07/30 20:30",
       "previous": "1.9",
-      "forecast": "—",
+      "forecast": "1.1",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
@@ -2103,10 +2126,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -2119,7 +2143,7 @@
       "country": "美國",
       "publishTime": "2026/07/30 20:30",
       "previous": "0.4",
-      "forecast": "—",
+      "forecast": "3.7",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
@@ -2137,10 +2161,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -2187,7 +2212,7 @@
       "country": "法國",
       "publishTime": "2026/07/31 14:45",
       "previous": "-0.3",
-      "forecast": "—",
+      "forecast": "-0.4",
       "actual": null,
       "status": "倒數 9 天",
       "statusLevel": "upcoming",
@@ -2205,10 +2230,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.insee.fr",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -2409,10 +2435,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://chicago.ismworld.org/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {

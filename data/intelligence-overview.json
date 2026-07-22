@@ -581,10 +581,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://adpemploymentreport.com/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     },
     {
