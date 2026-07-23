@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026/07/22 18:30",
+  "updatedAt": "2026/07/23 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 241,
+      "value": 240,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 75,
+      "value": 74,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@
       "stats": [
         [
           "本週事件",
-          "28 個"
+          "38 個"
         ],
         [
           "下一事件",
