@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/07/27 07:47",
+  "updatedAt": "2026/07/27 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@
     {
       "label": "下一個事件",
       "value": "Dallas Fed Manufacturing Index (Jul)",
-      "unit": "倒數 15 小時",
+      "unit": "倒數 11 小時",
       "icon": "filter"
     }
   ],
@@ -1392,7 +1392,7 @@
       "previous": "—",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 15 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -1426,7 +1426,7 @@
       "previous": "1.2",
       "forecast": "1.2",
       "actual": null,
-      "status": "倒數 24 小時",
+      "status": "倒數 19 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -1561,7 +1561,7 @@
       "country": "美國",
       "publishTime": "2026/07/28 22:00",
       "previous": "4",
-      "forecast": "—",
+      "forecast": "10",
       "actual": null,
       "status": "倒數 1 天",
       "statusLevel": "upcoming",
@@ -1574,8 +1574,8 @@
         "Richmond",
         "中性"
       ],
-      "summary": "Richmond Fed Manufacturing Index (Jul) 將於 2026/07/28 22:00 公布，市場關注前值 4、預期 —。",
-      "event": "美國 Richmond Fed Manufacturing Index (Jul)，前值 4、預期 —、實際 尚未公布。",
+      "summary": "Richmond Fed Manufacturing Index (Jul) 將於 2026/07/28 22:00 公布，市場關注前值 4、預期 10。",
+      "event": "美國 Richmond Fed Manufacturing Index (Jul)，前值 4、預期 10、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
