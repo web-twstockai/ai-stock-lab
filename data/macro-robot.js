@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/07/29 07:47",
+  "updatedAt": "2026/07/29 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "FOMC 利率決議",
-      "unit": "倒數 19 小時",
+      "unit": "倒數 14 小時",
       "icon": "filter"
     }
   ],
@@ -1460,7 +1460,7 @@ window.MacroRobotData = {
       "previous": "3.75",
       "forecast": "3.75",
       "actual": null,
-      "status": "倒數 19 小時",
+      "status": "倒數 14 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
