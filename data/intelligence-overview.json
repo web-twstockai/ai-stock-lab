@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026/08/04 18:30",
+  "updatedAt": "2026/08/05 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 282,
+      "value": 279,
       "unit": "筆",
       "icon": "file"
     },
@@ -23,7 +23,7 @@
     },
     {
       "label": "下一個總經事件",
-      "value": "ECB Bank Lending Survey",
+      "value": "製造業 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@
       "stats": [
         [
           "本週事件",
-          "27 個"
+          "31 個"
         ],
         [
           "下一事件",
-          "ECB Bank Lending Survey"
+          "製造業 PMI"
         ],
         [
           "狀態",
@@ -280,312 +280,37 @@
       }
     },
     {
-      "id": "macro-hmrc-payrolls-change-jun-20260721",
+      "id": "macro-ecb-interest-rate-decision-20260723",
       "type": "macro",
-      "title": "非農就業人數",
-      "eventName": "非農就業人數",
-      "originalEventName": "HMRC Payrolls Change (Jun)",
-      "sourcePublishTime": "2026/07/21 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/21 14:00",
-      "previous": "3",
-      "forecast": "—",
-      "actual": "-4",
+      "title": "ECB 利率決議",
+      "eventName": "ECB 利率決議",
+      "originalEventName": "ECB Interest Rate Decision",
+      "sourcePublishTime": "2026/07/23 20:15 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/07/23 20:15",
+      "previous": "2.4",
+      "forecast": "2.4",
+      "actual": "2.4",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
-      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
-      "importance": "高",
-      "timestamp": "2026/07/21 14:00",
-      "tags": [
-        "英國",
-        "非農就業人數",
-        "中性"
-      ],
-      "summary": "非農就業人數 將於 2026/07/21 14:00 公布，市場關注前值 3、預期 —。",
-      "event": "英國 非農就業人數，前值 3、預期 —、實際 -4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-ecb-bank-lending-survey-20260721",
-      "type": "macro",
-      "title": "ECB Bank Lending Survey",
-      "eventName": "ECB Bank Lending Survey",
-      "originalEventName": "ECB Bank Lending Survey",
-      "sourcePublishTime": "2026/07/21 16:00 Asia/Taipei",
-      "country": "歐元區",
-      "publishTime": "2026/07/21 16:00",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "等待公布",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
       "importance": "中高",
-      "timestamp": "2026/07/21 16:00",
+      "timestamp": "2026/07/23 20:15",
       "tags": [
         "歐元區",
         "ECB",
         "中性"
       ],
-      "summary": "ECB Bank Lending Survey 將於 2026/07/21 16:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 ECB Bank Lending Survey，前值 —、預期 —、實際 尚未公布。",
+      "summary": "ECB 利率決議 將於 2026/07/23 20:15 公布，市場關注前值 2.4、預期 2.4。",
+      "event": "歐元區 ECB 利率決議，前值 2.4、預期 2.4、實際 2.4。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.ecb.europa.eu",
       "sourceList": [
         "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-unemployment-rate-may-20260721",
-      "type": "macro",
-      "title": "失業率",
-      "eventName": "失業率",
-      "originalEventName": "Unemployment Rate (May)",
-      "sourcePublishTime": "2026/07/21 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/21 14:00",
-      "previous": "4.9",
-      "forecast": "5",
-      "actual": "4.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/21 14:00",
-      "tags": [
-        "英國",
-        "失業率",
-        "偏空"
-      ],
-      "summary": "失業率 將於 2026/07/21 14:00 公布，市場關注前值 4.9、預期 5。",
-      "event": "英國 失業率，前值 4.9、預期 5、實際 4.9。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-employment-change-may-20260721",
-      "type": "macro",
-      "title": "就業人數變化",
-      "eventName": "就業人數變化",
-      "originalEventName": "Employment Change (May)",
-      "sourcePublishTime": "2026/07/21 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/21 14:00",
-      "previous": "99",
-      "forecast": "85",
-      "actual": "147",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/07/21 14:00",
-      "tags": [
-        "英國",
-        "就業人數變化",
-        "偏多"
-      ],
-      "summary": "就業人數變化 將於 2026/07/21 14:00 公布，市場關注前值 99、預期 85。",
-      "event": "英國 就業人數變化，前值 99、預期 85、實際 147。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    }
-  ],
-  "macroEvents": [
-    {
-      "id": "macro-unemployment-rate-may-20260721",
-      "type": "macro",
-      "title": "失業率",
-      "eventName": "失業率",
-      "originalEventName": "Unemployment Rate (May)",
-      "sourcePublishTime": "2026/07/21 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/21 14:00",
-      "previous": "4.9",
-      "forecast": "5",
-      "actual": "4.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/21 14:00",
-      "tags": [
-        "英國",
-        "失業率",
-        "偏空"
-      ],
-      "summary": "失業率 將於 2026/07/21 14:00 公布，市場關注前值 4.9、預期 5。",
-      "event": "英國 失業率，前值 4.9、預期 5、實際 4.9。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-hmrc-payrolls-change-jun-20260721",
-      "type": "macro",
-      "title": "非農就業人數",
-      "eventName": "非農就業人數",
-      "originalEventName": "HMRC Payrolls Change (Jun)",
-      "sourcePublishTime": "2026/07/21 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/21 14:00",
-      "previous": "3",
-      "forecast": "—",
-      "actual": "-4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
-      "importance": "高",
-      "timestamp": "2026/07/21 14:00",
-      "tags": [
-        "英國",
-        "非農就業人數",
-        "中性"
-      ],
-      "summary": "非農就業人數 將於 2026/07/21 14:00 公布，市場關注前值 3、預期 —。",
-      "event": "英國 非農就業人數，前值 3、預期 —、實際 -4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-employment-change-may-20260721",
-      "type": "macro",
-      "title": "就業人數變化",
-      "eventName": "就業人數變化",
-      "originalEventName": "Employment Change (May)",
-      "sourcePublishTime": "2026/07/21 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/21 14:00",
-      "previous": "99",
-      "forecast": "85",
-      "actual": "147",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/07/21 14:00",
-      "tags": [
-        "英國",
-        "就業人數變化",
-        "偏多"
-      ],
-      "summary": "就業人數變化 將於 2026/07/21 14:00 公布，市場關注前值 99、預期 85。",
-      "event": "英國 就業人數變化，前值 99、預期 85、實際 147。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-ecb-bank-lending-survey-20260721",
-      "type": "macro",
-      "title": "ECB Bank Lending Survey",
-      "eventName": "ECB Bank Lending Survey",
-      "originalEventName": "ECB Bank Lending Survey",
-      "sourcePublishTime": "2026/07/21 16:00 Asia/Taipei",
-      "country": "歐元區",
-      "publishTime": "2026/07/21 16:00",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "等待公布",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/07/21 16:00",
-      "tags": [
-        "歐元區",
-        "ECB",
-        "中性"
-      ],
-      "summary": "ECB Bank Lending Survey 將於 2026/07/21 16:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 ECB Bank Lending Survey，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.ecb.europa.eu",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-adp-employment-change-weekly-20260721",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/07/21 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/07/21 20:15",
-      "previous": "19.25",
-      "forecast": "—",
-      "actual": "16.5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/07/21 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/07/21 20:15 公布，市場關注前值 19.25、預期 —。",
-      "event": "美國 ADP 就業人數，前值 19.25、預期 —、實際 16.5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -689,6 +414,282 @@
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    }
+  ],
+  "macroEvents": [
+    {
+      "id": "macro-ppi-core-output-mom-jun-20260722",
+      "type": "macro",
+      "title": "生產者物價指數 PPI",
+      "eventName": "生產者物價指數 PPI",
+      "originalEventName": "PPI Core Output MoM (Jun)",
+      "sourcePublishTime": "2026/07/22 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/07/22 14:00",
+      "previous": "0.7",
+      "forecast": "0.2",
+      "actual": "0.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/07/22 14:00",
+      "tags": [
+        "英國",
+        "生產者物價指數",
+        "中性"
+      ],
+      "summary": "生產者物價指數 PPI 將於 2026/07/22 14:00 公布，市場關注前值 0.7、預期 —。",
+      "event": "英國 生產者物價指數 PPI，前值 0.7、預期 —、實際 0.5。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-core-inflation-rate-mom-jun-20260722",
+      "type": "macro",
+      "title": "核心通膨率",
+      "eventName": "核心通膨率",
+      "originalEventName": "Core Inflation Rate MoM (Jun)",
+      "sourcePublishTime": "2026/07/22 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/07/22 14:00",
+      "previous": "0.3",
+      "forecast": "2.5",
+      "actual": "0.3",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/22 14:00",
+      "tags": [
+        "英國",
+        "核心通膨率",
+        "中性"
+      ],
+      "summary": "核心通膨率 將於 2026/07/22 14:00 公布，市場關注前值 0.3、預期 —。",
+      "event": "英國 核心通膨率，前值 0.3、預期 —、實際 0.3。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-yoy-jun-20260722",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate YoY (Jun)",
+      "sourcePublishTime": "2026/07/22 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/07/22 14:00",
+      "previous": "2.8",
+      "forecast": "2.7",
+      "actual": "2.6",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/22 14:00",
+      "tags": [
+        "英國",
+        "通膨率",
+        "偏多"
+      ],
+      "summary": "通膨率 將於 2026/07/22 14:00 公布，市場關注前值 2.8、預期 2.7。",
+      "event": "英國 通膨率，前值 2.8、預期 2.7、實際 2.6。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ecb-interest-rate-decision-20260723",
+      "type": "macro",
+      "title": "ECB 利率決議",
+      "eventName": "ECB 利率決議",
+      "originalEventName": "ECB Interest Rate Decision",
+      "sourcePublishTime": "2026/07/23 20:15 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/07/23 20:15",
+      "previous": "2.4",
+      "forecast": "2.4",
+      "actual": "2.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/23 20:15",
+      "tags": [
+        "歐元區",
+        "ECB",
+        "中性"
+      ],
+      "summary": "ECB 利率決議 將於 2026/07/23 20:15 公布，市場關注前值 2.4、預期 2.4。",
+      "event": "歐元區 ECB 利率決議，前值 2.4、預期 2.4、實際 2.4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.ecb.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-initial-jobless-claims-jul-18-20260723",
+      "type": "macro",
+      "title": "初領失業救濟金人數",
+      "eventName": "初領失業救濟金人數",
+      "originalEventName": "Initial Jobless Claims (Jul/18)",
+      "sourcePublishTime": "2026/07/23 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/07/23 20:30",
+      "previous": "209",
+      "forecast": "212",
+      "actual": "187",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "importance": "中高",
+      "timestamp": "2026/07/23 20:30",
+      "tags": [
+        "美國",
+        "初領失業救濟金人數",
+        "偏空"
+      ],
+      "summary": "初領失業救濟金人數 將於 2026/07/23 20:30 公布，市場關注前值 209、預期 212。",
+      "event": "美國 初領失業救濟金人數，前值 209、預期 212、實際 187。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.dol.gov/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-kansas-fed-composite-index-jul-20260723",
+      "type": "macro",
+      "title": "Kansas Fed Composite Index (Jul)",
+      "eventName": "Kansas Fed Composite Index (Jul)",
+      "originalEventName": "Kansas Fed Composite Index (Jul)",
+      "sourcePublishTime": "2026/07/23 23:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/07/23 23:00",
+      "previous": "11",
+      "forecast": "—",
+      "actual": "9",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/23 23:00",
+      "tags": [
+        "美國",
+        "Kansas",
+        "中性"
+      ],
+      "summary": "Kansas Fed Composite Index (Jul) 將於 2026/07/23 23:00 公布，市場關注前值 11、預期 —。",
+      "event": "美國 Kansas Fed Composite Index (Jul)，前值 11、預期 —、實際 9。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://kansascityfed.org",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-kansas-fed-manufacturing-index-jul-20260723",
+      "type": "macro",
+      "title": "Kansas Fed Manufacturing Index (Jul)",
+      "eventName": "Kansas Fed Manufacturing Index (Jul)",
+      "originalEventName": "Kansas Fed Manufacturing Index (Jul)",
+      "sourcePublishTime": "2026/07/23 23:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/07/23 23:00",
+      "previous": "19",
+      "forecast": "—",
+      "actual": "17",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/23 23:00",
+      "tags": [
+        "美國",
+        "Kansas",
+        "中性"
+      ],
+      "summary": "Kansas Fed Manufacturing Index (Jul) 將於 2026/07/23 23:00 公布，市場關注前值 19、預期 —。",
+      "event": "美國 Kansas Fed Manufacturing Index (Jul)，前值 19、預期 —、實際 17。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://kansascityfed.org",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-manufacturing-pmi-flash-jul-20260724",
+      "type": "macro",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Flash (Jul)",
+      "sourcePublishTime": "2026/07/24 15:15 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/07/24 15:15",
+      "previous": "51.2",
+      "forecast": "51",
+      "actual": "50.0",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/07/24 15:15",
+      "tags": [
+        "法國",
+        "製造業",
+        "中性"
+      ],
+      "summary": "製造業 PMI 將於 2026/07/24 15:15 公布，市場關注前值 51.2、預期 51.5。",
+      "event": "法國 製造業 PMI，前值 51.2、預期 51.5、實際 50.0。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     }
   ]
