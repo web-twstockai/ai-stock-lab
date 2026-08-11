@@ -1,10 +1,10 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/08/10 18:30",
+  "updatedAt": "2026/08/11 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 260,
+      "value": 262,
       "unit": "筆",
       "icon": "file"
     },
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "12 個"
+          "16 個"
         ],
         [
           "下一事件",
@@ -280,6 +280,74 @@ window.IntelligenceOverviewData = {
       }
     },
     {
+      "id": "macro-richmond-fed-manufacturing-shipments-index-jul-20260728",
+      "type": "macro",
+      "title": "Richmond Fed Manufacturing Shipments Index (Jul)",
+      "eventName": "Richmond Fed Manufacturing Shipments Index (Jul)",
+      "originalEventName": "Richmond Fed Manufacturing Shipments Index (Jul)",
+      "sourcePublishTime": "2026/07/28 22:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/07/28 22:00",
+      "previous": "4",
+      "forecast": "—",
+      "actual": "8",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/28 22:00",
+      "tags": [
+        "美國",
+        "Richmond",
+        "中性"
+      ],
+      "summary": "Richmond Fed Manufacturing Shipments Index (Jul) 將於 2026/07/28 22:00 公布，市場關注前值 4、預期 —。",
+      "event": "美國 Richmond Fed Manufacturing Shipments Index (Jul)，前值 4、預期 —、實際 8。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.richmondfed.org",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-richmond-fed-manufacturing-index-jul-20260728",
+      "type": "macro",
+      "title": "Richmond Fed Manufacturing Index (Jul)",
+      "eventName": "Richmond Fed Manufacturing Index (Jul)",
+      "originalEventName": "Richmond Fed Manufacturing Index (Jul)",
+      "sourcePublishTime": "2026/07/28 22:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/07/28 22:00",
+      "previous": "4",
+      "forecast": "10",
+      "actual": "5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/28 22:00",
+      "tags": [
+        "美國",
+        "Richmond",
+        "偏空"
+      ],
+      "summary": "Richmond Fed Manufacturing Index (Jul) 將於 2026/07/28 22:00 公布，市場關注前值 4、預期 10。",
+      "event": "美國 Richmond Fed Manufacturing Index (Jul)，前值 4、預期 10、實際 5。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.richmondfed.org",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-adp-employment-change-weekly-20260728",
       "type": "macro",
       "title": "ADP 就業人數",
@@ -347,145 +415,9 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar"
       ]
-    },
-    {
-      "id": "macro-brc-shop-price-inflation-jul-20260728",
-      "type": "macro",
-      "title": "BRC Shop Price Inflation (Jul)",
-      "eventName": "BRC Shop Price Inflation (Jul)",
-      "originalEventName": "BRC Shop Price Inflation (Jul)",
-      "sourcePublishTime": "2026/07/28 07:01 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/28 07:01",
-      "previous": "1.2",
-      "forecast": "1.2",
-      "actual": "0.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/28 07:01",
-      "tags": [
-        "英國",
-        "BRC",
-        "偏多"
-      ],
-      "summary": "BRC Shop Price Inflation (Jul) 將於 2026/07/28 07:01 公布，市場關注前值 1.2、預期 1.2。",
-      "event": "英國 BRC Shop Price Inflation (Jul)，前值 1.2、預期 1.2、實際 0.9。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://brc.org.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-dallas-fed-manufacturing-index-jul-20260727",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Jul)",
-      "eventName": "Dallas Fed Manufacturing Index (Jul)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Jul)",
-      "sourcePublishTime": "2026/07/27 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/07/27 22:30",
-      "previous": "—",
-      "forecast": "—",
-      "actual": "1.3",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/27 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Jul) 將於 2026/07/27 22:30 公布，市場關注前值 —、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Jul)，前值 —、預期 —、實際 1.3。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-dallas-fed-manufacturing-index-jul-20260727",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Jul)",
-      "eventName": "Dallas Fed Manufacturing Index (Jul)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Jul)",
-      "sourcePublishTime": "2026/07/27 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/07/27 22:30",
-      "previous": "—",
-      "forecast": "—",
-      "actual": "1.3",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/27 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Jul) 將於 2026/07/27 22:30 公布，市場關注前值 —、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Jul)，前值 —、預期 —、實際 1.3。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-brc-shop-price-inflation-jul-20260728",
-      "type": "macro",
-      "title": "BRC Shop Price Inflation (Jul)",
-      "eventName": "BRC Shop Price Inflation (Jul)",
-      "originalEventName": "BRC Shop Price Inflation (Jul)",
-      "sourcePublishTime": "2026/07/28 07:01 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/07/28 07:01",
-      "previous": "1.2",
-      "forecast": "1.2",
-      "actual": "0.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/28 07:01",
-      "tags": [
-        "英國",
-        "BRC",
-        "偏多"
-      ],
-      "summary": "BRC Shop Price Inflation (Jul) 將於 2026/07/28 07:01 公布，市場關注前值 1.2、預期 1.2。",
-      "event": "英國 BRC Shop Price Inflation (Jul)，前值 1.2、預期 1.2、實際 0.9。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://brc.org.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-unemployment-benefit-claims-jun-20260728",
       "type": "macro",
@@ -687,6 +619,75 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-hesse-cpi-yoy-jul-20260730",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "Hesse CPI YoY (Jul)",
+      "sourcePublishTime": "2026/07/30 16:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/07/30 16:00",
+      "previous": "2.3",
+      "forecast": "—",
+      "actual": "2.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/07/30 16:00",
+      "tags": [
+        "德國",
+        "消費者物價指數",
+        "中性"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/07/30 16:00 公布，市場關注前值 2.3、預期 —。",
+      "event": "德國 消費者物價指數 CPI，前值 2.3、預期 —、實際 2.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://statistik.hessen.de/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-gdp-growth-rate-qoq-flash-q2-20260730",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP Growth Rate QoQ Flash (Q2)",
+      "sourcePublishTime": "2026/07/30 16:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/07/30 16:00",
+      "previous": "0.4",
+      "forecast": "0.1",
+      "actual": "0.2",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "高",
+      "timestamp": "2026/07/30 16:00",
+      "tags": [
+        "德國",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/07/30 16:00 公布，市場關注前值 0.4、預期 0.1。",
+      "event": "德國 GDP 經濟成長率，前值 0.4、預期 0.1、實際 0.2。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.destatis.de",
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
