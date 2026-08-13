@@ -1,10 +1,10 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/08/12 18:30",
+  "updatedAt": "2026/08/13 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 263,
+      "value": 262,
       "unit": "筆",
       "icon": "file"
     },
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "21 個"
+          "19 個"
         ],
         [
           "下一事件",
@@ -280,6 +280,40 @@ window.IntelligenceOverviewData = {
       }
     },
     {
+      "id": "macro-gdp-growth-rate-yoy-flash-q2-20260730",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP Growth Rate YoY Flash (Q2)",
+      "sourcePublishTime": "2026/07/30 17:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/07/30 17:00",
+      "previous": "0.5",
+      "forecast": "0.5",
+      "actual": "1",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "高",
+      "timestamp": "2026/07/30 17:00",
+      "tags": [
+        "歐元區",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/07/30 17:00 公布，市場關注前值 0.5、預期 0.5。",
+      "event": "歐元區 GDP 經濟成長率，前值 0.5、預期 0.5、實際 1。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://ec.europa.eu/eurostat/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-hesse-cpi-yoy-jul-20260730",
       "type": "macro",
       "title": "消費者物價指數 CPI",
@@ -382,77 +416,9 @@ window.IntelligenceOverviewData = {
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
-    },
-    {
-      "id": "macro-fed-interest-rate-decision-20260730",
-      "type": "macro",
-      "title": "FOMC 利率決議",
-      "eventName": "FOMC 利率決議",
-      "originalEventName": "Fed Interest Rate Decision",
-      "sourcePublishTime": "2026/07/30 02:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/07/30 02:00",
-      "previous": "3.75",
-      "forecast": "3.75",
-      "actual": "3.75",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/30 02:00",
-      "tags": [
-        "美國",
-        "FOMC",
-        "中性"
-      ],
-      "summary": "FOMC 利率決議 將於 2026/07/30 02:00 公布，市場關注前值 3.75、預期 3.75。",
-      "event": "美國 FOMC 利率決議，前值 3.75、預期 3.75、實際 3.75。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.federalreserve.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-fed-interest-rate-decision-20260730",
-      "type": "macro",
-      "title": "FOMC 利率決議",
-      "eventName": "FOMC 利率決議",
-      "originalEventName": "Fed Interest Rate Decision",
-      "sourcePublishTime": "2026/07/30 02:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/07/30 02:00",
-      "previous": "3.75",
-      "forecast": "3.75",
-      "actual": "3.75",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/07/30 02:00",
-      "tags": [
-        "美國",
-        "FOMC",
-        "中性"
-      ],
-      "summary": "FOMC 利率決議 將於 2026/07/30 02:00 公布，市場關注前值 3.75、預期 3.75。",
-      "event": "美國 FOMC 利率決議，前值 3.75、預期 3.75、實際 3.75。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.federalreserve.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-gdp-growth-rate-yoy-prel-q2-20260730",
       "type": "macro",
@@ -689,6 +655,40 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.bankofengland.co.uk",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-harmonised-inflation-rate-mom-prel-jul-20260730",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Harmonised Inflation Rate MoM Prel (Jul)",
+      "sourcePublishTime": "2026/07/30 20:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/07/30 20:00",
+      "previous": "-0.2",
+      "forecast": "0.8",
+      "actual": "0.9",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/07/30 20:00",
+      "tags": [
+        "德國",
+        "通膨率",
+        "偏空"
+      ],
+      "summary": "通膨率 將於 2026/07/30 20:00 公布，市場關注前值 -0.2、預期 0.8。",
+      "event": "德國 通膨率，前值 -0.2、預期 0.8、實際 0.9。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.destatis.de",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
