@@ -1,16 +1,16 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/08/13 07:47",
+  "updatedAt": "2026/08/13 12:26",
   "status": "運作中",
   "summary": [
     {
       "label": "本週事件",
-      "value": 19,
+      "value": 20,
       "unit": "個",
       "icon": "calendar"
     },
     {
       "label": "即將公布",
-      "value": 101,
+      "value": 102,
       "unit": "個",
       "icon": "file"
     },
@@ -22,7 +22,7 @@ window.MacroRobotData = {
     },
     {
       "label": "高影響事件",
-      "value": 29,
+      "value": 30,
       "unit": "個",
       "icon": "alert",
       "accent": "orange"
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "GDP 經濟成長率",
-      "unit": "倒數 12 小時",
+      "unit": "倒數 7 小時",
       "icon": "filter"
     }
   ],
@@ -2140,18 +2140,18 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-niesr-monthly-gdp-tracker-jul-20260813",
+      "id": "macro-niesr-gdp-20260813",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "NIESR Monthly GDP Tracker (Jul)",
+      "originalEventName": "NIESR每月GDP追蹤",
       "sourcePublishTime": "2026/08/13 19:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/08/13 19:00",
       "previous": "0.4",
       "forecast": "0.4",
       "actual": null,
-      "status": "倒數 12 小時",
+      "status": "倒數 7 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
@@ -2162,16 +2162,49 @@ window.MacroRobotData = {
         "GDP",
         "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/08/13 19:00 公布，市場關注前值 0.4、預期 —。",
+      "summary": "GDP 經濟成長率 將於 2026/08/13 19:00 公布，市場關注前值 0.4、預期 0.4。",
+      "event": "英國 GDP 經濟成長率，前值 0.4、預期 0.4、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "sourceList": [
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-niesr-monthly-gdp-tracker-jul-20260813",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "NIESR Monthly GDP Tracker (Jul)",
+      "sourcePublishTime": "2026/08/13 19:30 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/08/13 19:30",
+      "previous": "0.4",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 8 小時",
+      "statusLevel": "soon",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/08/13 19:30",
+      "tags": [
+        "英國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/08/13 19:30 公布，市場關注前值 0.4、預期 —。",
       "event": "英國 GDP 經濟成長率，前值 0.4、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -2186,7 +2219,7 @@ window.MacroRobotData = {
       "previous": "1801",
       "forecast": "1800",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -2220,7 +2253,7 @@ window.MacroRobotData = {
       "previous": "4.7",
       "forecast": "4.2",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -2456,7 +2489,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/08/18 20:15 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/08/18 20:15",
-      "previous": "—",
+      "previous": "8.25",
       "forecast": "—",
       "actual": null,
       "status": "倒數 5 天",
@@ -2470,8 +2503,8 @@ window.MacroRobotData = {
         "ADP",
         "中性"
       ],
-      "summary": "ADP 就業人數 將於 2026/08/18 20:15 公布，市場關注前值 —、預期 —。",
-      "event": "美國 ADP 就業人數，前值 —、預期 —、實際 尚未公布。",
+      "summary": "ADP 就業人數 將於 2026/08/18 20:15 公布，市場關注前值 8.25、預期 —。",
+      "event": "美國 ADP 就業人數，前值 8.25、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2492,7 +2525,7 @@ window.MacroRobotData = {
       "country": "英國",
       "publishTime": "2026/08/19 14:00",
       "previous": "0.5",
-      "forecast": "—",
+      "forecast": "0.5",
       "actual": null,
       "status": "倒數 6 天",
       "statusLevel": "upcoming",
@@ -3078,7 +3111,7 @@ window.MacroRobotData = {
       "country": "英國",
       "publishTime": "2026/08/21 16:30",
       "previous": "52.2",
-      "forecast": "—",
+      "forecast": "52.1",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
@@ -3113,7 +3146,7 @@ window.MacroRobotData = {
       "country": "英國",
       "publishTime": "2026/08/21 16:30",
       "previous": "52.1",
-      "forecast": "—",
+      "forecast": "52.0",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
@@ -5686,6 +5719,6 @@ window.MacroRobotData = {
     "horizonDays": 62,
     "calendarWindow": "2026-07-30~2026-10-14",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 162
+    "fetchedEvents": 163
   }
 };
