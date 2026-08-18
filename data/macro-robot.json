@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/08/18 07:47",
+  "updatedAt": "2026/08/18 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "label": "即將公布",
-      "value": 107,
+      "value": 106,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@
     },
     {
       "label": "下一個事件",
-      "value": "ADP 就業人數",
-      "unit": "倒數 13 小時",
+      "value": "生產者物價指數 PPI",
+      "unit": "倒數 1 天",
       "icon": "filter"
     }
   ],
@@ -1490,9 +1490,9 @@
       "publishTime": "2026/08/18 20:15",
       "previous": "8.25",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 13 小時",
-      "statusLevel": "soon",
+      "actual": "9.5",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -1503,7 +1503,7 @@
         "中性"
       ],
       "summary": "ADP 就業人數 將於 2026/08/18 20:15 公布，市場關注前值 8.25、預期 —。",
-      "event": "美國 ADP 就業人數，前值 8.25、預期 —、實際 尚未公布。",
+      "event": "美國 ADP 就業人數，前值 8.25、預期 —、實際 9.5。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -1524,7 +1524,7 @@
       "country": "英國",
       "publishTime": "2026/08/19 14:00",
       "previous": "0.5",
-      "forecast": "-0.5",
+      "forecast": "6.6",
       "actual": null,
       "status": "倒數 1 天",
       "statusLevel": "upcoming",
