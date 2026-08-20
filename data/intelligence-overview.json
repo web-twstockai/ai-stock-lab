@@ -4,13 +4,13 @@
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 232,
+      "value": 254,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 58,
+      "value": 59,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -554,35 +554,35 @@
       ]
     },
     {
-      "id": "macro-continuing-jobless-claims-jul-25-20260806",
+      "id": "macro-initial-jobless-claims-aug-01-20260806",
       "type": "macro",
       "title": "初領失業救濟金人數",
       "eventName": "初領失業救濟金人數",
-      "originalEventName": "Continuing Jobless Claims (Jul/25)",
+      "originalEventName": "Initial Jobless Claims (Aug/01)",
       "sourcePublishTime": "2026/08/06 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/08/06 20:30",
-      "previous": "1777",
-      "forecast": "1790",
-      "actual": "1801",
+      "previous": "198",
+      "forecast": "202",
+      "actual": "199",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏多",
+      "direction": "偏空",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "importance": "中高",
       "timestamp": "2026/08/06 20:30",
       "tags": [
         "美國",
         "初領失業救濟金人數",
-        "偏多"
+        "偏空"
       ],
-      "summary": "初領失業救濟金人數 將於 2026/08/06 20:30 公布，市場關注前值 1777、預期 1790。",
-      "event": "美國 初領失業救濟金人數，前值 1777、預期 1790、實際 1801。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "初領失業救濟金人數 將於 2026/08/06 20:30 公布，市場關注前值 198、預期 202。",
+      "event": "美國 初領失業救濟金人數，前值 198、預期 202、實際 199。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.dol.gov",
+      "sourceUrl": "https://www.dol.gov/",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
