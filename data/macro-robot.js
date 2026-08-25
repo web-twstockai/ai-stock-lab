@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/08/25 07:47",
+  "updatedAt": "2026/08/25 12:29",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@ window.MacroRobotData = {
     },
     {
       "label": "即將公布",
-      "value": 109,
+      "value": 108,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@ window.MacroRobotData = {
     },
     {
       "label": "下一個事件",
-      "value": "ADP 就業人數",
-      "unit": "倒數 13 小時",
+      "value": "Richmond Fed Manufacturing Index (Aug)",
+      "unit": "倒數 10 小時",
       "icon": "filter"
     }
   ],
@@ -1459,9 +1459,9 @@ window.MacroRobotData = {
       "publishTime": "2026/08/25 20:15",
       "previous": "9.5",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 13 小時",
-      "statusLevel": "soon",
+      "actual": "11.75",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -1472,7 +1472,7 @@ window.MacroRobotData = {
         "中性"
       ],
       "summary": "ADP 就業人數 將於 2026/08/25 20:15 公布，市場關注前值 9.5、預期 —。",
-      "event": "美國 ADP 就業人數，前值 9.5、預期 —、實際 尚未公布。",
+      "event": "美國 ADP 就業人數，前值 9.5、預期 —、實際 11.75。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -1495,7 +1495,7 @@ window.MacroRobotData = {
       "previous": "5",
       "forecast": "7",
       "actual": null,
-      "status": "倒數 15 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -1529,7 +1529,7 @@ window.MacroRobotData = {
       "previous": "8",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 15 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -4843,11 +4843,11 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-s-p-global-services-pmi-flash-sep-20260923",
+      "id": "macro-s-p-global-manufacturing-pmi-flash-sep-20260923",
       "type": "macro",
-      "title": "服務業 PMI",
-      "eventName": "服務業 PMI",
-      "originalEventName": "S&P Global Services PMI Flash (Sep)",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Flash (Sep)",
       "sourcePublishTime": "2026/09/23 16:30 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/09/23 16:30",
@@ -4862,11 +4862,11 @@ window.MacroRobotData = {
       "timestamp": "2026/09/23 16:30",
       "tags": [
         "英國",
-        "服務業",
+        "製造業",
         "中性"
       ],
-      "summary": "服務業 PMI 將於 2026/09/23 16:30 公布，市場關注前值 —、預期 —。",
-      "event": "英國 服務業 PMI，前值 —、預期 —、實際 尚未公布。",
+      "summary": "製造業 PMI 將於 2026/09/23 16:30 公布，市場關注前值 —、預期 —。",
+      "event": "英國 製造業 PMI，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -4911,11 +4911,11 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-s-p-global-manufacturing-pmi-flash-sep-20260923",
+      "id": "macro-s-p-global-services-pmi-flash-sep-20260923",
       "type": "macro",
-      "title": "製造業 PMI",
-      "eventName": "製造業 PMI",
-      "originalEventName": "S&P Global Manufacturing PMI Flash (Sep)",
+      "title": "服務業 PMI",
+      "eventName": "服務業 PMI",
+      "originalEventName": "S&P Global Services PMI Flash (Sep)",
       "sourcePublishTime": "2026/09/23 16:30 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/09/23 16:30",
@@ -4930,11 +4930,11 @@ window.MacroRobotData = {
       "timestamp": "2026/09/23 16:30",
       "tags": [
         "英國",
-        "製造業",
+        "服務業",
         "中性"
       ],
-      "summary": "製造業 PMI 將於 2026/09/23 16:30 公布，市場關注前值 —、預期 —。",
-      "event": "英國 製造業 PMI，前值 —、預期 —、實際 尚未公布。",
+      "summary": "服務業 PMI 將於 2026/09/23 16:30 公布，市場關注前值 —、預期 —。",
+      "event": "英國 服務業 PMI，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
