@@ -1,10 +1,10 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/08/25 18:30",
+  "updatedAt": "2026/08/26 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 250,
+      "value": 249,
       "unit": "筆",
       "icon": "file"
     },
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "37 個"
+          "34 個"
         ],
         [
           "下一事件",
@@ -314,17 +314,17 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-inflation-rate-mom-jul-20260812",
+      "id": "macro-inflation-rate-yoy-jul-20260812",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM (Jul)",
+      "originalEventName": "Inflation Rate YoY (Jul)",
       "sourcePublishTime": "2026/08/12 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/08/12 20:30",
-      "previous": "-0.4",
-      "forecast": "0.1",
-      "actual": "0.1",
+      "previous": "3.5",
+      "forecast": "3.4",
+      "actual": "3.4",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -336,221 +336,13 @@ window.IntelligenceOverviewData = {
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/08/12 20:30 公布，市場關注前值 -0.4、預期 0.1。",
-      "event": "美國 通膨率，前值 -0.4、預期 0.1、實際 0.1。",
+      "summary": "通膨率 將於 2026/08/12 20:30 公布，市場關注前值 3.5、預期 3.4。",
+      "event": "美國 通膨率，前值 3.5、預期 3.4、實際 3.4。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.bls.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-inflation-rate-mom-final-jul-20260812",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM Final (Jul)",
-      "sourcePublishTime": "2026/08/12 14:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/08/12 14:00",
-      "previous": "-0.3",
-      "forecast": "0.8",
-      "actual": "0.8",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/08/12 14:00",
-      "tags": [
-        "德國",
-        "通膨率",
-        "中性"
-      ],
-      "summary": "通膨率 將於 2026/08/12 14:00 公布，市場關注前值 -0.3、預期 0.8。",
-      "event": "德國 通膨率，前值 -0.3、預期 0.8、實際 0.8。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-adp-employment-change-weekly-20260811",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/08/11 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/08/11 20:15",
-      "previous": "11",
-      "forecast": "—",
-      "actual": "8.25",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/08/11 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/08/11 20:15 公布，市場關注前值 11、預期 —。",
-      "event": "美國 ADP 就業人數，前值 11、預期 —、實際 8.25。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    }
-  ],
-  "macroEvents": [
-    {
-      "id": "macro-adp-employment-change-weekly-20260811",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/08/11 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/08/11 20:15",
-      "previous": "11",
-      "forecast": "—",
-      "actual": "8.25",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/08/11 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/08/11 20:15 公布，市場關注前值 11、預期 —。",
-      "event": "美國 ADP 就業人數，前值 11、預期 —、實際 8.25。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-inflation-rate-mom-final-jul-20260812",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM Final (Jul)",
-      "sourcePublishTime": "2026/08/12 14:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/08/12 14:00",
-      "previous": "-0.3",
-      "forecast": "0.8",
-      "actual": "0.8",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/08/12 14:00",
-      "tags": [
-        "德國",
-        "通膨率",
-        "中性"
-      ],
-      "summary": "通膨率 將於 2026/08/12 14:00 公布，市場關注前值 -0.3、預期 0.8。",
-      "event": "德國 通膨率，前值 -0.3、預期 0.8、實際 0.8。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-inflation-rate-mom-jul-20260812",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM (Jul)",
-      "sourcePublishTime": "2026/08/12 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/08/12 20:30",
-      "previous": "-0.4",
-      "forecast": "0.1",
-      "actual": "0.1",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/08/12 20:30",
-      "tags": [
-        "美國",
-        "通膨率",
-        "中性"
-      ],
-      "summary": "通膨率 將於 2026/08/12 20:30 公布，市場關注前值 -0.4、預期 0.1。",
-      "event": "美國 通膨率，前值 -0.4、預期 0.1、實際 0.1。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.bls.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-cpi-s-a-jul-20260812",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "CPI s.a (Jul)",
-      "sourcePublishTime": "2026/08/12 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/08/12 20:30",
-      "previous": "332.57",
-      "forecast": "333.99",
-      "actual": "332.81",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/08/12 20:30",
-      "tags": [
-        "美國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/08/12 20:30 公布，市場關注前值 332.57、預期 —。",
-      "event": "美國 消費者物價指數 CPI，前值 332.57、預期 —、實際 332.81。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.bls.gov",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
@@ -590,31 +382,203 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-gdp-mom-jun-20260813",
+      "id": "macro-harmonised-inflation-rate-mom-final-jul-20260812",
       "type": "macro",
-      "title": "GDP 經濟成長率",
-      "eventName": "GDP 經濟成長率",
-      "originalEventName": "GDP MoM (Jun)",
-      "sourcePublishTime": "2026/08/13 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/08/13 14:00",
-      "previous": "0.9",
-      "forecast": "1.1",
-      "actual": "0.3",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Harmonised Inflation Rate MoM Final (Jul)",
+      "sourcePublishTime": "2026/08/12 14:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/08/12 14:00",
+      "previous": "-0.2",
+      "forecast": "0.9",
+      "actual": "0.9",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/08/12 14:00",
+      "tags": [
+        "德國",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/08/12 14:00 公布，市場關注前值 -0.2、預期 0.9。",
+      "event": "德國 通膨率，前值 -0.2、預期 0.9、實際 0.9。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.destatis.de",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    }
+  ],
+  "macroEvents": [
+    {
+      "id": "macro-harmonised-inflation-rate-mom-final-jul-20260812",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Harmonised Inflation Rate MoM Final (Jul)",
+      "sourcePublishTime": "2026/08/12 14:00 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/08/12 14:00",
+      "previous": "-0.2",
+      "forecast": "0.9",
+      "actual": "0.9",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/08/12 14:00",
+      "tags": [
+        "德國",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/08/12 14:00 公布，市場關注前值 -0.2、預期 0.9。",
+      "event": "德國 通膨率，前值 -0.2、預期 0.9、實際 0.9。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.destatis.de",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-yoy-jul-20260812",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate YoY (Jul)",
+      "sourcePublishTime": "2026/08/12 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/08/12 20:30",
+      "previous": "3.5",
+      "forecast": "3.4",
+      "actual": "3.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/08/12 20:30",
+      "tags": [
+        "美國",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/08/12 20:30 公布，市場關注前值 3.5、預期 3.4。",
+      "event": "美國 通膨率，前值 3.5、預期 3.4、實際 3.4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.bls.gov/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-core-inflation-rate-mom-jul-20260812",
+      "type": "macro",
+      "title": "核心通膨率",
+      "eventName": "核心通膨率",
+      "originalEventName": "Core Inflation Rate MoM (Jul)",
+      "sourcePublishTime": "2026/08/12 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/08/12 20:30",
+      "previous": "2.6",
+      "forecast": "0.2",
+      "actual": "0.2",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/08/12 20:30",
+      "tags": [
+        "美國",
+        "核心通膨率",
+        "中性"
+      ],
+      "summary": "核心通膨率 將於 2026/08/12 20:30 公布，市場關注前值 —、預期 0.2。",
+      "event": "美國 核心通膨率，前值 —、預期 0.2、實際 0.2。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.bls.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-cpi-s-a-jul-20260812",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "CPI s.a (Jul)",
+      "sourcePublishTime": "2026/08/12 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/08/12 20:30",
+      "previous": "332.57",
+      "forecast": "333.99",
+      "actual": "332.81",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/08/12 20:30",
+      "tags": [
+        "美國",
+        "消費者物價指數",
+        "中性"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/08/12 20:30 公布，市場關注前值 332.57、預期 —。",
+      "event": "美國 消費者物價指數 CPI，前值 332.57、預期 —、實際 332.81。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.bls.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-gdp-yoy-jun-20260813",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP YoY (Jun)",
+      "sourcePublishTime": "2026/08/13 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/08/13 14:00",
+      "previous": "1.2",
+      "forecast": "0.8",
+      "actual": "1.1",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
       "importance": "高",
       "timestamp": "2026/08/13 14:00",
       "tags": [
         "英國",
         "GDP",
-        "中性"
+        "偏多"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/08/13 14:00 公布，市場關注前值 —、預期 —。",
-      "event": "英國 GDP 經濟成長率，前值 —、預期 —、實際 0.3。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "GDP 經濟成長率 將於 2026/08/13 14:00 公布，市場關注前值 1.2、預期 0.8。",
+      "event": "英國 GDP 經濟成長率，前值 1.2、預期 0.8、實際 1.1。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
@@ -688,6 +652,40 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-jobless-claims-4-week-average-aug-08-20260813",
+      "type": "macro",
+      "title": "初領失業救濟金人數",
+      "eventName": "初領失業救濟金人數",
+      "originalEventName": "Jobless Claims 4-week Average (Aug/08)",
+      "sourcePublishTime": "2026/08/13 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/08/13 20:30",
+      "previous": "199",
+      "forecast": "1800",
+      "actual": "199",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "importance": "中高",
+      "timestamp": "2026/08/13 20:30",
+      "tags": [
+        "美國",
+        "初領失業救濟金人數",
+        "中性"
+      ],
+      "summary": "初領失業救濟金人數 將於 2026/08/13 20:30 公布，市場關注前值 199、預期 —。",
+      "event": "美國 初領失業救濟金人數，前值 199、預期 —、實際 199。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.dol.gov",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
