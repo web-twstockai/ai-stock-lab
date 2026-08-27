@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/08/27 07:47",
+  "updatedAt": "2026/08/27 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "label": "即將公布",
-      "value": 102,
+      "value": 101,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@
     },
     {
       "label": "下一個事件",
-      "value": "Unemployment Benefit Claims (Jul)",
-      "unit": "倒數 11 小時",
+      "value": "ECB Monetary Policy Meeting Accounts",
+      "unit": "倒數 8 小時",
       "icon": "filter"
     }
   ],
@@ -1531,9 +1531,9 @@
       "publishTime": "2026/08/27 18:00",
       "previous": "5.9",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 11 小時",
-      "statusLevel": "soon",
+      "actual": "21.5",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "importance": "中高",
@@ -1544,7 +1544,7 @@
         "中性"
       ],
       "summary": "Unemployment Benefit Claims (Jul) 將於 2026/08/27 18:00 公布，市場關注前值 5.9、預期 —。",
-      "event": "法國 Unemployment Benefit Claims (Jul)，前值 5.9、預期 —、實際 尚未公布。",
+      "event": "法國 Unemployment Benefit Claims (Jul)，前值 5.9、預期 —、實際 21.5。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -1566,7 +1566,7 @@
       "previous": "—",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 12 小時",
+      "status": "倒數 8 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -1600,7 +1600,7 @@
       "previous": "1799",
       "forecast": "1790",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -1634,7 +1634,7 @@
       "previous": "17",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 16 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -1668,7 +1668,7 @@
       "previous": "9",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 16 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
