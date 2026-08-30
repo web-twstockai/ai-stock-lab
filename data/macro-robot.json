@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/08/30 07:46",
+  "updatedAt": "2026/08/30 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -4640,40 +4640,6 @@
       ]
     },
     {
-      "id": "macro-kansas-fed-manufacturing-index-sep-20260924",
-      "type": "macro",
-      "title": "Kansas Fed Manufacturing Index (Sep)",
-      "eventName": "Kansas Fed Manufacturing Index (Sep)",
-      "originalEventName": "Kansas Fed Manufacturing Index (Sep)",
-      "sourcePublishTime": "2026/09/24 23:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/24 23:00",
-      "previous": "17",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 25 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/24 23:00",
-      "tags": [
-        "美國",
-        "Kansas",
-        "中性"
-      ],
-      "summary": "Kansas Fed Manufacturing Index (Sep) 將於 2026/09/24 23:00 公布，市場關注前值 17、預期 —。",
-      "event": "美國 Kansas Fed Manufacturing Index (Sep)，前值 17、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://kansascityfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-kansas-fed-composite-index-sep-20260924",
       "type": "macro",
       "title": "Kansas Fed Composite Index (Sep)",
@@ -4698,6 +4664,40 @@
       ],
       "summary": "Kansas Fed Composite Index (Sep) 將於 2026/09/24 23:00 公布，市場關注前值 10、預期 —。",
       "event": "美國 Kansas Fed Composite Index (Sep)，前值 10、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://kansascityfed.org",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-kansas-fed-manufacturing-index-sep-20260924",
+      "type": "macro",
+      "title": "Kansas Fed Manufacturing Index (Sep)",
+      "eventName": "Kansas Fed Manufacturing Index (Sep)",
+      "originalEventName": "Kansas Fed Manufacturing Index (Sep)",
+      "sourcePublishTime": "2026/09/24 23:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/09/24 23:00",
+      "previous": "17",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 25 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/24 23:00",
+      "tags": [
+        "美國",
+        "Kansas",
+        "中性"
+      ],
+      "summary": "Kansas Fed Manufacturing Index (Sep) 將於 2026/09/24 23:00 公布，市場關注前值 17、預期 —。",
+      "event": "美國 Kansas Fed Manufacturing Index (Sep)，前值 17、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
