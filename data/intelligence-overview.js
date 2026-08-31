@@ -1,5 +1,5 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/08/30 12:26",
+  "updatedAt": "2026/08/31 07:46",
   "status": "運作中",
   "cards": [
     {
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "41 個"
+          "43 個"
         ],
         [
           "下一事件",
