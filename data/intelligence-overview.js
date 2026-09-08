@@ -1,10 +1,10 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/09/07 18:30",
+  "updatedAt": "2026/09/08 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 257,
+      "value": 259,
       "unit": "筆",
       "icon": "file"
     },
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "12 個"
+          "15 個"
         ],
         [
           "下一事件",
@@ -280,17 +280,17 @@ window.IntelligenceOverviewData = {
       }
     },
     {
-      "id": "macro-gdp-growth-rate-yoy-final-q2-20260825",
+      "id": "macro-gdp-growth-rate-qoq-final-q2-20260825",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "GDP Growth Rate YoY Final (Q2)",
+      "originalEventName": "GDP Growth Rate QoQ Final (Q2)",
       "sourcePublishTime": "2026/08/25 14:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/08/25 14:00",
-      "previous": "0.7",
-      "forecast": "0.9",
-      "actual": "1",
+      "previous": "0.4",
+      "forecast": "0.2",
+      "actual": "0.3",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
@@ -302,8 +302,8 @@ window.IntelligenceOverviewData = {
         "GDP",
         "偏多"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/08/25 14:00 公布，市場關注前值 0.7、預期 0.9。",
-      "event": "德國 GDP 經濟成長率，前值 0.7、預期 0.9、實際 1。",
+      "summary": "GDP 經濟成長率 將於 2026/08/25 14:00 公布，市場關注前值 0.4、預期 0.2。",
+      "event": "德國 GDP 經濟成長率，前值 0.4、預期 0.2、實際 0.3。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -420,17 +420,17 @@ window.IntelligenceOverviewData = {
   ],
   "macroEvents": [
     {
-      "id": "macro-gdp-growth-rate-yoy-final-q2-20260825",
+      "id": "macro-gdp-growth-rate-qoq-final-q2-20260825",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "GDP Growth Rate YoY Final (Q2)",
+      "originalEventName": "GDP Growth Rate QoQ Final (Q2)",
       "sourcePublishTime": "2026/08/25 14:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/08/25 14:00",
-      "previous": "0.7",
-      "forecast": "0.9",
-      "actual": "1",
+      "previous": "0.4",
+      "forecast": "0.2",
+      "actual": "0.3",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
@@ -442,8 +442,8 @@ window.IntelligenceOverviewData = {
         "GDP",
         "偏多"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/08/25 14:00 公布，市場關注前值 0.7、預期 0.9。",
-      "event": "德國 GDP 經濟成長率，前值 0.7、預期 0.9、實際 1。",
+      "summary": "GDP 經濟成長率 將於 2026/08/25 14:00 公布，市場關注前值 0.4、預期 0.2。",
+      "event": "德國 GDP 經濟成長率，前值 0.4、預期 0.2、實際 0.3。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -558,41 +558,6 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-core-pce-price-index-mom-jul-20260826",
-      "type": "macro",
-      "title": "核心 PCE 物價指數",
-      "eventName": "核心 PCE 物價指數",
-      "originalEventName": "Core PCE Price Index MoM (Jul)",
-      "sourcePublishTime": "2026/08/26 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/08/26 20:30",
-      "previous": "0.1",
-      "forecast": "0.2",
-      "actual": "0.2",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/08/26 20:30",
-      "tags": [
-        "美國",
-        "核心",
-        "中性"
-      ],
-      "summary": "核心 PCE 物價指數 將於 2026/08/26 20:30 公布，市場關注前值 0.1、預期 0.2。",
-      "event": "美國 核心 PCE 物價指數，前值 0.1、預期 0.2、實際 0.2。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "http://www.bea.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
       "id": "macro-gdp-growth-rate-qoq-2nd-est-q2-20260826",
       "type": "macro",
       "title": "GDP 經濟成長率",
@@ -622,6 +587,41 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-core-pce-price-index-mom-jul-20260826",
+      "type": "macro",
+      "title": "核心 PCE 物價指數",
+      "eventName": "核心 PCE 物價指數",
+      "originalEventName": "Core PCE Price Index MoM (Jul)",
+      "sourcePublishTime": "2026/08/26 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/08/26 20:30",
+      "previous": "0.1",
+      "forecast": "0.2",
+      "actual": "0.2",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/08/26 20:30",
+      "tags": [
+        "美國",
+        "核心",
+        "中性"
+      ],
+      "summary": "核心 PCE 物價指數 將於 2026/08/26 20:30 公布，市場關注前值 0.1、預期 0.2。",
+      "event": "美國 核心 PCE 物價指數，前值 0.1、預期 0.2、實際 0.2。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov/",
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
@@ -663,17 +663,17 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-ppi-mom-jul-20260827",
+      "id": "macro-ppi-yoy-jul-20260827",
       "type": "macro",
       "title": "生產者物價指數 PPI",
       "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI MoM (Jul)",
+      "originalEventName": "PPI YoY (Jul)",
       "sourcePublishTime": "2026/08/27 14:45 Asia/Taipei",
       "country": "法國",
       "publishTime": "2026/08/27 14:45",
-      "previous": "-0.4",
+      "previous": "2.8",
       "forecast": "0.6",
-      "actual": "1.1",
+      "actual": "3.4",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -685,8 +685,8 @@ window.IntelligenceOverviewData = {
         "生產者物價指數",
         "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/08/27 14:45 公布，市場關注前值 -0.4、預期 —。",
-      "event": "法國 生產者物價指數 PPI，前值 -0.4、預期 —、實際 1.1。",
+      "summary": "生產者物價指數 PPI 將於 2026/08/27 14:45 公布，市場關注前值 2.8、預期 —。",
+      "event": "法國 生產者物價指數 PPI，前值 2.8、預期 —、實際 3.4。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
