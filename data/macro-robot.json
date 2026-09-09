@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/09/09 07:46",
+  "updatedAt": "2026/09/09 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "label": "即將公布",
-      "value": 100,
+      "value": 99,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@
     },
     {
       "label": "下一個事件",
-      "value": "ADP 就業人數",
-      "unit": "倒數 13 小時",
+      "value": "通膨率",
+      "unit": "倒數 1 天",
       "icon": "filter"
     }
   ],
@@ -2113,9 +2113,9 @@
       "publishTime": "2026/09/09 20:15",
       "previous": "11.75",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 13 小時",
-      "statusLevel": "soon",
+      "actual": "12",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
@@ -2126,7 +2126,7 @@
         "中性"
       ],
       "summary": "ADP 就業人數 將於 2026/09/09 20:15 公布，市場關注前值 11.75、預期 —。",
-      "event": "美國 ADP 就業人數，前值 11.75、預期 —、實際 尚未公布。",
+      "event": "美國 ADP 就業人數，前值 11.75、預期 —、實際 12。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2205,16 +2205,16 @@
       ]
     },
     {
-      "id": "macro-jobless-claims-4-week-average-sep-05-20260910",
+      "id": "macro-continuing-jobless-claims-aug-29-20260910",
       "type": "macro",
       "title": "初領失業救濟金人數",
       "eventName": "初領失業救濟金人數",
-      "originalEventName": "Jobless Claims 4-week Average (Sep/05)",
+      "originalEventName": "Continuing Jobless Claims (Aug/29)",
       "sourcePublishTime": "2026/09/10 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/09/10 20:30",
-      "previous": "207.25",
-      "forecast": "1790",
+      "previous": "1779",
+      "forecast": "1780",
       "actual": null,
       "status": "倒數 1 天",
       "statusLevel": "upcoming",
@@ -2227,8 +2227,8 @@
         "初領失業救濟金人數",
         "中性"
       ],
-      "summary": "初領失業救濟金人數 將於 2026/09/10 20:30 公布，市場關注前值 207.25、預期 —。",
-      "event": "美國 初領失業救濟金人數，前值 207.25、預期 —、實際 尚未公布。",
+      "summary": "初領失業救濟金人數 將於 2026/09/10 20:30 公布，市場關注前值 1779、預期 1780。",
+      "event": "美國 初領失業救濟金人數，前值 1779、預期 1780、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
