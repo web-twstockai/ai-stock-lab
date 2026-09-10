@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/09/10 07:47",
+  "updatedAt": "2026/09/10 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@ window.MacroRobotData = {
     },
     {
       "label": "即將公布",
-      "value": 108,
+      "value": 107,
       "unit": "個",
       "icon": "file"
     },
@@ -29,8 +29,8 @@ window.MacroRobotData = {
     },
     {
       "label": "下一個事件",
-      "value": "ECB 利率決議",
-      "unit": "倒數 13 小時",
+      "value": "初領失業救濟金人數",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -1102,41 +1102,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-s-p-global-services-pmi-final-aug-20260903",
-      "type": "macro",
-      "title": "服務業 PMI",
-      "eventName": "服務業 PMI",
-      "originalEventName": "S&P Global Services PMI Final (Aug)",
-      "sourcePublishTime": "2026/09/03 15:50 Asia/Taipei",
-      "country": "法國",
-      "publishTime": "2026/09/03 15:50",
-      "previous": "49.6",
-      "forecast": "48.4",
-      "actual": "48.0",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/09/03 15:50",
-      "tags": [
-        "法國",
-        "服務業",
-        "中性"
-      ],
-      "summary": "服務業 PMI 將於 2026/09/03 15:50 公布，市場關注前值 49.6、預期 48.4。",
-      "event": "法國 服務業 PMI，前值 49.6、預期 48.4、實際 48.0。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://www.pmi.spglobal.com/public",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
       "id": "macro-s-p-global-composite-pmi-final-aug-20260903",
       "type": "macro",
       "title": "綜合 PMI",
@@ -1161,6 +1126,41 @@ window.MacroRobotData = {
       ],
       "summary": "綜合 PMI 將於 2026/09/03 15:50 公布，市場關注前值 49.4、預期 48.8。",
       "event": "法國 綜合 PMI，前值 49.4、預期 48.8、實際 48.5。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-services-pmi-final-aug-20260903",
+      "type": "macro",
+      "title": "服務業 PMI",
+      "eventName": "服務業 PMI",
+      "originalEventName": "S&P Global Services PMI Final (Aug)",
+      "sourcePublishTime": "2026/09/03 15:50 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/09/03 15:50",
+      "previous": "49.6",
+      "forecast": "48.4",
+      "actual": "48.0",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/03 15:50",
+      "tags": [
+        "法國",
+        "服務業",
+        "中性"
+      ],
+      "summary": "服務業 PMI 將於 2026/09/03 15:50 公布，市場關注前值 49.6、預期 48.4。",
+      "event": "法國 服務業 PMI，前值 49.6、預期 48.4、實際 48.0。",
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2077,9 +2077,9 @@ window.MacroRobotData = {
       "publishTime": "2026/09/10 20:15",
       "previous": "2.4",
       "forecast": "2.65",
-      "actual": null,
-      "status": "倒數 13 小時",
-      "statusLevel": "soon",
+      "actual": "2.65",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
       "importance": "中高",
@@ -2090,7 +2090,7 @@ window.MacroRobotData = {
         "中性"
       ],
       "summary": "ECB 利率決議 將於 2026/09/10 20:15 公布，市場關注前值 2.4、預期 2.65。",
-      "event": "歐元區 ECB 利率決議，前值 2.4、預期 2.65、實際 尚未公布。",
+      "event": "歐元區 ECB 利率決議，前值 2.4、預期 2.65、實際 2.65。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2112,7 +2112,7 @@ window.MacroRobotData = {
       "previous": "206",
       "forecast": "205",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -2146,7 +2146,7 @@ window.MacroRobotData = {
       "previous": "0.2",
       "forecast": "0.3",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -2308,16 +2308,16 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-inflation-rate-mom-aug-20260911",
+      "id": "macro-inflation-rate-yoy-aug-20260911",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM (Aug)",
+      "originalEventName": "Inflation Rate YoY (Aug)",
       "sourcePublishTime": "2026/09/11 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/09/11 20:30",
-      "previous": "0.1",
-      "forecast": "0.4",
+      "previous": "3.4",
+      "forecast": "3.4",
       "actual": null,
       "status": "倒數 1 天",
       "statusLevel": "upcoming",
@@ -2330,8 +2330,8 @@ window.MacroRobotData = {
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/09/11 20:30 公布，市場關注前值 0.1、預期 0.4。",
-      "event": "美國 通膨率，前值 0.1、預期 0.4、實際 尚未公布。",
+      "summary": "通膨率 將於 2026/09/11 20:30 公布，市場關注前值 3.4、預期 3.4。",
+      "event": "美國 通膨率，前值 3.4、預期 3.4、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2513,6 +2513,41 @@ window.MacroRobotData = {
       ]
     },
     {
+      "id": "macro-ppi-output-yoy-aug-20260916",
+      "type": "macro",
+      "title": "生產者物價指數 PPI",
+      "eventName": "生產者物價指數 PPI",
+      "originalEventName": "PPI Output YoY (Aug)",
+      "sourcePublishTime": "2026/09/16 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/09/16 14:00",
+      "previous": "3.1",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 6 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/16 14:00",
+      "tags": [
+        "英國",
+        "生產者物價指數",
+        "中性"
+      ],
+      "summary": "生產者物價指數 PPI 將於 2026/09/16 14:00 公布，市場關注前值 3.1、預期 —。",
+      "event": "英國 生產者物價指數 PPI，前值 3.1、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
       "id": "macro-core-inflation-rate-mom-aug-20260916",
       "type": "macro",
       "title": "核心通膨率",
@@ -2578,41 +2613,6 @@ window.MacroRobotData = {
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-ppi-output-yoy-aug-20260916",
-      "type": "macro",
-      "title": "生產者物價指數 PPI",
-      "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI Output YoY (Aug)",
-      "sourcePublishTime": "2026/09/16 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/16 14:00",
-      "previous": "3.1",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 6 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/09/16 14:00",
-      "tags": [
-        "英國",
-        "生產者物價指數",
-        "中性"
-      ],
-      "summary": "生產者物價指數 PPI 將於 2026/09/16 14:00 公布，市場關注前值 3.1、預期 —。",
-      "event": "英國 生產者物價指數 PPI，前值 3.1、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
       ]
     },
     {
@@ -3569,11 +3569,11 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-non-farm-payrolls-qoq-q2-20260925",
+      "id": "macro-private-non-farm-payrolls-qoq-final-q2-20260925",
       "type": "macro",
       "title": "非農就業人數",
       "eventName": "非農就業人數",
-      "originalEventName": "Non Farm Payrolls QoQ (Q2)",
+      "originalEventName": "Private Non Farm Payrolls QoQ Final (Q2)",
       "sourcePublishTime": "2026/09/25 14:45 Asia/Taipei",
       "country": "法國",
       "publishTime": "2026/09/25 14:45",
@@ -3591,8 +3591,8 @@ window.MacroRobotData = {
         "非農就業人數",
         "中性"
       ],
-      "summary": "非農就業人數 將於 2026/09/25 14:45 公布，市場關注前值 —、預期 —。",
-      "event": "法國 非農就業人數，前值 —、預期 —、實際 尚未公布。",
+      "summary": "非農就業人數 將於 2026/09/25 14:45 公布，市場關注前值 -0.1、預期 -0.1。",
+      "event": "法國 非農就業人數，前值 -0.1、預期 -0.1、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -4045,15 +4045,15 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-pce-price-index-mom-aug-20260930",
+      "id": "macro-pce-price-index-yoy-aug-20260930",
       "type": "macro",
       "title": "PCE 物價指數",
       "eventName": "PCE 物價指數",
-      "originalEventName": "PCE Price Index MoM (Aug)",
+      "originalEventName": "PCE Price Index YoY (Aug)",
       "sourcePublishTime": "2026/09/30 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/09/30 20:30",
-      "previous": "0.2",
+      "previous": "3.7",
       "forecast": "5.3",
       "actual": null,
       "status": "倒數 20 天",
@@ -4067,8 +4067,8 @@ window.MacroRobotData = {
         "PCE",
         "中性"
       ],
-      "summary": "PCE 物價指數 將於 2026/09/30 20:30 公布，市場關注前值 0.2、預期 —。",
-      "event": "美國 PCE 物價指數，前值 0.2、預期 —、實際 尚未公布。",
+      "summary": "PCE 物價指數 將於 2026/09/30 20:30 公布，市場關注前值 3.7、預期 —。",
+      "event": "美國 PCE 物價指數，前值 3.7、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -5031,15 +5031,15 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-ppi-yoy-aug-20261005",
+      "id": "macro-ppi-mom-aug-20261005",
       "type": "macro",
       "title": "生產者物價指數 PPI",
       "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI YoY (Aug)",
+      "originalEventName": "PPI MoM (Aug)",
       "sourcePublishTime": "2026/10/05 17:00 Asia/Taipei",
       "country": "歐元區",
       "publishTime": "2026/10/05 17:00",
-      "previous": "5.8",
+      "previous": "1.6",
       "forecast": "—",
       "actual": null,
       "status": "倒數 25 天",
@@ -5053,8 +5053,8 @@ window.MacroRobotData = {
         "生產者物價指數",
         "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/10/05 17:00 公布，市場關注前值 5.8、預期 —。",
-      "event": "歐元區 生產者物價指數 PPI，前值 5.8、預期 —、實際 尚未公布。",
+      "summary": "生產者物價指數 PPI 將於 2026/10/05 17:00 公布，市場關注前值 1.6、預期 —。",
+      "event": "歐元區 生產者物價指數 PPI，前值 1.6、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -5128,40 +5128,6 @@ window.MacroRobotData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-ism-services-new-orders-sep-20261005",
-      "type": "macro",
-      "title": "ISM 製造業新訂單",
-      "eventName": "ISM 製造業新訂單",
-      "originalEventName": "ISM Services New Orders (Sep)",
-      "sourcePublishTime": "2026/10/05 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/05 22:00",
-      "previous": "60.9",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 25 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
-      "importance": "中高",
-      "timestamp": "2026/10/05 22:00",
-      "tags": [
-        "美國",
-        "ISM",
-        "中性"
-      ],
-      "summary": "ISM 製造業新訂單 將於 2026/10/05 22:00 公布，市場關注前值 60.9、預期 —。",
-      "event": "美國 ISM 製造業新訂單，前值 60.9、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.ismworld.org",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
@@ -5259,6 +5225,40 @@ window.MacroRobotData = {
       ],
       "summary": "ISM 服務業指數 將於 2026/10/05 22:00 公布，市場關注前值 61.7、預期 —。",
       "event": "美國 ISM 服務業指數，前值 61.7、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.ismworld.org",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ism-services-new-orders-sep-20261005",
+      "type": "macro",
+      "title": "ISM 製造業新訂單",
+      "eventName": "ISM 製造業新訂單",
+      "originalEventName": "ISM Services New Orders (Sep)",
+      "sourcePublishTime": "2026/10/05 22:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/05 22:00",
+      "previous": "60.9",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 25 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "中高",
+      "timestamp": "2026/10/05 22:00",
+      "tags": [
+        "美國",
+        "ISM",
+        "中性"
+      ],
+      "summary": "ISM 製造業新訂單 將於 2026/10/05 22:00 公布，市場關注前值 60.9、預期 —。",
+      "event": "美國 ISM 製造業新訂單，前值 60.9、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
