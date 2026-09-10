@@ -1,23 +1,23 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/09/10 07:47",
+  "updatedAt": "2026/09/10 18:30",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 267,
+      "value": 262,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 54,
+      "value": 52,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
     },
     {
       "label": "追蹤標的",
-      "value": 100,
+      "value": 95,
       "unit": "家",
       "icon": "target"
     },
@@ -56,15 +56,15 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "偵測",
-          "100 筆"
+          "95 筆"
         ],
         [
           "投信連買",
-          "25 筆"
+          "24 筆"
         ],
         [
           "三大法人同步買",
-          "12 筆"
+          "7 筆"
         ]
       ],
       "rule": "偵測外資、投信、自營商買賣超，僅保留台股個股並排除 ETF 與基金。"
@@ -92,54 +92,101 @@ window.IntelligenceOverviewData = {
   ],
   "items": [
     {
-      "id": "inst-2303-20260909",
+      "id": "inst-2412-20260910",
       "type": "institutional",
-      "title": "2303 聯電",
-      "stockCode": "2303",
-      "stockName": "聯電",
-      "sector": "半導體",
-      "group": "半導體",
+      "title": "2412 中華電",
+      "stockCode": "2412",
+      "stockName": "中華電",
+      "sector": "通信網路業",
+      "group": "通信網路業",
+      "institutionType": "外資",
+      "direction": "連買",
+      "days": 8,
+      "consecutiveBuyDays": 8,
+      "streaks": {
+        "外資": 8,
+        "投信": 2,
+        "自營商": 0
+      },
+      "latestNetBuy": 3915,
+      "buyVolume": 29476,
+      "buyAmount": 0,
+      "syncCount": 2,
+      "importance": "高",
+      "timestamp": "2026/09/10 18:20",
+      "tags": [
+        "外資",
+        "連買",
+        "通信網路業",
+        "NFC近場通訊",
+        "手機"
+      ],
+      "summary": "外資連買，近 10 個交易日正買合計 29,476 張，估算金額約 0.00 億元。",
+      "event": "外資連買 8 日，近 10 個交易日正買合計 29,476 張；最新日外資 3,915 張、投信 99 張、自營商 -79 張。",
+      "ai": "法人買盤集中在 通信網路業，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
+      "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
+      "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
+      "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
+      "totalPositiveLots": 31439.891,
+      "yahooVerification": {
+        "status": "matched",
+        "source": "https://tw.stock.yahoo.com/quote/2412.TW/institutional-trading",
+        "latestNetBuy": 3915,
+        "days": 8,
+        "latestForeign": 3915,
+        "latestTrust": 99,
+        "latestDealer": -79
+      }
+    },
+    {
+      "id": "inst-1303-20260910",
+      "type": "institutional",
+      "title": "1303 南亞",
+      "stockCode": "1303",
+      "stockName": "南亞",
+      "sector": "塑膠工業",
+      "group": "塑膠工業",
       "institutionType": "投信",
-      "direction": "同步買超",
+      "direction": "連買",
       "days": 4,
       "consecutiveBuyDays": 4,
       "streaks": {
         "外資": 1,
         "投信": 4,
-        "自營商": 2
+        "自營商": 0
       },
-      "latestNetBuy": 5044,
-      "buyVolume": 48532,
-      "buyAmount": 69.4,
-      "syncCount": 3,
+      "latestNetBuy": 1925,
+      "buyVolume": 29145,
+      "buyAmount": 68.93,
+      "syncCount": 2,
       "importance": "高",
-      "timestamp": "2026/09/09 18:20",
+      "timestamp": "2026/09/10 18:20",
       "tags": [
         "投信",
-        "同步買超",
-        "半導體",
-        "手機",
-        "車用電子相關"
+        "連買",
+        "塑膠工業",
+        "APPLE概念",
+        "越南設廠"
       ],
-      "summary": "投信同步買超，近 10 個交易日正買合計 48,532 張，估算金額約 69.40 億元。",
-      "event": "投信連買 4 日，近 10 個交易日正買合計 48,532 張；最新日外資 14,643 張、投信 5,044 張、自營商 493 張。",
-      "ai": "法人買盤集中在 半導體，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
+      "summary": "投信連買，近 10 個交易日正買合計 29,145 張，估算金額約 68.93 億元。",
+      "event": "投信連買 4 日，近 10 個交易日正買合計 29,145 張；最新日外資 7,356 張、投信 1,925 張、自營商 -30 張。",
+      "ai": "法人買盤集中在 塑膠工業，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
       "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
       "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
       "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
-      "totalPositiveLots": 250207.188,
+      "totalPositiveLots": 64142.781,
       "yahooVerification": {
         "status": "matched",
-        "source": "https://tw.stock.yahoo.com/quote/2303.TW/institutional-trading",
-        "latestNetBuy": 5044,
+        "source": "https://tw.stock.yahoo.com/quote/1303.TW/institutional-trading",
+        "latestNetBuy": 1925,
         "days": 4,
-        "latestForeign": 14643,
-        "latestTrust": 5044,
-        "latestDealer": 493
+        "latestForeign": 7356,
+        "latestTrust": 1925,
+        "latestDealer": -30
       }
     },
     {
-      "id": "inst-2884-20260909",
+      "id": "inst-2884-20260910",
       "type": "institutional",
       "title": "2884 玉山金",
       "stockCode": "2884",
@@ -151,16 +198,16 @@ window.IntelligenceOverviewData = {
       "days": 10,
       "consecutiveBuyDays": 10,
       "streaks": {
-        "外資": 0,
+        "外資": 1,
         "投信": 10,
         "自營商": 0
       },
-      "latestNetBuy": 3132,
-      "buyVolume": 42280,
+      "latestNetBuy": 6110,
+      "buyVolume": 46825,
       "buyAmount": 0,
-      "syncCount": 1,
+      "syncCount": 2,
       "importance": "高",
-      "timestamp": "2026/09/09 18:20",
+      "timestamp": "2026/09/10 18:20",
       "tags": [
         "投信",
         "連買",
@@ -168,115 +215,68 @@ window.IntelligenceOverviewData = {
         "電子商務及延伸",
         "金融業"
       ],
-      "summary": "投信連買，近 10 個交易日正買合計 42,280 張，估算金額約 0.00 億元。",
-      "event": "投信連買 10 日，近 10 個交易日正買合計 42,280 張；最新日外資 -20,077 張、投信 3,132 張、自營商 -231 張。",
+      "summary": "投信連買，近 10 個交易日正買合計 46,825 張，估算金額約 0.00 億元。",
+      "event": "投信連買 10 日，近 10 個交易日正買合計 46,825 張；最新日外資 1,375 張、投信 6,110 張、自營商 -166 張。",
       "ai": "法人買盤集中在 金融保險，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
       "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
       "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
       "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
-      "totalPositiveLots": 86865.837,
+      "totalPositiveLots": 92785.261,
       "yahooVerification": {
         "status": "days-different",
         "source": "https://tw.stock.yahoo.com/quote/2884.TW/institutional-trading",
-        "latestNetBuy": 3132,
-        "days": 25,
-        "latestForeign": -20077,
-        "latestTrust": 3132,
-        "latestDealer": -231
+        "latestNetBuy": 6110,
+        "days": 26,
+        "latestForeign": 1375,
+        "latestTrust": 6110,
+        "latestDealer": -166
       }
     },
     {
-      "id": "inst-2382-20260909",
+      "id": "inst-2303-20260910",
       "type": "institutional",
-      "title": "2382 廣達",
-      "stockCode": "2382",
-      "stockName": "廣達",
-      "sector": "電腦及週邊設備",
-      "group": "電腦及週邊設備",
-      "institutionType": "投信",
-      "direction": "同步買超",
-      "days": 9,
-      "consecutiveBuyDays": 9,
-      "streaks": {
-        "外資": 1,
-        "投信": 9,
-        "自營商": 1
-      },
-      "latestNetBuy": 6,
-      "buyVolume": 6435,
-      "buyAmount": 22.36,
-      "syncCount": 3,
-      "importance": "高",
-      "timestamp": "2026/09/09 18:20",
-      "tags": [
-        "投信",
-        "同步買超",
-        "電腦及週邊設備",
-        "5G",
-        "APPLE概念"
-      ],
-      "summary": "投信同步買超，近 10 個交易日正買合計 6,435 張，估算金額約 22.36 億元。",
-      "event": "投信連買 9 日，近 10 個交易日正買合計 6,435 張；最新日外資 13,099 張、投信 6 張、自營商 494 張。",
-      "ai": "法人買盤集中在 電腦及週邊設備，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
-      "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
-      "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
-      "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
-      "totalPositiveLots": 45737.075,
-      "yahooVerification": {
-        "status": "matched",
-        "source": "https://tw.stock.yahoo.com/quote/2382.TW/institutional-trading",
-        "latestNetBuy": 6,
-        "days": 9,
-        "latestForeign": 13099,
-        "latestTrust": 6,
-        "latestDealer": 494
-      }
-    },
-    {
-      "id": "inst-2887-20260909",
-      "type": "institutional",
-      "title": "2887 台新新光金",
-      "stockCode": "2887",
-      "stockName": "台新新光金",
-      "sector": "金融保險",
-      "group": "金融保險",
+      "title": "2303 聯電",
+      "stockCode": "2303",
+      "stockName": "聯電",
+      "sector": "半導體",
+      "group": "半導體",
       "institutionType": "投信",
       "direction": "連買",
-      "days": 10,
-      "consecutiveBuyDays": 10,
+      "days": 5,
+      "consecutiveBuyDays": 5,
       "streaks": {
         "外資": 0,
-        "投信": 10,
+        "投信": 5,
         "自營商": 0
       },
-      "latestNetBuy": 20379,
-      "buyVolume": 76138,
-      "buyAmount": 0,
+      "latestNetBuy": 12518,
+      "buyVolume": 61050,
+      "buyAmount": 86.39,
       "syncCount": 1,
       "importance": "高",
-      "timestamp": "2026/09/09 18:20",
+      "timestamp": "2026/09/10 18:20",
       "tags": [
         "投信",
         "連買",
-        "金融保險",
-        "金融業",
-        "銀行"
+        "半導體",
+        "手機",
+        "車用電子相關"
       ],
-      "summary": "投信連買，近 10 個交易日正買合計 76,138 張，估算金額約 0.00 億元。",
-      "event": "投信連買 10 日，近 10 個交易日正買合計 76,138 張；最新日外資 -32,416 張、投信 20,379 張、自營商 -69 張。",
-      "ai": "法人買盤集中在 金融保險，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
+      "summary": "投信連買，近 10 個交易日正買合計 61,050 張，估算金額約 86.39 億元。",
+      "event": "投信連買 5 日，近 10 個交易日正買合計 61,050 張；最新日外資 -10,293 張、投信 12,518 張、自營商 -978 張。",
+      "ai": "法人買盤集中在 半導體，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
       "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
       "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
       "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
-      "totalPositiveLots": 147902.587,
+      "totalPositiveLots": 261184.184,
       "yahooVerification": {
-        "status": "days-different",
-        "source": "https://tw.stock.yahoo.com/quote/2887.TW/institutional-trading",
-        "latestNetBuy": 20379,
-        "days": 12,
-        "latestForeign": -32416,
-        "latestTrust": 20379,
-        "latestDealer": -69
+        "status": "matched",
+        "source": "https://tw.stock.yahoo.com/quote/2303.TW/institutional-trading",
+        "latestNetBuy": 12518,
+        "days": 5,
+        "latestForeign": -10293,
+        "latestTrust": 12518,
+        "latestDealer": -978
       }
     },
     {
