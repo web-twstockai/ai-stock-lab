@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/09/13 12:26",
+  "updatedAt": "2026/09/14 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 244,
+      "value": 243,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 54,
+      "value": 53,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
