@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/09/14 18:30",
+  "updatedAt": "2026/09/15 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 261,
+      "value": 257,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 57,
+      "value": 56,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "15 個"
+          "18 個"
         ],
         [
           "下一事件",
@@ -280,279 +280,146 @@ window.IntelligenceOverviewData = {
       }
     },
     {
-      "id": "macro-bavaria-cpi-yoy-aug-20260831",
+      "id": "macro-s-p-global-manufacturing-pmi-final-aug-20260901",
       "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "Bavaria CPI YoY (Aug)",
-      "sourcePublishTime": "2026/08/31 16:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/08/31 16:00",
-      "previous": "2.8",
-      "forecast": "—",
-      "actual": "2.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/08/31 16:00",
-      "tags": [
-        "德國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/08/31 16:00 公布，市場關注前值 2.8、預期 —。",
-      "event": "德國 消費者物價指數 CPI，前值 2.8、預期 —、實際 2.9。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.statistik.bayern.de/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-brc-shop-price-inflation-aug-20260901",
-      "type": "macro",
-      "title": "BRC Shop Price Inflation (Aug)",
-      "eventName": "BRC Shop Price Inflation (Aug)",
-      "originalEventName": "BRC Shop Price Inflation (Aug)",
-      "sourcePublishTime": "2026/09/01 07:01 Asia/Taipei",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Final (Aug)",
+      "sourcePublishTime": "2026/09/01 16:30 Asia/Taipei",
       "country": "英國",
-      "publishTime": "2026/09/01 07:01",
-      "previous": "0.9",
-      "forecast": "—",
-      "actual": "1.5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/01 07:01",
-      "tags": [
-        "英國",
-        "BRC",
-        "中性"
-      ],
-      "summary": "BRC Shop Price Inflation (Aug) 將於 2026/09/01 07:01 公布，市場關注前值 0.9、預期 —。",
-      "event": "英國 BRC Shop Price Inflation (Aug)，前值 0.9、預期 —、實際 1.5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://brc.org.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-dallas-fed-manufacturing-index-aug-20260831",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Aug)",
-      "eventName": "Dallas Fed Manufacturing Index (Aug)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Aug)",
-      "sourcePublishTime": "2026/08/31 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/08/31 22:30",
-      "previous": "1.3",
-      "forecast": "—",
-      "actual": "11.6",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/08/31 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Aug) 將於 2026/08/31 22:30 公布，市場關注前值 1.3、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Aug)，前值 1.3、預期 —、實際 11.6。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-harmonised-inflation-rate-mom-prel-aug-20260831",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Harmonised Inflation Rate MoM Prel (Aug)",
-      "sourcePublishTime": "2026/08/31 20:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/08/31 20:00",
-      "previous": "0.9",
-      "forecast": "0.3",
-      "actual": "0.2",
+      "publishTime": "2026/09/01 16:30",
+      "previous": "51.9",
+      "forecast": "51.5",
+      "actual": "51.7",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
-      "timestamp": "2026/08/31 20:00",
+      "timestamp": "2026/09/01 16:30",
       "tags": [
-        "德國",
-        "通膨率",
-        "偏多"
+        "英國",
+        "製造業",
+        "中性"
       ],
-      "summary": "通膨率 將於 2026/08/31 20:00 公布，市場關注前值 0.9、預期 0.3。",
-      "event": "德國 通膨率，前值 0.9、預期 0.3、實際 0.2。",
+      "summary": "製造業 PMI 將於 2026/09/01 16:30 公布，市場關注前值 51.9、預期 51.5。",
+      "event": "英國 製造業 PMI，前值 51.9、預期 51.5、實際 51.7。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-manufacturing-pmi-final-aug-20260901",
+      "type": "macro",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Final (Aug)",
+      "sourcePublishTime": "2026/09/01 16:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/09/01 16:00",
+      "previous": "—",
+      "forecast": "52.8",
+      "actual": null,
+      "status": "等待公布",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/01 16:00",
+      "tags": [
+        "歐元區",
+        "製造業",
+        "中性"
+      ],
+      "summary": "製造業 PMI 將於 2026/09/01 16:00 公布，市場關注前值 —、預期 52.8。",
+      "event": "歐元區 製造業 PMI，前值 —、預期 52.8、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-manufacturing-pmi-final-aug-20260901",
+      "type": "macro",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Final (Aug)",
+      "sourcePublishTime": "2026/09/01 15:55 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/09/01 15:55",
+      "previous": "52.2",
+      "forecast": "54.1",
+      "actual": "54.3",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/01 15:55",
+      "tags": [
+        "德國",
+        "製造業",
+        "中性"
+      ],
+      "summary": "製造業 PMI 將於 2026/09/01 15:55 公布，市場關注前值 52.2、預期 54.1。",
+      "event": "德國 製造業 PMI，前值 52.2、預期 54.1、實際 54.3。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-manufacturing-pmi-final-aug-20260901",
+      "type": "macro",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Final (Aug)",
+      "sourcePublishTime": "2026/09/01 15:50 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/09/01 15:50",
+      "previous": "49.8",
+      "forecast": "51.5",
+      "actual": "51.1",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/01 15:50",
+      "tags": [
+        "法國",
+        "製造業",
+        "中性"
+      ],
+      "summary": "製造業 PMI 將於 2026/09/01 15:50 公布，市場關注前值 49.8、預期 51.5。",
+      "event": "法國 製造業 PMI，前值 49.8、預期 51.5、實際 51.1。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
       ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-bavaria-cpi-yoy-aug-20260831",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "Bavaria CPI YoY (Aug)",
-      "sourcePublishTime": "2026/08/31 16:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/08/31 16:00",
-      "previous": "2.8",
-      "forecast": "—",
-      "actual": "2.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/08/31 16:00",
-      "tags": [
-        "德國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/08/31 16:00 公布，市場關注前值 2.8、預期 —。",
-      "event": "德國 消費者物價指數 CPI，前值 2.8、預期 —、實際 2.9。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.statistik.bayern.de/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-harmonised-inflation-rate-mom-prel-aug-20260831",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Harmonised Inflation Rate MoM Prel (Aug)",
-      "sourcePublishTime": "2026/08/31 20:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/08/31 20:00",
-      "previous": "0.9",
-      "forecast": "0.3",
-      "actual": "0.2",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/08/31 20:00",
-      "tags": [
-        "德國",
-        "通膨率",
-        "偏多"
-      ],
-      "summary": "通膨率 將於 2026/08/31 20:00 公布，市場關注前值 0.9、預期 0.3。",
-      "event": "德國 通膨率，前值 0.9、預期 0.3、實際 0.2。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-dallas-fed-manufacturing-index-aug-20260831",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Aug)",
-      "eventName": "Dallas Fed Manufacturing Index (Aug)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Aug)",
-      "sourcePublishTime": "2026/08/31 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/08/31 22:30",
-      "previous": "1.3",
-      "forecast": "—",
-      "actual": "11.6",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/08/31 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Aug) 將於 2026/08/31 22:30 公布，市場關注前值 1.3、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Aug)，前值 1.3、預期 —、實際 11.6。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-brc-shop-price-inflation-aug-20260901",
-      "type": "macro",
-      "title": "BRC Shop Price Inflation (Aug)",
-      "eventName": "BRC Shop Price Inflation (Aug)",
-      "originalEventName": "BRC Shop Price Inflation (Aug)",
-      "sourcePublishTime": "2026/09/01 07:01 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/01 07:01",
-      "previous": "0.9",
-      "forecast": "—",
-      "actual": "1.5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/01 07:01",
-      "tags": [
-        "英國",
-        "BRC",
-        "中性"
-      ],
-      "summary": "BRC Shop Price Inflation (Aug) 將於 2026/09/01 07:01 公布，市場關注前值 0.9、預期 —。",
-      "event": "英國 BRC Shop Price Inflation (Aug)，前值 0.9、預期 —、實際 1.5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://brc.org.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-s-p-global-manufacturing-pmi-final-aug-20260901",
       "type": "macro",
@@ -690,6 +557,142 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-mom-flash-aug-20260901",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate MoM Flash (Aug)",
+      "sourcePublishTime": "2026/09/01 17:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/09/01 17:00",
+      "previous": "0.2",
+      "forecast": "3.3",
+      "actual": "0.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/01 17:00",
+      "tags": [
+        "歐元區",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/09/01 17:00 公布，市場關注前值 0.2、預期 —。",
+      "event": "歐元區 通膨率，前值 0.2、預期 —、實際 0.4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://ec.europa.eu/eurostat/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-core-inflation-rate-yoy-flash-aug-20260901",
+      "type": "macro",
+      "title": "核心通膨率",
+      "eventName": "核心通膨率",
+      "originalEventName": "Core Inflation Rate YoY Flash (Aug)",
+      "sourcePublishTime": "2026/09/01 17:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/09/01 17:00",
+      "previous": "2.5",
+      "forecast": "2.5",
+      "actual": "2.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/01 17:00",
+      "tags": [
+        "歐元區",
+        "核心通膨率",
+        "偏多"
+      ],
+      "summary": "核心通膨率 將於 2026/09/01 17:00 公布，市場關注前值 2.5、預期 2.5。",
+      "event": "歐元區 核心通膨率，前值 2.5、預期 2.5、實際 2.4。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://ec.europa.eu/eurostat/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-unemployment-rate-jul-20260901",
+      "type": "macro",
+      "title": "失業率",
+      "eventName": "失業率",
+      "originalEventName": "Unemployment Rate (Jul)",
+      "sourcePublishTime": "2026/09/01 17:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/09/01 17:00",
+      "previous": "6.4",
+      "forecast": "6.3",
+      "actual": "6.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/01 17:00",
+      "tags": [
+        "歐元區",
+        "失業率",
+        "偏多"
+      ],
+      "summary": "失業率 將於 2026/09/01 17:00 公布，市場關注前值 6.4、預期 6.3。",
+      "event": "歐元區 失業率，前值 6.4、預期 6.3、實際 6.4。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://ec.europa.eu/eurostat/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-cpi-flash-aug-20260901",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "CPI Flash (Aug)",
+      "sourcePublishTime": "2026/09/01 17:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/09/01 17:00",
+      "previous": "103.24",
+      "forecast": "—",
+      "actual": "103.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/09/01 17:00",
+      "tags": [
+        "歐元區",
+        "消費者物價指數",
+        "中性"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/09/01 17:00 公布，市場關注前值 103.24、預期 —。",
+      "event": "歐元區 消費者物價指數 CPI，前值 103.24、預期 —、實際 103.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://ec.europa.eu/eurostat/",
+      "sourceList": [
+        "TradingView Economic Calendar"
       ]
     }
   ]
