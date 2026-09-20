@@ -1,5 +1,5 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/09/20 07:51",
+  "updatedAt": "2026/09/20 12:26",
   "status": "運作中",
   "cards": [
     {
