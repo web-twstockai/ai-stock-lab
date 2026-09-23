@@ -24,7 +24,7 @@ window.IntelligenceOverviewData = {
     {
       "label": "下一個總經事件",
       "value": "服務業 PMI",
-      "unit": "倒數 9 小時",
+      "unit": "倒數 10 小時",
       "icon": "calendar"
     }
   ],
@@ -84,7 +84,7 @@ window.IntelligenceOverviewData = {
         ],
         [
           "狀態",
-          "倒數 9 小時"
+          "倒數 10 小時"
         ]
       ],
       "rule": "追蹤 CPI、PCE、FOMC、GDP、ISM 等重大總經數據。"
@@ -280,17 +280,17 @@ window.IntelligenceOverviewData = {
       }
     },
     {
-      "id": "macro-ppi-ex-food-energy-and-trade-yoy-aug-20260910",
+      "id": "macro-ppi-ex-food-energy-and-trade-mom-aug-20260910",
       "type": "macro",
       "title": "生產者物價指數 PPI",
       "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI Ex Food, Energy and Trade YoY (Aug)",
+      "originalEventName": "PPI Ex Food, Energy and Trade MoM (Aug)",
       "sourcePublishTime": "2026/09/10 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/09/10 20:30",
-      "previous": "4.7",
-      "forecast": "4.6",
-      "actual": "4.7",
+      "previous": "0.4",
+      "forecast": "0.4",
+      "actual": "0.3",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -302,8 +302,8 @@ window.IntelligenceOverviewData = {
         "生產者物價指數",
         "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/09/10 20:30 公布，市場關注前值 4.7、預期 —。",
-      "event": "美國 生產者物價指數 PPI，前值 4.7、預期 —、實際 4.7。",
+      "summary": "生產者物價指數 PPI 將於 2026/09/10 20:30 公布，市場關注前值 0.4、預期 —。",
+      "event": "美國 生產者物價指數 PPI，前值 0.4、預期 —、實際 0.3。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -349,17 +349,17 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-inflation-rate-mom-final-aug-20260910",
+      "id": "macro-harmonised-inflation-rate-yoy-final-aug-20260910",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM Final (Aug)",
+      "originalEventName": "Harmonised Inflation Rate YoY Final (Aug)",
       "sourcePublishTime": "2026/09/10 14:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/09/10 14:00",
-      "previous": "0.8",
-      "forecast": "0.2",
-      "actual": "0.2",
+      "previous": "2.8",
+      "forecast": "2.9",
+      "actual": "2.9",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -371,8 +371,8 @@ window.IntelligenceOverviewData = {
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/09/10 14:00 公布，市場關注前值 0.8、預期 0.2。",
-      "event": "德國 通膨率，前值 0.8、預期 0.2、實際 0.2。",
+      "summary": "通膨率 將於 2026/09/10 14:00 公布，市場關注前值 2.8、預期 2.9。",
+      "event": "德國 通膨率，前值 2.8、預期 2.9、實際 2.9。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -455,17 +455,17 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-inflation-rate-mom-final-aug-20260910",
+      "id": "macro-harmonised-inflation-rate-yoy-final-aug-20260910",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM Final (Aug)",
+      "originalEventName": "Harmonised Inflation Rate YoY Final (Aug)",
       "sourcePublishTime": "2026/09/10 14:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/09/10 14:00",
-      "previous": "0.8",
-      "forecast": "0.2",
-      "actual": "0.2",
+      "previous": "2.8",
+      "forecast": "2.9",
+      "actual": "2.9",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -477,8 +477,8 @@ window.IntelligenceOverviewData = {
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/09/10 14:00 公布，市場關注前值 0.8、預期 0.2。",
-      "event": "德國 通膨率，前值 0.8、預期 0.2、實際 0.2。",
+      "summary": "通膨率 將於 2026/09/10 14:00 公布，市場關注前值 2.8、預期 2.9。",
+      "event": "德國 通膨率，前值 2.8、預期 2.9、實際 2.9。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -523,17 +523,17 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-ppi-ex-food-energy-and-trade-yoy-aug-20260910",
+      "id": "macro-ppi-ex-food-energy-and-trade-mom-aug-20260910",
       "type": "macro",
       "title": "生產者物價指數 PPI",
       "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI Ex Food, Energy and Trade YoY (Aug)",
+      "originalEventName": "PPI Ex Food, Energy and Trade MoM (Aug)",
       "sourcePublishTime": "2026/09/10 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/09/10 20:30",
-      "previous": "4.7",
-      "forecast": "4.6",
-      "actual": "4.7",
+      "previous": "0.4",
+      "forecast": "0.4",
+      "actual": "0.3",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -545,8 +545,8 @@ window.IntelligenceOverviewData = {
         "生產者物價指數",
         "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/09/10 20:30 公布，市場關注前值 4.7、預期 —。",
-      "event": "美國 生產者物價指數 PPI，前值 4.7、預期 —、實際 4.7。",
+      "summary": "生產者物價指數 PPI 將於 2026/09/10 20:30 公布，市場關注前值 0.4、預期 —。",
+      "event": "美國 生產者物價指數 PPI，前值 0.4、預期 —、實際 0.3。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -558,65 +558,65 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-initial-jobless-claims-sep-05-20260910",
+      "id": "macro-continuing-jobless-claims-aug-29-20260910",
       "type": "macro",
       "title": "初領失業救濟金人數",
       "eventName": "初領失業救濟金人數",
-      "originalEventName": "Initial Jobless Claims (Sep/05)",
+      "originalEventName": "Continuing Jobless Claims (Aug/29)",
       "sourcePublishTime": "2026/09/10 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/09/10 20:30",
-      "previous": "207",
-      "forecast": "205",
-      "actual": "206",
+      "previous": "1775",
+      "forecast": "1780",
+      "actual": "1774",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏多",
+      "direction": "偏空",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "importance": "中高",
       "timestamp": "2026/09/10 20:30",
       "tags": [
         "美國",
         "初領失業救濟金人數",
-        "偏多"
+        "偏空"
       ],
-      "summary": "初領失業救濟金人數 將於 2026/09/10 20:30 公布，市場關注前值 207、預期 205。",
-      "event": "美國 初領失業救濟金人數，前值 207、預期 205、實際 206。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "初領失業救濟金人數 將於 2026/09/10 20:30 公布，市場關注前值 1775、預期 1780。",
+      "event": "美國 初領失業救濟金人數，前值 1775、預期 1780、實際 1774。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dol.gov/",
+      "sourceUrl": "http://www.dol.gov",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
     },
     {
-      "id": "macro-gdp-3-month-avg-jul-20260911",
+      "id": "macro-gdp-mom-jul-20260911",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "GDP 3-Month Avg (Jul)",
+      "originalEventName": "GDP MoM (Jul)",
       "sourcePublishTime": "2026/09/11 14:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/09/11 14:00",
-      "previous": "0.4",
+      "previous": "0.3",
       "forecast": "0.3",
       "actual": "0.4",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏多",
+      "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
       "importance": "高",
       "timestamp": "2026/09/11 14:00",
       "tags": [
         "英國",
         "GDP",
-        "偏多"
+        "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/09/11 14:00 公布，市場關注前值 0.4、預期 0.3。",
-      "event": "英國 GDP 經濟成長率，前值 0.4、預期 0.3、實際 0.4。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "GDP 經濟成長率 將於 2026/09/11 14:00 公布，市場關注前值 0.3、預期 —。",
+      "event": "英國 GDP 經濟成長率，前值 0.3、預期 —、實際 0.4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
@@ -624,6 +624,40 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-cpi-aug-20260911",
+      "type": "macro",
+      "title": "消費者物價指數 CPI",
+      "eventName": "消費者物價指數 CPI",
+      "originalEventName": "CPI (Aug)",
+      "sourcePublishTime": "2026/09/11 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/09/11 20:30",
+      "previous": "333.92",
+      "forecast": "334.85",
+      "actual": "334.98",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/09/11 20:30",
+      "tags": [
+        "美國",
+        "消費者物價指數",
+        "偏空"
+      ],
+      "summary": "消費者物價指數 CPI 將於 2026/09/11 20:30 公布，市場關注前值 333.92、預期 334.85。",
+      "event": "美國 消費者物價指數 CPI，前值 333.92、預期 334.85、實際 334.98。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.bls.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -656,40 +690,6 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.bls.gov",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-inflation-rate-yoy-aug-20260911",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate YoY (Aug)",
-      "sourcePublishTime": "2026/09/11 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/11 20:30",
-      "previous": "3.4",
-      "forecast": "3.4",
-      "actual": "3.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/11 20:30",
-      "tags": [
-        "美國",
-        "通膨率",
-        "中性"
-      ],
-      "summary": "通膨率 將於 2026/09/11 20:30 公布，市場關注前值 3.4、預期 3.4。",
-      "event": "美國 通膨率，前值 3.4、預期 3.4、實際 3.4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.bls.gov/",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
