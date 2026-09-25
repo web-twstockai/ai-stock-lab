@@ -10,7 +10,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "高重要度訊號",
-      "value": 54,
+      "value": 55,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -60,7 +60,7 @@ window.IntelligenceOverviewData = {
         ],
         [
           "投信連買",
-          "22 筆"
+          "23 筆"
         ],
         [
           "三大法人同步買",
@@ -91,100 +91,6 @@ window.IntelligenceOverviewData = {
     }
   ],
   "items": [
-    {
-      "id": "inst-2618-20260924",
-      "type": "institutional",
-      "title": "2618 長榮航",
-      "stockCode": "2618",
-      "stockName": "長榮航",
-      "sector": "航運業",
-      "group": "航運業",
-      "institutionType": "投信",
-      "direction": "連買",
-      "days": 8,
-      "consecutiveBuyDays": 8,
-      "streaks": {
-        "外資": 0,
-        "投信": 8,
-        "自營商": 8
-      },
-      "latestNetBuy": 4165,
-      "buyVolume": 33334,
-      "buyAmount": 0,
-      "syncCount": 2,
-      "importance": "高",
-      "timestamp": "2026/09/24 18:20",
-      "tags": [
-        "投信",
-        "連買",
-        "航運業",
-        "三通",
-        "運輸事業"
-      ],
-      "summary": "投信連買，近 10 個交易日正買合計 33,334 張，估算金額約 0.00 億元。",
-      "event": "投信連買 8 日，近 10 個交易日正買合計 33,334 張；最新日外資 -11,905 張、投信 4,165 張、自營商 96 張。",
-      "ai": "法人買盤集中在 航運業，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
-      "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
-      "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
-      "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
-      "totalPositiveLots": 67896.011,
-      "yahooVerification": {
-        "status": "matched",
-        "source": "https://tw.stock.yahoo.com/quote/2618.TW/institutional-trading",
-        "latestNetBuy": 4165,
-        "days": 8,
-        "latestForeign": -11905,
-        "latestTrust": 4165,
-        "latestDealer": 96
-      }
-    },
-    {
-      "id": "inst-3189-20260924",
-      "type": "institutional",
-      "title": "3189 景碩",
-      "stockCode": "3189",
-      "stockName": "景碩",
-      "sector": "半導體",
-      "group": "半導體",
-      "institutionType": "外資",
-      "direction": "同步買超",
-      "days": 3,
-      "consecutiveBuyDays": 3,
-      "streaks": {
-        "外資": 3,
-        "投信": 1,
-        "自營商": 1
-      },
-      "latestNetBuy": 5954,
-      "buyVolume": 22572,
-      "buyAmount": 0,
-      "syncCount": 3,
-      "importance": "高",
-      "timestamp": "2026/09/24 18:20",
-      "tags": [
-        "外資",
-        "同步買超",
-        "半導體",
-        "Intel",
-        "iPad mini"
-      ],
-      "summary": "外資同步買超，近 10 個交易日正買合計 22,572 張，估算金額約 0.00 億元。",
-      "event": "外資連買 3 日，近 10 個交易日正買合計 22,572 張；最新日外資 5,954 張、投信 984 張、自營商 517 張。",
-      "ai": "法人買盤集中在 半導體，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
-      "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
-      "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
-      "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
-      "totalPositiveLots": 27967.979,
-      "yahooVerification": {
-        "status": "matched",
-        "source": "https://tw.stock.yahoo.com/quote/3189.TW/institutional-trading",
-        "latestNetBuy": 5954,
-        "days": 3,
-        "latestForeign": 5954,
-        "latestTrust": 984,
-        "latestDealer": 517
-      }
-    },
     {
       "id": "inst-8150-20260924",
       "type": "institutional",
@@ -230,6 +136,100 @@ window.IntelligenceOverviewData = {
         "latestForeign": 14649,
         "latestTrust": 10,
         "latestDealer": -774
+      }
+    },
+    {
+      "id": "inst-2610-20260924",
+      "type": "institutional",
+      "title": "2610 華航",
+      "stockCode": "2610",
+      "stockName": "華航",
+      "sector": "航運業",
+      "group": "航運業",
+      "institutionType": "投信",
+      "direction": "連買",
+      "days": 7,
+      "consecutiveBuyDays": 7,
+      "streaks": {
+        "外資": 0,
+        "投信": 7,
+        "自營商": 0
+      },
+      "latestNetBuy": 5571,
+      "buyVolume": 21974,
+      "buyAmount": 0,
+      "syncCount": 1,
+      "importance": "高",
+      "timestamp": "2026/09/24 18:20",
+      "tags": [
+        "投信",
+        "連買",
+        "航運業",
+        "三通",
+        "官股企業"
+      ],
+      "summary": "投信連買，近 10 個交易日正買合計 21,974 張，估算金額約 0.00 億元。",
+      "event": "投信連買 7 日，近 10 個交易日正買合計 21,974 張；最新日外資 -14,209 張、投信 5,571 張、自營商 -119 張。",
+      "ai": "法人買盤集中在 航運業，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
+      "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
+      "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
+      "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
+      "totalPositiveLots": 55644.843,
+      "yahooVerification": {
+        "status": "matched",
+        "source": "https://tw.stock.yahoo.com/quote/2610.TW/institutional-trading",
+        "latestNetBuy": 5571,
+        "days": 7,
+        "latestForeign": -14209,
+        "latestTrust": 5571,
+        "latestDealer": -119
+      }
+    },
+    {
+      "id": "inst-1303-20260924",
+      "type": "institutional",
+      "title": "1303 南亞",
+      "stockCode": "1303",
+      "stockName": "南亞",
+      "sector": "塑膠工業",
+      "group": "塑膠工業",
+      "institutionType": "自營商",
+      "direction": "連買",
+      "days": 2,
+      "consecutiveBuyDays": 2,
+      "streaks": {
+        "外資": 1,
+        "投信": 0,
+        "自營商": 2
+      },
+      "latestNetBuy": 1505,
+      "buyVolume": 2951,
+      "buyAmount": 7.02,
+      "syncCount": 2,
+      "importance": "高",
+      "timestamp": "2026/09/24 18:20",
+      "tags": [
+        "自營商",
+        "連買",
+        "塑膠工業",
+        "APPLE概念",
+        "越南設廠"
+      ],
+      "summary": "自營商連買，近 10 個交易日正買合計 2,951 張，估算金額約 7.02 億元。",
+      "event": "自營商連買 2 日，近 10 個交易日正買合計 2,951 張；最新日外資 17,802 張、投信 -5,067 張、自營商 1,505 張。",
+      "ai": "法人買盤集中在 塑膠工業，若量能與價格同步維持，代表資金對該標的評價正在升溫。",
+      "impact": "短線可能提升市場關注度，並帶動同族群資金比較效應。",
+      "risk": "法人買超不保證股價延續，仍需搭配價格位置、成交量與大盤風險判斷。",
+      "source": "TWSE T86 / TPEx dailyTrade 三大法人買賣超；Yahoo 股市法人買賣交叉驗證",
+      "totalPositiveLots": 56272.471,
+      "yahooVerification": {
+        "status": "matched",
+        "source": "https://tw.stock.yahoo.com/quote/1303.TW/institutional-trading",
+        "latestNetBuy": 1505,
+        "days": 2,
+        "latestForeign": 17802,
+        "latestTrust": -5067,
+        "latestDealer": 1505
       }
     },
     {
