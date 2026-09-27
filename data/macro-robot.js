@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/09/27 07:47",
+  "updatedAt": "2026/09/27 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -4296,40 +4296,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-s-p-global-manufacturing-pmi-flash-oct-20261023",
-      "type": "macro",
-      "title": "製造業 PMI",
-      "eventName": "製造業 PMI",
-      "originalEventName": "S&P Global Manufacturing PMI Flash (Oct)",
-      "sourcePublishTime": "2026/10/23 16:00 Asia/Taipei",
-      "country": "歐元區",
-      "publishTime": "2026/10/23 16:00",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 26 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/10/23 16:00",
-      "tags": [
-        "歐元區",
-        "製造業",
-        "中性"
-      ],
-      "summary": "製造業 PMI 將於 2026/10/23 16:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 製造業 PMI，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.pmi.spglobal.com/public",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-s-p-global-composite-pmi-flash-oct-20261023",
       "type": "macro",
       "title": "綜合 PMI",
@@ -4354,6 +4320,40 @@ window.MacroRobotData = {
       ],
       "summary": "綜合 PMI 將於 2026/10/23 16:00 公布，市場關注前值 —、預期 —。",
       "event": "歐元區 綜合 PMI，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-manufacturing-pmi-flash-oct-20261023",
+      "type": "macro",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Flash (Oct)",
+      "sourcePublishTime": "2026/10/23 16:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/10/23 16:00",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 26 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/10/23 16:00",
+      "tags": [
+        "歐元區",
+        "製造業",
+        "中性"
+      ],
+      "summary": "製造業 PMI 將於 2026/10/23 16:00 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 製造業 PMI，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
