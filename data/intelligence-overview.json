@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026/09/28 12:27",
+  "updatedAt": "2026/09/29 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 240,
+      "value": 246,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 52,
+      "value": 55,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@
     },
     {
       "label": "下一個總經事件",
-      "value": "服務業 PMI",
+      "value": "綜合 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@
       "stats": [
         [
           "本週事件",
-          "51 個"
+          "54 個"
         ],
         [
           "下一事件",
-          "服務業 PMI"
+          "綜合 PMI"
         ],
         [
           "狀態",
@@ -314,17 +314,17 @@
       ]
     },
     {
-      "id": "macro-inflation-rate-yoy-final-aug-20260915",
+      "id": "macro-inflation-rate-mom-final-aug-20260915",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Inflation Rate YoY Final (Aug)",
+      "originalEventName": "Inflation Rate MoM Final (Aug)",
       "sourcePublishTime": "2026/09/15 14:45 Asia/Taipei",
       "country": "法國",
       "publishTime": "2026/09/15 14:45",
-      "previous": "2.1",
-      "forecast": "2.4",
-      "actual": "2.4",
+      "previous": "0.6",
+      "forecast": "0.7",
+      "actual": "0.7",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -336,8 +336,8 @@
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/09/15 14:45 公布，市場關注前值 2.1、預期 2.4。",
-      "event": "法國 通膨率，前值 2.1、預期 2.4、實際 2.4。",
+      "summary": "通膨率 將於 2026/09/15 14:45 公布，市場關注前值 0.6、預期 0.7。",
+      "event": "法國 通膨率，前值 0.6、預期 0.7、實際 0.7。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -348,40 +348,6 @@
       ]
     },
     {
-      "id": "macro-employment-change-jul-20260915",
-      "type": "macro",
-      "title": "就業人數變化",
-      "eventName": "就業人數變化",
-      "originalEventName": "Employment Change (Jul)",
-      "sourcePublishTime": "2026/09/15 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/15 14:00",
-      "previous": "83",
-      "forecast": "—",
-      "actual": "67",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/09/15 14:00",
-      "tags": [
-        "英國",
-        "就業人數變化",
-        "中性"
-      ],
-      "summary": "就業人數變化 將於 2026/09/15 14:00 公布，市場關注前值 83、預期 —。",
-      "event": "英國 就業人數變化，前值 83、預期 —、實際 67。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-unemployment-rate-jul-20260915",
       "type": "macro",
       "title": "失業率",
@@ -408,6 +374,40 @@
       "event": "英國 失業率，前值 4.9、預期 5、實際 4.9。",
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-employment-change-jul-20260915",
+      "type": "macro",
+      "title": "就業人數變化",
+      "eventName": "就業人數變化",
+      "originalEventName": "Employment Change (Jul)",
+      "sourcePublishTime": "2026/09/15 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/09/15 14:00",
+      "previous": "83",
+      "forecast": "—",
+      "actual": "67",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/15 14:00",
+      "tags": [
+        "英國",
+        "就業人數變化",
+        "中性"
+      ],
+      "summary": "就業人數變化 將於 2026/09/15 14:00 公布，市場關注前值 83、預期 —。",
+      "event": "英國 就業人數變化，前值 83、預期 —、實際 67。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.ons.gov.uk/",
@@ -417,74 +417,6 @@
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-employment-change-jul-20260915",
-      "type": "macro",
-      "title": "就業人數變化",
-      "eventName": "就業人數變化",
-      "originalEventName": "Employment Change (Jul)",
-      "sourcePublishTime": "2026/09/15 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/15 14:00",
-      "previous": "83",
-      "forecast": "—",
-      "actual": "67",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/09/15 14:00",
-      "tags": [
-        "英國",
-        "就業人數變化",
-        "中性"
-      ],
-      "summary": "就業人數變化 將於 2026/09/15 14:00 公布，市場關注前值 83、預期 —。",
-      "event": "英國 就業人數變化，前值 83、預期 —、實際 67。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-unemployment-rate-jul-20260915",
-      "type": "macro",
-      "title": "失業率",
-      "eventName": "失業率",
-      "originalEventName": "Unemployment Rate (Jul)",
-      "sourcePublishTime": "2026/09/15 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/15 14:00",
-      "previous": "4.9",
-      "forecast": "5",
-      "actual": "4.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/15 14:00",
-      "tags": [
-        "英國",
-        "失業率",
-        "偏空"
-      ],
-      "summary": "失業率 將於 2026/09/15 14:00 公布，市場關注前值 4.9、預期 5。",
-      "event": "英國 失業率，前值 4.9、預期 5、實際 4.9。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-hmrc-payrolls-change-aug-20260915",
       "type": "macro",
@@ -520,17 +452,85 @@
       ]
     },
     {
-      "id": "macro-inflation-rate-yoy-final-aug-20260915",
+      "id": "macro-unemployment-rate-jul-20260915",
+      "type": "macro",
+      "title": "失業率",
+      "eventName": "失業率",
+      "originalEventName": "Unemployment Rate (Jul)",
+      "sourcePublishTime": "2026/09/15 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/09/15 14:00",
+      "previous": "4.9",
+      "forecast": "5",
+      "actual": "4.9",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/15 14:00",
+      "tags": [
+        "英國",
+        "失業率",
+        "偏空"
+      ],
+      "summary": "失業率 將於 2026/09/15 14:00 公布，市場關注前值 4.9、預期 5。",
+      "event": "英國 失業率，前值 4.9、預期 5、實際 4.9。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-employment-change-jul-20260915",
+      "type": "macro",
+      "title": "就業人數變化",
+      "eventName": "就業人數變化",
+      "originalEventName": "Employment Change (Jul)",
+      "sourcePublishTime": "2026/09/15 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/09/15 14:00",
+      "previous": "83",
+      "forecast": "—",
+      "actual": "67",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/15 14:00",
+      "tags": [
+        "英國",
+        "就業人數變化",
+        "中性"
+      ],
+      "summary": "就業人數變化 將於 2026/09/15 14:00 公布，市場關注前值 83、預期 —。",
+      "event": "英國 就業人數變化，前值 83、預期 —、實際 67。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-mom-final-aug-20260915",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Inflation Rate YoY Final (Aug)",
+      "originalEventName": "Inflation Rate MoM Final (Aug)",
       "sourcePublishTime": "2026/09/15 14:45 Asia/Taipei",
       "country": "法國",
       "publishTime": "2026/09/15 14:45",
-      "previous": "2.1",
-      "forecast": "2.4",
-      "actual": "2.4",
+      "previous": "0.6",
+      "forecast": "0.7",
+      "actual": "0.7",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -542,8 +542,8 @@
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/09/15 14:45 公布，市場關注前值 2.1、預期 2.4。",
-      "event": "法國 通膨率，前值 2.1、預期 2.4、實際 2.4。",
+      "summary": "通膨率 將於 2026/09/15 14:45 公布，市場關注前值 0.6、預期 0.7。",
+      "event": "法國 通膨率，前值 0.6、預期 0.7、實際 0.7。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -589,35 +589,69 @@
       ]
     },
     {
-      "id": "macro-ppi-output-mom-aug-20260916",
+      "id": "macro-core-inflation-rate-yoy-aug-20260916",
       "type": "macro",
-      "title": "生產者物價指數 PPI",
-      "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI Output MoM (Aug)",
+      "title": "核心通膨率",
+      "eventName": "核心通膨率",
+      "originalEventName": "Core Inflation Rate YoY (Aug)",
       "sourcePublishTime": "2026/09/16 14:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/09/16 14:00",
-      "previous": "0.4",
-      "forecast": "0.3",
-      "actual": "0.7",
+      "previous": "2.6",
+      "forecast": "2.6",
+      "actual": "2.6",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏多",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/16 14:00",
+      "tags": [
+        "英國",
+        "核心通膨率",
+        "中性"
+      ],
+      "summary": "核心通膨率 將於 2026/09/16 14:00 公布，市場關注前值 2.6、預期 2.6。",
+      "event": "英國 核心通膨率，前值 2.6、預期 2.6、實際 2.6。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ppi-core-output-yoy-aug-20260916",
+      "type": "macro",
+      "title": "生產者物價指數 PPI",
+      "eventName": "生產者物價指數 PPI",
+      "originalEventName": "PPI Core Output YoY (Aug)",
+      "sourcePublishTime": "2026/09/16 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/09/16 14:00",
+      "previous": "2.7",
+      "forecast": "3.3",
+      "actual": "2.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
       "timestamp": "2026/09/16 14:00",
       "tags": [
         "英國",
         "生產者物價指數",
-        "偏多"
+        "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/09/16 14:00 公布，市場關注前值 0.4、預期 0.3。",
-      "event": "英國 生產者物價指數 PPI，前值 0.4、預期 0.3、實際 0.7。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "生產者物價指數 PPI 將於 2026/09/16 14:00 公布，市場關注前值 2.7、預期 —。",
+      "event": "英國 生產者物價指數 PPI，前值 2.7、預期 —、實際 2.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceUrl": "https://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
@@ -648,40 +682,6 @@
       ],
       "summary": "通膨率 將於 2026/09/16 14:00 公布，市場關注前值 0.3、預期 0.5。",
       "event": "英國 通膨率，前值 0.3、預期 0.5、實際 0.5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-core-inflation-rate-yoy-aug-20260916",
-      "type": "macro",
-      "title": "核心通膨率",
-      "eventName": "核心通膨率",
-      "originalEventName": "Core Inflation Rate YoY (Aug)",
-      "sourcePublishTime": "2026/09/16 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/16 14:00",
-      "previous": "2.6",
-      "forecast": "2.6",
-      "actual": "2.6",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/16 14:00",
-      "tags": [
-        "英國",
-        "核心通膨率",
-        "中性"
-      ],
-      "summary": "核心通膨率 將於 2026/09/16 14:00 公布，市場關注前值 2.6、預期 2.6。",
-      "event": "英國 核心通膨率，前值 2.6、預期 2.6、實際 2.6。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
