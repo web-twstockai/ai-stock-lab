@@ -23,7 +23,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "下一個總經事件",
-      "value": "製造業 PMI",
+      "value": "服務業 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -80,7 +80,7 @@ window.IntelligenceOverviewData = {
         ],
         [
           "下一事件",
-          "製造業 PMI"
+          "服務業 PMI"
         ],
         [
           "狀態",
