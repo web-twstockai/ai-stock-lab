@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/10/06 18:30",
+  "updatedAt": "2026/10/07 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 272,
+      "value": 280,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 59,
+      "value": 69,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "下一個總經事件",
-      "value": "服務業 PMI",
+      "value": "製造業 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -80,7 +80,7 @@ window.IntelligenceOverviewData = {
         ],
         [
           "下一事件",
-          "服務業 PMI"
+          "製造業 PMI"
         ],
         [
           "狀態",
@@ -285,25 +285,25 @@ window.IntelligenceOverviewData = {
       "title": "服務業 PMI",
       "eventName": "服務業 PMI",
       "originalEventName": "S&P Global Services PMI Flash (Sep)",
-      "sourcePublishTime": "2026/09/23 15:15 Asia/Taipei",
-      "country": "法國",
-      "publishTime": "2026/09/23 15:15",
-      "previous": "48.0",
-      "forecast": "48.3",
-      "actual": "51.4",
+      "sourcePublishTime": "2026/09/23 15:30 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/09/23 15:30",
+      "previous": "49.7",
+      "forecast": "50",
+      "actual": "52.9",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
-      "timestamp": "2026/09/23 15:15",
+      "timestamp": "2026/09/23 15:30",
       "tags": [
-        "法國",
+        "德國",
         "服務業",
         "中性"
       ],
-      "summary": "服務業 PMI 將於 2026/09/23 15:15 公布，市場關注前值 48.0、預期 49.1。",
-      "event": "法國 服務業 PMI，前值 48.0、預期 49.1、實際 51.4。",
+      "summary": "服務業 PMI 將於 2026/09/23 15:30 公布，市場關注前值 49.7、預期 50.5。",
+      "event": "德國 服務業 PMI，前值 49.7、預期 50.5、實際 52.9。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -315,211 +315,38 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-richmond-fed-manufacturing-index-sep-20260922",
+      "id": "macro-s-p-global-composite-pmi-flash-sep-20260923",
       "type": "macro",
-      "title": "Richmond Fed Manufacturing Index (Sep)",
-      "eventName": "Richmond Fed Manufacturing Index (Sep)",
-      "originalEventName": "Richmond Fed Manufacturing Index (Sep)",
-      "sourcePublishTime": "2026/09/22 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/22 22:00",
-      "previous": "4",
-      "forecast": "5",
-      "actual": "-2",
+      "title": "綜合 PMI",
+      "eventName": "綜合 PMI",
+      "originalEventName": "S&P Global Composite PMI Flash (Sep)",
+      "sourcePublishTime": "2026/09/23 15:15 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/09/23 15:15",
+      "previous": "48.5",
+      "forecast": "48.7",
+      "actual": "51.2",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/22 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "偏空"
-      ],
-      "summary": "Richmond Fed Manufacturing Index (Sep) 將於 2026/09/22 22:00 公布，市場關注前值 4、預期 5。",
-      "event": "美國 Richmond Fed Manufacturing Index (Sep)，前值 4、預期 5、實際 -2。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-manufacturing-shipments-index-sep-20260922",
-      "type": "macro",
-      "title": "Richmond Fed Manufacturing Shipments Index (Sep)",
-      "eventName": "Richmond Fed Manufacturing Shipments Index (Sep)",
-      "originalEventName": "Richmond Fed Manufacturing Shipments Index (Sep)",
-      "sourcePublishTime": "2026/09/22 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/22 22:00",
-      "previous": "11",
-      "forecast": "—",
-      "actual": "-5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/22 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Manufacturing Shipments Index (Sep) 將於 2026/09/22 22:00 公布，市場關注前值 11、預期 —。",
-      "event": "美國 Richmond Fed Manufacturing Shipments Index (Sep)，前值 11、預期 —、實際 -5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-adp-employment-change-weekly-20260922",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/09/22 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/22 20:15",
-      "previous": "16.25",
-      "forecast": "—",
-      "actual": "20",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
+      "direction": "偏多",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
-      "timestamp": "2026/09/22 20:15",
+      "timestamp": "2026/09/23 15:15",
       "tags": [
-        "美國",
-        "ADP",
+        "法國",
+        "綜合",
         "中性"
       ],
-      "summary": "ADP 就業人數 將於 2026/09/22 20:15 公布，市場關注前值 16.25、預期 —。",
-      "event": "美國 ADP 就業人數，前值 16.25、預期 —、實際 20。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "綜合 PMI 將於 2026/09/23 15:15 公布，市場關注前值 48.5、預期 49.1。",
+      "event": "法國 綜合 PMI，前值 48.5、預期 49.1、實際 51.2。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
-      ]
-    }
-  ],
-  "macroEvents": [
-    {
-      "id": "macro-adp-employment-change-weekly-20260922",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly",
-      "sourcePublishTime": "2026/09/22 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/22 20:15",
-      "previous": "16.25",
-      "forecast": "—",
-      "actual": "20",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/09/22 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/09/22 20:15 公布，市場關注前值 16.25、預期 —。",
-      "event": "美國 ADP 就業人數，前值 16.25、預期 —、實際 20。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://adpemploymentreport.com/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-manufacturing-index-sep-20260922",
-      "type": "macro",
-      "title": "Richmond Fed Manufacturing Index (Sep)",
-      "eventName": "Richmond Fed Manufacturing Index (Sep)",
-      "originalEventName": "Richmond Fed Manufacturing Index (Sep)",
-      "sourcePublishTime": "2026/09/22 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/22 22:00",
-      "previous": "4",
-      "forecast": "5",
-      "actual": "-2",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/22 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "偏空"
-      ],
-      "summary": "Richmond Fed Manufacturing Index (Sep) 將於 2026/09/22 22:00 公布，市場關注前值 4、預期 5。",
-      "event": "美國 Richmond Fed Manufacturing Index (Sep)，前值 4、預期 5、實際 -2。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-manufacturing-shipments-index-sep-20260922",
-      "type": "macro",
-      "title": "Richmond Fed Manufacturing Shipments Index (Sep)",
-      "eventName": "Richmond Fed Manufacturing Shipments Index (Sep)",
-      "originalEventName": "Richmond Fed Manufacturing Shipments Index (Sep)",
-      "sourcePublishTime": "2026/09/22 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/22 22:00",
-      "previous": "11",
-      "forecast": "—",
-      "actual": "-5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/22 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Manufacturing Shipments Index (Sep) 將於 2026/09/22 22:00 公布，市場關注前值 11、預期 —。",
-      "event": "美國 Richmond Fed Manufacturing Shipments Index (Sep)，前值 11、預期 —、實際 -5。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
       ]
     },
     {
@@ -558,6 +385,43 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
+      "id": "macro-s-p-global-manufacturing-pmi-flash-sep-20260923",
+      "type": "macro",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Flash (Sep)",
+      "sourcePublishTime": "2026/09/23 15:15 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/09/23 15:15",
+      "previous": "51.1",
+      "forecast": "50.9",
+      "actual": "50.3",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/23 15:15",
+      "tags": [
+        "法國",
+        "製造業",
+        "中性"
+      ],
+      "summary": "製造業 PMI 將於 2026/09/23 15:15 公布，市場關注前值 51.1、預期 51.0。",
+      "event": "法國 製造業 PMI，前值 51.1、預期 51.0、實際 50.3。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    }
+  ],
+  "macroEvents": [
+    {
       "id": "macro-s-p-global-composite-pmi-flash-sep-20260923",
       "type": "macro",
       "title": "綜合 PMI",
@@ -582,6 +446,41 @@ window.IntelligenceOverviewData = {
       ],
       "summary": "綜合 PMI 將於 2026/09/23 15:15 公布，市場關注前值 48.5、預期 49.1。",
       "event": "法國 綜合 PMI，前值 48.5、預期 49.1、實際 51.2。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-services-pmi-flash-sep-20260923",
+      "type": "macro",
+      "title": "服務業 PMI",
+      "eventName": "服務業 PMI",
+      "originalEventName": "S&P Global Services PMI Flash (Sep)",
+      "sourcePublishTime": "2026/09/23 15:15 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/09/23 15:15",
+      "previous": "48.0",
+      "forecast": "48.3",
+      "actual": "51.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/23 15:15",
+      "tags": [
+        "法國",
+        "服務業",
+        "中性"
+      ],
+      "summary": "服務業 PMI 將於 2026/09/23 15:15 公布，市場關注前值 48.0、預期 49.1。",
+      "event": "法國 服務業 PMI，前值 48.0、預期 49.1、實際 51.4。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -695,6 +594,109 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-composite-pmi-flash-sep-20260923",
+      "type": "macro",
+      "title": "綜合 PMI",
+      "eventName": "綜合 PMI",
+      "originalEventName": "S&P Global Composite PMI Flash (Sep)",
+      "sourcePublishTime": "2026/09/23 15:30 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/09/23 15:30",
+      "previous": "51.8",
+      "forecast": "51.8",
+      "actual": "53.8",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/23 15:30",
+      "tags": [
+        "德國",
+        "綜合",
+        "中性"
+      ],
+      "summary": "綜合 PMI 將於 2026/09/23 15:30 公布，市場關注前值 51.8、預期 51.7。",
+      "event": "德國 綜合 PMI，前值 51.8、預期 51.7、實際 53.8。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-manufacturing-pmi-flash-sep-20260923",
+      "type": "macro",
+      "title": "製造業 PMI",
+      "eventName": "製造業 PMI",
+      "originalEventName": "S&P Global Manufacturing PMI Flash (Sep)",
+      "sourcePublishTime": "2026/09/23 16:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/09/23 16:00",
+      "previous": "—",
+      "forecast": "52.6",
+      "actual": null,
+      "status": "等待公布",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/23 16:00",
+      "tags": [
+        "歐元區",
+        "製造業",
+        "中性"
+      ],
+      "summary": "製造業 PMI 將於 2026/09/23 16:00 公布，市場關注前值 —、預期 52.6。",
+      "event": "歐元區 製造業 PMI，前值 —、預期 52.6、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-services-pmi-flash-sep-20260923",
+      "type": "macro",
+      "title": "服務業 PMI",
+      "eventName": "服務業 PMI",
+      "originalEventName": "S&P Global Services PMI Flash (Sep)",
+      "sourcePublishTime": "2026/09/23 16:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/09/23 16:00",
+      "previous": "—",
+      "forecast": "51.5",
+      "actual": null,
+      "status": "等待公布",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/09/23 16:00",
+      "tags": [
+        "歐元區",
+        "服務業",
+        "中性"
+      ],
+      "summary": "服務業 PMI 將於 2026/09/23 16:00 公布，市場關注前值 —、預期 51.5。",
+      "event": "歐元區 服務業 PMI，前值 —、預期 51.5、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar"
       ]
     }
   ]
