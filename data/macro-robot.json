@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/10/11 07:47",
+  "updatedAt": "2026/10/11 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -5728,11 +5728,11 @@
       ]
     },
     {
-      "id": "macro-cpi-oct-20261110",
+      "id": "macro-cpi-s-a-oct-20261110",
       "type": "macro",
       "title": "消費者物價指數 CPI",
       "eventName": "消費者物價指數 CPI",
-      "originalEventName": "CPI (Oct)",
+      "originalEventName": "CPI s.a (Oct)",
       "sourcePublishTime": "2026/11/10 21:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/11/10 21:30",
@@ -5762,11 +5762,11 @@
       ]
     },
     {
-      "id": "macro-inflation-rate-yoy-oct-20261110",
+      "id": "macro-inflation-rate-mom-oct-20261110",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Inflation Rate YoY (Oct)",
+      "originalEventName": "Inflation Rate MoM (Oct)",
       "sourcePublishTime": "2026/11/10 21:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/11/10 21:30",
