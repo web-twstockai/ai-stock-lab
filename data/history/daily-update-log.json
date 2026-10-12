@@ -1,14 +1,5 @@
 [
   {
-    "ranAt": "2026-07-15T10:36:49.187835+00:00",
-    "targetDate": "2026-07-15",
-    "symbols": 1972,
-    "updatedSymbols": 1959,
-    "newRows": 1971,
-    "errors": 0,
-    "rebuildFailures": []
-  },
-  {
     "ranAt": "2026-07-16T10:37:32.415632+00:00",
     "targetDate": "2026-07-16",
     "symbols": 1972,
@@ -536,6 +527,15 @@
     "symbols": 1972,
     "updatedSymbols": 32,
     "newRows": 32,
+    "errors": 4,
+    "rebuildFailures": []
+  },
+  {
+    "ranAt": "2026-10-12T10:39:31.812623+00:00",
+    "targetDate": "2026-10-12",
+    "symbols": 1972,
+    "updatedSymbols": 1935,
+    "newRows": 1935,
     "errors": 4,
     "rebuildFailures": []
   }
