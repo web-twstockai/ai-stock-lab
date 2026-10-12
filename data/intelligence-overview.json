@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026/10/11 12:27",
+  "updatedAt": "2026/10/12 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 269,
+      "value": 271,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 78,
+      "value": 79,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -554,17 +554,17 @@
       ]
     },
     {
-      "id": "macro-gdp-growth-rate-qoq-final-q2-20260930",
+      "id": "macro-gdp-growth-rate-yoy-final-q2-20260930",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "GDP Growth Rate QoQ Final (Q2)",
+      "originalEventName": "GDP Growth Rate YoY Final (Q2)",
       "sourcePublishTime": "2026/09/30 14:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/09/30 14:00",
-      "previous": "0.6",
-      "forecast": "0.4",
-      "actual": "0.5",
+      "previous": "0.8",
+      "forecast": "1.2",
+      "actual": "1.4",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
@@ -576,8 +576,8 @@
         "GDP",
         "偏多"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/09/30 14:00 公布，市場關注前值 0.6、預期 0.4。",
-      "event": "英國 GDP 經濟成長率，前值 0.6、預期 0.4、實際 0.5。",
+      "summary": "GDP 經濟成長率 將於 2026/09/30 14:00 公布，市場關注前值 0.8、預期 1.2。",
+      "event": "英國 GDP 經濟成長率，前值 0.8、預期 1.2、實際 1.4。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
