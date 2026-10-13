@@ -1,5 +1,5 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/10/12 18:30",
+  "updatedAt": "2026/10/13 07:47",
   "status": "運作中",
   "cards": [
     {
@@ -10,7 +10,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "高重要度訊號",
-      "value": 79,
+      "value": 80,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "14 個"
+          "20 個"
         ],
         [
           "下一事件",
@@ -280,6 +280,75 @@ window.IntelligenceOverviewData = {
       }
     },
     {
+      "id": "macro-gdp-growth-rate-qoq-final-q2-20260930",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP Growth Rate QoQ Final (Q2)",
+      "sourcePublishTime": "2026/09/30 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/09/30 14:00",
+      "previous": "0.6",
+      "forecast": "0.4",
+      "actual": "0.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "高",
+      "timestamp": "2026/09/30 14:00",
+      "tags": [
+        "英國",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/09/30 14:00 公布，市場關注前值 0.6、預期 0.4。",
+      "event": "英國 GDP 經濟成長率，前值 0.6、預期 0.4、實際 0.5。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-yoy-prel-sep-20260930",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate YoY Prel (Sep)",
+      "sourcePublishTime": "2026/09/30 14:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/09/30 14:45",
+      "previous": "2.4",
+      "forecast": "2.8",
+      "actual": "3",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/30 14:45",
+      "tags": [
+        "法國",
+        "通膨率",
+        "偏空"
+      ],
+      "summary": "通膨率 將於 2026/09/30 14:45 公布，市場關注前值 2.4、預期 2.8。",
+      "event": "法國 通膨率，前值 2.4、預期 2.8、實際 3。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-unemployment-benefit-claims-aug-20260929",
       "type": "macro",
       "title": "Unemployment Benefit Claims (Aug)",
@@ -346,145 +415,9 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar"
       ]
-    },
-    {
-      "id": "macro-brc-shop-price-inflation-sep-20260929",
-      "type": "macro",
-      "title": "BRC Shop Price Inflation (Sep)",
-      "eventName": "BRC Shop Price Inflation (Sep)",
-      "originalEventName": "BRC Shop Price Inflation (Sep)",
-      "sourcePublishTime": "2026/09/29 07:01 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/29 07:01",
-      "previous": "1.5",
-      "forecast": "1.5",
-      "actual": "1.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/29 07:01",
-      "tags": [
-        "英國",
-        "BRC",
-        "偏多"
-      ],
-      "summary": "BRC Shop Price Inflation (Sep) 將於 2026/09/29 07:01 公布，市場關注前值 1.5、預期 1.5。",
-      "event": "英國 BRC Shop Price Inflation (Sep)，前值 1.5、預期 1.5、實際 1.4。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://brc.org.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-dallas-fed-manufacturing-index-sep-20260928",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Sep)",
-      "eventName": "Dallas Fed Manufacturing Index (Sep)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Sep)",
-      "sourcePublishTime": "2026/09/28 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/28 22:30",
-      "previous": "11.6",
-      "forecast": "—",
-      "actual": "9.8",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/28 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Sep) 將於 2026/09/28 22:30 公布，市場關注前值 11.6、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Sep)，前值 11.6、預期 —、實際 9.8。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-dallas-fed-manufacturing-index-sep-20260928",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Sep)",
-      "eventName": "Dallas Fed Manufacturing Index (Sep)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Sep)",
-      "sourcePublishTime": "2026/09/28 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/09/28 22:30",
-      "previous": "11.6",
-      "forecast": "—",
-      "actual": "9.8",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/28 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Sep) 將於 2026/09/28 22:30 公布，市場關注前值 11.6、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Sep)，前值 11.6、預期 —、實際 9.8。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-brc-shop-price-inflation-sep-20260929",
-      "type": "macro",
-      "title": "BRC Shop Price Inflation (Sep)",
-      "eventName": "BRC Shop Price Inflation (Sep)",
-      "originalEventName": "BRC Shop Price Inflation (Sep)",
-      "sourcePublishTime": "2026/09/29 07:01 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/09/29 07:01",
-      "previous": "1.5",
-      "forecast": "1.5",
-      "actual": "1.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/29 07:01",
-      "tags": [
-        "英國",
-        "BRC",
-        "偏多"
-      ],
-      "summary": "BRC Shop Price Inflation (Sep) 將於 2026/09/29 07:01 公布，市場關注前值 1.5、預期 1.5。",
-      "event": "英國 BRC Shop Price Inflation (Sep)，前值 1.5、預期 1.5、實際 1.4。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://brc.org.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-services-sentiment-sep-20260929",
       "type": "macro",
@@ -589,6 +522,40 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
+      "id": "macro-inflation-rate-yoy-prel-sep-20260930",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate YoY Prel (Sep)",
+      "sourcePublishTime": "2026/09/30 14:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/09/30 14:45",
+      "previous": "2.4",
+      "forecast": "2.8",
+      "actual": "3",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/30 14:45",
+      "tags": [
+        "法國",
+        "通膨率",
+        "偏空"
+      ],
+      "summary": "通膨率 將於 2026/09/30 14:45 公布，市場關注前值 2.4、預期 2.8。",
+      "event": "法國 通膨率，前值 2.4、預期 2.8、實際 3。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-ppi-mom-aug-20260930",
       "type": "macro",
       "title": "生產者物價指數 PPI",
@@ -624,40 +591,6 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-inflation-rate-yoy-prel-sep-20260930",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate YoY Prel (Sep)",
-      "sourcePublishTime": "2026/09/30 14:45 Asia/Taipei",
-      "country": "法國",
-      "publishTime": "2026/09/30 14:45",
-      "previous": "2.4",
-      "forecast": "2.8",
-      "actual": "3",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/09/30 14:45",
-      "tags": [
-        "法國",
-        "通膨率",
-        "偏空"
-      ],
-      "summary": "通膨率 將於 2026/09/30 14:45 公布，市場關注前值 2.4、預期 2.8。",
-      "event": "法國 通膨率，前值 2.4、預期 2.8、實際 3。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.insee.fr",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-ecb-non-monetary-policy-meeting-20260930",
       "type": "macro",
       "title": "ECB Non-Monetary Policy Meeting",
@@ -687,6 +620,74 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.ecb.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-unemployment-change-sep-20260930",
+      "type": "macro",
+      "title": "就業人數變化",
+      "eventName": "就業人數變化",
+      "originalEventName": "Unemployment Change (Sep)",
+      "sourcePublishTime": "2026/09/30 15:55 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/09/30 15:55",
+      "previous": "5",
+      "forecast": "1",
+      "actual": "12",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "importance": "中高",
+      "timestamp": "2026/09/30 15:55",
+      "tags": [
+        "德國",
+        "就業人數變化",
+        "偏多"
+      ],
+      "summary": "就業人數變化 將於 2026/09/30 15:55 公布，市場關注前值 5、預期 1。",
+      "event": "德國 就業人數變化，前值 5、預期 1、實際 12。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://statistik.arbeitsagentur.de",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-unemployment-rate-sep-20260930",
+      "type": "macro",
+      "title": "失業率",
+      "eventName": "失業率",
+      "originalEventName": "Unemployment Rate (Sep)",
+      "sourcePublishTime": "2026/09/30 15:55 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/09/30 15:55",
+      "previous": "6.4",
+      "forecast": "6.4",
+      "actual": "6.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/09/30 15:55",
+      "tags": [
+        "德國",
+        "失業率",
+        "中性"
+      ],
+      "summary": "失業率 將於 2026/09/30 15:55 公布，市場關注前值 6.4、預期 6.4。",
+      "event": "德國 失業率，前值 6.4、預期 6.4、實際 6.4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://statistik.arbeitsagentur.de",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
