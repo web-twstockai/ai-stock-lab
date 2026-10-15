@@ -1,10 +1,10 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/10/15 07:47",
+  "updatedAt": "2026/10/15 12:27",
   "status": "運作中",
   "summary": [
     {
       "label": "本週事件",
-      "value": 21,
+      "value": 22,
       "unit": "個",
       "icon": "calendar"
     },
@@ -22,7 +22,7 @@ window.MacroRobotData = {
     },
     {
       "label": "高影響事件",
-      "value": 34,
+      "value": 35,
       "unit": "個",
       "icon": "alert",
       "accent": "orange"
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "GDP 經濟成長率",
-      "unit": "倒數 12 小時",
+      "unit": "倒數 7 小時",
       "icon": "filter"
     }
   ],
@@ -1759,18 +1759,18 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-niesr-monthly-gdp-tracker-sep-20261015",
+      "id": "macro-niesr-gdp-20261015",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "NIESR Monthly GDP Tracker (Sep)",
+      "originalEventName": "NIESR每月GDP追蹤",
       "sourcePublishTime": "2026/10/15 19:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/10/15 19:00",
       "previous": "0.5",
       "forecast": "0.4",
       "actual": null,
-      "status": "倒數 12 小時",
+      "status": "倒數 7 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
@@ -1781,16 +1781,49 @@ window.MacroRobotData = {
         "GDP",
         "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/10/15 19:00 公布，市場關注前值 0.5、預期 —。",
-      "event": "英國 GDP 經濟成長率，前值 0.5、預期 —、實際 尚未公布。",
+      "summary": "GDP 經濟成長率 將於 2026/10/15 19:00 公布，市場關注前值 0.5、預期 0.4。",
+      "event": "英國 GDP 經濟成長率，前值 0.5、預期 0.4、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "sourceList": [
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-niesr-monthly-gdp-tracker-sep-20261015",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "NIESR Monthly GDP Tracker (Sep)",
+      "sourcePublishTime": "2026/10/15 19:30 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/10/15 19:30",
+      "previous": "0.5",
+      "forecast": "—",
+      "actual": "0.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/10/15 19:30",
+      "tags": [
+        "英國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/15 19:30 公布，市場關注前值 0.5、預期 —。",
+      "event": "英國 GDP 經濟成長率，前值 0.5、預期 —、實際 0.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -1805,7 +1838,7 @@ window.MacroRobotData = {
       "previous": "4.6",
       "forecast": "4.4",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -1840,7 +1873,7 @@ window.MacroRobotData = {
       "previous": "198",
       "forecast": "1710",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -1874,7 +1907,7 @@ window.MacroRobotData = {
       "previous": "3.6",
       "forecast": "3.6",
       "actual": null,
-      "status": "倒數 16 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -2765,7 +2798,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/10/23 16:30 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/10/23 16:30",
-      "previous": "—",
+      "previous": "52.1",
       "forecast": "—",
       "actual": null,
       "status": "倒數 8 天",
@@ -2779,8 +2812,8 @@ window.MacroRobotData = {
         "服務業",
         "中性"
       ],
-      "summary": "服務業 PMI 將於 2026/10/23 16:30 公布，市場關注前值 —、預期 —。",
-      "event": "英國 服務業 PMI，前值 —、預期 —、實際 尚未公布。",
+      "summary": "服務業 PMI 將於 2026/10/23 16:30 公布，市場關注前值 52.1、預期 —。",
+      "event": "英國 服務業 PMI，前值 52.1、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2800,7 +2833,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/10/23 16:30 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/10/23 16:30",
-      "previous": "—",
+      "previous": "51.9",
       "forecast": "—",
       "actual": null,
       "status": "倒數 8 天",
@@ -2814,8 +2847,8 @@ window.MacroRobotData = {
         "製造業",
         "中性"
       ],
-      "summary": "製造業 PMI 將於 2026/10/23 16:30 公布，市場關注前值 —、預期 —。",
-      "event": "英國 製造業 PMI，前值 —、預期 —、實際 尚未公布。",
+      "summary": "製造業 PMI 將於 2026/10/23 16:30 公布，市場關注前值 51.9、預期 —。",
+      "event": "英國 製造業 PMI，前值 51.9、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -4947,7 +4980,7 @@ window.MacroRobotData = {
       "country": "英國",
       "publishTime": "2026/11/05 20:00",
       "previous": "—",
-      "forecast": "—",
+      "forecast": "4",
       "actual": null,
       "status": "倒數 21 天",
       "statusLevel": "upcoming",
@@ -4960,8 +4993,8 @@ window.MacroRobotData = {
         "英國央行利率決議",
         "中性"
       ],
-      "summary": "英國央行利率決議 將於 2026/11/05 20:00 公布，市場關注前值 —、預期 —。",
-      "event": "英國 英國央行利率決議，前值 —、預期 —、實際 尚未公布。",
+      "summary": "英國央行利率決議 將於 2026/11/05 20:00 公布，市場關注前值 —、預期 4。",
+      "event": "英國 英國央行利率決議，前值 —、預期 4、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -5244,15 +5277,15 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-harmonised-inflation-rate-mom-final-oct-20261111",
+      "id": "macro-harmonised-inflation-rate-yoy-final-oct-20261111",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Harmonised Inflation Rate MoM Final (Oct)",
+      "originalEventName": "Harmonised Inflation Rate YoY Final (Oct)",
       "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/11/11 15:00",
-      "previous": "0.6",
+      "previous": "3.3",
       "forecast": "—",
       "actual": null,
       "status": "倒數 27 天",
@@ -5266,8 +5299,8 @@ window.MacroRobotData = {
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/11/11 15:00 公布，市場關注前值 0.6、預期 —。",
-      "event": "德國 通膨率，前值 0.6、預期 —、實際 尚未公布。",
+      "summary": "通膨率 將於 2026/11/11 15:00 公布，市場關注前值 3.3、預期 —。",
+      "event": "德國 通膨率，前值 3.3、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -5951,6 +5984,6 @@ window.MacroRobotData = {
     "horizonDays": 62,
     "calendarWindow": "2026-10-01~2026-12-16",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 170
+    "fetchedEvents": 171
   }
 };
