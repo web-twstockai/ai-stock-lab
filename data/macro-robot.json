@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/10/21 07:45",
+  "updatedAt": "2026/10/21 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -3020,40 +3020,6 @@
       ]
     },
     {
-      "id": "macro-s-p-global-composite-pmi-final-oct-20261104",
-      "type": "macro",
-      "title": "綜合 PMI",
-      "eventName": "綜合 PMI",
-      "originalEventName": "S&P Global Composite PMI Final (Oct)",
-      "sourcePublishTime": "2026/11/04 16:55 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/04 16:55",
-      "previous": "53.8",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 14 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/11/04 16:55",
-      "tags": [
-        "德國",
-        "綜合",
-        "中性"
-      ],
-      "summary": "綜合 PMI 將於 2026/11/04 16:55 公布，市場關注前值 53.8、預期 —。",
-      "event": "德國 綜合 PMI，前值 53.8、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.pmi.spglobal.com/public",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-s-p-global-services-pmi-final-oct-20261104",
       "type": "macro",
       "title": "服務業 PMI",
@@ -3078,6 +3044,40 @@
       ],
       "summary": "服務業 PMI 將於 2026/11/04 16:55 公布，市場關注前值 52.9、預期 —。",
       "event": "德國 服務業 PMI，前值 52.9、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-composite-pmi-final-oct-20261104",
+      "type": "macro",
+      "title": "綜合 PMI",
+      "eventName": "綜合 PMI",
+      "originalEventName": "S&P Global Composite PMI Final (Oct)",
+      "sourcePublishTime": "2026/11/04 16:55 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/11/04 16:55",
+      "previous": "53.8",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 14 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/11/04 16:55",
+      "tags": [
+        "德國",
+        "綜合",
+        "中性"
+      ],
+      "summary": "綜合 PMI 將於 2026/11/04 16:55 公布，市場關注前值 53.8、預期 —。",
+      "event": "德國 綜合 PMI，前值 53.8、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
