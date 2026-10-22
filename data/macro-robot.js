@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/10/22 07:47",
+  "updatedAt": "2026/10/22 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "初領失業救濟金人數",
-      "unit": "倒數 13 小時",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -1040,7 +1040,7 @@ window.MacroRobotData = {
       "previous": "198.5",
       "forecast": "200",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -1074,7 +1074,7 @@ window.MacroRobotData = {
       "previous": "14",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 16 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -1108,7 +1108,7 @@ window.MacroRobotData = {
       "previous": "20",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 16 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -4674,40 +4674,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-ppi-input-yoy-oct-20261118",
-      "type": "macro",
-      "title": "生產者物價指數 PPI",
-      "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI Input YoY (Oct)",
-      "sourcePublishTime": "2026/11/18 15:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/11/18 15:00",
-      "previous": "1.5",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 27 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/11/18 15:00",
-      "tags": [
-        "英國",
-        "生產者物價指數",
-        "中性"
-      ],
-      "summary": "生產者物價指數 PPI 將於 2026/11/18 15:00 公布，市場關注前值 —、預期 —。",
-      "event": "英國 生產者物價指數 PPI，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-core-inflation-rate-mom-oct-20261118",
       "type": "macro",
       "title": "核心通膨率",
@@ -4734,6 +4700,40 @@ window.MacroRobotData = {
       "event": "英國 核心通膨率，前值 0.2、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ppi-input-yoy-oct-20261118",
+      "type": "macro",
+      "title": "生產者物價指數 PPI",
+      "eventName": "生產者物價指數 PPI",
+      "originalEventName": "PPI Input YoY (Oct)",
+      "sourcePublishTime": "2026/11/18 15:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/11/18 15:00",
+      "previous": "1.5",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 27 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/11/18 15:00",
+      "tags": [
+        "英國",
+        "生產者物價指數",
+        "中性"
+      ],
+      "summary": "生產者物價指數 PPI 將於 2026/11/18 15:00 公布，市場關注前值 —、預期 —。",
+      "event": "英國 生產者物價指數 PPI，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.ons.gov.uk/",
