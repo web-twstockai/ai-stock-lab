@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/10/25 12:26",
+  "updatedAt": "2026/10/26 07:47",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 262,
+      "value": 267,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 95,
+      "value": 100,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "下一個總經事件",
-      "value": "製造業 PMI",
+      "value": "綜合 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "28 個"
+          "38 個"
         ],
         [
           "下一事件",
-          "製造業 PMI"
+          "綜合 PMI"
         ],
         [
           "狀態",
@@ -280,31 +280,31 @@ window.IntelligenceOverviewData = {
       }
     },
     {
-      "id": "macro-cpi-sep-20261014",
+      "id": "macro-cpi-s-a-sep-20261014",
       "type": "macro",
       "title": "消費者物價指數 CPI",
       "eventName": "消費者物價指數 CPI",
-      "originalEventName": "CPI (Sep)",
+      "originalEventName": "CPI s.a (Sep)",
       "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/10/14 20:30",
-      "previous": "334.98",
+      "previous": "334.13",
       "forecast": "336.65",
-      "actual": "336.94",
+      "actual": "336.3",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏空",
+      "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "importance": "高",
       "timestamp": "2026/10/14 20:30",
       "tags": [
         "美國",
         "消費者物價指數",
-        "偏空"
+        "中性"
       ],
-      "summary": "消費者物價指數 CPI 將於 2026/10/14 20:30 公布，市場關注前值 334.98、預期 336.65。",
-      "event": "美國 消費者物價指數 CPI，前值 334.98、預期 336.65、實際 336.94。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "消費者物價指數 CPI 將於 2026/10/14 20:30 公布，市場關注前值 334.13、預期 —。",
+      "event": "美國 消費者物價指數 CPI，前值 334.13、預期 —、實際 336.3。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
@@ -488,31 +488,31 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-cpi-sep-20261014",
+      "id": "macro-cpi-s-a-sep-20261014",
       "type": "macro",
       "title": "消費者物價指數 CPI",
       "eventName": "消費者物價指數 CPI",
-      "originalEventName": "CPI (Sep)",
+      "originalEventName": "CPI s.a (Sep)",
       "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/10/14 20:30",
-      "previous": "334.98",
+      "previous": "334.13",
       "forecast": "336.65",
-      "actual": "336.94",
+      "actual": "336.3",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏空",
+      "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "importance": "高",
       "timestamp": "2026/10/14 20:30",
       "tags": [
         "美國",
         "消費者物價指數",
-        "偏空"
+        "中性"
       ],
-      "summary": "消費者物價指數 CPI 將於 2026/10/14 20:30 公布，市場關注前值 334.98、預期 336.65。",
-      "event": "美國 消費者物價指數 CPI，前值 334.98、預期 336.65、實際 336.94。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "消費者物價指數 CPI 將於 2026/10/14 20:30 公布，市場關注前值 334.13、預期 —。",
+      "event": "美國 消費者物價指數 CPI，前值 334.13、預期 —、實際 336.3。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
@@ -590,17 +590,17 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-gdp-3-month-avg-aug-20261015",
+      "id": "macro-gdp-mom-aug-20261015",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "GDP 3-Month Avg (Aug)",
+      "originalEventName": "GDP MoM (Aug)",
       "sourcePublishTime": "2026/10/15 14:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/10/15 14:00",
-      "previous": "0.5",
-      "forecast": "0.5",
-      "actual": "0.7",
+      "previous": "0.4",
+      "forecast": "-0.1",
+      "actual": "0.1",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
@@ -612,8 +612,8 @@ window.IntelligenceOverviewData = {
         "GDP",
         "偏多"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/10/15 14:00 公布，市場關注前值 0.5、預期 0.5。",
-      "event": "英國 GDP 經濟成長率，前值 0.5、預期 0.5、實際 0.7。",
+      "summary": "GDP 經濟成長率 將於 2026/10/15 14:00 公布，市場關注前值 0.4、預期 -0.1。",
+      "event": "英國 GDP 經濟成長率，前值 0.4、預期 -0.1、實際 0.1。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -625,17 +625,17 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-harmonised-inflation-rate-yoy-final-sep-20261015",
+      "id": "macro-inflation-rate-mom-final-sep-20261015",
       "type": "macro",
       "title": "通膨率",
       "eventName": "通膨率",
-      "originalEventName": "Harmonised Inflation Rate YoY Final (Sep)",
+      "originalEventName": "Inflation Rate MoM Final (Sep)",
       "sourcePublishTime": "2026/10/15 14:45 Asia/Taipei",
       "country": "法國",
       "publishTime": "2026/10/15 14:45",
-      "previous": "2.6",
-      "forecast": "3.4",
-      "actual": "3.4",
+      "previous": "0.7",
+      "forecast": "-0.3",
+      "actual": "-0.3",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
@@ -647,8 +647,8 @@ window.IntelligenceOverviewData = {
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/10/15 14:45 公布，市場關注前值 2.6、預期 3.4。",
-      "event": "法國 通膨率，前值 2.6、預期 3.4、實際 3.4。",
+      "summary": "通膨率 將於 2026/10/15 14:45 公布，市場關注前值 0.7、預期 -0.3。",
+      "event": "法國 通膨率，前值 0.7、預期 -0.3、實際 -0.3。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
