@@ -10,7 +10,7 @@
     },
     {
       "label": "高重要度訊號",
-      "value": 117,
+      "value": 116,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@
     },
     {
       "label": "下一個總經事件",
-      "value": "服務業 PMI",
+      "value": "綜合 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -80,7 +80,7 @@
         ],
         [
           "下一事件",
-          "服務業 PMI"
+          "綜合 PMI"
         ],
         [
           "狀態",
