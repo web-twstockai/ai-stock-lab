@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/10/28 18:30",
+  "updatedAt": "2026/10/29 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 304,
+      "value": 300,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 116,
+      "value": 115,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "下一個總經事件",
-      "value": "綜合 PMI",
+      "value": "製造業 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "59 個"
+          "65 個"
         ],
         [
           "下一事件",
-          "綜合 PMI"
+          "製造業 PMI"
         ],
         [
           "狀態",
@@ -280,293 +280,85 @@ window.IntelligenceOverviewData = {
       }
     },
     {
-      "id": "macro-cpi-sep-20261014",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "CPI (Sep)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "334.98",
-      "forecast": "336.65",
-      "actual": "336.94",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "消費者物價指數",
-        "偏空"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/10/14 20:30 公布，市場關注前值 334.98、預期 336.65。",
-      "event": "美國 消費者物價指數 CPI，前值 334.98、預期 336.65、實際 336.94。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
-      "sourceUrl": "http://www.bls.gov",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-cpi-9-20261014",
-      "type": "macro",
-      "title": "核心 CPI",
-      "eventName": "核心 CPI",
-      "originalEventName": "核心消費價格指數(CPI) (月環比) (9月)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "0.3%",
-      "forecast": "0.2%",
-      "actual": "0.3%",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "核心",
-        "偏空"
-      ],
-      "summary": "核心 CPI 將於 2026/10/14 20:30 公布，市場關注前值 0.3%、預期 0.2%。",
-      "event": "美國 核心 CPI，前值 0.3%、預期 0.2%、實際 0.3%。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/557978",
-      "sourceList": [
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-core-inflation-rate-mom-sep-20261014",
-      "type": "macro",
-      "title": "核心通膨率",
-      "eventName": "核心通膨率",
-      "originalEventName": "Core Inflation Rate MoM (Sep)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "0.3",
-      "forecast": "0.2",
-      "actual": "0.3",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "核心通膨率",
-        "偏空"
-      ],
-      "summary": "核心通膨率 將於 2026/10/14 20:30 公布，市場關注前值 0.3、預期 0.2。",
-      "event": "美國 核心通膨率，前值 0.3、預期 0.2、實際 0.3。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.bls.gov",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-inflation-rate-mom-sep-20261014",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM (Sep)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "0.4",
-      "forecast": "0.6",
-      "actual": "0.6",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "通膨率",
-        "中性"
-      ],
-      "summary": "通膨率 將於 2026/10/14 20:30 公布，市場關注前值 0.4、預期 0.6。",
-      "event": "美國 通膨率，前值 0.4、預期 0.6、實際 0.6。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.bls.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    }
-  ],
-  "macroEvents": [
-    {
-      "id": "macro-cpi-sep-20261014",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "CPI (Sep)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "334.98",
-      "forecast": "336.65",
-      "actual": "336.94",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "消費者物價指數",
-        "偏空"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/10/14 20:30 公布，市場關注前值 334.98、預期 336.65。",
-      "event": "美國 消費者物價指數 CPI，前值 334.98、預期 336.65、實際 336.94。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
-      "sourceUrl": "http://www.bls.gov",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-core-inflation-rate-mom-sep-20261014",
-      "type": "macro",
-      "title": "核心通膨率",
-      "eventName": "核心通膨率",
-      "originalEventName": "Core Inflation Rate MoM (Sep)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "0.3",
-      "forecast": "0.2",
-      "actual": "0.3",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "核心通膨率",
-        "偏空"
-      ],
-      "summary": "核心通膨率 將於 2026/10/14 20:30 公布，市場關注前值 0.3、預期 0.2。",
-      "event": "美國 核心通膨率，前值 0.3、預期 0.2、實際 0.3。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.bls.gov",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-inflation-rate-mom-sep-20261014",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM (Sep)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "0.4",
-      "forecast": "0.6",
-      "actual": "0.6",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "通膨率",
-        "中性"
-      ],
-      "summary": "通膨率 將於 2026/10/14 20:30 公布，市場關注前值 0.4、預期 0.6。",
-      "event": "美國 通膨率，前值 0.4、預期 0.6、實際 0.6。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.bls.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-cpi-9-20261014",
-      "type": "macro",
-      "title": "核心 CPI",
-      "eventName": "核心 CPI",
-      "originalEventName": "核心消費價格指數(CPI) (月環比) (9月)",
-      "sourcePublishTime": "2026/10/14 20:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/14 20:30",
-      "previous": "0.3%",
-      "forecast": "0.2%",
-      "actual": "0.3%",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/10/14 20:30",
-      "tags": [
-        "美國",
-        "核心",
-        "偏空"
-      ],
-      "summary": "核心 CPI 將於 2026/10/14 20:30 公布，市場關注前值 0.3%、預期 0.2%。",
-      "event": "美國 核心 CPI，前值 0.3%、預期 0.2%、實際 0.3%。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/557978",
-      "sourceList": [
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-gdp-yoy-aug-20261015",
+      "id": "macro-niesr-monthly-gdp-tracker-sep-20261015",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
-      "originalEventName": "GDP YoY (Aug)",
+      "originalEventName": "NIESR Monthly GDP Tracker (Sep)",
+      "sourcePublishTime": "2026/10/15 20:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/10/15 20:00",
+      "previous": "0.5",
+      "forecast": "—",
+      "actual": "0.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/10/15 20:00",
+      "tags": [
+        "英國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/15 20:00 公布，市場關注前值 0.5、預期 —。",
+      "event": "英國 GDP 經濟成長率，前值 0.5、預期 —、實際 0.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-niesr-gdp-20261015",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "NIESR每月GDP追蹤",
+      "sourcePublishTime": "2026/10/15 19:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/10/15 19:00",
+      "previous": "0.5",
+      "forecast": "0.4",
+      "actual": "0.7",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/10/15 19:00",
+      "tags": [
+        "英國",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/15 19:00 公布，市場關注前值 0.5、預期 0.4。",
+      "event": "英國 GDP 經濟成長率，前值 0.5、預期 0.4、實際 0.7。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "sourceList": [
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-gdp-mom-aug-20261015",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP MoM (Aug)",
       "sourcePublishTime": "2026/10/15 14:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/10/15 14:00",
-      "previous": "1.8",
-      "forecast": "1.7",
-      "actual": "2.1",
+      "previous": "0.4",
+      "forecast": "-0.1",
+      "actual": "0.1",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "偏多",
@@ -578,8 +370,80 @@ window.IntelligenceOverviewData = {
         "GDP",
         "偏多"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/10/15 14:00 公布，市場關注前值 1.8、預期 1.7。",
-      "event": "英國 GDP 經濟成長率，前值 1.8、預期 1.7、實際 2.1。",
+      "summary": "GDP 經濟成長率 將於 2026/10/15 14:00 公布，市場關注前值 0.4、預期 -0.1。",
+      "event": "英國 GDP 經濟成長率，前值 0.4、預期 -0.1、實際 0.1。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-mom-final-sep-20261015",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate MoM Final (Sep)",
+      "sourcePublishTime": "2026/10/15 14:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/10/15 14:45",
+      "previous": "0.7",
+      "forecast": "-0.3",
+      "actual": "-0.3",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/10/15 14:45",
+      "tags": [
+        "法國",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/10/15 14:45 公布，市場關注前值 0.7、預期 -0.3。",
+      "event": "法國 通膨率，前值 0.7、預期 -0.3、實際 -0.3。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    }
+  ],
+  "macroEvents": [
+    {
+      "id": "macro-gdp-mom-aug-20261015",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP MoM (Aug)",
+      "sourcePublishTime": "2026/10/15 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/10/15 14:00",
+      "previous": "0.4",
+      "forecast": "-0.1",
+      "actual": "0.1",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/10/15 14:00",
+      "tags": [
+        "英國",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/15 14:00 公布，市場關注前值 0.4、預期 -0.1。",
+      "event": "英國 GDP 經濟成長率，前值 0.4、預期 -0.1、實際 0.1。",
       "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -689,6 +553,144 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-continuing-jobless-claims-oct-03-20261015",
+      "type": "macro",
+      "title": "初領失業救濟金人數",
+      "eventName": "初領失業救濟金人數",
+      "originalEventName": "Continuing Jobless Claims (Oct/03)",
+      "sourcePublishTime": "2026/10/15 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/15 20:30",
+      "previous": "1714",
+      "forecast": "1710",
+      "actual": "1710",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "importance": "中高",
+      "timestamp": "2026/10/15 20:30",
+      "tags": [
+        "美國",
+        "初領失業救濟金人數",
+        "中性"
+      ],
+      "summary": "初領失業救濟金人數 將於 2026/10/15 20:30 公布，市場關注前值 1714、預期 1710。",
+      "event": "美國 初領失業救濟金人數，前值 1714、預期 1710、實際 1710。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.dol.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ppi-sep-20261015",
+      "type": "macro",
+      "title": "生產者物價指數 PPI",
+      "eventName": "生產者物價指數 PPI",
+      "originalEventName": "PPI (Sep)",
+      "sourcePublishTime": "2026/10/15 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/15 20:30",
+      "previous": "157.411",
+      "forecast": "5.3",
+      "actual": "159.78",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/10/15 20:30",
+      "tags": [
+        "美國",
+        "生產者物價指數",
+        "中性"
+      ],
+      "summary": "生產者物價指數 PPI 將於 2026/10/15 20:30 公布，市場關注前值 157.411、預期 —。",
+      "event": "美國 生產者物價指數 PPI，前值 157.411、預期 —、實際 159.78。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.bls.gov",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-gdpnow-20261015",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "亞特蘭大聯儲GDPNow",
+      "sourcePublishTime": "2026/10/15 23:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/15 23:00",
+      "previous": "3.6",
+      "forecast": "3.6",
+      "actual": "3.6",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/10/15 23:00",
+      "tags": [
+        "美國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/15 23:00 公布，市場關注前值 3.6、預期 3.6。",
+      "event": "美國 GDP 經濟成長率，前值 3.6、預期 3.6、實際 3.6。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "sourceList": [
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-atlanta-fed-gdpnow-q3-20261015",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "Atlanta Fed GDPNow (Q3)",
+      "sourcePublishTime": "2026/10/15 23:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/15 23:30",
+      "previous": "3.6",
+      "forecast": "3.6",
+      "actual": "3.6",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "高",
+      "timestamp": "2026/10/15 23:30",
+      "tags": [
+        "美國",
+        "GDP",
+        "中性"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/15 23:30 公布，市場關注前值 3.6、預期 3.6。",
+      "event": "美國 GDP 經濟成長率，前值 3.6、預期 3.6、實際 3.6。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.atlantafed.org/",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
