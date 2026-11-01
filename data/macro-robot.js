@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/11/01 07:46",
+  "updatedAt": "2026/11/01 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "GDP 經濟成長率",
-      "unit": "倒數 1 天",
+      "unit": "倒數 20 小時",
       "icon": "filter"
     }
   ],
@@ -2154,8 +2154,8 @@ window.MacroRobotData = {
       "previous": "—",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 1 天",
-      "statusLevel": "upcoming",
+      "status": "倒數 20 小時",
+      "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
       "importance": "高",
@@ -5192,40 +5192,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-s-p-global-composite-pmi-flash-nov-20261123",
-      "type": "macro",
-      "title": "綜合 PMI",
-      "eventName": "綜合 PMI",
-      "originalEventName": "S&P Global Composite PMI Flash (Nov)",
-      "sourcePublishTime": "2026/11/23 16:30 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/23 16:30",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 22 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/11/23 16:30",
-      "tags": [
-        "德國",
-        "綜合",
-        "中性"
-      ],
-      "summary": "綜合 PMI 將於 2026/11/23 16:30 公布，市場關注前值 —、預期 —。",
-      "event": "德國 綜合 PMI，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.pmi.spglobal.com/public",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-s-p-global-services-pmi-flash-nov-20261123",
       "type": "macro",
       "title": "服務業 PMI",
@@ -5250,6 +5216,40 @@ window.MacroRobotData = {
       ],
       "summary": "服務業 PMI 將於 2026/11/23 16:30 公布，市場關注前值 —、預期 —。",
       "event": "德國 服務業 PMI，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-composite-pmi-flash-nov-20261123",
+      "type": "macro",
+      "title": "綜合 PMI",
+      "eventName": "綜合 PMI",
+      "originalEventName": "S&P Global Composite PMI Flash (Nov)",
+      "sourcePublishTime": "2026/11/23 16:30 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/11/23 16:30",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 22 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/11/23 16:30",
+      "tags": [
+        "德國",
+        "綜合",
+        "中性"
+      ],
+      "summary": "綜合 PMI 將於 2026/11/23 16:30 公布，市場關注前值 —、預期 —。",
+      "event": "德國 綜合 PMI，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -5362,40 +5362,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-s-p-global-services-pmi-flash-nov-20261123",
-      "type": "macro",
-      "title": "服務業 PMI",
-      "eventName": "服務業 PMI",
-      "originalEventName": "S&P Global Services PMI Flash (Nov)",
-      "sourcePublishTime": "2026/11/23 17:30 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/11/23 17:30",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 22 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/11/23 17:30",
-      "tags": [
-        "英國",
-        "服務業",
-        "中性"
-      ],
-      "summary": "服務業 PMI 將於 2026/11/23 17:30 公布，市場關注前值 —、預期 —。",
-      "event": "英國 服務業 PMI，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.pmi.spglobal.com/public",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-s-p-global-manufacturing-pmi-flash-nov-20261123",
       "type": "macro",
       "title": "製造業 PMI",
@@ -5420,6 +5386,40 @@ window.MacroRobotData = {
       ],
       "summary": "製造業 PMI 將於 2026/11/23 17:30 公布，市場關注前值 —、預期 —。",
       "event": "英國 製造業 PMI，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-services-pmi-flash-nov-20261123",
+      "type": "macro",
+      "title": "服務業 PMI",
+      "eventName": "服務業 PMI",
+      "originalEventName": "S&P Global Services PMI Flash (Nov)",
+      "sourcePublishTime": "2026/11/23 17:30 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/11/23 17:30",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 22 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/11/23 17:30",
+      "tags": [
+        "英國",
+        "服務業",
+        "中性"
+      ],
+      "summary": "服務業 PMI 將於 2026/11/23 17:30 公布，市場關注前值 —、預期 —。",
+      "event": "英國 服務業 PMI，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
