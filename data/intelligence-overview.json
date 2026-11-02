@@ -10,7 +10,7 @@
     },
     {
       "label": "高重要度訊號",
-      "value": 101,
+      "value": 100,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
