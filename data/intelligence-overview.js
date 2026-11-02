@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/01 12:26",
+  "updatedAt": "2026/11/02 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 297,
+      "value": 299,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 95,
+      "value": 96,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "下一個總經事件",
-      "value": "綜合 PMI",
+      "value": "製造業 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -80,7 +80,7 @@ window.IntelligenceOverviewData = {
         ],
         [
           "下一事件",
-          "綜合 PMI"
+          "製造業 PMI"
         ],
         [
           "狀態",
@@ -382,31 +382,31 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-ppi-mom-sep-20261020",
+      "id": "macro-ppi-yoy-sep-20261020",
       "type": "macro",
       "title": "生產者物價指數 PPI",
       "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI MoM (Sep)",
+      "originalEventName": "PPI YoY (Sep)",
       "sourcePublishTime": "2026/10/20 14:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/10/20 14:00",
-      "previous": "1.1",
+      "previous": "4.6",
       "forecast": "0.8",
-      "actual": "1.9",
+      "actual": "6.7",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏多",
+      "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
       "timestamp": "2026/10/20 14:00",
       "tags": [
         "德國",
         "生產者物價指數",
-        "偏多"
+        "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/10/20 14:00 公布，市場關注前值 1.1、預期 0.8。",
-      "event": "德國 生產者物價指數 PPI，前值 1.1、預期 0.8、實際 1.9。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "生產者物價指數 PPI 將於 2026/10/20 14:00 公布，市場關注前值 4.6、預期 —。",
+      "event": "德國 生產者物價指數 PPI，前值 4.6、預期 —、實際 6.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
@@ -418,6 +418,40 @@ window.IntelligenceOverviewData = {
     }
   ],
   "macroEvents": [
+    {
+      "id": "macro-hmrc-payrolls-change-sep-20261020",
+      "type": "macro",
+      "title": "非農就業人數",
+      "eventName": "非農就業人數",
+      "originalEventName": "HMRC Payrolls Change (Sep)",
+      "sourcePublishTime": "2026/10/20 14:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/10/20 14:00",
+      "previous": "1",
+      "forecast": "—",
+      "actual": "13",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "importance": "高",
+      "timestamp": "2026/10/20 14:00",
+      "tags": [
+        "英國",
+        "非農就業人數",
+        "中性"
+      ],
+      "summary": "非農就業人數 將於 2026/10/20 14:00 公布，市場關注前值 1、預期 —。",
+      "event": "英國 非農就業人數，前值 1、預期 —、實際 13。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.ons.gov.uk/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
     {
       "id": "macro-employment-change-aug-20261020",
       "type": "macro",
@@ -487,31 +521,31 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-ppi-mom-sep-20261020",
+      "id": "macro-ppi-yoy-sep-20261020",
       "type": "macro",
       "title": "生產者物價指數 PPI",
       "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI MoM (Sep)",
+      "originalEventName": "PPI YoY (Sep)",
       "sourcePublishTime": "2026/10/20 14:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/10/20 14:00",
-      "previous": "1.1",
+      "previous": "4.6",
       "forecast": "0.8",
-      "actual": "1.9",
+      "actual": "6.7",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏多",
+      "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
       "timestamp": "2026/10/20 14:00",
       "tags": [
         "德國",
         "生產者物價指數",
-        "偏多"
+        "中性"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/10/20 14:00 公布，市場關注前值 1.1、預期 0.8。",
-      "event": "德國 生產者物價指數 PPI，前值 1.1、預期 0.8、實際 1.9。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "生產者物價指數 PPI 將於 2026/10/20 14:00 公布，市場關注前值 4.6、預期 —。",
+      "event": "德國 生產者物價指數 PPI，前值 4.6、預期 —、實際 6.7。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
@@ -519,40 +553,6 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-hmrc-payrolls-change-sep-20261020",
-      "type": "macro",
-      "title": "非農就業人數",
-      "eventName": "非農就業人數",
-      "originalEventName": "HMRC Payrolls Change (Sep)",
-      "sourcePublishTime": "2026/10/20 14:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/10/20 14:00",
-      "previous": "1",
-      "forecast": "—",
-      "actual": "13",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
-      "importance": "高",
-      "timestamp": "2026/10/20 14:00",
-      "tags": [
-        "英國",
-        "非農就業人數",
-        "中性"
-      ],
-      "summary": "非農就業人數 將於 2026/10/20 14:00 公布，市場關注前值 1、預期 —。",
-      "event": "英國 非農就業人數，前值 1、預期 —、實際 13。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "http://www.ons.gov.uk/",
-      "sourceList": [
-        "TradingView Economic Calendar"
       ]
     },
     {
@@ -626,38 +626,37 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-ppi-input-yoy-sep-20261021",
+      "id": "macro-core-inflation-rate-yoy-sep-20261021",
       "type": "macro",
-      "title": "生產者物價指數 PPI",
-      "eventName": "生產者物價指數 PPI",
-      "originalEventName": "PPI Input YoY (Sep)",
+      "title": "核心通膨率",
+      "eventName": "核心通膨率",
+      "originalEventName": "Core Inflation Rate YoY (Sep)",
       "sourcePublishTime": "2026/10/21 14:00 Asia/Taipei",
       "country": "英國",
       "publishTime": "2026/10/21 14:00",
-      "previous": "6.7",
-      "forecast": "7.2",
-      "actual": "8.3",
+      "previous": "2.6",
+      "forecast": "2.7",
+      "actual": "2.8",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏多",
-      "impact": "影響市場風險偏好與資金輪動。",
+      "direction": "偏空",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "importance": "中高",
       "timestamp": "2026/10/21 14:00",
       "tags": [
         "英國",
-        "生產者物價指數",
-        "偏多"
+        "核心通膨率",
+        "偏空"
       ],
-      "summary": "生產者物價指數 PPI 將於 2026/10/21 14:00 公布，市場關注前值 6.7、預期 7.2。",
-      "event": "英國 生產者物價指數 PPI，前值 6.7、預期 7.2、實際 8.3。",
-      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "summary": "核心通膨率 將於 2026/10/21 14:00 公布，市場關注前值 2.6、預期 2.7。",
+      "event": "英國 核心通膨率，前值 2.6、預期 2.7、實際 2.8。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
+        "TradingView Economic Calendar"
       ]
     },
     {
