@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/11/09 07:47",
+  "updatedAt": "2026/11/09 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@
     {
       "label": "下一個事件",
       "value": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr (Oct. 2026)",
-      "unit": "倒數 17 小時",
+      "unit": "倒數 12 小時",
       "icon": "filter"
     }
   ],
@@ -2565,7 +2565,7 @@
       "previous": "3.9",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 17 小時",
+      "status": "倒數 12 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2599,8 +2599,8 @@
       "previous": "3.4",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 1 天",
-      "statusLevel": "upcoming",
+      "status": "倒數 20 小時",
+      "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
       "importance": "高",
