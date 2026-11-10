@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/09 18:30",
+  "updatedAt": "2026/11/10 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 295,
+      "value": 303,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 103,
+      "value": 108,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "25 個"
+          "28 個"
         ],
         [
           "下一事件",
@@ -280,6 +280,40 @@ window.IntelligenceOverviewData = {
       }
     },
     {
+      "id": "macro-gdpnow-20261027",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "亞特蘭大聯儲GDPNow",
+      "sourcePublishTime": "2026/10/27 23:45 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/27 23:45",
+      "previous": "3.5",
+      "forecast": "3.5",
+      "actual": "3.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/10/27 23:45",
+      "tags": [
+        "美國",
+        "GDP",
+        "偏空"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/27 23:45 公布，市場關注前值 3.5、預期 3.5。",
+      "event": "美國 GDP 經濟成長率，前值 3.5、預期 3.5、實際 3.4。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "sourceList": [
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
       "id": "macro-richmond-fed-manufacturing-shipments-index-oct-2026-20261027",
       "type": "macro",
       "title": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
@@ -381,77 +415,9 @@ window.IntelligenceOverviewData = {
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
-    },
-    {
-      "id": "macro-dallas-fed-manufacturing-index-oct-2026-20261026",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Oct. 2026)",
-      "eventName": "Dallas Fed Manufacturing Index (Oct. 2026)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Oct. 2026)",
-      "sourcePublishTime": "2026/10/26 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/26 22:30",
-      "previous": "9.8",
-      "forecast": "—",
-      "actual": "13.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/26 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Oct. 2026) 將於 2026/10/26 22:30 公布，市場關注前值 9.8、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Oct. 2026)，前值 9.8、預期 —、實際 13.4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-dallas-fed-manufacturing-index-oct-2026-20261026",
-      "type": "macro",
-      "title": "Dallas Fed Manufacturing Index (Oct. 2026)",
-      "eventName": "Dallas Fed Manufacturing Index (Oct. 2026)",
-      "originalEventName": "Dallas Fed Manufacturing Index (Oct. 2026)",
-      "sourcePublishTime": "2026/10/26 22:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/26 22:30",
-      "previous": "9.8",
-      "forecast": "—",
-      "actual": "13.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/26 22:30",
-      "tags": [
-        "美國",
-        "Dallas",
-        "中性"
-      ],
-      "summary": "Dallas Fed Manufacturing Index (Oct. 2026) 將於 2026/10/26 22:30 公布，市場關注前值 9.8、預期 —。",
-      "event": "美國 Dallas Fed Manufacturing Index (Oct. 2026)，前值 9.8、預期 —、實際 13.4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.dallasfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-adp-employment-change-weekly-w-o-oct-5-2026-20261027",
       "type": "macro",
@@ -690,6 +656,40 @@ window.IntelligenceOverviewData = {
       "sourceUrl": "https://hk.investing.com/economic-calendar/559671",
       "sourceList": [
         "Investing.com Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-services-sentiment-oct-2026-20261029",
+      "type": "macro",
+      "title": "Services Sentiment (Oct. 2026)",
+      "eventName": "Services Sentiment (Oct. 2026)",
+      "originalEventName": "Services Sentiment (Oct. 2026)",
+      "sourcePublishTime": "2026/10/29 18:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/10/29 18:00",
+      "previous": "5.9",
+      "forecast": "5.9",
+      "actual": "5.3",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/10/29 18:00",
+      "tags": [
+        "歐元區",
+        "Services",
+        "偏空"
+      ],
+      "summary": "Services Sentiment (Oct. 2026) 將於 2026/10/29 18:00 公布，市場關注前值 5.9、預期 5.9。",
+      "event": "歐元區 Services Sentiment (Oct. 2026)，前值 5.9、預期 5.9、實際 5.3。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://ec.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
       ]
     }
   ]
