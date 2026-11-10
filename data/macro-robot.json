@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/11/10 07:46",
+  "updatedAt": "2026/11/10 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -10,13 +10,13 @@
     },
     {
       "label": "即將公布",
-      "value": 129,
+      "value": 131,
       "unit": "個",
       "icon": "file"
     },
     {
       "label": "待補實際值",
-      "value": 9,
+      "value": 10,
       "unit": "個",
       "icon": "target"
     },
@@ -29,8 +29,8 @@
     },
     {
       "label": "下一個事件",
-      "value": "GDP 經濟成長率",
-      "unit": "倒數 1 小時",
+      "value": "ADP 就業人數",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -2565,8 +2565,8 @@
       "previous": "3.4",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 1 小時",
-      "statusLevel": "soon",
+      "status": "倒數 0 天",
+      "statusLevel": "upcoming",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
       "importance": "高",
@@ -2622,18 +2622,18 @@
       ]
     },
     {
-      "id": "macro-adp-employment-change-weekly-w-o-oct-12-2026-20261110",
+      "id": "macro-adp-employment-change-weekly-w-o-oct-19-2026-20261110",
       "type": "macro",
       "title": "ADP 就業人數",
       "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 12, 2026)",
+      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 19, 2026)",
       "sourcePublishTime": "2026/11/10 21:15 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/11/10 21:15",
       "previous": "16750",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
@@ -2668,7 +2668,7 @@
       "previous": "0.3",
       "forecast": "0.2",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2702,7 +2702,7 @@
       "previous": "0.6",
       "forecast": "0.3",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2736,7 +2736,7 @@
       "previous": "330.654",
       "forecast": "337.042",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2771,7 +2771,7 @@
       "previous": "338.896",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2805,7 +2805,7 @@
       "previous": "0.3%",
       "forecast": "0.2%",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2839,7 +2839,7 @@
       "previous": "0.2",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 16 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2938,7 +2938,7 @@
       "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
       "country": "德國",
       "publishTime": "2026/11/11 15:00",
-      "previous": "-0.2%",
+      "previous": "0.6%",
       "forecast": "-0.2%",
       "actual": null,
       "status": "倒數 1 天",
@@ -2952,8 +2952,8 @@
         "消費者物價指數",
         "中性"
       ],
-      "summary": "消費者物價指數 CPI 將於 2026/11/11 15:00 公布，市場關注前值 -0.2%、預期 -0.2%。",
-      "event": "德國 消費者物價指數 CPI，前值 -0.2%、預期 -0.2%、實際 尚未公布。",
+      "summary": "消費者物價指數 CPI 將於 2026/11/11 15:00 公布，市場關注前值 0.6%、預期 -0.2%。",
+      "event": "德國 消費者物價指數 CPI，前值 0.6%、預期 -0.2%、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -3444,11 +3444,11 @@
       ]
     },
     {
-      "id": "macro-adp-employment-change-weekly-w-o-oct-19-2026-20261117",
+      "id": "macro-adp-employment-change-weekly-w-o-oct-26-2026-20261117",
       "type": "macro",
       "title": "ADP 就業人數",
       "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 19, 2026)",
+      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 26, 2026)",
       "sourcePublishTime": "2026/11/17 21:15 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/11/17 21:15",
@@ -4503,11 +4503,11 @@
       ]
     },
     {
-      "id": "macro-adp-employment-change-weekly-w-o-oct-26-2026-20261124",
+      "id": "macro-adp-employment-change-weekly-w-o-nov-2-2026-20261124",
       "type": "macro",
       "title": "ADP 就業人數",
       "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 26, 2026)",
+      "originalEventName": "ADP Employment Change Weekly (w/o Nov. 2, 2026)",
       "sourcePublishTime": "2026/11/24 21:15 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/11/24 21:15",
@@ -6512,11 +6512,11 @@
       ]
     },
     {
-      "id": "macro-adp-employment-change-weekly-w-o-nov-2-2026-20261208",
+      "id": "macro-adp-employment-change-weekly-w-o-nov-9-2026-20261208",
       "type": "macro",
       "title": "ADP 就業人數",
       "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly (w/o Nov. 2, 2026)",
+      "originalEventName": "ADP Employment Change Weekly (w/o Nov. 9, 2026)",
       "sourcePublishTime": "2026/12/08 21:15 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/12/08 21:15",
@@ -6954,6 +6954,108 @@
       ]
     },
     {
+      "id": "macro-inflation-rate-mom-final-nov-2026-20261211",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate MoM Final (Nov. 2026)",
+      "sourcePublishTime": "2026/12/11 15:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/12/11 15:45",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 31 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/12/11 15:45",
+      "tags": [
+        "法國",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/12/11 15:45 公布，市場關注前值 —、預期 —。",
+      "event": "法國 通膨率，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-consumer-price-index-final-nov-2026-20261211",
+      "type": "macro",
+      "title": "Consumer Price Index Final (Nov. 2026)",
+      "eventName": "Consumer Price Index Final (Nov. 2026)",
+      "originalEventName": "Consumer Price Index Final (Nov. 2026)",
+      "sourcePublishTime": "2026/12/11 15:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/12/11 15:45",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 31 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/12/11 15:45",
+      "tags": [
+        "法國",
+        "Consumer",
+        "中性"
+      ],
+      "summary": "Consumer Price Index Final (Nov. 2026) 將於 2026/12/11 15:45 公布，市場關注前值 —、預期 —。",
+      "event": "法國 Consumer Price Index Final (Nov. 2026)，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-france-inflation-final-inflation-ex-tobacco-idx-nov-2026-20261211",
+      "type": "macro",
+      "title": "France-Inflation Final-Inflation Ex-Tobacco Idx (Nov. 2026)",
+      "eventName": "France-Inflation Final-Inflation Ex-Tobacco Idx (Nov. 2026)",
+      "originalEventName": "France-Inflation Final-Inflation Ex-Tobacco Idx (Nov. 2026)",
+      "sourcePublishTime": "2026/12/11 15:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/12/11 15:45",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 31 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/12/11 15:45",
+      "tags": [
+        "法國",
+        "France-Inflation",
+        "中性"
+      ],
+      "summary": "France-Inflation Final-Inflation Ex-Tobacco Idx (Nov. 2026) 將於 2026/12/11 15:45 公布，市場關注前值 —、預期 —。",
+      "event": "法國 France-Inflation Final-Inflation Ex-Tobacco Idx (Nov. 2026)，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-ppi-nov-2026-20261215",
       "type": "macro",
       "title": "生產者物價指數 PPI",
@@ -7083,6 +7185,6 @@
     "horizonDays": 62,
     "calendarWindow": "2026-10-27~2027-01-11",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 203
+    "fetchedEvents": 206
   }
 }
