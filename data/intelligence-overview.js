@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/10 18:30",
+  "updatedAt": "2026/11/11 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 306,
+      "value": 303,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 100,
+      "value": 99,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "下一個總經事件",
-      "value": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
+      "value": "FOMC 利率決議",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "28 個"
+          "29 個"
         ],
         [
           "下一事件",
-          "Richmond Fed Manufacturing Shipments Index (Oct. 2026)"
+          "FOMC 利率決議"
         ],
         [
           "狀態",
@@ -280,31 +280,65 @@ window.IntelligenceOverviewData = {
       }
     },
     {
-      "id": "macro-gdpnow-20261027",
+      "id": "macro-fomc-20261029",
+      "type": "macro",
+      "title": "FOMC 利率決議",
+      "eventName": "FOMC 利率決議",
+      "originalEventName": "美聯儲(FOMC)新聞發布會",
+      "sourcePublishTime": "2026/10/29 02:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/29 02:30",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "等待公布",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "高",
+      "timestamp": "2026/10/29 02:30",
+      "tags": [
+        "美國",
+        "FOMC",
+        "中性"
+      ],
+      "summary": "FOMC 利率決議 將於 2026/10/29 02:30 公布，市場關注前值 —、預期 —。",
+      "event": "美國 FOMC 利率決議，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/559671",
+      "sourceList": [
+        "Investing.com Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-gdpnow-20261028",
       "type": "macro",
       "title": "GDP 經濟成長率",
       "eventName": "GDP 經濟成長率",
       "originalEventName": "亞特蘭大聯儲GDPNow",
-      "sourcePublishTime": "2026/10/27 23:45 Asia/Taipei",
+      "sourcePublishTime": "2026/10/28 22:50 Asia/Taipei",
       "country": "美國",
-      "publishTime": "2026/10/27 23:45",
-      "previous": "3.5",
-      "forecast": "3.5",
-      "actual": "3.4",
+      "publishTime": "2026/10/28 22:50",
+      "previous": "3.4",
+      "forecast": "—",
+      "actual": "3.3",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "偏空",
+      "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
       "importance": "高",
-      "timestamp": "2026/10/27 23:45",
+      "timestamp": "2026/10/28 22:50",
       "tags": [
         "美國",
         "GDP",
-        "偏空"
+        "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/10/27 23:45 公布，市場關注前值 3.5、預期 3.5。",
-      "event": "美國 GDP 經濟成長率，前值 3.5、預期 3.5、實際 3.4。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "GDP 經濟成長率 將於 2026/10/28 22:50 公布，市場關注前值 3.4、預期 —。",
+      "event": "美國 GDP 經濟成長率，前值 3.4、預期 —、實際 3.3。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "鉅亨網全球經濟指標",
@@ -314,247 +348,76 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-richmond-fed-manufacturing-shipments-index-oct-2026-20261027",
+      "id": "macro-services-sentiment-oct-2026-20261029",
       "type": "macro",
-      "title": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
-      "eventName": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
-      "originalEventName": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
-      "sourcePublishTime": "2026/10/27 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/27 22:00",
-      "previous": "-5",
-      "forecast": "—",
-      "actual": null,
-      "status": "等待公布",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/27 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Manufacturing Shipments Index (Oct. 2026) 將於 2026/10/27 22:00 公布，市場關注前值 -5、預期 —。",
-      "event": "美國 Richmond Fed Manufacturing Shipments Index (Oct. 2026)，前值 -5、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-composite-index-oct-2026-20261027",
-      "type": "macro",
-      "title": "Richmond Fed Composite Index (Oct. 2026)",
-      "eventName": "Richmond Fed Composite Index (Oct. 2026)",
-      "originalEventName": "Richmond Fed Composite Index (Oct. 2026)",
-      "sourcePublishTime": "2026/10/27 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/27 22:00",
-      "previous": "-2",
-      "forecast": "—",
-      "actual": "-2",
+      "title": "Services Sentiment (Oct. 2026)",
+      "eventName": "Services Sentiment (Oct. 2026)",
+      "originalEventName": "Services Sentiment (Oct. 2026)",
+      "sourcePublishTime": "2026/10/29 18:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/10/29 18:00",
+      "previous": "5.9",
+      "forecast": "5.9",
+      "actual": "5.3",
       "status": "已公布",
       "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/27 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Composite Index (Oct. 2026) 將於 2026/10/27 22:00 公布，市場關注前值 -2、預期 —。",
-      "event": "美國 Richmond Fed Composite Index (Oct. 2026)，前值 -2、預期 —、實際 -2。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-adp-employment-change-weekly-w-o-oct-5-2026-20261027",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 5, 2026)",
-      "sourcePublishTime": "2026/10/27 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/27 20:15",
-      "previous": "17500",
-      "forecast": "—",
-      "actual": "16750",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
+      "direction": "偏空",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
-      "timestamp": "2026/10/27 20:15",
+      "timestamp": "2026/10/29 18:00",
       "tags": [
-        "美國",
-        "ADP",
-        "中性"
+        "歐元區",
+        "Services",
+        "偏空"
       ],
-      "summary": "ADP 就業人數 將於 2026/10/27 20:15 公布，市場關注前值 17500、預期 —。",
-      "event": "美國 ADP 就業人數，前值 17500、預期 —、實際 16750。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "Services Sentiment (Oct. 2026) 將於 2026/10/29 18:00 公布，市場關注前值 5.9、預期 5.9。",
+      "event": "歐元區 Services Sentiment (Oct. 2026)，前值 5.9、預期 5.9、實際 5.3。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://ec.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-interest-rate-oct-29-2026-20261029",
+      "type": "macro",
+      "title": "FOMC 利率決議",
+      "eventName": "FOMC 利率決議",
+      "originalEventName": "Interest Rate (Oct. 29, 2026)",
+      "sourcePublishTime": "2026/10/29 02:00 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/29 02:00",
+      "previous": "4",
+      "forecast": "—",
+      "actual": "4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/10/29 02:00",
+      "tags": [
+        "美國",
+        "FOMC",
+        "中性"
+      ],
+      "summary": "FOMC 利率決議 將於 2026/10/29 02:00 公布，市場關注前值 4、預期 —。",
+      "event": "美國 FOMC 利率決議，前值 4、預期 —、實際 4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "sourceUrl": "http://www.federalreserve.gov/",
       "sourceList": [
         "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
+        "Investing.com Economic Calendar"
       ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-adp-employment-change-weekly-w-o-oct-5-2026-20261027",
-      "type": "macro",
-      "title": "ADP 就業人數",
-      "eventName": "ADP 就業人數",
-      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 5, 2026)",
-      "sourcePublishTime": "2026/10/27 20:15 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/27 20:15",
-      "previous": "17500",
-      "forecast": "—",
-      "actual": "16750",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/10/27 20:15",
-      "tags": [
-        "美國",
-        "ADP",
-        "中性"
-      ],
-      "summary": "ADP 就業人數 將於 2026/10/27 20:15 公布，市場關注前值 17500、預期 —。",
-      "event": "美國 ADP 就業人數，前值 17500、預期 —、實際 16750。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
-      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-manufacturing-shipments-index-oct-2026-20261027",
-      "type": "macro",
-      "title": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
-      "eventName": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
-      "originalEventName": "Richmond Fed Manufacturing Shipments Index (Oct. 2026)",
-      "sourcePublishTime": "2026/10/27 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/27 22:00",
-      "previous": "-5",
-      "forecast": "—",
-      "actual": null,
-      "status": "等待公布",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/27 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Manufacturing Shipments Index (Oct. 2026) 將於 2026/10/27 22:00 公布，市場關注前值 -5、預期 —。",
-      "event": "美國 Richmond Fed Manufacturing Shipments Index (Oct. 2026)，前值 -5、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-richmond-fed-composite-index-oct-2026-20261027",
-      "type": "macro",
-      "title": "Richmond Fed Composite Index (Oct. 2026)",
-      "eventName": "Richmond Fed Composite Index (Oct. 2026)",
-      "originalEventName": "Richmond Fed Composite Index (Oct. 2026)",
-      "sourcePublishTime": "2026/10/27 22:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/27 22:00",
-      "previous": "-2",
-      "forecast": "—",
-      "actual": "-2",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/27 22:00",
-      "tags": [
-        "美國",
-        "Richmond",
-        "中性"
-      ],
-      "summary": "Richmond Fed Composite Index (Oct. 2026) 將於 2026/10/27 22:00 公布，市場關注前值 -2、預期 —。",
-      "event": "美國 Richmond Fed Composite Index (Oct. 2026)，前值 -2、預期 —、實際 -2。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.richmondfed.org",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-gdpnow-20261027",
-      "type": "macro",
-      "title": "GDP 經濟成長率",
-      "eventName": "GDP 經濟成長率",
-      "originalEventName": "亞特蘭大聯儲GDPNow",
-      "sourcePublishTime": "2026/10/27 23:45 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/27 23:45",
-      "previous": "3.5",
-      "forecast": "3.5",
-      "actual": "3.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
-      "importance": "高",
-      "timestamp": "2026/10/27 23:45",
-      "tags": [
-        "美國",
-        "GDP",
-        "偏空"
-      ],
-      "summary": "GDP 經濟成長率 將於 2026/10/27 23:45 公布，市場關注前值 3.5、預期 3.5。",
-      "event": "美國 GDP 經濟成長率，前值 3.5、預期 3.5、實際 3.4。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "鉅亨網全球經濟指標",
-      "sourceUrl": "https://www.cnyes.com/economy/indicator",
-      "sourceList": [
-        "鉅亨網全球經濟指標"
-      ]
-    },
     {
       "id": "macro-gdpnow-20261028",
       "type": "macro",
@@ -688,6 +551,147 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://ec.europa.eu",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-core-pce-price-index-yoy-sep-2026-20261029",
+      "type": "macro",
+      "title": "核心 PCE 物價指數",
+      "eventName": "核心 PCE 物價指數",
+      "originalEventName": "Core PCE Price Index YoY (Sep. 2026)",
+      "sourcePublishTime": "2026/10/29 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/29 20:30",
+      "previous": "3",
+      "forecast": "3.1",
+      "actual": "3.1",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/10/29 20:30",
+      "tags": [
+        "美國",
+        "核心",
+        "中性"
+      ],
+      "summary": "核心 PCE 物價指數 將於 2026/10/29 20:30 公布，市場關注前值 3、預期 3.1。",
+      "event": "美國 核心 PCE 物價指數，前值 3、預期 3.1、實際 3.1。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-pce-price-index-mom-sep-2026-20261029",
+      "type": "macro",
+      "title": "PCE 物價指數",
+      "eventName": "PCE 物價指數",
+      "originalEventName": "PCE Price Index MoM (Sep. 2026)",
+      "sourcePublishTime": "2026/10/29 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/29 20:30",
+      "previous": "0.3",
+      "forecast": "0.5",
+      "actual": "0.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/10/29 20:30",
+      "tags": [
+        "美國",
+        "PCE",
+        "中性"
+      ],
+      "summary": "PCE 物價指數 將於 2026/10/29 20:30 公布，市場關注前值 0.3、預期 0.5。",
+      "event": "美國 PCE 物價指數，前值 0.3、預期 0.5、實際 0.5。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-gdp-price-index-qoq-adv-q3-2026-20261029",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "GDP Price Index QoQ Adv (Q3 2026)",
+      "sourcePublishTime": "2026/10/29 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/29 20:30",
+      "previous": "6.3",
+      "forecast": "3.5",
+      "actual": "2.2",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/10/29 20:30",
+      "tags": [
+        "美國",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/10/29 20:30 公布，市場關注前值 6.3、預期 3.5。",
+      "event": "美國 GDP 經濟成長率，前值 6.3、預期 3.5、實際 2.2。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-jobless-claims-4-week-average-w-o-oct-19-2026-20261029",
+      "type": "macro",
+      "title": "初領失業救濟金人數",
+      "eventName": "初領失業救濟金人數",
+      "originalEventName": "Jobless Claims 4-week Average (w/o Oct. 19, 2026)",
+      "sourcePublishTime": "2026/10/29 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/29 20:30",
+      "previous": "198",
+      "forecast": "199",
+      "actual": "197",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "importance": "中高",
+      "timestamp": "2026/10/29 20:30",
+      "tags": [
+        "美國",
+        "初領失業救濟金人數",
+        "中性"
+      ],
+      "summary": "初領失業救濟金人數 將於 2026/10/29 20:30 公布，市場關注前值 198、預期 —。",
+      "event": "美國 初領失業救濟金人數，前值 198、預期 —、實際 197。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響就業強弱、薪資通膨與聯準會政策預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "http://www.dol.gov",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
