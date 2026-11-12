@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/11/12 07:46",
+  "updatedAt": "2026/11/12 12:25",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "GDP 經濟成長率",
-      "unit": "倒數 13 小時",
+      "unit": "倒數 8 小時",
       "icon": "filter"
     }
   ],
@@ -2941,7 +2941,7 @@ window.MacroRobotData = {
       "previous": "0.7",
       "forecast": "0.5",
       "actual": null,
-      "status": "倒數 13 小時",
+      "status": "倒數 8 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響景氣循環、原物料、工業與科技需求預期。",
@@ -2975,7 +2975,7 @@ window.MacroRobotData = {
       "previous": "194.75",
       "forecast": "195",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
