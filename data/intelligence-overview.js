@@ -1,10 +1,10 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/11 18:30",
+  "updatedAt": "2026/11/12 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 303,
+      "value": 302,
       "unit": "筆",
       "icon": "file"
     },
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "29 個"
+          "27 個"
         ],
         [
           "下一事件",
@@ -280,6 +280,42 @@ window.IntelligenceOverviewData = {
       }
     },
     {
+      "id": "macro-core-pce-price-index-yoy-sep-2026-20261029",
+      "type": "macro",
+      "title": "核心 PCE 物價指數",
+      "eventName": "核心 PCE 物價指數",
+      "originalEventName": "Core PCE Price Index YoY (Sep. 2026)",
+      "sourcePublishTime": "2026/10/29 20:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/10/29 20:30",
+      "previous": "3",
+      "forecast": "3.1",
+      "actual": "3.1",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "高",
+      "timestamp": "2026/10/29 20:30",
+      "tags": [
+        "美國",
+        "核心",
+        "中性"
+      ],
+      "summary": "核心 PCE 物價指數 將於 2026/10/29 20:30 公布，市場關注前值 3、預期 3.1。",
+      "event": "美國 核心 PCE 物價指數，前值 3、預期 3.1、實際 3.1。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "http://www.bea.gov/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
       "id": "macro-fomc-20261029",
       "type": "macro",
       "title": "FOMC 利率決議",
@@ -314,37 +350,37 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-gdpnow-20261028",
+      "id": "macro-fomc-20261029",
       "type": "macro",
-      "title": "GDP 經濟成長率",
-      "eventName": "GDP 經濟成長率",
-      "originalEventName": "亞特蘭大聯儲GDPNow",
-      "sourcePublishTime": "2026/10/28 22:50 Asia/Taipei",
+      "title": "FOMC 利率決議",
+      "eventName": "FOMC 利率決議",
+      "originalEventName": "FOMC聲明",
+      "sourcePublishTime": "2026/10/29 02:00 Asia/Taipei",
       "country": "美國",
-      "publishTime": "2026/10/28 22:50",
-      "previous": "3.4",
+      "publishTime": "2026/10/29 02:00",
+      "previous": "—",
       "forecast": "—",
-      "actual": "3.3",
-      "status": "已公布",
-      "statusLevel": "published",
+      "actual": null,
+      "status": "等待公布",
+      "statusLevel": "upcoming",
       "direction": "中性",
-      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
       "importance": "高",
-      "timestamp": "2026/10/28 22:50",
+      "timestamp": "2026/10/29 02:00",
       "tags": [
         "美國",
-        "GDP",
+        "FOMC",
         "中性"
       ],
-      "summary": "GDP 經濟成長率 將於 2026/10/28 22:50 公布，市場關注前值 3.4、預期 —。",
-      "event": "美國 GDP 經濟成長率，前值 3.4、預期 —、實際 3.3。",
+      "summary": "FOMC 利率決議 將於 2026/10/29 02:00 公布，市場關注前值 —、預期 —。",
+      "event": "美國 FOMC 利率決議，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "鉅亨網全球經濟指標",
-      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/559863",
       "sourceList": [
-        "鉅亨網全球經濟指標"
+        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -380,110 +416,40 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar"
       ]
-    },
-    {
-      "id": "macro-interest-rate-oct-29-2026-20261029",
-      "type": "macro",
-      "title": "FOMC 利率決議",
-      "eventName": "FOMC 利率決議",
-      "originalEventName": "Interest Rate (Oct. 29, 2026)",
-      "sourcePublishTime": "2026/10/29 02:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/29 02:00",
-      "previous": "4",
-      "forecast": "—",
-      "actual": "4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
-      "timestamp": "2026/10/29 02:00",
-      "tags": [
-        "美國",
-        "FOMC",
-        "中性"
-      ],
-      "summary": "FOMC 利率決議 將於 2026/10/29 02:00 公布，市場關注前值 4、預期 —。",
-      "event": "美國 FOMC 利率決議，前值 4、預期 —、實際 4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
-      "sourceUrl": "http://www.federalreserve.gov/",
-      "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
-      ]
     }
   ],
   "macroEvents": [
     {
-      "id": "macro-gdpnow-20261028",
-      "type": "macro",
-      "title": "GDP 經濟成長率",
-      "eventName": "GDP 經濟成長率",
-      "originalEventName": "亞特蘭大聯儲GDPNow",
-      "sourcePublishTime": "2026/10/28 22:50 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/10/28 22:50",
-      "previous": "3.4",
-      "forecast": "—",
-      "actual": "3.3",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
-      "importance": "高",
-      "timestamp": "2026/10/28 22:50",
-      "tags": [
-        "美國",
-        "GDP",
-        "中性"
-      ],
-      "summary": "GDP 經濟成長率 將於 2026/10/28 22:50 公布，市場關注前值 3.4、預期 —。",
-      "event": "美國 GDP 經濟成長率，前值 3.4、預期 —、實際 3.3。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "鉅亨網全球經濟指標",
-      "sourceUrl": "https://www.cnyes.com/economy/indicator",
-      "sourceList": [
-        "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-interest-rate-oct-29-2026-20261029",
+      "id": "macro-fomc-20261029",
       "type": "macro",
       "title": "FOMC 利率決議",
       "eventName": "FOMC 利率決議",
-      "originalEventName": "Interest Rate (Oct. 29, 2026)",
+      "originalEventName": "FOMC聲明",
       "sourcePublishTime": "2026/10/29 02:00 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/10/29 02:00",
-      "previous": "4",
+      "previous": "—",
       "forecast": "—",
-      "actual": "4",
-      "status": "已公布",
-      "statusLevel": "published",
+      "actual": null,
+      "status": "等待公布",
+      "statusLevel": "upcoming",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "中高",
+      "importance": "高",
       "timestamp": "2026/10/29 02:00",
       "tags": [
         "美國",
         "FOMC",
         "中性"
       ],
-      "summary": "FOMC 利率決議 將於 2026/10/29 02:00 公布，市場關注前值 4、預期 —。",
-      "event": "美國 FOMC 利率決議，前值 4、預期 —、實際 4。",
+      "summary": "FOMC 利率決議 將於 2026/10/29 02:00 公布，市場關注前值 —、預期 —。",
+      "event": "美國 FOMC 利率決議，前值 —、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
-      "sourceUrl": "http://www.federalreserve.gov/",
+      "source": "Investing.com Economic Calendar",
+      "sourceUrl": "https://hk.investing.com/economic-calendar/559863",
       "sourceList": [
-        "TradingView Economic Calendar",
         "Investing.com Economic Calendar"
       ]
     },
@@ -692,6 +658,40 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.dol.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-ecb-interest-rate-decision-oct-2026-20261029",
+      "type": "macro",
+      "title": "ECB 利率決議",
+      "eventName": "ECB 利率決議",
+      "originalEventName": "ECB Interest Rate Decision (Oct. 2026)",
+      "sourcePublishTime": "2026/10/29 21:15 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/10/29 21:15",
+      "previous": "2.65",
+      "forecast": "2.65",
+      "actual": "2.65",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/10/29 21:15",
+      "tags": [
+        "歐元區",
+        "ECB",
+        "中性"
+      ],
+      "summary": "ECB 利率決議 將於 2026/10/29 21:15 公布，市場關注前值 2.65、預期 2.65。",
+      "event": "歐元區 ECB 利率決議，前值 2.65、預期 2.65、實際 2.65。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.ecb.europa.eu",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
