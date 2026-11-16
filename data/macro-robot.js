@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/11/16 07:46",
+  "updatedAt": "2026/11/16 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -10,7 +10,7 @@ window.MacroRobotData = {
     },
     {
       "label": "即將公布",
-      "value": 138,
+      "value": 142,
       "unit": "個",
       "icon": "file"
     },
@@ -7067,6 +7067,142 @@ window.MacroRobotData = {
       ]
     },
     {
+      "id": "macro-core-inflation-rate-mom-final-nov-2026-20261217",
+      "type": "macro",
+      "title": "核心通膨率",
+      "eventName": "核心通膨率",
+      "originalEventName": "Core Inflation Rate MoM Final (Nov. 2026)",
+      "sourcePublishTime": "2026/12/17 18:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/12/17 18:00",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 31 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/12/17 18:00",
+      "tags": [
+        "歐元區",
+        "核心通膨率",
+        "中性"
+      ],
+      "summary": "核心通膨率 將於 2026/12/17 18:00 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 核心通膨率，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://ec.europa.eu/eurostat",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-mom-final-nov-2026-20261217",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate MoM Final (Nov. 2026)",
+      "sourcePublishTime": "2026/12/17 18:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/12/17 18:00",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 31 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/12/17 18:00",
+      "tags": [
+        "歐元區",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/12/17 18:00 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 通膨率，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://ec.europa.eu/eurostat/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-euro-zone-inflation-hicp-ex-tobacco-revised-dec-2026-20261217",
+      "type": "macro",
+      "title": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Dec. 2026)",
+      "eventName": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Dec. 2026)",
+      "originalEventName": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Dec. 2026)",
+      "sourcePublishTime": "2026/12/17 18:00 Asia/Taipei",
+      "country": "歐元區",
+      "publishTime": "2026/12/17 18:00",
+      "previous": "—",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 31 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/12/17 18:00",
+      "tags": [
+        "歐元區",
+        "Euro",
+        "中性"
+      ],
+      "summary": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Dec. 2026) 將於 2026/12/17 18:00 公布，市場關注前值 —、預期 —。",
+      "event": "歐元區 Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Dec. 2026)，前值 —、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-interest-rate-dec-2026-20261217",
+      "type": "macro",
+      "title": "FOMC 利率決議",
+      "eventName": "FOMC 利率決議",
+      "originalEventName": "Interest Rate (Dec. 2026)",
+      "sourcePublishTime": "2026/12/17 20:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/12/17 20:00",
+      "previous": "4",
+      "forecast": "—",
+      "actual": null,
+      "status": "倒數 31 天",
+      "statusLevel": "upcoming",
+      "direction": "中性",
+      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
+      "importance": "中高",
+      "timestamp": "2026/12/17 20:00",
+      "tags": [
+        "英國",
+        "FOMC",
+        "中性"
+      ],
+      "summary": "FOMC 利率決議 將於 2026/12/17 20:00 公布，市場關注前值 4、預期 —。",
+      "event": "英國 FOMC 利率決議，前值 4、預期 —、實際 尚未公布。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.bankofengland.co.uk",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
       "id": "macro-ppi-dec-2026-20270114",
       "type": "macro",
       "title": "生產者物價指數 PPI",
@@ -7196,6 +7332,6 @@ window.MacroRobotData = {
     "horizonDays": 62,
     "calendarWindow": "2026-11-02~2027-01-17",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 206
+    "fetchedEvents": 210
   }
 };
