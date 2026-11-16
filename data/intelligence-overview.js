@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/15 12:26",
+  "updatedAt": "2026/11/16 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 295,
+      "value": 306,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 81,
+      "value": 87,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "17 個"
+          "34 個"
         ],
         [
           "下一事件",
@@ -601,12 +601,12 @@ window.IntelligenceOverviewData = {
       "sourcePublishTime": "2026/11/02 22:45 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/11/02 22:45",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "等待公布",
-      "statusLevel": "upcoming",
-      "direction": "中性",
+      "previous": "56.0",
+      "forecast": "56.0",
+      "actual": "54.9",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
       "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
       "timestamp": "2026/11/02 22:45",
@@ -615,15 +615,16 @@ window.IntelligenceOverviewData = {
         "製造業",
         "中性"
       ],
-      "summary": "製造業 PMI 將於 2026/11/02 22:45 公布，市場關注前值 —、預期 —。",
-      "event": "美國 製造業 PMI，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "summary": "製造業 PMI 將於 2026/11/02 22:45 公布，市場關注前值 56.0、預期 56.0。",
+      "event": "美國 製造業 PMI，前值 56.0、預期 56.0、實際 54.9。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
       ]
     },
     {
