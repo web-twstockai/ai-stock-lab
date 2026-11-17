@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/11/17 07:46",
+  "updatedAt": "2026/11/17 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "ADP 就業人數",
-      "unit": "倒數 14 小時",
+      "unit": "倒數 9 小時",
       "icon": "filter"
     }
   ],
@@ -2142,7 +2142,7 @@ window.MacroRobotData = {
       "previous": "19750",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 9 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響市場風險偏好與資金輪動。",
