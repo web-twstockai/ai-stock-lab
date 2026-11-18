@@ -1,16 +1,16 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/11/18 07:47",
+  "updatedAt": "2026/11/18 12:26",
   "status": "運作中",
   "summary": [
     {
       "label": "本週事件",
-      "value": 39,
+      "value": 37,
       "unit": "個",
       "icon": "calendar"
     },
     {
       "label": "即將公布",
-      "value": 137,
+      "value": 130,
       "unit": "個",
       "icon": "file"
     },
@@ -22,15 +22,15 @@ window.MacroRobotData = {
     },
     {
       "label": "高影響事件",
-      "value": 33,
+      "value": 27,
       "unit": "個",
       "icon": "alert",
       "accent": "orange"
     },
     {
       "label": "下一個事件",
-      "value": "核心通膨率",
-      "unit": "倒數 11 小時",
+      "value": "初領失業救濟金人數",
+      "unit": "倒數 1 天",
       "icon": "filter"
     }
   ],
@@ -478,11 +478,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -693,40 +692,6 @@ window.MacroRobotData = {
       "sourceList": [
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
-      ]
-    },
-    {
-      "id": "macro-ism-pmi-10-20261104",
-      "type": "macro",
-      "title": "ISM 製造業指數",
-      "eventName": "ISM 製造業指數",
-      "originalEventName": "ISM非製造業PMI (10月)",
-      "sourcePublishTime": "2026/11/04 23:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/11/04 23:00",
-      "previous": "54.9",
-      "forecast": "54.8",
-      "actual": "54.5",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
-      "importance": "中高",
-      "timestamp": "2026/11/04 23:00",
-      "tags": [
-        "美國",
-        "ISM",
-        "偏空"
-      ],
-      "summary": "ISM 製造業指數 將於 2026/11/04 23:00 公布，市場關注前值 54.9、預期 54.8。",
-      "event": "美國 ISM 製造業指數，前值 54.9、預期 54.8、實際 54.5。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/559345",
-      "sourceList": [
-        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -1405,11 +1370,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.bls.gov",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -1444,40 +1408,6 @@ window.MacroRobotData = {
       "sourceUrl": "https://www.bls.gov",
       "sourceList": [
         "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-cpi-10-20261110",
-      "type": "macro",
-      "title": "核心 CPI",
-      "eventName": "核心 CPI",
-      "originalEventName": "核心消費價格指數(CPI) (月環比) (10月)",
-      "sourcePublishTime": "2026/11/10 21:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/11/10 21:30",
-      "previous": "0.3%",
-      "forecast": "0.2%",
-      "actual": "0.3%",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/11/10 21:30",
-      "tags": [
-        "美國",
-        "核心",
-        "偏空"
-      ],
-      "summary": "核心 CPI 將於 2026/11/10 21:30 公布，市場關注前值 0.3%、預期 0.2%。",
-      "event": "美國 核心 CPI，前值 0.3%、預期 0.2%、實際 0.3%。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/559714",
-      "sourceList": [
-        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -1583,40 +1513,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-cpi-10-20261111",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "德國居民消費價格指數(CPI) (月環比) (10月)",
-      "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/11 15:00",
-      "previous": "0.6%",
-      "forecast": "-0.2%",
-      "actual": "-0.2%",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/11/11 15:00",
-      "tags": [
-        "德國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/11/11 15:00 公布，市場關注前值 0.6%、預期 -0.2%。",
-      "event": "德國 消費者物價指數 CPI，前值 0.6%、預期 -0.2%、實際 -0.2%。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/559763",
-      "sourceList": [
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-gdp-growth-rate-qoq-prel-q3-2026-20261112",
       "type": "macro",
       "title": "GDP 經濟成長率",
@@ -1644,11 +1540,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -1986,11 +1881,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.dol.gov",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -2371,40 +2265,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-cpi-10-20261118",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "居民消費價格指數(CPI) (同比) (10月)",
-      "sourcePublishTime": "2026/11/18 15:00 Asia/Taipei",
-      "country": "英國",
-      "publishTime": "2026/11/18 15:00",
-      "previous": "3.5%",
-      "forecast": "3.6%",
-      "actual": "3.6%",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/11/18 15:00",
-      "tags": [
-        "英國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/11/18 15:00 公布，市場關注前值 3.5%、預期 3.6%。",
-      "event": "英國 消費者物價指數 CPI，前值 3.5%、預期 3.6%、實際 3.6%。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/560254",
-      "sourceList": [
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-core-inflation-rate-mom-final-oct-2026-20261118",
       "type": "macro",
       "title": "核心通膨率",
@@ -2415,9 +2275,9 @@ window.MacroRobotData = {
       "publishTime": "2026/11/18 18:00",
       "previous": "0.2",
       "forecast": "0.3",
-      "actual": null,
-      "status": "倒數 11 小時",
-      "statusLevel": "soon",
+      "actual": "0.3",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "importance": "中高",
@@ -2428,7 +2288,7 @@ window.MacroRobotData = {
         "中性"
       ],
       "summary": "核心通膨率 將於 2026/11/18 18:00 公布，市場關注前值 0.2、預期 0.3。",
-      "event": "歐元區 核心通膨率，前值 0.2、預期 0.3、實際 尚未公布。",
+      "event": "歐元區 核心通膨率，前值 0.2、預期 0.3、實際 0.3。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2449,21 +2309,21 @@ window.MacroRobotData = {
       "publishTime": "2026/11/18 18:00",
       "previous": "0.6",
       "forecast": "0.4",
-      "actual": null,
-      "status": "倒數 11 小時",
-      "statusLevel": "soon",
-      "direction": "中性",
+      "actual": "0.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "importance": "中高",
       "timestamp": "2026/11/18 18:00",
       "tags": [
         "歐元區",
         "通膨率",
-        "中性"
+        "偏空"
       ],
       "summary": "通膨率 將於 2026/11/18 18:00 公布，市場關注前值 0.6、預期 0.4。",
-      "event": "歐元區 通膨率，前值 0.6、預期 0.4、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "event": "歐元區 通膨率，前值 0.6、預期 0.4、實際 0.5。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
@@ -2473,19 +2333,19 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-euro-zone-inflation-hicp-ex-tobacco-revised-nov-2026-20261118",
+      "id": "macro-euro-zone-inflation-hicp-ex-tobacco-revised-oct-2026-20261118",
       "type": "macro",
-      "title": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Nov. 2026)",
-      "eventName": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Nov. 2026)",
-      "originalEventName": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Nov. 2026)",
+      "title": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Oct. 2026)",
+      "eventName": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Oct. 2026)",
+      "originalEventName": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Oct. 2026)",
       "sourcePublishTime": "2026/11/18 18:00 Asia/Taipei",
       "country": "歐元區",
       "publishTime": "2026/11/18 18:00",
-      "previous": "—",
+      "previous": "104.3",
       "forecast": "—",
-      "actual": null,
-      "status": "倒數 11 小時",
-      "statusLevel": "soon",
+      "actual": "104.78",
+      "status": "已公布",
+      "statusLevel": "published",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "importance": "中高",
@@ -2495,8 +2355,8 @@ window.MacroRobotData = {
         "Euro",
         "中性"
       ],
-      "summary": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Nov. 2026) 將於 2026/11/18 18:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Nov. 2026)，前值 —、預期 —、實際 尚未公布。",
+      "summary": "Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Oct. 2026) 將於 2026/11/18 18:00 公布，市場關注前值 104.3、預期 —。",
+      "event": "歐元區 Euro Zone-Inflation-HICP Ex-Tobacco Revised* (Oct. 2026)，前值 104.3、預期 —、實際 104.78。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -2504,40 +2364,6 @@ window.MacroRobotData = {
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
         "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-fomc-20261119",
-      "type": "macro",
-      "title": "FOMC 利率決議",
-      "eventName": "FOMC 利率決議",
-      "originalEventName": "FOMC會議紀要",
-      "sourcePublishTime": "2026/11/19 03:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/11/19 03:00",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 20 小時",
-      "statusLevel": "soon",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "高",
-      "timestamp": "2026/11/19 03:00",
-      "tags": [
-        "美國",
-        "FOMC",
-        "中性"
-      ],
-      "summary": "FOMC 利率決議 將於 2026/11/19 03:00 公布，市場關注前值 —、預期 —。",
-      "event": "美國 FOMC 利率決議，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/561133",
-      "sourceList": [
-        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -3122,11 +2948,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -3193,11 +3018,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -3314,7 +3138,7 @@ window.MacroRobotData = {
       "country": "德國",
       "publishTime": "2026/11/25 15:00",
       "previous": "1",
-      "forecast": "0.2%",
+      "forecast": "0.2",
       "actual": null,
       "status": "倒數 7 天",
       "statusLevel": "upcoming",
@@ -3332,11 +3156,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "https://www.destatis.de",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -3368,11 +3191,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov/",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -3439,11 +3261,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar / 鉅亨網全球經濟指標",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
       "sourceUrl": "http://www.bea.gov",
       "sourceList": [
         "TradingView Economic Calendar",
-        "Investing.com Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
     },
@@ -3824,40 +3645,6 @@ window.MacroRobotData = {
       ]
     },
     {
-      "id": "macro-cpi-11-20261130",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "德國居民消費價格指數(CPI) (月環比) (11月)",
-      "sourcePublishTime": "2026/11/30 21:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/30 21:00",
-      "previous": "-0.2%",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 12 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/11/30 21:00",
-      "tags": [
-        "德國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/11/30 21:00 公布，市場關注前值 -0.2%、預期 —。",
-      "event": "德國 消費者物價指數 CPI，前值 -0.2%、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/561040",
-      "sourceList": [
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
       "id": "macro-chicago-pmi-nov-2026-20261130",
       "type": "macro",
       "title": "PMI 採購經理人指數",
@@ -4172,7 +3959,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/12/01 22:45 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/12/01 22:45",
-      "previous": "54.9",
+      "previous": "—",
       "forecast": "—",
       "actual": null,
       "status": "倒數 13 天",
@@ -4191,11 +3978,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -4328,11 +4114,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.ismworld.org",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -4752,7 +4537,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/12/03 22:45 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/12/03 22:45",
-      "previous": "56.1",
+      "previous": "—",
       "forecast": "—",
       "actual": null,
       "status": "倒數 15 天",
@@ -4771,11 +4556,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.pmi.spglobal.com/public",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -4980,40 +4764,6 @@ window.MacroRobotData = {
       "sourceUrl": "https://www.ismworld.org",
       "sourceList": [
         "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-ism-pmi-11-20261203",
-      "type": "macro",
-      "title": "ISM 製造業指數",
-      "eventName": "ISM 製造業指數",
-      "originalEventName": "ISM非製造業PMI (11月)",
-      "sourcePublishTime": "2026/12/03 23:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/12/03 23:00",
-      "previous": "54.5",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 15 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
-      "importance": "中高",
-      "timestamp": "2026/12/03 23:00",
-      "tags": [
-        "美國",
-        "ISM",
-        "中性"
-      ],
-      "summary": "ISM 製造業指數 將於 2026/12/03 23:00 公布，市場關注前值 54.5、預期 —。",
-      "event": "美國 ISM 製造業指數，前值 54.5、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/561374",
-      "sourceList": [
-        "Investing.com Economic Calendar"
       ]
     },
     {
@@ -5316,45 +5066,10 @@ window.MacroRobotData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.federalreserve.gov/",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-fomc-20261210",
-      "type": "macro",
-      "title": "FOMC 利率決議",
-      "eventName": "FOMC 利率決議",
-      "originalEventName": "美聯儲(FOMC)新聞發布會",
-      "sourcePublishTime": "2026/12/10 03:30 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/12/10 03:30",
-      "previous": "—",
-      "forecast": "—",
-      "actual": null,
-      "status": "倒數 22 天",
-      "statusLevel": "upcoming",
-      "direction": "中性",
-      "impact": "影響全球資金成本、美元走勢與風險資產評價。",
-      "importance": "高",
-      "timestamp": "2026/12/10 03:30",
-      "tags": [
-        "美國",
-        "FOMC",
-        "中性"
-      ],
-      "summary": "FOMC 利率決議 將於 2026/12/10 03:30 公布，市場關注前值 —、預期 —。",
-      "event": "美國 FOMC 利率決議，前值 —、預期 —、實際 尚未公布。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響全球資金成本、美元走勢與風險資產評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/561431",
-      "sourceList": [
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
       ]
     },
     {
@@ -6726,7 +6441,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/12/17 18:00 Asia/Taipei",
       "country": "歐元區",
       "publishTime": "2026/12/17 18:00",
-      "previous": "—",
+      "previous": "0.3",
       "forecast": "—",
       "actual": null,
       "status": "倒數 29 天",
@@ -6740,8 +6455,8 @@ window.MacroRobotData = {
         "核心通膨率",
         "中性"
       ],
-      "summary": "核心通膨率 將於 2026/12/17 18:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 核心通膨率，前值 —、預期 —、實際 尚未公布。",
+      "summary": "核心通膨率 將於 2026/12/17 18:00 公布，市場關注前值 0.3、預期 —。",
+      "event": "歐元區 核心通膨率，前值 0.3、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -6760,7 +6475,7 @@ window.MacroRobotData = {
       "sourcePublishTime": "2026/12/17 18:00 Asia/Taipei",
       "country": "歐元區",
       "publishTime": "2026/12/17 18:00",
-      "previous": "—",
+      "previous": "0.5",
       "forecast": "—",
       "actual": null,
       "status": "倒數 29 天",
@@ -6774,8 +6489,8 @@ window.MacroRobotData = {
         "通膨率",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/12/17 18:00 公布，市場關注前值 —、預期 —。",
-      "event": "歐元區 通膨率，前值 —、預期 —、實際 尚未公布。",
+      "summary": "通膨率 將於 2026/12/17 18:00 公布，市場關注前值 0.5、預期 —。",
+      "event": "歐元區 通膨率，前值 0.5、預期 —、實際 尚未公布。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
@@ -7187,6 +6902,6 @@ window.MacroRobotData = {
     "horizonDays": 62,
     "calendarWindow": "2026-11-04~2027-01-19",
     "automation": "GitHub Actions macro-due-check every 30 minutes; fetch actual values after publish time.",
-    "fetchedEvents": 206
+    "fetchedEvents": 198
   }
 };
