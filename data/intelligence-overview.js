@@ -1,5 +1,5 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/17 18:30",
+  "updatedAt": "2026/11/18 07:47",
   "status": "運作中",
   "cards": [
     {
@@ -10,7 +10,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "高重要度訊號",
-      "value": 72,
+      "value": 73,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "37 個"
+          "39 個"
         ],
         [
           "下一事件",
@@ -315,6 +315,41 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
+      "id": "macro-s-p-global-services-pmi-final-oct-2026-20261104",
+      "type": "macro",
+      "title": "服務業 PMI",
+      "eventName": "服務業 PMI",
+      "originalEventName": "S&P Global Services PMI Final (Oct. 2026)",
+      "sourcePublishTime": "2026/11/04 16:55 Asia/Taipei",
+      "country": "德國",
+      "publishTime": "2026/11/04 16:55",
+      "previous": "52.9",
+      "forecast": "51.7",
+      "actual": "52.5",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/11/04 16:55",
+      "tags": [
+        "德國",
+        "服務業",
+        "中性"
+      ],
+      "summary": "服務業 PMI 將於 2026/11/04 16:55 公布，市場關注前值 52.9、預期 51.7。",
+      "event": "德國 服務業 PMI，前值 52.9、預期 51.7、實際 52.5。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
       "id": "macro-s-p-global-composite-pmi-final-oct-2026-20261104",
       "type": "macro",
       "title": "綜合 PMI",
@@ -383,77 +418,9 @@ window.IntelligenceOverviewData = {
         "TradingView Economic Calendar",
         "鉅亨網全球經濟指標"
       ]
-    },
-    {
-      "id": "macro-s-p-global-pmi-20261103",
-      "type": "macro",
-      "title": "製造業 PMI",
-      "eventName": "製造業 PMI",
-      "originalEventName": "S&P Global製造業PMI-終值",
-      "sourcePublishTime": "2026/11/03 22:45 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/11/03 22:45",
-      "previous": "55.9",
-      "forecast": "56.0",
-      "actual": "54.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/11/03 22:45",
-      "tags": [
-        "美國",
-        "製造業",
-        "偏空"
-      ],
-      "summary": "製造業 PMI 將於 2026/11/03 22:45 公布，市場關注前值 55.9、預期 56.0。",
-      "event": "美國 製造業 PMI，前值 55.9、預期 56.0、實際 54.9。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "鉅亨網全球經濟指標",
-      "sourceUrl": "https://www.cnyes.com/economy/indicator",
-      "sourceList": [
-        "鉅亨網全球經濟指標"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-s-p-global-pmi-20261103",
-      "type": "macro",
-      "title": "製造業 PMI",
-      "eventName": "製造業 PMI",
-      "originalEventName": "S&P Global製造業PMI-終值",
-      "sourcePublishTime": "2026/11/03 22:45 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/11/03 22:45",
-      "previous": "55.9",
-      "forecast": "56.0",
-      "actual": "54.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "偏空",
-      "impact": "影響市場風險偏好與資金輪動。",
-      "importance": "中高",
-      "timestamp": "2026/11/03 22:45",
-      "tags": [
-        "美國",
-        "製造業",
-        "偏空"
-      ],
-      "summary": "製造業 PMI 將於 2026/11/03 22:45 公布，市場關注前值 55.9、預期 56.0。",
-      "event": "美國 製造業 PMI，前值 55.9、預期 56.0、實際 54.9。",
-      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響市場風險偏好與資金輪動。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "鉅亨網全球經濟指標",
-      "sourceUrl": "https://www.cnyes.com/economy/indicator",
-      "sourceList": [
-        "鉅亨網全球經濟指標"
-      ]
-    },
     {
       "id": "macro-s-p-global-composite-pmi-final-oct-2026-20261104",
       "type": "macro",
@@ -687,6 +654,41 @@ window.IntelligenceOverviewData = {
       ],
       "summary": "綜合 PMI 將於 2026/11/04 17:30 公布，市場關注前值 52.0、預期 53.1。",
       "event": "英國 綜合 PMI，前值 52.0、預期 53.1、實際 52.9。",
+      "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.pmi.spglobal.com/public",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
+      "id": "macro-s-p-global-services-pmi-final-oct-2026-20261104",
+      "type": "macro",
+      "title": "服務業 PMI",
+      "eventName": "服務業 PMI",
+      "originalEventName": "S&P Global Services PMI Final (Oct. 2026)",
+      "sourcePublishTime": "2026/11/04 17:30 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/11/04 17:30",
+      "previous": "52.1",
+      "forecast": "53.1",
+      "actual": "52.8",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏空",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/11/04 17:30",
+      "tags": [
+        "英國",
+        "服務業",
+        "中性"
+      ],
+      "summary": "服務業 PMI 將於 2026/11/04 17:30 公布，市場關注前值 52.1、預期 53.1。",
+      "event": "英國 服務業 PMI，前值 52.1、預期 53.1、實際 52.8。",
       "ai": "目前 AI 判斷為偏空觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
