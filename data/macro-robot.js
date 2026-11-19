@@ -1,5 +1,5 @@
 window.MacroRobotData = {
-  "updatedAt": "2026/11/19 07:46",
+  "updatedAt": "2026/11/19 12:27",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@ window.MacroRobotData = {
     {
       "label": "下一個事件",
       "value": "初領失業救濟金人數",
-      "unit": "倒數 14 小時",
+      "unit": "倒數 10 小時",
       "icon": "filter"
     }
   ],
@@ -1824,7 +1824,7 @@ window.MacroRobotData = {
       "previous": "195.25",
       "forecast": "197",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -1858,7 +1858,7 @@ window.MacroRobotData = {
       "previous": "11",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 17 小時",
+      "status": "倒數 12 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
@@ -1892,7 +1892,7 @@ window.MacroRobotData = {
       "previous": "16",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 17 小時",
+      "status": "倒數 12 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響全球資金成本、美元走勢與風險資產評價。",
