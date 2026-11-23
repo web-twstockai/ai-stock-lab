@@ -4,7 +4,7 @@ window.IntelligenceOverviewData = {
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 288,
+      "value": 289,
       "unit": "筆",
       "icon": "file"
     },
