@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/23 18:30",
+  "updatedAt": "2026/11/24 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 289,
+      "value": 280,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 105,
+      "value": 97,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@ window.IntelligenceOverviewData = {
     },
     {
       "label": "下一個總經事件",
-      "value": "FOMC 利率決議",
+      "value": "綜合 PMI",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "35 個"
+          "31 個"
         ],
         [
           "下一事件",
-          "FOMC 利率決議"
+          "綜合 PMI"
         ],
         [
           "狀態",
@@ -314,6 +314,41 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
+      "id": "macro-adp-employment-change-weekly-w-o-oct-19-2026-20261110",
+      "type": "macro",
+      "title": "ADP 就業人數",
+      "eventName": "ADP 就業人數",
+      "originalEventName": "ADP Employment Change Weekly (w/o Oct. 19, 2026)",
+      "sourcePublishTime": "2026/11/10 21:15 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/11/10 21:15",
+      "previous": "19500",
+      "forecast": "—",
+      "actual": "19250",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響市場風險偏好與資金輪動。",
+      "importance": "中高",
+      "timestamp": "2026/11/10 21:15",
+      "tags": [
+        "美國",
+        "ADP",
+        "中性"
+      ],
+      "summary": "ADP 就業人數 將於 2026/11/10 21:15 公布，市場關注前值 19500、預期 —。",
+      "event": "美國 ADP 就業人數，前值 19500、預期 —、實際 19250。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar / 鉅亨網全球經濟指標",
+      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
+      "sourceList": [
+        "TradingView Economic Calendar",
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
       "id": "macro-adp-employment-change-weekly-w-o-oct-12-2026-20261110",
       "type": "macro",
       "title": "ADP 就業人數",
@@ -380,77 +415,9 @@ window.IntelligenceOverviewData = {
       "sourceList": [
         "TradingView Economic Calendar"
       ]
-    },
-    {
-      "id": "macro-united-states-ny-fed-consumer-expectation-ny-fed-inflation-expectation-1yr-oct-2026-20261110",
-      "type": "macro",
-      "title": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)",
-      "eventName": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)",
-      "originalEventName": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)",
-      "sourcePublishTime": "2026/11/10 00:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/11/10 00:00",
-      "previous": "3.9",
-      "forecast": "—",
-      "actual": "3.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/11/10 00:00",
-      "tags": [
-        "美國",
-        "United",
-        "中性"
-      ],
-      "summary": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026) 將於 2026/11/10 00:00 公布，市場關注前值 3.9、預期 —。",
-      "event": "美國 United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)，前值 3.9、預期 —、實際 3.9。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-united-states-ny-fed-consumer-expectation-ny-fed-inflation-expectation-1yr-oct-2026-20261110",
-      "type": "macro",
-      "title": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)",
-      "eventName": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)",
-      "originalEventName": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)",
-      "sourcePublishTime": "2026/11/10 00:00 Asia/Taipei",
-      "country": "美國",
-      "publishTime": "2026/11/10 00:00",
-      "previous": "3.9",
-      "forecast": "—",
-      "actual": "3.9",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/11/10 00:00",
-      "tags": [
-        "美國",
-        "United",
-        "中性"
-      ],
-      "summary": "United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026) 將於 2026/11/10 00:00 公布，市場關注前值 3.9、預期 —。",
-      "event": "美國 United States-NY Fed Consumer Expectation-NY Fed Inflation Expectation 1yr * (Oct. 2026)，前值 3.9、預期 —、實際 3.9。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
     {
       "id": "macro-gdpnow-20261110",
       "type": "macro",
@@ -684,11 +651,44 @@ window.IntelligenceOverviewData = {
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
+      "source": "TradingView Economic Calendar",
       "sourceUrl": "https://www.bls.gov",
       "sourceList": [
-        "TradingView Economic Calendar",
-        "Investing.com Economic Calendar"
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-core-consumer-prices-oct-2026-20261110",
+      "type": "macro",
+      "title": "Core Consumer Prices (Oct. 2026)",
+      "eventName": "Core Consumer Prices (Oct. 2026)",
+      "originalEventName": "Core Consumer Prices (Oct. 2026)",
+      "sourcePublishTime": "2026/11/10 21:30 Asia/Taipei",
+      "country": "美國",
+      "publishTime": "2026/11/10 21:30",
+      "previous": "338.896",
+      "forecast": "—",
+      "actual": "339.9",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/11/10 21:30",
+      "tags": [
+        "美國",
+        "Core",
+        "中性"
+      ],
+      "summary": "Core Consumer Prices (Oct. 2026) 將於 2026/11/10 21:30 公布，市場關注前值 338.896、預期 —。",
+      "event": "美國 Core Consumer Prices (Oct. 2026)，前值 338.896、預期 —、實際 339.9。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.bls.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
       ]
     }
   ]
