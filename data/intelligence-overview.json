@@ -4,13 +4,13 @@
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 280,
+      "value": 289,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 63,
+      "value": 71,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -23,7 +23,7 @@
     },
     {
       "label": "下一個總經事件",
-      "value": "綜合 PMI",
+      "value": "FOMC 利率決議",
       "unit": "等待公布",
       "icon": "calendar"
     }
@@ -76,11 +76,11 @@
       "stats": [
         [
           "本週事件",
-          "31 個"
+          "32 個"
         ],
         [
           "下一事件",
-          "綜合 PMI"
+          "FOMC 利率決議"
         ],
         [
           "狀態",
@@ -651,10 +651,11 @@
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
       "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
+      "source": "TradingView Economic Calendar / Investing.com Economic Calendar",
       "sourceUrl": "https://www.bls.gov",
       "sourceList": [
-        "TradingView Economic Calendar"
+        "TradingView Economic Calendar",
+        "Investing.com Economic Calendar"
       ]
     },
     {
