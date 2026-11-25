@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026/11/25 07:47",
+  "updatedAt": "2026/11/25 12:26",
   "status": "運作中",
   "summary": [
     {
@@ -30,7 +30,7 @@
     {
       "label": "下一個事件",
       "value": "核心 PCE 物價指數",
-      "unit": "倒數 14 小時",
+      "unit": "倒數 10 小時",
       "icon": "filter"
     }
   ],
@@ -1907,7 +1907,7 @@
       "previous": "3.1",
       "forecast": "3.2",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -1943,7 +1943,7 @@
       "previous": "0.5",
       "forecast": "0.3",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -1978,7 +1978,7 @@
       "previous": "6.4",
       "forecast": "2.3",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -2014,7 +2014,7 @@
       "previous": "197.75",
       "forecast": "200",
       "actual": null,
-      "status": "倒數 14 小時",
+      "status": "倒數 10 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響就業強弱、薪資通膨與聯準會政策預期。",
@@ -2048,7 +2048,7 @@
       "previous": "2.8",
       "forecast": "—",
       "actual": null,
-      "status": "倒數 16 小時",
+      "status": "倒數 11 小時",
       "statusLevel": "soon",
       "direction": "中性",
       "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
@@ -3289,8 +3289,8 @@
       "sourcePublishTime": "2026/12/03 22:45 Asia/Taipei",
       "country": "美國",
       "publishTime": "2026/12/03 22:45",
-      "previous": "54.7",
-      "forecast": "—",
+      "previous": "56.1",
+      "forecast": "54.7",
       "actual": null,
       "status": "倒數 8 天",
       "statusLevel": "upcoming",
