@@ -1,16 +1,16 @@
 window.IntelligenceOverviewData = {
-  "updatedAt": "2026/11/25 18:30",
+  "updatedAt": "2026/11/26 07:46",
   "status": "運作中",
   "cards": [
     {
       "label": "今日偵測情報",
-      "value": 262,
+      "value": 259,
       "unit": "筆",
       "icon": "file"
     },
     {
       "label": "高重要度訊號",
-      "value": 64,
+      "value": 63,
       "unit": "筆",
       "icon": "alert",
       "accent": "orange"
@@ -76,7 +76,7 @@ window.IntelligenceOverviewData = {
       "stats": [
         [
           "本週事件",
-          "31 個"
+          "44 個"
         ],
         [
           "下一事件",
@@ -280,6 +280,40 @@ window.IntelligenceOverviewData = {
       }
     },
     {
+      "id": "macro-niesr-gdp-20261112",
+      "type": "macro",
+      "title": "GDP 經濟成長率",
+      "eventName": "GDP 經濟成長率",
+      "originalEventName": "NIESR每月GDP追蹤",
+      "sourcePublishTime": "2026/11/12 20:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/11/12 20:00",
+      "previous": "0.7",
+      "forecast": "0.5",
+      "actual": "0.6",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "偏多",
+      "impact": "影響景氣循環、原物料、工業與科技需求預期。",
+      "importance": "高",
+      "timestamp": "2026/11/12 20:00",
+      "tags": [
+        "英國",
+        "GDP",
+        "偏多"
+      ],
+      "summary": "GDP 經濟成長率 將於 2026/11/12 20:00 公布，市場關注前值 0.7、預期 0.5。",
+      "event": "英國 GDP 經濟成長率，前值 0.7、預期 0.5、實際 0.6。",
+      "ai": "目前 AI 判斷為偏多觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響景氣循環、原物料、工業與科技需求預期。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "鉅亨網全球經濟指標",
+      "sourceUrl": "https://www.cnyes.com/economy/indicator",
+      "sourceList": [
+        "鉅亨網全球經濟指標"
+      ]
+    },
+    {
       "id": "macro-gdp-growth-rate-qoq-prel-q3-2026-20261112",
       "type": "macro",
       "title": "GDP 經濟成長率",
@@ -316,211 +350,75 @@ window.IntelligenceOverviewData = {
       ]
     },
     {
-      "id": "macro-cpi-10-20261111",
+      "id": "macro-services-output-mom-sep-2026-20261112",
       "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "德國居民消費價格指數(CPI) (月環比) (10月)",
-      "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/11 15:00",
-      "previous": "0.6%",
-      "forecast": "-0.2%",
-      "actual": "-0.2%",
+      "title": "Services Output MoM (Sep. 2026)",
+      "eventName": "Services Output MoM (Sep. 2026)",
+      "originalEventName": "Services Output MoM (Sep. 2026)",
+      "sourcePublishTime": "2026/11/12 15:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/11/12 15:00",
+      "previous": "-0.1",
+      "forecast": "—",
+      "actual": "0.2",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/11/11 15:00",
-      "tags": [
-        "德國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/11/11 15:00 公布，市場關注前值 0.6%、預期 -0.2%。",
-      "event": "德國 消費者物價指數 CPI，前值 0.6%、預期 -0.2%、實際 -0.2%。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/559763",
-      "sourceList": [
-        "Investing.com Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-inflation-rate-mom-final-oct-2026-20261111",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM Final (Oct. 2026)",
-      "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/11 15:00",
-      "previous": "0.6",
-      "forecast": "-0.2",
-      "actual": "-0.2",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
-      "timestamp": "2026/11/11 15:00",
+      "timestamp": "2026/11/12 15:00",
       "tags": [
-        "德國",
-        "通膨率",
+        "英國",
+        "Services",
         "中性"
       ],
-      "summary": "通膨率 將於 2026/11/11 15:00 公布，市場關注前值 0.6、預期 -0.2。",
-      "event": "德國 通膨率，前值 0.6、預期 -0.2、實際 -0.2。",
+      "summary": "Services Output MoM (Sep. 2026) 將於 2026/11/12 15:00 公布，市場關注前值 -0.1、預期 —。",
+      "event": "英國 Services Output MoM (Sep. 2026)，前值 -0.1、預期 —、實際 0.2。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
+      "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
     },
     {
-      "id": "macro-consumer-price-index-final-oct-2026-20261111",
+      "id": "macro-services-output-yoy-sep-2026-20261112",
       "type": "macro",
-      "title": "Consumer Price Index Final (Oct. 2026)",
-      "eventName": "Consumer Price Index Final (Oct. 2026)",
-      "originalEventName": "Consumer Price Index Final (Oct. 2026)",
-      "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/11 15:00",
-      "previous": "126.6",
-      "forecast": "—",
-      "actual": "126.4",
+      "title": "Services Output YoY (Sep. 2026)",
+      "eventName": "Services Output YoY (Sep. 2026)",
+      "originalEventName": "Services Output YoY (Sep. 2026)",
+      "sourcePublishTime": "2026/11/12 15:00 Asia/Taipei",
+      "country": "英國",
+      "publishTime": "2026/11/12 15:00",
+      "previous": "2.4",
+      "forecast": "2.2",
+      "actual": "2.2",
       "status": "已公布",
       "statusLevel": "published",
       "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "impact": "影響市場風險偏好與資金輪動。",
       "importance": "中高",
-      "timestamp": "2026/11/11 15:00",
+      "timestamp": "2026/11/12 15:00",
       "tags": [
-        "德國",
-        "Consumer",
+        "英國",
+        "Services",
         "中性"
       ],
-      "summary": "Consumer Price Index Final (Oct. 2026) 將於 2026/11/11 15:00 公布，市場關注前值 126.6、預期 —。",
-      "event": "德國 Consumer Price Index Final (Oct. 2026)，前值 126.6、預期 —、實際 126.4。",
+      "summary": "Services Output YoY (Sep. 2026) 將於 2026/11/12 15:00 公布，市場關注前值 2.4、預期 2.2。",
+      "event": "英國 Services Output YoY (Sep. 2026)，前值 2.4、預期 2.2、實際 2.2。",
       "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "impactDetail": "影響市場風險偏好與資金輪動。",
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
+      "sourceUrl": "http://www.ons.gov.uk/",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
     }
   ],
   "macroEvents": [
-    {
-      "id": "macro-inflation-rate-mom-final-oct-2026-20261111",
-      "type": "macro",
-      "title": "通膨率",
-      "eventName": "通膨率",
-      "originalEventName": "Inflation Rate MoM Final (Oct. 2026)",
-      "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/11 15:00",
-      "previous": "0.6",
-      "forecast": "-0.2",
-      "actual": "-0.2",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/11/11 15:00",
-      "tags": [
-        "德國",
-        "通膨率",
-        "中性"
-      ],
-      "summary": "通膨率 將於 2026/11/11 15:00 公布，市場關注前值 0.6、預期 -0.2。",
-      "event": "德國 通膨率，前值 0.6、預期 -0.2、實際 -0.2。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-consumer-price-index-final-oct-2026-20261111",
-      "type": "macro",
-      "title": "Consumer Price Index Final (Oct. 2026)",
-      "eventName": "Consumer Price Index Final (Oct. 2026)",
-      "originalEventName": "Consumer Price Index Final (Oct. 2026)",
-      "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/11 15:00",
-      "previous": "126.6",
-      "forecast": "—",
-      "actual": "126.4",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "中高",
-      "timestamp": "2026/11/11 15:00",
-      "tags": [
-        "德國",
-        "Consumer",
-        "中性"
-      ],
-      "summary": "Consumer Price Index Final (Oct. 2026) 將於 2026/11/11 15:00 公布，市場關注前值 126.6、預期 —。",
-      "event": "德國 Consumer Price Index Final (Oct. 2026)，前值 126.6、預期 —、實際 126.4。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "TradingView Economic Calendar",
-      "sourceUrl": "https://www.destatis.de",
-      "sourceList": [
-        "TradingView Economic Calendar"
-      ]
-    },
-    {
-      "id": "macro-cpi-10-20261111",
-      "type": "macro",
-      "title": "消費者物價指數 CPI",
-      "eventName": "消費者物價指數 CPI",
-      "originalEventName": "德國居民消費價格指數(CPI) (月環比) (10月)",
-      "sourcePublishTime": "2026/11/11 15:00 Asia/Taipei",
-      "country": "德國",
-      "publishTime": "2026/11/11 15:00",
-      "previous": "0.6%",
-      "forecast": "-0.2%",
-      "actual": "-0.2%",
-      "status": "已公布",
-      "statusLevel": "published",
-      "direction": "中性",
-      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "importance": "高",
-      "timestamp": "2026/11/11 15:00",
-      "tags": [
-        "德國",
-        "消費者物價指數",
-        "中性"
-      ],
-      "summary": "消費者物價指數 CPI 將於 2026/11/11 15:00 公布，市場關注前值 0.6%、預期 -0.2%。",
-      "event": "德國 消費者物價指數 CPI，前值 0.6%、預期 -0.2%、實際 -0.2%。",
-      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
-      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
-      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
-      "source": "Investing.com Economic Calendar",
-      "sourceUrl": "https://hk.investing.com/economic-calendar/559763",
-      "sourceList": [
-        "Investing.com Economic Calendar"
-      ]
-    },
     {
       "id": "macro-gdp-growth-rate-qoq-prel-q3-2026-20261112",
       "type": "macro",
@@ -689,6 +587,108 @@ window.IntelligenceOverviewData = {
       "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
       "source": "TradingView Economic Calendar",
       "sourceUrl": "http://www.dol.gov",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-inflation-rate-mom-final-oct-2026-20261113",
+      "type": "macro",
+      "title": "通膨率",
+      "eventName": "通膨率",
+      "originalEventName": "Inflation Rate MoM Final (Oct. 2026)",
+      "sourcePublishTime": "2026/11/13 15:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/11/13 15:45",
+      "previous": "-0.3",
+      "forecast": "0.4",
+      "actual": "0.4",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/11/13 15:45",
+      "tags": [
+        "法國",
+        "通膨率",
+        "中性"
+      ],
+      "summary": "通膨率 將於 2026/11/13 15:45 公布，市場關注前值 -0.3、預期 0.4。",
+      "event": "法國 通膨率，前值 -0.3、預期 0.4、實際 0.4。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-consumer-price-index-final-oct-2026-20261113",
+      "type": "macro",
+      "title": "Consumer Price Index Final (Oct. 2026)",
+      "eventName": "Consumer Price Index Final (Oct. 2026)",
+      "originalEventName": "Consumer Price Index Final (Oct. 2026)",
+      "sourcePublishTime": "2026/11/13 15:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/11/13 15:45",
+      "previous": "103.07",
+      "forecast": "—",
+      "actual": "103.46",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/11/13 15:45",
+      "tags": [
+        "法國",
+        "Consumer",
+        "中性"
+      ],
+      "summary": "Consumer Price Index Final (Oct. 2026) 將於 2026/11/13 15:45 公布，市場關注前值 103.07、預期 —。",
+      "event": "法國 Consumer Price Index Final (Oct. 2026)，前值 103.07、預期 —、實際 103.46。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://www.insee.fr",
+      "sourceList": [
+        "TradingView Economic Calendar"
+      ]
+    },
+    {
+      "id": "macro-france-inflation-final-inflation-ex-tobacco-idx-oct-2026-20261113",
+      "type": "macro",
+      "title": "France-Inflation Final-Inflation Ex-Tobacco Idx (Oct. 2026)",
+      "eventName": "France-Inflation Final-Inflation Ex-Tobacco Idx (Oct. 2026)",
+      "originalEventName": "France-Inflation Final-Inflation Ex-Tobacco Idx (Oct. 2026)",
+      "sourcePublishTime": "2026/11/13 15:45 Asia/Taipei",
+      "country": "法國",
+      "publishTime": "2026/11/13 15:45",
+      "previous": "103.07",
+      "forecast": "—",
+      "actual": "103.46",
+      "status": "已公布",
+      "statusLevel": "published",
+      "direction": "中性",
+      "impact": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "importance": "中高",
+      "timestamp": "2026/11/13 15:45",
+      "tags": [
+        "法國",
+        "France-Inflation",
+        "中性"
+      ],
+      "summary": "France-Inflation Final-Inflation Ex-Tobacco Idx (Oct. 2026) 將於 2026/11/13 15:45 公布，市場關注前值 103.07、預期 —。",
+      "event": "法國 France-Inflation Final-Inflation Ex-Tobacco Idx (Oct. 2026)，前值 103.07、預期 —、實際 103.46。",
+      "ai": "目前 AI 判斷為中性觀察；若實際值與預期差距擴大，台股科技、金融與原物料族群可能出現資金重估。",
+      "impactDetail": "影響美債殖利率、降息預期、科技股與金融股評價。",
+      "risk": "總經數據公布前後波動容易放大，需留意市場預期差與政策口徑變化。",
+      "source": "TradingView Economic Calendar",
+      "sourceUrl": "https://tw.tradingview.com/economic-calendar/",
       "sourceList": [
         "TradingView Economic Calendar"
       ]
